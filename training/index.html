@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
+<title>PACE TRAINING｜自分のペースで続けるパーソナルトレーニングジム</title>
+<meta name="description" content="PACE TRAININGは、運動が久しぶりの方でも自分のペースで始められるパーソナルトレーニングジムです。1回50分、相談・トレーニング・ふり返りの3段階で、その日の体調に合わせて進めます。まずは体験トレーニングから。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#15171A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="PACE TRAINING">
+<meta property="og:title" content="PACE TRAINING｜自分のペースで続けるパーソナルトレーニングジム">
+<meta property="og:description" content="運動が久しぶりでも大丈夫。1回50分、相談・トレーニング・ふり返りの3段階で進めるパーソナルトレーニングジムです。">
+<meta property="og:image" content="img/lat.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2315171A'/%3E%3Cpath d='M13 5h9L19 27h-9z' fill='%23FF5A1F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&family=Noto+Sans+JP:wght@400;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  "name": "PACE TRAINING",
+  "description": "自分のペースで続けるパーソナルトレーニングジム。1回50分の完全予約制セッション。",
+  "telephone": "+81-3-0000-0000",
+  "priceRange": "¥¥",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "JP",
+    "addressRegion": "東京都",
+    "addressLocality": "○○区",
+    "streetAddress": "○○ 1-2-3 ○○ビル 2F"
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "22:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "09:00", "closes": "19:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --asphalt:#15171A; --orange:#FF5A1F; --orange-d:#D9430B; --concrete:#E3E5E6; --white:#fff; --steel:#2F4A63;
+  --jp:'Noto Sans JP','Noto Sans CJK JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  --num:'Barlow Condensed','Noto Sans JP','Noto Sans CJK JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  --pad:16px; --step:40px; --focus:#2F4A63;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--jp);font-weight:400;font-size:16px;line-height:1.85;color:var(--asphalt);background:var(--white);overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+p,li,dd{text-wrap:pretty}
+.lead,.hero-sub,.demo,.type-for,.price-note{word-break:auto-phrase}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{width:100%;max-width:1160px;margin-inline:auto;padding-inline:var(--pad)}
+.skip{position:absolute;left:8px;top:-80px;z-index:100;background:var(--asphalt);color:#fff;padding:12px 16px;font-weight:900}
+.skip:focus{top:8px}
+.num{font-family:var(--num);font-weight:600;font-style:italic;font-variant-numeric:tabular-nums;line-height:1}
+.tilt{font-weight:900;line-height:1.16;letter-spacing:-.01em;transform:skewX(-6deg);transform-origin:0 100%;word-break:auto-phrase;text-wrap:balance}
+h2.tilt{font-size:clamp(2.1rem,9.4vw,4.25rem)}
+.lead{margin-top:20px;max-width:34em}
+
+/* buttons */
+.btn{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;min-height:60px;padding:8px 34px;font:inherit;font-weight:900;font-size:1.0625rem;line-height:1.3;color:var(--asphalt);text-decoration:none;border:0;background:none;cursor:pointer;transition:transform .12s ease-out}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--orange);transform:skewX(-8deg);box-shadow:6px 6px 0 var(--asphalt);transition:box-shadow .12s ease-out,background-color .12s}
+.btn:hover{transform:translate(-2px,-2px)}
+.btn:hover::before{box-shadow:9px 9px 0 var(--asphalt)}
+.btn:active{transform:translate(5px,5px)}
+.btn:active::before{box-shadow:1px 1px 0 var(--asphalt)}
+.btn--dark{color:#fff}
+.btn--dark::before{background:var(--asphalt);box-shadow:6px 6px 0 #fff}
+.btn--dark:hover::before{box-shadow:9px 9px 0 #fff}
+.btn--dark:active::before{box-shadow:1px 1px 0 #fff}
+.btn--s{min-height:44px;padding:4px 16px;font-size:.9375rem;white-space:nowrap}
+.btn--s::before{box-shadow:none}
+.btn--s:hover{transform:none}
+.btn--s:hover::before{box-shadow:none;background:#ff7a47}
+.btn--s:active{transform:translate(2px,2px)}
+
+/* photo frame: parallelogram + offset slab */
+.frame{position:relative;width:100%}
+.frame::before{content:"";position:absolute;inset:0;background:var(--orange);clip-path:polygon(var(--k) 0,100% 0,calc(100% - var(--k)) 100%,0 100%);transform:translate(12px,12px)}
+.frame img{position:relative;width:100%;height:100%;object-fit:cover;clip-path:polygon(var(--k) 0,100% 0,calc(100% - var(--k)) 100%,0 100%);filter:grayscale(1) contrast(1.15)}
+.frame--steel::before{background:var(--steel)}
+.frame--plain::before{display:none}
+
+/* header */
+.head{position:relative;z-index:5;background:#fff}
+.head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.logo{display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;font-family:var(--num);font-weight:600;font-style:italic;font-size:1.3rem;letter-spacing:.02em;line-height:1;white-space:nowrap}
+.logo svg{flex:none}
+.nav{display:none}
+.head-tel{display:none}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:28px 0 72px}
+.hero .wrap{position:relative;display:grid;gap:44px}
+.hero h1{font-size:clamp(3.4rem,16.4vw,8.25rem);line-height:1.08}
+.hero h1 span{display:block;white-space:nowrap}
+.hero h1 .hit{color:var(--orange-d)}
+.hero-sub{margin-top:28px;max-width:27em;font-size:1.0625rem}
+.hero-act{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:22px 28px}
+.tel{display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:48px;text-decoration:none;line-height:1.3}
+.tel small{font-size:.8125rem}
+.tel .num{font-size:1.9rem;border-bottom:2px solid currentColor}
+.tel:hover .num{color:var(--orange-d)}
+.hero-visual{position:relative;justify-self:center;width:min(86%,400px);margin-bottom:40px}
+.hero-visual::before{content:"";position:absolute;inset:-28px -100vw -68px 30%;background:var(--concrete);transform:skewX(-8deg)}
+.hero-visual .frame{--k:13.7%;aspect-ratio:530/520}
+.clock{position:absolute;left:-7%;bottom:-40px;isolation:isolate;padding:12px 26px 12px 22px;color:#fff}
+.clock::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--asphalt);transform:skewX(-8deg)}
+.clock .num{display:block;font-size:4.25rem;color:var(--orange);min-width:3.1em}
+.clock span:last-child{display:block;font-size:.8125rem;line-height:1.4;margin-top:4px}
+.wipe{display:none}
+
+/* sections */
+.sec{position:relative;padding:76px 0 84px}
+.sec--concrete{background:var(--concrete)}
+.sec--asphalt{background:var(--asphalt);color:#fff;--focus:#fff}
+.sec--orange{background:var(--orange);--focus:var(--asphalt)}
+.cut{margin-top:calc(var(--step) * -1);padding-top:calc(76px + var(--step));clip-path:polygon(0 var(--step),var(--cx,58%) var(--step),calc(var(--cx,58%) + var(--step) * .14) 0,100% 0,100% 100%,0 100%)}
+.before-cut{padding-bottom:calc(64px + var(--step))}
+
+/* session types */
+.types{margin-top:44px;border-top:3px solid var(--asphalt)}
+.type{display:grid;grid-template-columns:88px 1fr;gap:16px 20px;align-items:center;padding:28px 0;border-bottom:3px solid var(--asphalt)}
+.type .frame{--k:14%;aspect-ratio:1}
+.type .frame img{object-position:50% 0}
+.type .frame::before{transform:translate(7px,7px)}
+.type h3{font-size:clamp(1.4rem,6.3vw,2.5rem);white-space:nowrap;font-weight:900;line-height:1.15;transform:skewX(-6deg);transform-origin:0 100%}
+.type-for{font-weight:900;color:var(--steel);line-height:1.5;margin-top:6px}
+.type-body{grid-column:1/-1}
+.type-body ul{margin-top:12px;display:grid;gap:6px}
+.slash-list li{position:relative;padding-left:22px;line-height:1.7}
+.slash-list li::before{content:"";position:absolute;left:2px;top:.42em;width:7px;height:.95em;background:var(--orange);transform:skewX(-8deg)}
+
+/* 50 min session */
+.run-grid{display:grid;gap:0}
+.hud{position:sticky;top:0;z-index:3;background:var(--asphalt);padding:12px 0 14px;margin-top:28px}
+.hud-clock{display:flex;align-items:baseline;gap:12px}
+.hud-clock .num{font-size:3.5rem;color:var(--orange);min-width:2.6em}
+.hud-clock span:last-child{font-size:.8125rem}
+.bar{position:relative;height:16px;margin:8px 5px 0;background:#3a3f45;transform:skewX(-8deg);overflow:hidden}
+.bar i{position:absolute;inset:0;background:var(--orange);transform-origin:0 50%;will-change:transform}
+.bar::before,.bar::after{content:"";position:absolute;z-index:1;top:0;bottom:0;width:4px;background:var(--asphalt)}
+.bar::before{left:20%}.bar::after{left:80%}
+.bar-labels{display:grid;grid-template-columns:1fr 3fr 1fr;gap:4px;margin:6px 5px 0;font-size:.75rem;line-height:1.3;color:#c9cdd1}
+.bar-labels li.is-active{color:#fff;font-weight:900}
+.bar-labels li:last-child{text-align:right}
+.bar-labels li:nth-child(2){text-align:center}
+.phases{margin-top:8px}
+.phase{position:relative;padding:36px 0 36px 28px}
+.phase+.phase{border-top:1px solid #3a3f45}
+.phase::before{content:"";position:absolute;left:4px;top:42px;height:44px;width:8px;background:var(--orange);transform:skewX(-8deg);transition:background-color .25s}
+.phase-h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.phase h3{font-size:clamp(2rem,9vw,3.25rem);font-weight:900;line-height:1.15;transform:skewX(-6deg);transform-origin:0 100%}
+.phase-h .num{font-size:2.5rem;color:var(--orange);transition:color .25s}
+.phase-h .num small{font-family:var(--jp);font-style:normal;font-weight:900;font-size:1rem;margin-left:2px}
+.phase p{margin-top:12px;max-width:32em}
+.phase .slash-list{margin-top:14px;display:grid;gap:6px}
+.phase .frame{--k:11%;aspect-ratio:388/306;width:min(74%,280px);margin:24px 0 12px}
+.js .phase:not(.is-active)::before{background:#4a5057}
+.js .phase:not(.is-active) .phase-h .num{color:#fff}
+.js .phase:not(.is-active) .slash-list li::before{background:#6b727a}
+
+/* trainers */
+.duo{display:grid;gap:44px}
+.duo .frame{--k:8.4%;aspect-ratio:730/440;max-width:560px}
+.rules{margin-top:32px;display:grid;gap:24px}
+.rules dt{font-weight:900;font-size:1.25rem;line-height:1.4;padding-left:22px;position:relative}
+.rules dt::before{content:"";position:absolute;left:2px;top:.2em;width:8px;height:1em;background:var(--orange);transform:skewX(-8deg)}
+.rules dd{padding-left:22px;margin-top:4px}
+
+/* facility */
+.fac{display:grid;gap:40px;margin-top:44px}
+.fac-photos{display:grid;gap:30px}
+.fac-photos .frame:nth-child(1){--k:5.2%;aspect-ratio:918/340}
+.fac-photos .frame:nth-child(2){--k:6%;aspect-ratio:940/400;width:84%;justify-self:end}
+.spec{border-top:3px solid var(--asphalt)}
+.spec div{display:grid;grid-template-columns:7.5em 1fr;gap:12px;padding:14px 0;border-bottom:1px solid #9aa0a6}
+.spec dt{font-weight:900}
+
+/* plans */
+.tbl-wrap{margin-top:40px;overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:3px solid var(--asphalt);border-bottom:3px solid var(--asphalt)}
+.tbl{width:100%;min-width:680px;border-collapse:collapse;line-height:1.7}
+.tbl th,.tbl td{padding:18px 16px;text-align:left;vertical-align:top;border-bottom:1px solid #9aa0a6}
+.tbl tbody tr:last-child>*{border-bottom:0}
+.tbl thead th{background:var(--steel);color:#fff;font-weight:900;font-size:1.25rem}
+.tbl thead th:first-child{background:var(--asphalt)}
+.tbl tbody th{font-weight:900;width:8.5em;white-space:nowrap}
+.tbl tbody tr{transition:background-color .15s}
+.tbl tbody tr:hover{background:var(--concrete)}
+.tbl tbody tr:hover th{box-shadow:inset 6px 0 0 var(--orange)}
+.tbl .num{font-size:2rem}
+.tbl-hint{margin-top:10px;font-size:.875rem}
+.price-note{margin-top:28px;font-weight:900;font-size:1.125rem;padding-left:22px;position:relative}
+.price-note::before{content:"";position:absolute;left:2px;top:.35em;width:8px;height:1.1em;background:var(--orange);transform:skewX(-8deg)}
+
+/* booking */
+.book{display:grid;gap:40px}
+.book h2{font-size:clamp(2.1rem,9.4vw,4rem)}
+.flow{margin-top:28px;counter-reset:f;display:grid;gap:10px}
+.flow li{counter-increment:f;display:grid;grid-template-columns:2.2em 1fr;align-items:baseline}
+.flow li::before{content:counter(f);font-family:var(--num);font-weight:600;font-style:italic;font-size:1.75rem;line-height:1}
+.flow b{font-weight:900}
+.form{background:#fff;padding:28px 20px 32px;box-shadow:10px 10px 0 var(--asphalt);--focus:var(--steel)}
+.form-row{display:grid;gap:18px}
+.field{display:grid;gap:6px}
+.field label{font-weight:900}
+.field input,.field select{width:100%;min-height:54px;padding:8px 14px;font:inherit;color:var(--asphalt);background:#fff;border:2px solid var(--asphalt);border-radius:0;transition:border-color .12s,box-shadow .12s,background-color .12s}
+.field select{appearance:none;-webkit-appearance:none;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 8l7 8 7-8z' fill='%2315171A'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px}
+.field input:hover,.field select:hover{background-color:#f3f4f5}
+.field input:focus,.field select:focus{outline:none;border-color:var(--steel);box-shadow:0 0 0 3px var(--steel)}
+.form .btn{width:100%;margin-top:28px}
+.form .btn::before{box-shadow:6px 6px 0 var(--orange)}
+.form .btn:hover::before{box-shadow:9px 9px 0 var(--orange)}
+.form .btn:active::before{box-shadow:1px 1px 0 var(--orange)}
+.form-msg{margin-top:22px;padding:12px 14px;border-left:8px solid var(--orange);background:var(--concrete);font-weight:900}
+.form-msg[hidden]{display:none}
+.form-note{margin-top:18px;font-size:.875rem}
+.book-tel{margin-top:32px}
+.book-tel .num{font-size:2.6rem}
+
+/* footer */
+.foot{background:var(--asphalt);color:#fff;padding:56px 0 40px;--focus:#fff}
+.foot-grid{display:grid;gap:32px}
+.foot .logo{font-size:1.75rem}
+.foot dl{display:grid;gap:8px}
+.foot dl div{display:grid;grid-template-columns:5em 1fr;gap:10px}
+.foot dt{font-weight:900}
+.foot-nav{display:flex;flex-wrap:wrap;gap:0 24px}
+.foot-nav a,.foot dd a{display:inline-flex;align-items:center;min-height:44px}
+.foot-nav a{text-decoration:none;border-bottom:1px solid transparent}
+.foot-nav a:hover{color:var(--orange)}
+.demo{margin-top:36px;padding-top:20px;border-top:1px solid #4a5057;font-size:.875rem;color:#d5d8da}
+
+/* ---------- wider ---------- */
+@media (min-width:768px){
+  :root{--pad:32px;--step:64px}
+  body{font-size:17px}
+  .sec{padding:108px 0 116px}
+  .cut{padding-top:calc(108px + var(--step))}
+  .before-cut{padding-bottom:calc(80px + var(--step))}
+  .head .wrap{min-height:76px}
+  .logo{font-size:1.5rem}
+  .head-tel{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-family:var(--num);font-style:italic;font-weight:600;font-size:1.5rem}
+  .head-right{display:flex;align-items:center;gap:24px}
+  .hero{padding:40px 0 110px}
+  .hero-visual{width:min(60%,440px);justify-self:end;margin-right:6%}
+  .clock .num{font-size:5.5rem}
+  .type{grid-template-columns:180px 1fr;gap:8px 36px;padding:36px 0}
+  .type .frame{grid-row:1/3}
+  .type>div:nth-child(2){align-self:end}
+  .type-body{grid-column:2;align-self:start}
+  .type .frame::before{transform:translate(10px,10px)}
+  .form{padding:40px 36px 44px}
+  .form-row{grid-template-columns:1fr 1fr}
+  .form-row .field--wide{grid-column:1/-1}
+  .foot-grid{grid-template-columns:1fr 1.4fr}
+  .fac-photos{grid-template-columns:1fr}
+}
+@media (min-width:1024px){
+  .type{grid-template-columns:180px 1fr 1.15fr;gap:36px}
+  .type .frame{grid-row:auto}
+  .type>div:nth-child(2),.type-body{align-self:center;grid-column:auto}
+  .type-body ul{margin-top:0}
+  .nav{display:flex;gap:6px}
+  .nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;font-weight:900;font-size:.9375rem;box-shadow:inset 0 -3px 0 transparent;transition:box-shadow .15s}
+  .nav a:hover{box-shadow:inset 0 -3px 0 var(--orange)}
+  .hero .wrap{grid-template-columns:1.22fr .78fr;align-items:center;gap:24px}
+  .hero-visual{width:100%;max-width:430px;margin:0 0 56px;justify-self:end}
+  .hero-visual::before{inset:-500px -100vw -500px 34%}
+  .clock{left:-22%}
+  .run-grid{grid-template-columns:5fr 7fr;gap:72px;align-items:start;margin-top:56px}
+  .hud{top:40px;margin-top:0;padding:0}
+  .hud-clock{display:block}
+  .hud-clock .num{display:block;font-size:11rem;margin-left:-6px}
+  .hud-clock span:last-child{display:block;font-size:.9375rem;margin-top:6px}
+  .bar{height:26px;margin-top:28px}
+  .bar-labels{font-size:.875rem;margin-top:10px}
+  .phases{margin-top:0}
+  .phase{padding:0 0 88px 40px}
+  .phase+.phase{border-top:0}
+  .phase::before{top:6px;bottom:92px;height:auto;left:2px}
+  .phase:last-child{padding-bottom:20px}
+  .phase:last-child::before{bottom:24px}
+  .duo{grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  .fac{grid-template-columns:1.2fr .8fr;gap:72px;align-items:start}
+  .book{grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+}
+
+/* ---------- motion (only when JS is on and motion is allowed) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .js:not(.done) .hero h1 span{animation:line .62s cubic-bezier(.2,.8,.2,1) both}
+  .js:not(.done) .hero h1 span:nth-child(1){animation-delay:.34s}
+  .js:not(.done) .hero h1 span:nth-child(2){animation-delay:.46s}
+  .js:not(.done) .hero h1 span:nth-child(3){animation-delay:.58s}
+  .js:not(.done) .hero-sub,.js:not(.done) .hero-act{animation:line .5s .86s cubic-bezier(.2,.8,.2,1) both}
+  .js:not(.done) .hero-visual .frame::before{animation:slab .5s .5s cubic-bezier(.2,.8,.2,1) both}
+  .js:not(.done) .wipe{display:block;position:absolute;z-index:4;top:-10%;bottom:-10%;left:0;width:46%;background:var(--orange);pointer-events:none;animation:wipe .95s cubic-bezier(.65,0,.3,1) both}
+  @keyframes line{from{opacity:0;transform:translate(-10px,64px)}to{opacity:1;transform:none}}
+  @keyframes slab{from{transform:translate(0,0)}to{transform:translate(12px,12px)}}
+  @keyframes wipe{from{transform:translateX(-130%) skewX(-8deg)}to{transform:translateX(260%) skewX(-8deg)}}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="PACE TRAINING トップ">
+      <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true"><path d="M8 0h14L14 30H0z" fill="#FF5A1F"/></svg>
+      PACE TRAINING
+    </a>
+    <nav class="nav" aria-label="ページ内メニュー">
+      <a href="#types">セッション</a>
+      <a href="#run">50分の流れ</a>
+      <a href="#facility">施設</a>
+      <a href="#plans">プラン</a>
+    </nav>
+    <div class="head-right">
+      <a class="head-tel" href="tel:0300000000" aria-label="電話 03-0000-0000">03-0000-0000</a>
+      <a class="btn btn--s" href="#book">体験を予約</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="wipe" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <h1 class="tilt"><span>あなたの</span><span>ペースで、</span><span class="hit">強くなる。</span></h1>
+        <p class="hero-sub">運動は何年ぶりでも、かまいません。その日の体調と相談しながら、トレーナーと一対一で進める50分。回数も重さも、まわりと比べずに決めていきます。</p>
+        <div class="hero-act">
+          <a class="btn" href="#book">体験トレーニングを予約する</a>
+          <a class="tel" href="tel:0300000000"><small>お電話でのご予約</small><span class="num">03-0000-0000</span></a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <!-- 要差し替え：実際のジム・トレーナーの写真 -->
+        <figure class="frame"><img src="img/lat.jpg" width="530" height="520" alt="トレーナーに背中の動きを見てもらいながら、ラットプルダウンを行う女性"></figure>
+        <p class="clock"><span class="num" id="heroClock" aria-hidden="true">50:00</span><span>1回のセッションは50分</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--concrete before-cut" id="types" aria-labelledby="types-h">
+    <div class="wrap">
+      <h2 class="tilt" id="types-h">目的で選ぶ、<br>3つのセッション</h2>
+      <p class="lead">どれも1回50分、トレーナーと一対一です。途中で別のセッションに切り替えることもできます。迷ったら「はじめて」から始めてください。</p>
+      <div class="types">
+        <article class="type">
+          <!-- 要差し替え：実際のジム・トレーナーの写真 -->
+          <figure class="frame frame--steel"><img src="img/outdoor.jpg" width="450" height="450" loading="lazy" alt="屋外で遠くを見上げる、パーカー姿の女性"></figure>
+          <div>
+            <h3>はじめて</h3>
+            <p class="type-for">運動が久しぶりの方、ジムに通ったことがない方に</p>
+          </div>
+          <div class="type-body">
+            <ul class="slash-list">
+              <li>立つ・しゃがむ・押す・引くの基本動作から</li>
+              <li>器具の使い方とフォームをひとつずつ確認</li>
+              <li>息が上がりすぎない強さで、まず体を慣らす</li>
+            </ul>
+          </div>
+        </article>
+        <article class="type">
+          <!-- 要差し替え：実際のジム・トレーナーの写真 -->
+          <figure class="frame frame--steel"><img src="img/athlete.jpg" width="400" height="702" loading="lazy" alt="ダンベルを片手で引き上げるトレーニング中の女性"></figure>
+          <div>
+            <h3>筋力</h3>
+            <p class="type-for">体を引き締めたい方、扱える重さを伸ばしたい方に</p>
+          </div>
+          <div class="type-body">
+            <ul class="slash-list">
+              <li>スクワットやデッドリフトなど、全身を使う種目が中心</li>
+              <li>重さと回数を毎回記録し、少しずつ更新</li>
+              <li>フォームが崩れたら、迷わず重さを戻します</li>
+            </ul>
+          </div>
+        </article>
+        <article class="type">
+          <!-- 要差し替え：実際のジム・トレーナーの写真 -->
+          <figure class="frame frame--steel"><img src="img/ball.jpg" width="878" height="350" loading="lazy" alt="ストレッチエリアに置かれたバランスボールとマット"></figure>
+          <div>
+            <h3>コンディショニング</h3>
+            <p class="type-for">デスクワークが長い方、動きやすい体をつくりたい方に</p>
+          </div>
+          <div class="type-body">
+            <ul class="slash-list">
+              <li>ストレッチと、関節を大きく動かす練習</li>
+              <li>自重や軽い負荷で、姿勢を支える筋肉を使う</li>
+              <li>自宅で続けられる5分のメニューもお渡し</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--asphalt cut" id="run" aria-labelledby="run-h">
+    <div class="wrap">
+      <h2 class="tilt" id="run-h">50分は、<br>こう進みます。</h2>
+      <p class="lead">着替えてすぐに追い込む、ということはしません。話す時間と、ふり返る時間を毎回とっています。</p>
+      <div class="run-grid">
+        <div class="hud" id="hud">
+          <p class="hud-clock"><span class="num" id="runClock" aria-hidden="true">50:00</span><span>セッション開始からの時間</span></p>
+          <div class="bar" aria-hidden="true"><i id="runFill"></i></div>
+          <ul class="bar-labels" id="runLabels" aria-hidden="true">
+            <li>相談</li><li>トレーニング</li><li>ふり返り</li>
+          </ul>
+        </div>
+        <ol class="phases" id="phases">
+          <li class="phase is-active">
+            <div class="phase-h"><h3>相談</h3><span class="num">10<small>分</small></span></div>
+            <p>まず座って話します。昨日の睡眠、仕事の疲れ、気になる部位。その日のメニューは、ここで決まります。</p>
+            <!-- 要差し替え：実際のジム・トレーナーの写真 -->
+            <figure class="frame frame--plain"><img src="img/talk.jpg" width="388" height="306" loading="lazy" alt="しゃがんで目線を合わせ、利用者と話すトレーナー"></figure>
+            <ul class="slash-list">
+              <li>体調と、前回からの変化を確認</li>
+              <li>今日やること・やらないことを決める</li>
+            </ul>
+          </li>
+          <li class="phase">
+            <div class="phase-h"><h3>トレーニング</h3><span class="num">30<small>分</small></span></div>
+            <p>種目は3〜5つ。ひとつずつ見本を見せ、フォームを確かめてから負荷をかけます。きついと感じたら、その場で言ってください。</p>
+            <ul class="slash-list">
+              <li>軽い重さで動きを確認してから本番へ</li>
+              <li>休憩の長さも、息の整い方に合わせて調整</li>
+              <li>痛みや違和感があれば、すぐ種目を変更</li>
+            </ul>
+          </li>
+          <li class="phase">
+            <div class="phase-h"><h3>ふり返り</h3><span class="num">10<small>分</small></span></div>
+            <p>ストレッチで呼吸を落ち着かせながら、今日できたことを一緒に確認します。記録はトレーナーが残します。</p>
+            <ul class="slash-list">
+              <li>使った筋肉をゆっくり伸ばす</li>
+              <li>次回までの過ごし方と、次の目安を共有</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="trainers" aria-labelledby="tr-h">
+    <div class="wrap duo">
+      <!-- 要差し替え：実際のジム・トレーナーの写真 -->
+      <figure class="frame"><img src="img/pair.jpg" width="730" height="440" loading="lazy" alt="ダンベルを持つ女性の横で、笑顔で動きを見守るトレーナー"></figure>
+      <div>
+        <h2 class="tilt" id="tr-h">急がせない。<br>でも、<wbr>止まらせない。</h2>
+        <p class="lead">トレーナーの仕事は、追い込むことではなく、続けられる強さを見つけることだと考えています。</p>
+        <dl class="rules">
+          <div><dt>回数より、フォーム</dt><dd>正しく動ける重さから始めます。数字を伸ばすのは、そのあとです。</dd></div>
+          <div><dt>メニューは、その日に決める</dt><dd>寝不足の日は軽めに。調子のいい日は一歩先へ。決めた予定に体を合わせません。</dd></div>
+          <div><dt>できたことを、記録に残す</dt><dd>前回との違いを毎回お見せします。変化は自分では気づきにくいものです。</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--concrete" id="facility" aria-labelledby="fac-h">
+    <div class="wrap">
+      <h2 class="tilt" id="fac-h">人目を気にせず、<br>動ける場所。</h2>
+      <p class="lead">完全予約制で、同じ時間帯に入るのは最大2組まで。順番待ちも、だれかの視線もありません。</p>
+      <div class="fac">
+        <div class="fac-photos">
+          <!-- 要差し替え：実際のジム・トレーナーの写真 -->
+          <figure class="frame frame--plain"><img src="img/interior.jpg" width="918" height="340" loading="lazy" alt="窓から光が入る、パワーラックが並んだトレーニングフロア"></figure>
+          <!-- 要差し替え：実際のジム・トレーナーの写真 -->
+          <figure class="frame"><img src="img/weights.jpg" width="940" height="400" loading="lazy" alt="床に並んだダンベルとケトルベル、奥にトレーニングベンチ"></figure>
+        </div>
+        <dl class="spec">
+          <div><dt>フリーウエイト</dt><dd>パワーラック2台、ダンベル1〜30kg、ケトルベル</dd></div>
+          <div><dt>ストレッチ</dt><dd>マットエリア、バランスボール、フォームローラー</dd></div>
+          <div><dt>更衣室</dt><dd>男女別、鍵付きロッカー</dd></div>
+          <div><dt>シャワー</dt><dd>個室2室、タオル・アメニティあり</dd></div>
+          <div><dt>レンタル</dt><dd>ウェア・室内シューズ（体験時は無料）</dd></div>
+          <div><dt>アクセス</dt><dd>○○駅から徒歩4分</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec before-cut" id="plans" aria-labelledby="plans-h">
+    <div class="wrap">
+      <h2 class="tilt" id="plans-h">3つのプランを<br>くらべる</h2>
+      <div class="tbl-wrap" role="region" aria-labelledby="plans-h" tabindex="0">
+        <table class="tbl">
+          <thead>
+            <tr><th scope="col"><span style="font-size:.9375rem">プラン</span></th><th scope="col">はじめて</th><th scope="col">筋力</th><th scope="col">コンディショニング</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">こんな方に</th><td>運動が久しぶりの方。まず体を動かす習慣をつくりたい方</td><td>引き締めたい方。筋力をつけて、扱える重さを伸ばしたい方</td><td>姿勢やこわばりが気になる方。動きやすい体をつくりたい方</td></tr>
+            <tr><th scope="row">セッション時間</th><td><span class="num">50</span>分</td><td><span class="num">50</span>分</td><td><span class="num">50</span>分</td></tr>
+            <tr><th scope="row">主な内容</th><td>基礎トレーニング、フォーム指導</td><td>フリーウエイト中心の筋力トレーニング、記録の管理</td><td>ストレッチ、可動域を広げる運動、自宅メニュー</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-hint">画面が狭い場合は、表を横にスクロールしてご覧ください。</p>
+      <p class="price-note">料金は体験時にご案内します。その場でのご入会は必要ありません。</p>
+    </div>
+  </section>
+
+  <section class="sec sec--orange cut" id="book" aria-labelledby="book-h" style="--cx:36%">
+    <div class="wrap book">
+      <div>
+        <h2 class="tilt" id="book-h">まずは一度、<br>体験から。</h2>
+        <p class="lead">体験も、通常と同じ50分の流れで行います。動きやすい服と飲み物だけお持ちください。ウェアとシューズは無料でお貸しします。</p>
+        <ol class="flow">
+          <li><span><b>予約</b>　フォームかお電話で、希望の日時を</span></li>
+          <li><span><b>相談</b>　当日、目的や不安なことをうかがいます</span></li>
+          <li><span><b>体験</b>　無理のない強さで、実際に動いてみます</span></li>
+          <li><span><b>ご提案</b>　合いそうなプランと料金をご案内します</span></li>
+        </ol>
+        <p class="book-tel"><a class="tel" href="tel:0300000000"><small>お電話でのご予約（平日 7:00–22:00／土日 9:00–19:00）</small><span class="num">03-0000-0000</span></a></p>
+      </div>
+      <form class="form" id="bookForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-date">ご希望日</label>
+            <input type="date" id="f-date" name="date">
+          </div>
+          <div class="field">
+            <label for="f-time">ご希望の時間</label>
+            <select id="f-time" name="time">
+              <option>7:00</option><option>9:00</option><option selected>10:00</option><option>12:00</option><option>14:00</option><option>16:00</option><option>18:00</option><option>19:30</option><option>21:00</option>
+            </select>
+          </div>
+          <div class="field field--wide">
+            <label for="f-purpose">ご希望の目的</label>
+            <select id="f-purpose" name="purpose">
+              <option>はじめて（運動が久しぶり）</option><option>筋力</option><option>コンディショニング</option><option>まだ決めていない</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn--dark" type="submit">体験トレーニングを予約する</button>
+        <p class="form-msg" id="formMsg" role="status" hidden>デモサイトのため、送信はされません。</p>
+        <p class="form-note">火曜定休。ご予約は前日の20時までにお願いします。</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top" aria-label="PACE TRAINING トップ">
+          <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true"><path d="M8 0h14L14 30H0z" fill="#FF5A1F"/></svg>
+          PACE TRAINING
+        </a>
+        <p style="margin-top:10px">あなたのペースで、強くなる。</p>
+        <nav class="foot-nav" aria-label="フッターメニュー" style="margin-top:16px">
+          <a href="#types">セッション</a><a href="#run">50分の流れ</a><a href="#trainers">トレーナー</a><a href="#facility">施設</a><a href="#plans">プラン</a><a href="#book">体験予約</a>
+        </nav>
+      </div>
+      <dl>
+        <div><dt>所在地</dt><dd>東京都○○区○○ 1-2-3 <span style="white-space:nowrap">○○ビル 2F</span></dd></div>
+        <div><dt>営業時間</dt><dd>平日 7:00–22:00<br>土日 9:00–19:00（火曜定休）</dd></div>
+        <div><dt>電話</dt><dd><a href="tel:0300000000">03-0000-0000</a></dd></div>
+      </dl>
+    </div>
+    <p class="demo">架空のジムを題材にしたデモサイトです。写真はイメージです。</p>
+    <p style="font-size:.875rem;color:#d5d8da;margin-top:6px">© PACE TRAINING</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(sec){var m=Math.floor(sec/60),s=Math.floor(sec%60);return (m<10?'0':'')+m+':'+(s<10?'0':'')+s;}
+
+  /* booking form: UI only */
+  var form=document.getElementById('bookForm');
+  if(form){form.addEventListener('submit',function(e){e.preventDefault();document.getElementById('formMsg').hidden=false;});}
+
+  if(reduce||!window.requestAnimationFrame){root.classList.add('done');markAll();return;}
+  function markAll(){var p=document.querySelectorAll('.phase');for(var i=0;i<p.length;i++)p[i].classList.add('is-active');}
+
+  /* hero: clock counts 00:00 -> 50:00 */
+  var hc=document.getElementById('heroClock');
+  if(hc){
+    hc.textContent='00:00';
+    var t0=null,delay=300,dur=1200;
+    requestAnimationFrame(function tick(t){
+      if(t0===null)t0=t;
+      var k=Math.min(1,Math.max(0,(t-t0-delay)/dur));
+      var e=1-Math.pow(1-k,3);
+      hc.textContent=fmt(Math.round(e*3000));
+      if(k<1)requestAnimationFrame(tick);
+    });
+  }
+  /* safety: never leave the hero in its start state */
+  setTimeout(function(){root.classList.add('done');if(hc)hc.textContent='50:00';},2600);
+
+  /* 50-minute session: scroll-linked clock + progress bar */
+  var list=document.getElementById('phases'),fill=document.getElementById('runFill'),rc=document.getElementById('runClock'),labels=document.getElementById('runLabels');
+  if(!list||!fill||!rc)return;
+  var phases=list.children,labs=labels?labels.children:[],range=[[0,10],[10,40],[40,50]],ticking=false,last='',active=-1;
+  function update(){
+    ticking=false;
+    var line=window.innerHeight*0.55,min=0,idx=0;
+    for(var i=0;i<phases.length;i++){
+      var r=phases[i].getBoundingClientRect();
+      if(line>=r.bottom){min=range[i][1];idx=i;}
+      else if(line>r.top){min=range[i][0]+(range[i][1]-range[i][0])*((line-r.top)/r.height);idx=i;break;}
+      else break;
+    }
+    fill.style.transform='scaleX('+(min/50).toFixed(4)+')';
+    var txt=fmt(Math.round(min*60));
+    if(txt!==last){rc.textContent=txt;last=txt;}
+    if(idx!==active){
+      active=idx;
+      for(var j=0;j<phases.length;j++){
+        phases[j].classList.toggle('is-active',j===idx);
+        if(labs[j])labs[j].classList.toggle('is-active',j===idx);
+      }
+    }
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
+  try{
+    window.addEventListener('scroll',req,{passive:true});
+    window.addEventListener('resize',req);
+    update();
+  }catch(err){fill.style.transform='';rc.textContent='50:00';markAll();}
+})();
+</script>
+</body>
+</html>
