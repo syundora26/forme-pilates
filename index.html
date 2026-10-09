@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>FORME PILATES</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&family=Mrs+Saint+Delafield&display=swap">
+<style>
+/* Layout: full-bleed photo bands alternating with quiet lavender-white panels; thin plum rules and long arrows carry the eye. Single light look by design. */
+:root{
+  --paper:#f8f6fa; --mist:#ece8f3; --lilac:#ddd6ec; --plum:#4f3a78; --plum-soft:#7a6a9c; --ink:#4a4658; --line:#cfc8de; --white:#ffffff;
+  --mincho:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --latin:"Jost","Helvetica Neue",Arial,sans-serif;
+  --gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --script:"Mrs Saint Delafield","Snell Roundhand",cursive;
+  --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--gothic);font-size:14px;line-height:2;letter-spacing:.08em;overflow-x:hidden}
+.page{max-width:1280px;margin:0 auto;background:var(--paper)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+h1,h2{white-space:nowrap}
+h1,h2,h3{font-family:var(--mincho);font-weight:400;color:var(--plum)}
+.en{font-family:var(--latin);letter-spacing:.28em;text-transform:uppercase;color:var(--plum)}
+.small-en{font-family:var(--latin);font-size:11px;letter-spacing:.3em;line-height:1.7;text-transform:uppercase;color:var(--plum)}
+.rule{display:block;width:44px;height:1px;background:var(--plum-soft);margin:22px 0}
+.arrow{display:inline-block;position:relative;height:1px;background:var(--plum);width:var(--w,70px);vertical-align:middle}
+.arrow::after{content:"";position:absolute;right:0;top:-5px;width:10px;height:10px;border-top:1px solid var(--plum);border-right:1px solid var(--plum);transform:rotate(45deg)}
+.logo{font-family:var(--latin);color:var(--plum);line-height:1.1;display:inline-block}
+.logo b{display:block;font-weight:400;font-size:22px;letter-spacing:.3em}
+.logo span{display:block;font-size:9px;letter-spacing:.62em;margin-top:6px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(90deg,var(--paper),var(--mist));aspect-ratio:2/1;min-height:560px;width:100%;display:flex;flex-direction:column}
+.hero-img{position:absolute!important;right:0;top:0;height:100%;width:auto;max-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%);mask-image:linear-gradient(90deg,transparent,#000 14%)}
+.hero-tag{position:absolute!important;right:var(--gut);top:110px}
+.band-tag{position:absolute;right:var(--gut);bottom:36px;color:var(--white)}
+.hero>*{position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px var(--gut)}
+.nav{display:flex;align-items:center;gap:0;font-size:12px;color:var(--plum);flex-wrap:wrap;justify-content:flex-end}
+.nav{background:rgba(248,246,250,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:10px 14px 10px 4px}
+.nav a{padding:2px 16px;border-right:1px solid var(--line);line-height:1.2}
+.nav a:hover{opacity:.6}
+.nav a:last-of-type{border-right:0}
+.nav .arrow{margin-left:8px}
+.hero-copy{padding:clamp(20px,5vw,60px) var(--gut) 40px;margin-block:auto;max-width:560px}
+.hero h1{font-size:clamp(32px,4.4vw,56px);line-height:1.45;letter-spacing:.06em;margin-top:clamp(20px,4vw,48px)}
+.hero h1 small{font-size:.74em}
+.hero p{font-size:clamp(13px,1.15vw,15px);color:var(--ink)}
+
+/* choose */
+.choose{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(20px,5vw,72px);padding:clamp(40px,6vw,72px) var(--gut);align-items:start}
+.choose article{min-width:0;text-align:center}
+.choose h2{font-family:var(--latin);font-weight:300;font-size:clamp(30px,4vw,46px);letter-spacing:.18em;line-height:1.1}
+.choose .jp{font-family:var(--mincho);color:var(--plum);letter-spacing:.25em;font-size:15px;margin:6px 0 20px}
+.choose img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.choose article p:last-child{text-align:left;margin-top:20px;font-size:13px}
+.mid{align-self:stretch;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.mid i{flex:1;width:1px;background:var(--plum);position:relative;min-height:40px}
+.mid i::after{content:"";position:absolute;left:-2px;width:5px;height:5px;border-radius:50%;background:var(--plum)}
+.mid i:first-child::after{bottom:0}.mid i:last-child::after{top:0}
+
+/* band */
+.band{background:var(--mist) url(img/band.jpg) right center/cover no-repeat;aspect-ratio:724/238;min-height:380px;display:flex;align-items:center;padding:40px var(--gut);position:relative}
+.band::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(240,237,246,.85),rgba(240,237,246,.5) 32%,rgba(240,237,246,0) 50%)}
+.band div{position:relative;max-width:440px}
+.band h2{font-size:clamp(26px,3.6vw,44px);line-height:1.6;letter-spacing:.1em}
+
+/* instructor */
+.inst{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1.3fr) minmax(0,.48fr);gap:8px;margin-top:8px;background:var(--white)}
+.inst .tab{background:var(--lilac);writing-mode:vertical-rl;display:flex;align-items:center;padding:28px 18px;font-family:var(--latin);letter-spacing:.4em;color:var(--plum);font-size:15px}
+.inst .photo{width:100%;height:100%;object-fit:cover;display:block;min-height:260px}
+.inst .msg{background:var(--mist);padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:center}
+.inst h2{font-size:clamp(20px,2.3vw,28px);line-height:1.7;letter-spacing:.12em;margin-bottom:18px}
+.inst .msg p{font-size:13px}
+.sign{font-family:var(--script);font-size:46px;color:var(--plum-soft);letter-spacing:0;line-height:1;align-self:flex-end;margin-top:10px;text-transform:none}
+.inst .side{background:var(--lilac);padding:24px 18px;display:flex;flex-direction:column;gap:16px;font-family:var(--mincho);color:var(--plum);font-size:13px;line-height:1.9}
+.inst .side img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;object-position:left bottom}
+
+/* timetable */
+.tt{padding:clamp(40px,6vw,72px) var(--gut)}
+.tt-head{display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-end;margin-bottom:24px}
+.tt-head h2{font-family:var(--latin);font-weight:300;font-size:clamp(26px,3.2vw,38px);letter-spacing:.2em;line-height:1.2}
+.tt-head h2 span{display:block;font-family:var(--mincho);font-size:15px;letter-spacing:.25em;margin-top:4px}
+.tt-head p{flex:1;min-width:240px;font-size:13px;color:var(--plum)}
+.scroll{overflow-x:auto;border-top:1px solid var(--plum-soft)}
+table{width:100%;min-width:640px;border-collapse:separate;border-spacing:4px 6px;font-size:12px;text-align:center}
+th{font-family:var(--latin);font-weight:500;letter-spacing:.18em;color:var(--plum);padding:8px 4px;font-variant-numeric:tabular-nums}
+tbody th{text-align:left;width:64px}
+td{background:#f1eff4;color:var(--plum-soft);padding:3px 4px;line-height:1.8}
+td.on{background:var(--lilac);color:var(--plum)}
+
+/* studio */
+.studio{display:grid;grid-template-columns:2.8fr 1fr 1.25fr;gap:6px;height:clamp(260px,34vw,440px)}
+.studio img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:auto}
+.studio div{background:var(--mist);padding:clamp(24px,3vw,44px) clamp(18px,2.4vw,32px);display:flex;flex-direction:column;justify-content:center;min-width:0}
+.studio h2{font-size:clamp(17px,1.9vw,25px);line-height:1.7;letter-spacing:.1em;margin-bottom:20px}
+.studio p{font-size:13px}
+
+/* booking */
+.book{background:var(--lilac);margin-top:6px;padding:clamp(36px,5vw,64px) var(--gut);display:grid;grid-template-columns:1fr 1px 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+.book .sep{background:var(--plum);align-self:stretch}
+.book-title{position:relative;padding:36px 0 36px clamp(24px,5vw,60px);display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.book-title::before,.book-title::after{content:"";position:absolute;left:0;width:54px;height:54px;border-left:1px solid var(--plum)}
+.book-title::before{top:0;border-top:1px solid var(--plum)}
+.book-title::after{bottom:0;border-bottom:1px solid var(--plum)}
+.book h2{font-size:clamp(28px,3.8vw,46px);line-height:1.6;letter-spacing:.16em}
+form{display:grid;gap:18px;min-width:0}
+.field{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 24px;align-items:center}
+.field label{grid-column:1/-1;font-size:13px;color:var(--plum)}
+.field label b{font-family:var(--latin);font-weight:400;letter-spacing:.15em;margin-right:12px}
+input,select{font:inherit;font-size:13px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:0;padding:8px 14px;width:100%;min-width:0;height:42px;color-scheme:light}
+.go{border:0;background:none;padding:14px 0;cursor:pointer;display:flex;align-items:center}
+.go:hover .arrow{--w:84px}.arrow{transition:width .3s}
+#note{font-size:12px;color:var(--plum);min-height:1.6em;line-height:1.6}
+
+/* closing */
+.last{background:var(--mist);margin-top:6px;display:grid;grid-template-columns:1.1fr 1fr}
+.last img{width:100%;height:clamp(300px,36vw,460px);object-fit:cover;object-position:center 30%;display:block}
+.last div{display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:40px var(--gut);min-width:0}
+.last h2{font-size:clamp(22px,3vw,38px);line-height:1.6;letter-spacing:.1em;align-self:flex-start;margin-block:auto}
+.last h2 .arrow{display:block;--w:100%;margin-top:14px}
+
+footer{padding:36px var(--gut) 28px;display:grid;grid-template-columns:auto 1fr;gap:20px 48px;align-items:center;font-size:12px;color:var(--plum)}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 32px}
+footer .legal{grid-column:1/-1;text-align:right;font-size:11px;line-height:2.2;color:var(--plum-soft)}
+
+@media (max-width:820px){
+  .nav a{display:none}
+  .hero{aspect-ratio:auto;min-height:0}
+  .hero-img{position:relative!important;order:3;width:100%;height:auto;max-width:100%;-webkit-mask-image:none;mask-image:none}.hero-tag,.band-tag{display:none}
+  .hero-copy{margin-block:0}
+  .choose{grid-template-columns:1fr}
+  .mid{flex-direction:row}.mid i{height:1px;width:auto;min-height:0}
+  .mid i::after{top:-2px!important;bottom:auto!important}.mid i:first-child::after{right:0;left:auto}.mid i:last-child::after{left:0}
+  .band{aspect-ratio:auto;align-items:flex-start;background-position:78% center;min-height:460px}
+  .band::before{background:linear-gradient(180deg,rgba(240,237,246,.92),rgba(240,237,246,.6) 50%,rgba(240,237,246,0) 80%)}
+  .inst{grid-template-columns:auto minmax(0,1fr)}
+  .inst .msg,.inst .side{grid-column:1/-1}
+  .inst .side{flex-direction:row;align-items:center}.inst .side img{width:90px}
+  .studio{grid-template-columns:2fr 1fr;height:auto}.studio img{height:200px}.studio div{grid-column:1/-1}
+  .book{grid-template-columns:1fr}.book .sep{height:1px}
+  .band{min-height:520px}
+  .last{grid-template-columns:1fr}.last img{height:auto;aspect-ratio:5/4}
+  footer{grid-template-columns:1fr}footer .legal{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.arrow{transition:none}}
+</style>
+
+</head>
+<body>
+<div class="page">
+<header class="hero">
+  <img class="hero-img" src="img/hero.jpg" alt="リフォーマーで背中を反らせる女性">
+  <p class="small-en hero-tag">Move<br>Align<br>Balance<br>Live well</p>
+  <div class="top">
+    <a class="logo" href="#top" aria-label="FORME PILATES"><b>FORME</b><span>PILATES</span></a>
+    <nav class="nav" aria-label="メイン">
+      <a href="#lesson">はじめての方へ</a><a href="#lesson">レッスン</a><a href="#instructor">インストラクター</a><a href="#studio">スタジオ</a><a href="#reserve">よくあるご質問</a>
+      <span class="arrow" aria-hidden="true"></span>
+    </nav>
+  </div>
+  <div class="hero-copy" id="top">
+    <p class="small-en">Pilates<br>for a more<br>natural you</p>
+    <h1>動き<small>を</small>知る。<br>自分<small>を</small>整える。</h1>
+    <span class="rule"></span>
+    <p>からだの動きを知ることは、<br>自分を大切にすること。<br>ピラティスで、もっと軽やかな毎日へ。</p>
+  </div>
+</header>
+
+<section class="choose" id="lesson">
+  <article>
+    <h2>MAT</h2><p class="jp">マットピラティス</p>
+    <img src="img/mat.jpg" alt="マットの上で体側を伸ばす女性">
+    <p>マットの上で、からだの感覚に丁寧に向き合う。<br>どこでも続けられる、ピラティスの基本です。</p>
+  </article>
+  <div class="mid" aria-hidden="true"><i></i><span class="small-en">Choose<br>your<br>pilates</span><i></i></div>
+  <article>
+    <h2>REFORMER</h2><p class="jp">リフォーマーピラティス</p>
+    <img src="img/reformer.jpg" alt="リフォーマーで前屈する女性">
+    <p>専用マシンが動きをサポートし、<br>より深く、しなやかなからだへ導きます。</p>
+  </article>
+</section>
+
+<section class="band">
+  <p class="small-en band-tag">Small<br>movements<br>make<br>a big<br>difference</p>
+  <div>
+    <h2>正しい動きが、<br>美しい変化をつくる。</h2>
+    <span class="rule"></span>
+    <p>からだからの声に耳をすませて。<br>一つひとつの動きを丁寧に重ねることで、<br>しなやかで整ったラインへ。</p>
+  </div>
+</section>
+
+<section class="inst" id="instructor">
+  <div class="tab">INSTRUCTOR</div>
+  <img class="photo" src="img/inst.jpg" alt="インストラクター M. Aoi">
+  <div class="msg">
+    <h2>動けるからだは、<br>きっと、心も軽くする。</h2>
+    <p>一人ひとりのからだと丁寧に向き合い、その人らしい心地よい動きを一緒に見つけていきます。ピラティスを通して、日常が少しでも軽やかになるようサポートできたら嬉しいです。</p>
+    <span class="sign">M. Aoi</span>
+  </div>
+  <div class="side"><p>動きの先にある、<br>新しい自分へ。</p><img src="img/vase.jpg" alt=""></div>
+</section>
+
+<section class="tt" id="timetable">
+  <div class="tt-head">
+    <h2>TIMETABLE<span>レッスンスケジュール</span></h2>
+    <p>ライフスタイルに合わせて選べる多彩なクラス。<br>はじめての方も安心してご参加いただけます。</p>
+    <span class="small-en">Find<br>your<br>rhythm</span>
+  </div>
+  <div class="scroll"><table id="tt"></table></div>
+</section>
+
+<section class="studio" id="studio">
+  <img src="img/studio.jpg" alt="リフォーマーが並ぶ明るいスタジオ">
+  <img src="img/vase.jpg" alt="">
+  <div>
+    <h2>ここから、<br>わたしのペースで。</h2>
+    <p>やわらかな光が差し込む、<br>心地よいスタジオ空間。<br>からだと心を整える時間を、<br>ここで。</p>
+  </div>
+</section>
+
+<section class="book" id="reserve">
+  <div class="book-title"><h2>体験レッスンを<br>予約する</h2><span class="arrow" style="--w:clamp(60px,10vw,130px);margin-bottom:22px" aria-hidden="true"></span></div>
+  <span class="sep"></span>
+  <form id="f">
+    <div class="field">
+      <label for="date"><b>01</b>日程を選ぶ</label>
+      <input type="date" id="date" name="date" required>
+      <button class="go" type="submit" aria-label="この内容で予約する"><span class="arrow"></span></button>
+    </div>
+    <div class="field">
+      <label for="cls"><b>02</b>レッスンを選ぶ</label>
+      <select id="cls" name="cls"><option>リフォーマー（初級）</option><option>マット（初級）</option><option>リフォーマー（中級）</option><option>マット（中級）</option></select>
+      <button class="go" type="submit" aria-label="この内容で予約する"><span class="arrow"></span></button>
+    </div>
+    <p id="note" role="status"></p>
+  </form>
+</section>
+
+<section class="last">
+  <img src="img/last.jpg" alt="両腕を上げて背中を伸ばす女性の後ろ姿">
+  <div>
+    <h2>動くたび、<br>わたしが整っていく。<span class="arrow"></span></h2>
+    <p class="small-en">Pilates<br>creates<br>a brighter<br>tomorrow</p>
+  </div>
+</section>
+
+<footer>
+  <a class="logo" href="#top"><b>FORME</b><span>PILATES</span></a>
+  <nav aria-label="フッター"><a href="#lesson">はじめての方へ</a><a href="#lesson">レッスン</a><a href="#instructor">インストラクター</a><a href="#studio">スタジオ</a><a href="#reserve">よくあるご質問</a></nav>
+  <p class="legal">プライバシーポリシー　|　サイトポリシー<br>架空店舗の自主制作デザイン / SMASK制作工房</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var M="マット",R="リフォーマー",_="";
+  var rows=[["9:00",_,_,M,_,_,M,R],["10:30",_,R,_,R,_,_,_],["12:00",M,_,_,_,M,_,M],["14:00",_,R,_,M,_,M,_],["16:00",M,_,R,_,M,R,_],["17:30",_,_,_,R,_,_,_],["19:00",_,M,_,_,M,_,M]];
+  var h="<thead><tr><th></th>"+["MON","TUE","WED","THU","FRI","SAT","SUN"].map(function(d){return "<th scope='col'>"+d+"</th>"}).join("")+"</tr></thead><tbody>";
+  rows.forEach(function(r){h+="<tr><th scope='row'>"+r[0]+"</th>"+r.slice(1).map(function(c){return c?"<td class='on'>"+c+"</td>":"<td>—</td>"}).join("")+"</tr>"});
+  document.getElementById("tt").innerHTML=h+"</tbody>";
+  var d=document.getElementById("date"),t=new Date();t.setDate(t.getDate()+((6-t.getDay()+7)%7||7));
+  d.value=t.getFullYear()+"-"+("0"+(t.getMonth()+1)).slice(-2)+"-"+("0"+t.getDate()).slice(-2);
+  document.getElementById("f").addEventListener("submit",function(e){
+    e.preventDefault();
+    document.getElementById("note").textContent=d.value.replace(/-/g,".")+" ／ "+document.getElementById("cls").value+" を選択中です。デモサイトのため、予約は送信されません。";
+  });
+})();
+</script>
+</body>
+</html>
