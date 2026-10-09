@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アクセス｜FIELD NOTE 森のグランピング</title>
+<meta name="description" content="FIELD NOTE 森のグランピングへのアクセス。手描きの略図、車と電車それぞれの道順、駐車場、街灯のない最後の4キロの注意点、途中で寄れるお店と場内の売店についてご案内します。暗くなる前の到着がおすすめです。">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="FIELD NOTE 森のグランピング">
+<meta property="og:title" content="アクセス｜FIELD NOTE 森のグランピング">
+<meta property="og:description" content="FIELD NOTE 森のグランピングへのアクセス。手描きの略図、車と電車それぞれの道順、駐車場、街灯のない最後の4キロの注意点、途中で寄れるお店と場内の売店についてご案内します。暗くなる前の到着がおすすめです。">
+<meta property="og:image" content="img/dusk.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#17352A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352A'/%3E%3Cpath d='M8 50 32 12l24 38z' fill='%23E9DFC8'/%3E%3Cpath d='M25 50l7-18 7 18z' fill='%23E8602C'/%3E%3C/svg%3E">
+<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}})(document.documentElement);</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<button class="switch" id="nightSwitch" type="button" role="switch" aria-checked="false" aria-label="夜にする">
+  <span class="sw-txt" aria-hidden="true"><span class="sw-d">夜にする</span><span class="sw-n">朝にする</span></span>
+  <span class="sw-track" aria-hidden="true"><span class="sw-knob"></span></span>
+</button>
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<!-- shared drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+    <radialGradient id="glowg"><stop offset="0" stop-color="#FFB347" stop-opacity=".75"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
+    <symbol id="tree" viewBox="-24 -64 48 74" overflow="visible"><path d="M0-62 15-34H8L21-8H4V9h-8V-8h-17L-8-34h-7z"/></symbol>
+    <symbol id="fire" viewBox="-40 -70 80 84" overflow="visible">
+      <circle class="s-glow" r="62" cy="-18" fill="url(#glowg)"/>
+      <g class="flick"><path class="f-flame" d="M0-64c4 14 20 22 20 40C20-9 11 0 0 0S-20-9-20-24c0-9 5-14 9-20 1 7 4 10 7 11C-6-44-4-54 0-64z"/>
+      <path class="f-in" d="M0-34c2 7 9 11 9 20C9-6 5-1 0-1S-9-6-9-14c0-5 3-8 5-11 1 4 2 5 3 5 0-5 0-9 1-14z"/></g>
+      <path class="f-log" d="M-30 8 26-6M-26-6 30 8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="band b-pine top" id="top">
+  <div class="wrap">
+    <div class="mast">
+      <a class="brand" href="index.html"><b>FIELD NOTE</b><span>森のグランピング</span></a>
+      <div class="mast-row">
+        <a class="btn btn-s mast-cta" href="reserve.html">予約する</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="gnav">
+          <svg width="22" height="18" viewBox="0 0 22 18" aria-hidden="true"><path d="M1 2h20M1 9h14M1 16h18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          <span class="mb-o">もくじ</span><span class="mb-c">とじる</span>
+        </button>
+      </div>
+      <nav class="gnav" id="gnav" aria-label="メインメニュー">
+        <p class="gnav-title" aria-hidden="true">もくじ<small>FIELD NOTE</small></p>
+        <ul>
+          <li><a href="index.html"><span class="no" aria-hidden="true">01</span><span class="t">ホーム</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="stay.html"><span class="no" aria-hidden="true">02</span><span class="t">泊まる</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="food.html"><span class="no" aria-hidden="true">03</span><span class="t">食事と焚き火</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="day.html"><span class="no" aria-hidden="true">04</span><span class="t">過ごし方</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="price.html"><span class="no" aria-hidden="true">05</span><span class="t">料金</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="faq.html"><span class="no" aria-hidden="true">06</span><span class="t">よくある質問</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="access.html" aria-current="page"><span class="no" aria-hidden="true">07</span><span class="t">アクセス</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li class="cta"><a href="reserve.html"><span class="no" aria-hidden="true">08</span><span class="t">予約する</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="band b-canvas torn page-head">
+  <div class="wrap">
+    <nav class="crumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="currentColor"/></svg>ホーム</a><span class="sep" aria-hidden="true"></span></li>
+        <li><span class="cur">アクセス</span></li>
+      </ol>
+    </nav>
+    <div class="ph-grid">
+      <div>
+        <h1>森までの、<br><em>道</em>のり。</h1>
+        <p class="lead">車なら○○ICから約25分、電車なら○○駅からタクシーで約20分。最後の4キロだけ、少し気をつけてください。</p>
+      </div>
+      <div class="ph-stamp" aria-hidden="true"><p class="stamp" style="--r:8deg">FIELD NOTE<b>p.07</b>道のり</p></div>
+    </div>
+  </div>
+</div>
+<section class="band b-map stitch access" aria-labelledby="h-map">
+  <div class="wrap access-grid">
+    <div class="map-fig">
+      <svg class="map big" viewBox="0 0 400 290" role="img" aria-label="○○ICと○○駅から、川沿いの道を通ってFIELD NOTEへ向かう略図。ICの先に最後のコンビニ、橋を渡ってから街灯のない区間が約4キロ続く。">
+        <path class="m-river" d="M-10 220c60-30 110 10 170-14s90-70 150-66 70 30 100 26"/>
+        <path class="m-rail" d="M20 262h150M30 256v12M50 256v12M70 256v12M90 256v12M110 256v12M130 256v12M150 256v12"/>
+        <path class="m-road" d="M60 240c20-50 70-40 96-74s20-70 70-84 50 8 66-6"/>
+        <rect x="34" y="232" width="52" height="26" rx="4" fill="var(--bg)" stroke="var(--fg)" stroke-width="2.5"/>
+        <text x="60" y="250" text-anchor="middle">○○駅</text>
+        <rect x="118" y="150" width="56" height="26" rx="13" fill="var(--bg)" stroke="var(--fg)" stroke-width="2.5"/>
+        <text x="146" y="168" text-anchor="middle">○○IC</text>
+        <rect x="88" y="196" width="14" height="14" fill="var(--fg)"/>
+        <text x="60" y="194" text-anchor="middle" style="font-size:11px">最後の店</text>
+        <path d="M178 118l14 14M192 118l-14 14" stroke="var(--fg)" stroke-width="3" stroke-linecap="round"/>
+        <text x="130" y="112" text-anchor="middle" style="font-size:11px">橋。ここから</text>
+        <text x="130" y="127" text-anchor="middle" style="font-size:11px">街灯なし 4km</text>
+        <g fill="var(--fg)"><use href="#tree" x="212" y="34" width="26" height="40"/><use href="#tree" x="238" y="44" width="20" height="30"/><use href="#tree" x="352" y="62" width="26" height="40"/><use href="#tree" x="206" y="112" width="22" height="34"/><use href="#tree" x="278" y="104" width="24" height="36"/></g>
+        <path d="M296 80 320 44l24 36z" fill="#E8602C" stroke="var(--fg)" stroke-width="2.5" stroke-linejoin="round"/>
+        <text x="320" y="32" text-anchor="middle">FIELD NOTE</text>
+        <text x="270" y="200" text-anchor="middle">○○川</text>
+        <g transform="translate(30 36)" fill="none" stroke="var(--fg)" stroke-width="2.2" stroke-linecap="round"><path d="M0 16V-16M-6-8 0-17l6 9"/></g>
+        <text x="30" y="68" text-anchor="middle">N</text>
+      </svg>
+      <p class="note mt-m">縮尺はだいたいです。曲がり角の数も、だいたいです。</p>
+    </div>
+    <div>
+      <h2 class="h2 s" id="h-map">まず、<br><em>地図</em>を一枚。</h2>
+      <dl>
+        <div><dt>住所</dt><dd>長野県○○郡○○町○○ 123</dd></div>
+        <div><dt>車</dt><dd>○○ICから約25分（約14km）</dd></div>
+        <div><dt>電車</dt><dd>○○駅からタクシーで約20分、または送迎車</dd></div>
+        <div><dt>受付</dt><dd>9:00〜19:00（7・8月は20:00まで）／水曜定休</dd></div>
+        <div><dt>滞在</dt><dd>チェックイン 15:00〜18:00 ／ チェックアウト 10:00まで</dd></div>
+        <div><dt>電話</dt><dd><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band b-pine torn" aria-labelledby="h-car">
+  <div class="wrap g2">
+    <div>
+      <h2 class="label" id="h-car" style="font-size:1.6rem">車で来る</h2>
+      <ol class="steps mt-m">
+        <li><b>○○ICを出て左へ</b>料金所を出たら、国道を「○○高原」方面へ。出口のすぐ先に、最後のコンビニがあります。</li>
+        <li><b>国道を約8km</b>○○川に沿って、ゆるい登りを進みます。「○○橋」の信号を右に曲がり、橋を渡ります。</li>
+        <li><b>橋から林道を約4km</b>ここから街灯がなくなります。分かれ道には、テントの絵の木の看板を立てています。</li>
+        <li><b>受付の前で止まる</b>赤い屋根の小屋が受付です。まず車を止めて、声をかけてください。サイトまでご案内します。</li>
+      </ol>
+      <p class="note mt-m">カーナビは、手前の細い林道へ案内することがあります。画面より、看板を信じてください。</p>
+    </div>
+    <div>
+      <h2 class="label" id="h-train" style="font-size:1.6rem;transform:rotate(1.5deg)">電車で来る</h2>
+      <ol class="steps mt-m">
+        <li><b>○○駅で降りる</b>改札はひとつです。駅前にスーパーとタクシー乗り場があります。</li>
+        <li><b>送迎車か、タクシーで</b>送迎車は駅前のロータリーに来ます。白い車体に、テントの絵が目印です。</li>
+        <li><b>約20分で到着</b>タクシーの方は「フィールドノート」とお伝えください。たいていの運転手さんは道を知っています。</li>
+      </ol>
+      <div class="tbl-scroll" tabindex="0" role="region" aria-labelledby="cap-bus">
+        <table class="narrow">
+          <caption id="cap-bus">送迎車の時刻（無料・前日までに要予約）</caption>
+          <thead><tr><th scope="col"></th><th scope="col">1便</th><th scope="col">2便</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">行き　○○駅 発</th><td class="num">14:30</td><td class="num">16:00</td></tr>
+            <tr><th scope="row">帰り　受付前 発</th><td class="num">9:30</td><td class="num">10:15</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">タクシーは駅に常駐していない時間があります。電話での予約をおすすめします。</p>
+    </div>
+  </div>
+</section>
+
+<section class="band b-ember torn" aria-labelledby="h-last">
+  <div class="wrap g2 center">
+    <div class="warn">
+      <h2 class="h3" id="h-last" style="font-size:1.5rem">最後の4キロについて</h2>
+      <ul class="ticks mt-s">
+        <li>街灯がありません。日没のあとは、ヘッドライトの届くところしか見えません。</li>
+        <li>道幅は車一台ぶんのところがあります。すれ違いは、待避所でゆずり合ってください。</li>
+        <li>携帯電話の電波が、途中で切れる区間があります。地図は先に読み込んでおくと安心です。</li>
+        <li>夕方は鹿が道に出てきます。ゆっくり走ってください。</li>
+        <li>12月から3月は、冬用タイヤが必要です。チェーンもあると安心です。</li>
+      </ul>
+    </div>
+    <div>
+      <p class="lead">暗くなる前の到着を、強くおすすめします。</p>
+      <p class="mt-s">秋から冬は、16時半には森のなかが暗くなります。チェックインは15:00から。早めに着いて、明るいうちに火の準備をするのがいちばん楽です。</p>
+      <p class="mt-s">道に迷ったら、無理に進まず、電波の入るところからお電話ください。スタッフが迎えに行きます。</p>
+      <p class="mt-s"><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="band b-canvas torn" aria-labelledby="h-park">
+  <div class="wrap g2">
+    <div>
+      <h2 class="h2 s" id="h-park">車を置く、<br>買いものを<em>する</em>。</h2>
+      <h3 class="h3 mt-m">駐車場</h3>
+      <dl class="rows mt-s">
+        <div><dt>1台目</dt><dd>各サイトのすぐ横に止められます。荷物の出し入れが楽です</dd></div>
+        <div><dt>2台目</dt><dd>受付前の共用駐車場（10台）へ。1棟につき2台まで</dd></div>
+        <div><dt>料金</dt><dd>無料</dd></div>
+        <div><dt>大きな車</dt><dd>林道の幅の都合で、マイクロバスより大きい車は入れません</dd></div>
+        <div><dt>オートバイ</dt><dd>止められます。最後の500メートルは砂利道です</dd></div>
+      </dl>
+      <p class="tbl-note">※ デモサイトのため、料金は架空のものです。</p>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:center">
+        <!-- 要差し替え：実際の施設写真 -->
+<figure class="print tape t-corner" style="--w:330px;--r:-4deg"><img src="img/meadow.jpg" width="410" height="274" loading="lazy" alt="山並みを望む草原の小道を歩く人の後ろ姿"><figcaption>到着したら、まず散歩</figcaption></figure>
+      </div>
+      <h3 class="h3 mt-l">近くのお店</h3>
+      <ul class="ticks mt-s">
+        <li><b>コンビニ</b>は○○ICの出口が最後です。ここから先、約14キロありません。</li>
+        <li><b>スーパー</b>は○○駅前に一軒。19時に閉まります。</li>
+        <li><b>ガソリンスタンド</b>は国道沿いに一軒。日曜は休みです。</li>
+        <li><b>場内の売店</b>（受付横・9:00〜19:00）には、薪、氷、マシュマロ、飲みもの、ビール、電池、絆創膏があります。</li>
+      </ul>
+      <p class="note mt-s">忘れものに気づくのは、たいてい橋を渡ったあとです。歯ブラシとタオルは、こちらにあります。</p>
+    </div>
+  </div>
+</section>
+
+<section class="band b-pine torn closing" aria-labelledby="h-close">
+  <div class="wrap cl-grid">
+    <div class="cl-act">
+      <h2 class="h2 s" id="h-close">次の休み、<br><em>森</em>で会いましょう。</h2>
+      <a class="btn mt-s" href="reserve.html"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M9.5 21 12 14l2.5 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg>空きを確認して予約する</a>
+      <p class="note">お電話でも承ります（9:00〜18:00）<br><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+    </div>
+    <div class="cl-stamps" aria-label="チェックインは15時から、チェックアウトは10時まで">
+      <p class="stamp" style="--r:-8deg">チェックイン<b>15:00</b>から</p>
+      <p class="stamp" style="--r:6deg">チェックアウト<b>10:00</b>まで</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="band b-night torn foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="brand" href="index.html"><b>FIELD NOTE</b><span>森のグランピング</span></a>
+      <nav class="foot-nav" aria-label="フッターメニュー">
+        <h2>さくいん</h2>
+        <ul><li><a href="index.html">ホーム</a></li><li><a href="stay.html">泊まる</a></li><li><a href="food.html">食事と焚き火</a></li><li><a href="day.html">過ごし方</a></li><li><a href="price.html">料金</a></li><li><a href="faq.html">よくある質問</a></li><li><a href="access.html">アクセス</a></li><li><a href="reserve.html">予約</a></li><li><a href="privacy.html">プライバシーポリシー</a></li></ul>
+      </nav>
+      <div class="foot-info">
+        <h2>連絡先</h2>
+        <p>長野県○○郡○○町○○ 123</p>
+        <p>受付 9:00〜19:00（7・8月は20:00まで）<br>定休日 水曜（祝日と繁忙日は営業）</p>
+        <p><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+      </div>
+    </div>
+    <p class="demo">架空の施設を題材にしたデモサイトです。写真はイメージです。</p>
+    <small>© FIELD NOTE 森のグランピング</small>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

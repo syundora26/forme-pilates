@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>余白建築｜中庭と光から考える住宅設計事務所（デモサイト）</title>
-<meta name="description" content="余白建築は、個人住宅だけを設計する小さな建築設計事務所です。敷地の光と風、隣家との距離、門から玄関までの歩みを読んでから線を引きます。中庭のある平屋の平面図、作品、素材、進め方をご覧いただけます。">
+<meta name="description" content="余白建築は、個人住宅だけを設計する小さな建築設計事務所です。敷地の光と風、隣家との距離、門から玄関までの歩みを読んでから線を引きます。考え方、作品、進め方と費用、事務所の案内を、一組の図面のようにまとめました。">
 <meta name="robots" content="noindex">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="余白建築">
 <meta property="og:title" content="余白建築｜中庭と光から考える住宅設計事務所（デモサイト）">
-<meta property="og:description" content="敷地の光と風、隣家との距離、門から玄関までの歩みを読んでから線を引く、住宅専門の小さな設計事務所。">
+<meta property="og:description" content="余白建築は、個人住宅だけを設計する小さな建築設計事務所です。敷地の光と風、隣家との距離、門から玄関までの歩みを読んでから線を引きます。考え方、作品、進め方と費用、事務所の案内を、一組の図面のようにまとめました。">
 <meta property="og:image" content="img/court.jpg">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23EDEEEC'/%3E%3Cpath d='M6 6h20v20H6z' fill='none' stroke='%2322252A' stroke-width='3'/%3E%3Crect x='13' y='13' width='7' height='7' fill='%239A5B34'/%3E%3C/svg%3E">
@@ -18,988 +18,181 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Shippori+Mincho+B1:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"余白建築","alternateName":"YOHAKU","description":"個人住宅を専門とする建築設計事務所（架空の事務所を題材にしたデモサイト）。","telephone":"+81-3-0000-0000","address":{"@type":"PostalAddress","addressCountry":"JP","addressRegion":"東京都","addressLocality":"○○区","streetAddress":"○○ 1-2-3"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"18:00"}]}
 </script>
-<style>
-:root{
-  --paper:#EDEEEC; --panel:#C9C8C4; --ink:#22252A; --ink2:#4E535A; --cedar:#9A5B34; --cedar-d:#7A4424; --cedar-l:#DDA778;
-  --pale:#E4E5E1; --pale2:#A9ACAC; --print:#F7F7F4; --rule:rgba(34,37,42,.3);
-  --serif:'Shippori Mincho B1','Noto Serif CJK JP','Hiragino Mincho ProN','Yu Mincho',serif;
-  --mono:'DM Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
-  --m:10px; --pad:14px;
-}
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background-color:var(--paper);color:var(--ink);font-family:var(--serif);font-size:15px;line-height:1.95;font-weight:400;
-  background-image:linear-gradient(rgba(34,37,42,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(34,37,42,.055) 1px,transparent 1px);background-size:24px 24px;background-position:-1px -1px;overflow-wrap:anywhere}
-img,svg{display:block;max-width:100%}
-p{margin:0}
-h1,h2,h3{margin:0;font-weight:600}
-ul,ol,dl,dd{margin:0;padding:0;list-style:none}
-a{color:var(--cedar-d);text-underline-offset:.25em;text-decoration-thickness:1px}
-a:hover{color:var(--ink)}
-:focus-visible{outline:2px solid var(--cedar);outline-offset:3px}
-.mono{font-family:var(--mono);font-size:12px;letter-spacing:.02em;line-height:1.6}
-.skip{position:absolute;left:8px;top:-60px;z-index:50;background:var(--ink);color:var(--pale);padding:12px 16px}
-.skip:focus{top:8px;color:var(--pale)}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-
-/* ---- rail (top strip on mobile) ---- */
-.rail{position:sticky;top:0;z-index:20;display:flex;align-items:stretch;justify-content:space-between;background:var(--paper);border-bottom:1px solid var(--ink);padding-inline:20px;height:52px}
-.rail a{display:flex;align-items:center;min-height:44px;text-decoration:none;color:var(--ink)}
-.rail__mark{font-weight:600;font-size:17px;letter-spacing:.14em;gap:8px}
-.rail__mark span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;font-weight:400;color:var(--ink2)}
-.rail nav{display:flex}
-.rail ul{display:flex}
-.rail li a{padding-inline:9px;font-size:13.5px;letter-spacing:.06em}
-.rail li.x{display:none}
-.rail li a:hover{color:var(--cedar-d)}
-.rail .rail__cta{background:var(--cedar-d);color:#fff;padding-inline:13px;margin-block:4px;font-size:13.5px;letter-spacing:.08em;margin-left:6px}
-.rail .rail__cta:hover{background:var(--ink);color:#fff}
-.rail__cta .l{display:none}
-
-/* ---- sheet ---- */
-.sheet{position:relative;margin:var(--m);border:1px solid var(--ink);padding-block:26px 0;padding-inline:var(--pad);display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:18px;scroll-margin-top:60px}
-.sheet + .sheet{margin-top:18px}
-.sheet::before,.sheet::after{content:"";position:absolute;pointer-events:none;border:0 solid var(--ink)}
-.sheet::before{inset:-1px -7px;border-block-width:1px}
-.sheet::after{inset:-7px -1px;border-inline-width:1px}
-.st{grid-column:2;grid-row:1;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-.st__no{font-family:var(--mono);font-size:12px;color:var(--cedar-d);border-bottom:1px solid var(--cedar);padding-bottom:3px;line-height:1.4}
-.st__h{writing-mode:vertical-rl;text-orientation:mixed;height:9em;font-size:26px;line-height:1.38;letter-spacing:.08em;font-weight:600}
-.st__h span{display:inline-block}
-.lede{grid-column:1;grid-row:1;align-self:start;padding-top:30px}
-.lede p + p{margin-top:.9em}
-.body{grid-column:1/-1;grid-row:2;margin-top:34px;min-width:0}
-.tb{grid-column:1/-1;grid-row:3;justify-self:end;display:flex;margin-top:40px;margin-right:calc(var(--pad) * -1);border-top:1px solid var(--ink);border-left:1px solid var(--ink);font-family:var(--mono);font-size:12px;line-height:1.35;background:var(--paper)}
-.tb div{padding:6px 10px 7px;border-right:1px solid var(--rule)}
-.tb div:last-child{border-right:0}
-.tb dt{font-size:10px;color:var(--ink2);font-family:var(--serif);letter-spacing:.1em}
-.tb dd{white-space:nowrap}
-
-/* photo plate */
-.ph{margin:0;width:min(100%,var(--w))}
-.ph img{width:100%;height:auto;background:var(--print);padding:6px;border:1px solid var(--ink)}
-.ph figcaption{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:7px;line-height:1.5;display:flex;justify-content:space-between;gap:8px}
-
-.btn{display:inline-flex;align-items:center;gap:14px;min-height:50px;padding-inline:20px;background:var(--cedar-d);color:#fff;text-decoration:none;font-family:var(--serif);font-size:15.5px;letter-spacing:.14em;border:0;cursor:pointer;font-weight:600}
-.btn small{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.02em;border-left:1px solid rgba(255,255,255,.5);padding-left:12px}
-.btn:hover{background:var(--ink);color:#fff}
-
-/* ---- A-01 ---- */
-.hero{padding-top:22px}
-.hero .tb{grid-row:auto}
-.hero__h{grid-column:2;grid-row:1;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
-.hero__h h1{writing-mode:vertical-rl;height:8.9em;font-size:clamp(40px,11.5vw,46px);line-height:1.3;letter-spacing:.08em}
-.hero__h h1 span{display:inline-block}
-.hero__meta{grid-column:1;grid-row:1;padding-top:34px}
-.hero__meta .who{font-size:12.5px;color:var(--ink2);letter-spacing:.08em;margin-bottom:14px;line-height:1.7}
-.hero__meta .say{font-size:14.5px}
-.hero__cta{grid-column:1/-1;margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
-.hero__cta .tel{font-family:var(--mono);font-size:13px;display:inline-flex;align-items:center;min-height:44px;color:var(--ink)}
-.hero__plate{grid-column:1/-1;margin-top:34px;--w:300px}
-.hero__index{grid-column:1/-1;margin-top:36px}
-.idx{border-top:1px solid var(--ink)}
-.idx__t{font-size:13px;letter-spacing:.2em;font-weight:600;padding:9px 0 7px;display:flex;justify-content:space-between;align-items:baseline}
-.idx__t span{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.02em;color:var(--ink2)}
-.idx li{border-top:1px solid var(--rule)}
-.idx a{display:grid;grid-template-columns:54px 1fr auto;align-items:center;min-height:44px;color:var(--ink);text-decoration:none;font-size:14.5px;letter-spacing:.08em}
-.idx a .n{font-family:var(--mono);font-size:12px;color:var(--cedar-d);letter-spacing:.02em}
-.idx a .s{font-family:var(--mono);font-size:11px;color:var(--ink2);letter-spacing:.02em}
-.idx a:hover{background:rgba(154,91,52,.1)}
-.idx li[aria-current] a{color:var(--ink2)}
-
-/* ---- A-02 ---- */
-.read{display:grid;gap:30px}
-.read__list li{display:grid;grid-template-columns:34px 44px minmax(0,1fr);column-gap:8px;border-top:1px solid var(--rule);padding-block:14px}
-.read__list li:last-child{border-bottom:1px solid var(--rule)}
-.read__list .n{font-family:var(--mono);font-size:12px;color:var(--cedar-d);padding-top:9px}
-.read__list h3{font-size:25px;line-height:1.5}
-.read__list p{font-size:14.5px}
-.read__list .t{grid-column:3;font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:4px}
-.read__ph{display:flex;gap:18px;align-items:flex-end}
-
-/* ---- A-03 plan ---- */
-.spec{margin-top:20px;border-top:1px solid var(--ink);font-family:var(--mono);font-size:12px;max-width:300px}
-.spec div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--rule);padding-block:5px;line-height:1.5}
-.spec dt{font-family:var(--serif);font-size:12.5px;color:var(--ink2);letter-spacing:.08em}
-.spec dd:last-child{font-family:var(--mono)}
-.spec div:last-child dd{font-family:var(--serif);font-size:12.5px}
-.planwrap{display:grid;gap:22px}
-.planfig{margin:0;margin-inline:-12px}
-.plan{width:100%;height:auto;overflow:visible}
-.plan .d{fill:none;stroke:var(--ink);stroke-linecap:square;vector-effect:none}
-.plan .wo{stroke-width:9}
-.plan .wi{stroke-width:6}
-.plan .th{stroke-width:1}
-.plan .gl{stroke-width:1.6}
-.plan .lf{stroke-width:2.4}
-.plan .fu{stroke-width:1.3}
-.plan .tree{stroke-width:1.6;stroke:var(--cedar)}
-.plan .scr{stroke-width:3}
-.plan .site{stroke-width:1.2;stroke:var(--ink2)}
-.plan .gate{stroke-width:2}
-.plan .dash{stroke-width:.9;stroke:var(--ink2)}
-.plan .dm,.plan .ex{stroke-width:.9;stroke-linecap:butt}
-.plan .tk{stroke-width:1.8;stroke-linecap:butt}
-.plan .ink,.plan .lb{pointer-events:none}
-.plan text{font-family:var(--serif);fill:var(--ink);text-anchor:middle;font-size:25px;font-weight:600;letter-spacing:.04em}
-.plan text.mn{font-family:var(--mono);font-weight:400;font-size:21px;letter-spacing:0}
-.plan text.sm{font-size:17px}
-.plan text.sub{font-size:18px;font-weight:400;fill:var(--ink2)}
-.plan text.end{text-anchor:end}
-.plan text.on{fill:var(--cedar-d)}
-.room{cursor:pointer;outline:none}
-.room rect{fill:rgba(154,91,52,0);stroke:none}
-.room:hover rect{fill:rgba(154,91,52,.1)}
-.room[aria-pressed="true"] rect{fill:rgba(154,91,52,.24)}
-.room:focus-visible rect{stroke:var(--cedar);stroke-width:5;stroke-dasharray:10 6}
-html.mo .plan:not(.is-done) .d{stroke-dasharray:1 2;stroke-dashoffset:1.01;stroke-linecap:butt}
-html.mo .plan:not(.is-done) .lb{visibility:hidden}
-html.mo .plan.is-go:not(.is-done) .d{stroke-dashoffset:0;transition:stroke-dashoffset .5s linear var(--t)}
-html.mo .plan.is-go:not(.is-done) .lb{visibility:visible;transition:visibility 0s linear 2.85s}
-.planfig figcaption{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:6px;padding-inline:12px}
-.notes{background:var(--panel);border:1px solid var(--ink);padding:16px 16px 10px}
-.notes__t{font-size:13px;letter-spacing:.18em;font-weight:600;display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
-.notes__t span{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.02em}
-.notes li{border-top:1px solid rgba(34,37,42,.4)}
-.notes h3{font-size:inherit}
-.notes button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:1fr auto;align-items:center;width:100%;min-height:46px;cursor:pointer;font-family:var(--serif);font-size:16px;font-weight:600;letter-spacing:.1em;color:var(--ink)}
-.notes button .a{font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.02em}
-.notes button:focus-visible{outline:2px solid var(--cedar-d);outline-offset:1px}
-.notes button:hover{color:var(--cedar-d)}
-.notes .note{font-size:14.5px;line-height:1.9;padding-bottom:14px}
-html.js .notes li:not(.is-on) .note{display:none}
-.notes li.is-on button{color:#6B3A1D}
-.notes li.is-on button::before{content:"";grid-column:1/-1;height:3px;background:var(--cedar-d);margin-top:-1px}
-
-/* ---- A-04 works ---- */
-.works__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);margin-bottom:22px}
-.works__bar .mono{color:var(--ink2)}
-.works__nav{display:flex}
-.works__nav button{all:unset;box-sizing:border-box;width:52px;height:46px;display:grid;place-items:center;cursor:pointer;border-left:1px solid var(--rule);color:var(--ink)}
-.works__nav button:hover{background:var(--ink);color:var(--paper)}
-.works__nav button:focus-visible{outline:2px solid var(--cedar);outline-offset:-2px}
-.works__nav button[disabled]{color:rgba(34,37,42,.3);cursor:default;background:none}
-.works__nav svg{width:22px;height:12px;fill:none;stroke:currentColor;stroke-width:1.2}
-.strip{display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding-bottom:18px;margin-right:calc(var(--pad) * -1);padding-right:var(--pad);scrollbar-width:thin;scrollbar-color:var(--ink) transparent}
-.strip:focus-visible{outline-offset:6px}
-.plate{flex:0 0 min(300px,76vw);scroll-snap-align:start;display:grid;grid-template-rows:330px auto;border-right:1px solid var(--rule);padding-right:26px}
-.plate:last-child{border-right:0}
-.plate__ph{display:flex;align-items:flex-end}
-.plate__no{font-family:var(--mono);font-size:12px;color:var(--cedar-d);margin-top:16px}
-.plate h3{font-size:22px;letter-spacing:.1em;line-height:1.5;margin-top:2px}
-.plate dl{font-family:var(--mono);font-size:12px;margin-top:10px;border-top:1px solid var(--rule)}
-.plate dl div{display:flex;justify-content:space-between;border-bottom:1px solid var(--rule);padding-block:5px;line-height:1.5}
-.plate dt{font-family:var(--serif);font-size:12.5px;color:var(--ink2);letter-spacing:.08em}
-.plate p{font-size:14.5px;margin-top:12px}
-.works__note{font-size:12.5px;color:var(--ink2);margin-top:14px}
-
-/* ---- A-05 materials ---- */
-.mat li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:4px 14px;border-top:1px solid var(--ink);padding-block:18px}
-.mat li:last-child{border-bottom:1px solid var(--ink)}
-.mat .k{font-family:var(--mono);font-size:12px;color:var(--cedar-d);grid-column:1;grid-row:1}
-.mat h3{grid-column:1;grid-row:2;font-size:38px;line-height:1.15;font-weight:400}
-.mat h3.long{font-size:15px;line-height:1.5;font-weight:600;letter-spacing:.06em;writing-mode:vertical-rl;height:7.2em;justify-self:start;padding-left:10px}
-.mat .ph{grid-column:2;grid-row:1/span 2;--w:260px}
-.mat .tx{grid-column:1/-1;margin-top:10px}
-.mat .tx p{font-size:14.5px}
-.mat .tx .sp{font-family:var(--mono);font-size:11.5px;color:var(--ink2);margin-top:4px}
-.mat .tx .sp b{font-family:var(--serif);font-weight:400;font-size:12.5px}
-
-/* ---- A-06 dark ---- */
-.sheet--dark{background-color:var(--ink);color:var(--pale);background-image:linear-gradient(rgba(228,229,225,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(228,229,225,.05) 1px,transparent 1px);background-size:24px 24px}
-.sheet--dark .st__no{color:var(--cedar-l);border-color:var(--cedar-l)}
-.sheet--dark .tb{background:var(--ink);border-color:var(--pale2)}
-.sheet--dark .tb div{border-color:rgba(228,229,225,.3)}
-.sheet--dark .tb dt{color:var(--pale2)}
-.sheet--dark :focus-visible{outline-color:var(--cedar-l)}
-.light{display:grid;gap:34px}
-.dk{width:100%;height:auto;overflow:visible}
-.dk *{fill:none;stroke:var(--pale);stroke-width:1.1;stroke-linecap:square}
-.dk .hv{stroke-width:4}
-.dk .md{stroke-width:2}
-.dk .fn{stroke-width:.7;stroke:var(--pale2)}
-.dk .ds{stroke-dasharray:3 5;stroke-width:.8;stroke:var(--pale2)}
-.dk .fill{fill:rgba(228,229,225,.12);stroke:none}
-.dk .ac{stroke:var(--cedar-l)}
-.dk .beam{fill:rgba(221,167,120,.22);stroke:none}
-.dk .sun{fill:var(--cedar-l);stroke:none}
-.dk text{font-family:var(--mono);font-size:14px;fill:var(--pale);stroke:none;letter-spacing:0}
-.dk text.j{font-family:var(--serif);font-size:15px;letter-spacing:.06em}
-.dk--sec text,.dk--sec text.j{font-size:21px}
-.dk text.q{fill:var(--pale2)}
-.dk text.c{fill:var(--cedar-l)}
-.dk text.mid{text-anchor:middle}
-.light figure{margin:0}
-.light__tx figure{max-width:340px}
-.light figcaption{font-family:var(--mono);font-size:11px;color:var(--pale2);margin-top:8px}
-.readout{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;border:1px solid var(--pale2);margin-top:14px;font-family:var(--mono);font-size:14px;width:fit-content;max-width:100%}
-.readout div{padding:7px 12px 8px;border-right:1px solid rgba(228,229,225,.3)}
-.readout div:last-child{border-right:0}
-.readout dt{font-family:var(--serif);font-size:11px;color:var(--pale2);letter-spacing:.08em;line-height:1.5}
-.readout dd{color:var(--cedar-l);white-space:nowrap;line-height:1.5}
-.light__tx p + p{margin-top:.9em}
-.light__tx{font-size:14.5px}
-
-/* ---- A-07 process ---- */
-.chain{display:grid;grid-template-columns:1.5fr 2.5fr 5fr 7fr;margin-bottom:6px;padding-inline:6px}
-.chain span{position:relative;border-top:1px solid var(--ink);margin-top:9px;padding-top:8px;font-family:var(--mono);font-size:11.5px;text-align:center;line-height:1.3;color:var(--cedar-d)}
-.chain span::before,.chain span:last-child::after{content:"";position:absolute;top:-9px;left:-1px;width:1px;height:17px;background:var(--ink);transform:rotate(45deg)}
-.chain span:last-child::after{left:auto;right:-1px}
-.chain__sum{font-family:var(--mono);font-size:11.5px;color:var(--ink2);text-align:right;margin-bottom:26px}
-.steps li{display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:10px;border-top:1px solid var(--rule);padding-block:16px}
-.steps li:last-child{border-bottom:1px solid var(--rule)}
-.steps .n{font-family:var(--mono);font-size:12px;color:var(--cedar-d);padding-top:8px}
-.steps h3{font-size:22px;letter-spacing:.14em;line-height:1.5;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.steps h3 small{font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.02em;color:var(--ink2);white-space:nowrap}
-.steps h3 small b{font-family:var(--serif);font-weight:400;font-size:12px}
-.steps p{font-size:14.5px;margin-top:4px}
-.proc__ph{margin-top:30px;--w:400px}
-.proc__note{font-size:12.5px;color:var(--ink2);margin-top:14px}
-
-/* ---- A-08 form ---- */
-.ask{display:grid;gap:30px}
-.form{background:var(--panel);border:1px solid var(--ink)}
-.form .f{display:block;border-bottom:1px solid var(--ink);padding:9px 14px 10px}
-.form label{display:block;font-size:12.5px;letter-spacing:.14em;font-weight:600}
-.form label span{font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.02em;margin-left:8px}
-.form input,.form select,.form textarea{display:block;width:100%;min-height:44px;margin-top:2px;border:0;border-bottom:1px solid rgba(34,37,42,.45);background:transparent;font:inherit;font-size:16px;color:var(--ink);border-radius:0;padding:6px 2px}
-.form textarea{min-height:130px;resize:vertical;line-height:1.8}
-.form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2322252A' stroke-width='1.2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;background-size:12px 8px;padding-right:28px}
-.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible{outline:2px solid var(--cedar-d);outline-offset:2px;background:rgba(247,247,244,.6)}
-.form ::placeholder{color:#555A60;opacity:1}
-.form__end{padding:14px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
-.form__msg{font-size:14.5px;font-weight:600;min-height:1.9em}
-.form__msg:not(:empty){border-left:3px solid var(--cedar-d);padding-left:10px}
-.contact{border-top:1px solid var(--ink)}
-.contact div{display:grid;grid-template-columns:76px 1fr;border-bottom:1px solid var(--rule);padding-block:8px;align-items:center}
-.contact dt{font-size:12.5px;letter-spacing:.14em;color:var(--ink2)}
-.contact dd{font-size:15px}
-.contact a{display:inline-flex;align-items:center;min-height:44px;font-family:var(--mono);font-size:18px;color:var(--ink)}
-
-/* ---- footer ---- */
-.foot{margin:18px var(--m) 28px;border:1px solid var(--ink);position:relative;display:grid;grid-template-columns:1fr 1fr;background:var(--paper)}
-.foot > div{padding:10px 14px 12px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);min-width:0}
-.foot .w{grid-column:1/-1;border-right:0}
-.foot > div:nth-child(odd):not(.w){ }
-.foot .k{font-size:10.5px;letter-spacing:.14em;color:var(--ink2);line-height:1.6}
-.foot .v{font-size:14px;line-height:1.7}
-.foot .v.mono{font-size:12.5px}
-.foot .name{font-size:26px;letter-spacing:.2em;font-weight:600;line-height:1.5}
-.foot .name small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;font-weight:400;margin-left:6px}
-.foot .demo{font-size:12.5px;border-bottom:0}
-.foot a{color:var(--ink);display:inline-flex;align-items:center;min-height:44px}
-.foot .tel{display:inline-flex;align-items:center;min-height:44px}
-
-@media (min-width:600px){
-  :root{--m:16px;--pad:26px}
-  body{font-size:15.5px}
-  .st__h{font-size:32px}
-  .hero__h h1{font-size:60px}
-  .hero__meta .say{font-size:16px;max-width:24em}
-  .lede{max-width:27em}
-  .read{grid-template-columns:minmax(0,1fr) 320px;align-items:start;gap:40px}
-  .mat li{grid-template-columns:90px 260px minmax(0,1fr);align-items:start;column-gap:26px}
-  .mat .tx{grid-column:3;grid-row:1/span 2;margin-top:0}
-  .mat h3.long{font-size:17px}
-  .ask{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:40px}
-  .foot{grid-template-columns:1.4fr 1fr 1fr 1fr}
-  .foot .w{grid-column:auto;border-right:1px solid var(--rule)}
-  .foot .w2{grid-column:span 2}
-  .foot .demo{grid-column:1/-1}
-  .steps{display:grid;grid-template-columns:1fr 1fr;column-gap:34px}
-  .steps li:nth-last-child(2){border-bottom:1px solid var(--rule)}
-  .planwrap{grid-template-columns:minmax(0,1fr)}
-  .dk--sec text{font-size:14px}.dk--sec text.j{font-size:15px}
-  .plan text{font-size:19px}.plan text.mn{font-size:15px}.plan text.sm,.plan text.sub{font-size:14px}
-}
-@media (min-width:900px){
-  :root{--m:28px;--pad:40px}
-  body{padding-left:72px}
-  .rail{position:fixed;inset:0 auto 0 0;width:72px;height:auto;flex-direction:column;align-items:center;border-bottom:0;border-right:1px solid var(--ink);padding:22px 0 0;overflow-y:auto}
-  .rail a{writing-mode:vertical-rl;min-height:0;min-width:44px;justify-content:center}
-  .rail__mark{font-size:20px;letter-spacing:.24em;gap:10px;padding-block:6px}
-  .rail nav{flex:1;align-items:center}
-  .rail ul{flex-direction:column;gap:2px}
-  .rail li.x{display:block}
-  .rail li a{padding:14px 0;font-size:14.5px;letter-spacing:.2em}
-  .rail .rail__cta{margin:0;width:100%;padding:22px 0;font-size:15px;letter-spacing:.24em}
-  .rail__cta .l{display:inline}
-  .sheet{padding-top:40px;column-gap:56px;scroll-margin-top:0}
-  .sheet + .sheet{margin-top:40px}
-  .st{grid-row:1/span 2;gap:16px}
-  .st__h{font-size:40px}
-  .lede{padding-top:6px;font-size:16.5px;max-width:30em}
-  .body{grid-column:1;margin-top:44px}
-  .tb{margin-top:56px;font-size:12.5px}
-  .tb div{padding:8px 16px 9px}
-  .hero{grid-template-columns:290px minmax(0,1fr) auto;column-gap:52px;padding-top:40px}
-  .hero__h{grid-column:3;grid-row:1/span 3}
-  .hero__h h1{font-size:74px}
-  .hero__meta{grid-column:2;grid-row:1;padding-top:8px}
-  .hero__meta .say{font-size:16.5px}
-  .hero__cta{grid-column:2;grid-row:2;align-self:start}
-  .hero__plate{grid-column:2;grid-row:3;--w:350px;margin-top:44px;justify-self:end}
-  .hero__index{grid-column:1;grid-row:1/span 3;align-self:end;margin-top:0}
-  .planwrap{grid-template-columns:minmax(0,1fr) 300px;align-items:start;gap:34px}
-  #a03 .st{grid-row:1}
-  #a03 .body{grid-column:1/-1;margin-top:20px}
-  .planfig{margin-inline:0}
-  .planfig figcaption{padding-inline:0}
-  .notes{margin-top:8px}
-  .light{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:48px;align-items:start}
-  .steps{grid-template-columns:repeat(4,1fr);column-gap:28px}
-  .steps li{display:block;border-bottom:0!important;padding-top:14px}
-  .steps .n{padding-top:0}
-  .steps h3{flex-direction:column;gap:0;font-size:24px}
-  .chain span{font-size:12.5px}
-  .mat li{grid-template-columns:110px 280px minmax(0,1fr);column-gap:40px}
-  .mat .ph{--w:280px}
-  .mat h3{font-size:46px}
-  .foot{margin-bottom:40px}
-  .foot > div{padding:12px 20px 14px}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
-</style>
 </head>
 <body id="top">
 <a class="skip" href="#main">本文へ進む</a>
 
 <header class="rail">
-  <a class="rail__mark" href="#top" aria-label="余白建築 トップへ">余白建築<span aria-hidden="true">YOHAKU</span></a>
-  <nav aria-label="図面の目次">
+  <a class="rail__mark" href="index.html" aria-label="余白建築 ホームへ">余白建築<span aria-hidden="true">YOHAKU</span></a>
+  <a class="rail__cta" href="contact.html"><span class="l">設計の</span>相談</a>
+  <button class="rail__btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="図面リストを開く"><span aria-hidden="true">図面リスト</span><svg class="o" viewBox="0 0 22 14" aria-hidden="true"><path d="M0 1h22M0 7h22M0 13h14"/></svg><svg class="c" viewBox="0 0 22 14" aria-hidden="true"><path d="M4 0l14 14M18 0L4 14"/></svg></button>
+  <nav class="menu" id="menu" aria-label="メインメニュー">
+    <p class="menu__t" aria-hidden="true">図面リスト<span>A – F</span></p>
     <ul>
-      <li class="x"><a href="#a02">考え方</a></li>
-      <li><a href="#a03">平面図</a></li>
-      <li><a href="#a04">作品</a></li>
-      <li class="x"><a href="#a05">素材</a></li>
-      <li class="x"><a href="#a07">進め方</a></li>
+      <li class="x"><a href="index.html" aria-current="page"><span class="n" aria-hidden="true">A</span>表紙<span class="s" aria-hidden="true">A-00</span></a></li>
+<li><a href="approach.html"><span class="n" aria-hidden="true">B</span>考え方<span class="s" aria-hidden="true">B-00</span></a></li>
+<li><a href="works.html"><span class="n" aria-hidden="true">C</span>作品<span class="s" aria-hidden="true">C-00</span></a></li>
+<li><a href="process.html"><span class="n" aria-hidden="true">D</span>進め方と費用<span class="s" aria-hidden="true">D-00</span></a></li>
+<li><a href="office.html"><span class="n" aria-hidden="true">E</span>事務所<span class="s" aria-hidden="true">E-00</span></a></li>
+<li class="cta"><a href="contact.html"><span class="n" aria-hidden="true">F</span>設計の相談<span class="s" aria-hidden="true">F-00</span></a></li>
     </ul>
   </nav>
-  <a class="rail__cta" href="#a08"><span class="l">設計の</span>相談</a>
 </header>
 
 <main id="main">
-
-<!-- A-01 -->
-<section class="sheet hero" id="a01" aria-labelledby="h-a01">
+<!-- A-00 -->
+<section class="sheet hero" id="a00" aria-labelledby="h-a00">
   <div class="hero__h">
-    <p class="st__no">A-01</p>
-    <h1 id="h-a01"><span>暮らしの余白を、</span><span>設計する。</span></h1>
+    <p class="st__no">A-00</p>
+    <h1 id="h-a00"><span>暮らしの余白を、</span><span>設計する。</span></h1>
   </div>
   <div class="hero__meta">
-    <p class="who">余白建築<br>住宅だけを設計する、小さな設計事務所</p>
+    <p class="who">余白建築<br><span class="nb">住宅だけを設計する、</span><span class="nb">小さな設計事務所</span></p>
     <p class="say">家は、部屋を足していくことより、何も置かない場所をどこに残すかで決まると考えています。朝の光が落ちる床。風が抜ける中庭。門から玄関までの数歩。</p>
   </div>
   <div class="hero__cta">
-    <a class="btn" href="#a08">設計の相談<small>A-08</small></a>
+    <a class="btn" href="contact.html">設計の相談<small>F-00</small></a>
     <a class="tel" href="tel:0300000000">03-0000-0000</a>
   </div>
   <figure class="ph hero__plate">
     <!-- 要差し替え：実際の竣工写真 -->
     <img src="img/court.jpg" width="720" height="710" alt="コンクリートの壁と木の軒に囲まれた中庭。株立ちの落葉樹が一本立ち、奥に明かりのついた居間が見える">
-    <figcaption><span>PH-01　中庭を居間の側から見る</span><span>イメージ</span></figcaption>
+    <figcaption><span>PH-01　中庭と暮らす家（W-01）</span><span>イメージ</span></figcaption>
   </figure>
   <nav class="hero__index idx" aria-label="図面リスト">
-    <p class="idx__t">図面リスト<span>全 8 枚</span></p>
+    <p class="idx__t">図面リスト<span>全 8 冊</span></p>
     <ol>
-      <li aria-current="true"><a href="#a01"><span class="n">A-01</span>表紙<span class="s">—</span></a></li>
-      <li><a href="#a02"><span class="n">A-02</span>考え方<span class="s">—</span></a></li>
-      <li><a href="#a03"><span class="n">A-03</span>平面図<span class="s">S=1:100</span></a></li>
-      <li><a href="#a04"><span class="n">A-04</span>作品<span class="s">—</span></a></li>
-      <li><a href="#a05"><span class="n">A-05</span>素材<span class="s">仕上表</span></a></li>
-      <li><a href="#a06"><span class="n">A-06</span>配置と光<span class="s">S=1:200</span></a></li>
-      <li><a href="#a07"><span class="n">A-07</span>進め方<span class="s">工程</span></a></li>
-      <li><a href="#a08"><span class="n">A-08</span>相談<span class="s">—</span></a></li>
+      <li aria-current="true"><a href="index.html"><span class="n">A-00</span>表紙<span class="s">—</span></a></li>
+      <li><a href="approach.html"><span class="n">B-00</span>考え方<span class="s">B-01 – 03</span></a></li>
+      <li><a href="works.html"><span class="n">C-00</span>作品<span class="s">W-01 – 05</span></a></li>
+      <li><a href="work-courtyard.html"><span class="n">C-10</span>中庭と暮らす家<span class="s">S=1:100</span></a></li>
+      <li><a href="process.html"><span class="n">D-00</span>進め方と費用<span class="s">工程</span></a></li>
+      <li><a href="office.html"><span class="n">E-00</span>事務所<span class="s">案内図</span></a></li>
+      <li><a href="contact.html"><span class="n">F-00</span>相談<span class="s">相談票</span></a></li>
+      <li><a href="privacy.html"><span class="n">G-00</span>プライバシーポリシー<span class="s">—</span></a></li>
     </ol>
   </nav>
-  <dl class="tb"><div><dt>図番</dt><dd>A-01</dd></div><div><dt>図面名</dt><dd>表紙</dd></div><div><dt>縮尺</dt><dd>—</dd></div></dl>
+  <dl class="tb"><div><dt>図番</dt><dd>A-00</dd></div><div><dt>図面名</dt><dd>表紙</dd></div><div><dt>縮尺</dt><dd>—</dd></div></dl>
 </section>
 
-<!-- A-02 -->
-<section class="sheet" id="a02" aria-labelledby="h-a02">
-  <div class="st"><p class="st__no">A-02</p><h2 class="st__h" id="h-a02"><span>線を引く前に、</span><span>敷地を読む。</span></h2></div>
+<section class="sheet " id="a01" aria-labelledby="h-a01">
+  <div class="st"><p class="st__no">A-01</p><h2 class="st__h" id="h-a01"><span>線を引く前に、</span><span>敷地を読む。</span></h2></div>
   <div class="lede">
-    <p>図面を描きはじめる前に、敷地へ何度か通います。朝と昼と夕方、できれば雨の日にも。</p>
-    <p>そこで見たことが、窓の位置と軒の深さを決めます。</p>
+    <p>図面を描きはじめる前に、敷地へ何度か通います。朝と昼と夕方、できれば雨の日にも。そこで見たことが、窓の位置と軒の深さを決めます。</p>
+    <p>このサイトは、一組の図面のようにまとめてあります。気になる一冊からお読みください。</p>
   </div>
-  <div class="body read">
-    <ol class="read__list">
-      <li><span class="n">01</span><h3>光</h3><p>朝日がどこから入るか。冬の午後三時、隣の家の影はどこまで伸びてくるか。</p><p class="t">07:00 / 12:00 / 15:00</p></li>
-      <li><span class="n">02</span><h3>風</h3><p>夏の夕方に風が抜けていく向きと、冬の北風がまともに当たる面を確かめます。</p><p class="t">夏 S–SW ／ 冬 N–NW</p></li>
-      <li><span class="n">03</span><h3>隣</h3><p>隣家の窓と勝手口の位置。こちらの食卓と、目が合わない高さを探します。</p><p class="t">h = 1,200 – 2,000</p></li>
-      <li><span class="n">04</span><h3>道</h3><p>門から玄関までの数歩。帰ってきたとき、最初に何が見えるかを決めます。</p><p class="t">門 → 玄関</p></li>
-    </ol>
-    <div class="read__ph">
-      <figure class="ph" style="--w:150px">
-        <!-- 要差し替え：実際の竣工写真 -->
-        <img src="img/eave.jpg" width="300" height="704" loading="lazy" alt="木の軒天とコンクリートの壁。斜めの日差しが壁に影の境目をつくっている">
-        <figcaption><span>PH-02　軒と壁</span></figcaption>
-      </figure>
-      <figure class="ph" style="--w:150px">
-        <!-- 要差し替え：実際の竣工写真 -->
-        <img src="img/hall.jpg" width="566" height="708" loading="lazy" alt="吹き抜けのコンクリート壁に木漏れ日が落ちる居間。手前に木の食卓と椅子">
-        <figcaption><span>PH-03　午後の壁</span></figcaption>
-      </figure>
-    </div>
-  </div>
-  <dl class="tb"><div><dt>図番</dt><dd>A-02</dd></div><div><dt>図面名</dt><dd>考え方</dd></div><div><dt>縮尺</dt><dd>—</dd></div></dl>
-</section>
-
-<!-- A-03 -->
-<section class="sheet" id="a03" aria-labelledby="h-a03">
-  <div class="st"><p class="st__no">A-03</p><h2 class="st__h" id="h-a03"><span>中庭を囲む、</span><span>平屋の平面図。</span></h2></div>
-  <div class="lede">
-    <p>夫婦ふたりのための平屋です。道路のある北側は閉じ、南に開いた中庭を三方から囲みました。</p>
-    <p>部屋に触れると、その部屋と光・風・中庭の関係を読めます。</p>
-    <dl class="spec"><div><dt>敷地面積</dt><dd>168.10㎡</dd></div><div><dt>延床面積</dt><dd>66.25㎡</dd></div><div><dt>構造</dt><dd>木造 平屋</dd></div><div><dt>住む人</dt><dd>夫婦ふたり</dd></div></dl>
-  </div>
-  <div class="body planwrap">
-    <figure class="planfig">
-<svg class="plan" viewBox="-125 -195 790 835" role="group" aria-labelledby="plan-t" xmlns="http://www.w3.org/2000/svg">
-<title id="plan-t">中庭と暮らす家 1階平面図。北側道路の門から玄関に入り、食堂・台所、居間、中庭、廊下、水まわり、寝室がつながる平屋。</title>
-<g class="rooms-hit">
-<g class="room" data-room="living" tabindex="0" role="button" aria-pressed="false" aria-label="居間の説明を表示"><rect x="0" y="0" width="200" height="350"/></g>
-<g class="room" data-room="dk" tabindex="0" role="button" aria-pressed="false" aria-label="食堂・台所の説明を表示"><rect x="200" y="0" width="250" height="150"/></g>
-<g class="room" data-room="genkan" tabindex="0" role="button" aria-pressed="false" aria-label="玄関の説明を表示"><rect x="450" y="0" width="150" height="150"/></g>
-<g class="room" data-room="court" tabindex="0" role="button" aria-pressed="false" aria-label="中庭の説明を表示"><rect x="200" y="150" width="200" height="200"/></g>
-<g class="room" data-room="water" tabindex="0" role="button" aria-pressed="false" aria-label="水まわりの説明を表示"><rect x="450" y="150" width="150" height="200"/></g>
-<g class="room" data-room="bed" tabindex="0" role="button" aria-pressed="false" aria-label="寝室の説明を表示"><rect x="400" y="350" width="200" height="150"/></g>
-</g>
-<g class="ink" aria-hidden="true">
-<g class="st1">
-<rect class="d site" pathLength="1" style="--t:0ms" x="-35" y="-125" width="670" height="675"/>
-<line class="d th" pathLength="1" style="--t:57ms" x1="-125" y1="-125" x2="660" y2="-125"/>
-<rect class="d gate" pathLength="1" style="--t:114ms" x="490.5" y="-129.5" width="9" height="9"/>
-<rect class="d gate" pathLength="1" style="--t:171ms" x="550.5" y="-129.5" width="9" height="9"/>
-<rect class="d th" pathLength="1" style="--t:228ms" x="507.5" y="-112.5" width="35" height="20" rx="3"/>
-<rect class="d th" pathLength="1" style="--t:285ms" x="515" y="-85" width="35" height="20" rx="3"/>
-<rect class="d th" pathLength="1" style="--t:342ms" x="485" y="-55" width="80" height="50.5"/>
-<rect class="d dash" pathLength="1" style="--t:400ms" x="100" y="-115" width="270" height="95"/>
-</g>
-<g class="st2">
-<line class="d wo" pathLength="1" style="--t:350ms" x1="0" y1="0" x2="60" y2="0"/>
-<line class="d wo" pathLength="1" style="--t:381ms" x1="140" y1="0" x2="260" y2="0"/>
-<line class="d wo" pathLength="1" style="--t:413ms" x1="350" y1="0" x2="500" y2="0"/>
-<line class="d wo" pathLength="1" style="--t:445ms" x1="550" y1="0" x2="600" y2="0"/>
-<line class="d wo" pathLength="1" style="--t:476ms" x1="600" y1="0" x2="600" y2="180"/>
-<line class="d wo" pathLength="1" style="--t:508ms" x1="600" y1="210" x2="600" y2="280"/>
-<line class="d wo" pathLength="1" style="--t:540ms" x1="600" y1="325" x2="600" y2="400"/>
-<line class="d wo" pathLength="1" style="--t:571ms" x1="600" y1="460" x2="600" y2="500"/>
-<line class="d wo" pathLength="1" style="--t:603ms" x1="400" y1="500" x2="460" y2="500"/>
-<line class="d wo" pathLength="1" style="--t:635ms" x1="560" y1="500" x2="600" y2="500"/>
-<line class="d wo" pathLength="1" style="--t:666ms" x1="400" y1="150" x2="400" y2="165"/>
-<line class="d wo" pathLength="1" style="--t:698ms" x1="400" y1="335" x2="400" y2="400"/>
-<line class="d wo" pathLength="1" style="--t:730ms" x1="400" y1="465" x2="400" y2="500"/>
-<line class="d wo" pathLength="1" style="--t:761ms" x1="200" y1="150" x2="215" y2="150"/>
-<line class="d wo" pathLength="1" style="--t:793ms" x1="385" y1="150" x2="400" y2="150"/>
-<line class="d wo" pathLength="1" style="--t:825ms" x1="200" y1="150" x2="200" y2="165"/>
-<line class="d wo" pathLength="1" style="--t:856ms" x1="200" y1="335" x2="200" y2="350"/>
-<line class="d wo" pathLength="1" style="--t:888ms" x1="0" y1="350" x2="40" y2="350"/>
-<line class="d wo" pathLength="1" style="--t:920ms" x1="160" y1="350" x2="200" y2="350"/>
-<line class="d wo" pathLength="1" style="--t:951ms" x1="0" y1="0" x2="0" y2="50"/>
-<line class="d wo" pathLength="1" style="--t:983ms" x1="0" y1="120" x2="0" y2="350"/>
-<line class="d wi" pathLength="1" style="--t:1015ms" x1="450" y1="0" x2="450" y2="80"/>
-<line class="d wi" pathLength="1" style="--t:1046ms" x1="450" y1="130" x2="450" y2="200"/>
-<line class="d wi" pathLength="1" style="--t:1078ms" x1="450" y1="240" x2="450" y2="350"/>
-<line class="d wi" pathLength="1" style="--t:1110ms" x1="450" y1="150" x2="600" y2="150"/>
-<line class="d wi" pathLength="1" style="--t:1141ms" x1="400" y1="350" x2="405" y2="350"/>
-<line class="d wi" pathLength="1" style="--t:1173ms" x1="445" y1="350" x2="600" y2="350"/>
-<line class="d wi" pathLength="1" style="--t:1205ms" x1="450" y1="250" x2="465" y2="250"/>
-<line class="d wi" pathLength="1" style="--t:1236ms" x1="505" y1="250" x2="600" y2="250"/>
-<line class="d wi" pathLength="1" style="--t:1268ms" x1="550" y1="150" x2="550" y2="205"/>
-<line class="d wi" pathLength="1" style="--t:1300ms" x1="550" y1="242.5" x2="550" y2="250"/>
-</g>
-<g class="st3">
-<line class="d th" pathLength="1" style="--t:1250ms" x1="60" y1="-4" x2="140" y2="-4"/>
-<line class="d gl" pathLength="1" style="--t:1260ms" x1="60" y1="0" x2="140" y2="0"/>
-<line class="d th" pathLength="1" style="--t:1271ms" x1="60" y1="4" x2="140" y2="4"/>
-<line class="d th" pathLength="1" style="--t:1282ms" x1="260" y1="-4" x2="350" y2="-4"/>
-<line class="d gl" pathLength="1" style="--t:1293ms" x1="260" y1="0" x2="350" y2="0"/>
-<line class="d th" pathLength="1" style="--t:1304ms" x1="260" y1="4" x2="350" y2="4"/>
-<line class="d th" pathLength="1" style="--t:1315ms" x1="596" y1="180" x2="596" y2="210"/>
-<line class="d gl" pathLength="1" style="--t:1326ms" x1="600" y1="180" x2="600" y2="210"/>
-<line class="d th" pathLength="1" style="--t:1336ms" x1="604" y1="180" x2="604" y2="210"/>
-<line class="d th" pathLength="1" style="--t:1347ms" x1="596" y1="280" x2="596" y2="325"/>
-<line class="d gl" pathLength="1" style="--t:1358ms" x1="600" y1="280" x2="600" y2="325"/>
-<line class="d th" pathLength="1" style="--t:1369ms" x1="604" y1="280" x2="604" y2="325"/>
-<line class="d th" pathLength="1" style="--t:1380ms" x1="596" y1="400" x2="596" y2="460"/>
-<line class="d gl" pathLength="1" style="--t:1391ms" x1="600" y1="400" x2="600" y2="460"/>
-<line class="d th" pathLength="1" style="--t:1402ms" x1="604" y1="400" x2="604" y2="460"/>
-<line class="d th" pathLength="1" style="--t:1413ms" x1="460" y1="496" x2="560" y2="496"/>
-<line class="d gl" pathLength="1" style="--t:1423ms" x1="460" y1="500" x2="560" y2="500"/>
-<line class="d th" pathLength="1" style="--t:1434ms" x1="460" y1="504" x2="560" y2="504"/>
-<line class="d th" pathLength="1" style="--t:1445ms" x1="396" y1="165" x2="396" y2="335"/>
-<line class="d gl" pathLength="1" style="--t:1456ms" x1="400" y1="165" x2="400" y2="335"/>
-<line class="d th" pathLength="1" style="--t:1467ms" x1="404" y1="165" x2="404" y2="335"/>
-<line class="d th" pathLength="1" style="--t:1478ms" x1="396" y1="400" x2="396" y2="465"/>
-<line class="d gl" pathLength="1" style="--t:1489ms" x1="400" y1="400" x2="400" y2="465"/>
-<line class="d th" pathLength="1" style="--t:1500ms" x1="404" y1="400" x2="404" y2="465"/>
-<line class="d th" pathLength="1" style="--t:1510ms" x1="215" y1="146" x2="385" y2="146"/>
-<line class="d gl" pathLength="1" style="--t:1521ms" x1="215" y1="150" x2="385" y2="150"/>
-<line class="d th" pathLength="1" style="--t:1532ms" x1="215" y1="154" x2="385" y2="154"/>
-<line class="d th" pathLength="1" style="--t:1543ms" x1="196" y1="165" x2="196" y2="335"/>
-<line class="d gl" pathLength="1" style="--t:1554ms" x1="200" y1="165" x2="200" y2="335"/>
-<line class="d th" pathLength="1" style="--t:1565ms" x1="204" y1="165" x2="204" y2="335"/>
-<line class="d th" pathLength="1" style="--t:1576ms" x1="40" y1="346" x2="160" y2="346"/>
-<line class="d gl" pathLength="1" style="--t:1586ms" x1="40" y1="350" x2="160" y2="350"/>
-<line class="d th" pathLength="1" style="--t:1597ms" x1="40" y1="354" x2="160" y2="354"/>
-<line class="d th" pathLength="1" style="--t:1608ms" x1="-4" y1="50" x2="-4" y2="120"/>
-<line class="d gl" pathLength="1" style="--t:1619ms" x1="0" y1="50" x2="0" y2="120"/>
-<line class="d th" pathLength="1" style="--t:1630ms" x1="4" y1="50" x2="4" y2="120"/>
-<line class="d gl" pathLength="1" style="--t:1641ms" x1="450" y1="80" x2="450" y2="130"/>
-<line class="d gl" pathLength="1" style="--t:1652ms" x1="450" y1="200" x2="450" y2="240"/>
-<line class="d gl" pathLength="1" style="--t:1663ms" x1="550" y1="205" x2="550" y2="242.5"/>
-<line class="d lf" pathLength="1" style="--t:1673ms" x1="500" y1="0" x2="500" y2="-50"/>
-<path class="d th" pathLength="1" style="--t:1684ms" d="M550 0A50.0 50.0 0 0 0 500 -50"/>
-<line class="d lf" pathLength="1" style="--t:1695ms" x1="445" y1="350" x2="445" y2="390"/>
-<path class="d th" pathLength="1" style="--t:1706ms" d="M405 350A40.0 40.0 0 0 0 445 390"/>
-<line class="d lf" pathLength="1" style="--t:1717ms" x1="465" y1="250" x2="465" y2="290"/>
-<path class="d th" pathLength="1" style="--t:1728ms" d="M505 250A40.0 40.0 0 0 1 465 290"/>
-<line class="d scr" pathLength="1" style="--t:1739ms" x1="200" y1="350" x2="335" y2="350"/>
-<line class="d scr" pathLength="1" style="--t:1750ms" x1="380" y1="350" x2="400" y2="350"/>
-</g>
-<g class="st4">
-<line class="d fu" pathLength="1" style="--t:1700ms" x1="450" y1="65" x2="600" y2="65"/>
-<rect class="d fu" pathLength="1" style="--t:1711ms" x="575" y="6" width="20" height="54"/>
-<rect class="d fu" pathLength="1" style="--t:1722ms" x="240" y="6" width="140" height="34"/>
-<rect class="d fu" pathLength="1" style="--t:1733ms" x="257.5" y="12" width="35" height="22" rx="3"/>
-<circle class="d fu" pathLength="1" style="--t:1744ms" cx="342.5" cy="23" r="7.5"/>
-<circle class="d fu" pathLength="1" style="--t:1755ms" cx="362.5" cy="23" r="7.5"/>
-<rect class="d fu" pathLength="1" style="--t:1766ms" x="389" y="6" width="36" height="34"/>
-<line class="d th" pathLength="1" style="--t:1777ms" x1="389" y1="6" x2="425" y2="40"/>
-<rect class="d fu" pathLength="1" style="--t:1788ms" x="270" y="87.5" width="90" height="40"/>
-<rect class="d fu" pathLength="1" style="--t:1800ms" x="287.5" y="73.5" width="19" height="11.5" rx="2"/>
-<rect class="d fu" pathLength="1" style="--t:1811ms" x="287.5" y="130" width="19" height="11.5" rx="2"/>
-<rect class="d fu" pathLength="1" style="--t:1822ms" x="327.5" y="73.5" width="19" height="11.5" rx="2"/>
-<rect class="d fu" pathLength="1" style="--t:1833ms" x="327.5" y="130" width="19" height="11.5" rx="2"/>
-<rect class="d fu" pathLength="1" style="--t:1844ms" x="7.5" y="6" width="167.5" height="19"/>
-<rect class="d fu" pathLength="1" style="--t:1855ms" x="12.5" y="185" width="45" height="110" rx="4"/>
-<line class="d fu" pathLength="1" style="--t:1866ms" x1="25" y1="185" x2="25" y2="295"/>
-<rect class="d fu" pathLength="1" style="--t:1877ms" x="87.5" y="215" width="37.5" height="50" rx="2"/>
-<rect class="d fu" pathLength="1" style="--t:1888ms" x="137.5" y="75" width="35" height="35" rx="6"/>
-<rect class="d fu" pathLength="1" style="--t:1900ms" x="465" y="155" width="70" height="25"/>
-<circle class="d fu" pathLength="1" style="--t:1911ms" cx="500" cy="167.5" r="8.5"/>
-<rect class="d fu" pathLength="1" style="--t:1922ms" x="564" y="157.5" width="22" height="17.5"/>
-<path class="d fu" pathLength="1" style="--t:1933ms" d="M564 175C564 200 586 200 586 175"/>
-<rect class="d fu" pathLength="1" style="--t:1944ms" x="552.5" y="260" width="40" height="82.5" rx="6"/>
-<rect class="d fu" pathLength="1" style="--t:1955ms" x="465" y="355" width="130" height="25"/>
-<line class="d th" pathLength="1" style="--t:1966ms" x1="465" y1="355" x2="595" y2="380"/>
-<rect class="d fu" pathLength="1" style="--t:1977ms" x="485" y="412.5" width="107.5" height="77.5"/>
-<line class="d fu" pathLength="1" style="--t:1988ms" x1="567.5" y1="412.5" x2="567.5" y2="490"/>
-<line class="d fu" pathLength="1" style="--t:2000ms" x1="204.5" y1="177.5" x2="395.5" y2="177.5"/>
-<line class="d th" pathLength="1" style="--t:2011ms" x1="240" y1="154.5" x2="240" y2="177.5"/>
-<line class="d th" pathLength="1" style="--t:2022ms" x1="280" y1="154.5" x2="280" y2="177.5"/>
-<line class="d th" pathLength="1" style="--t:2033ms" x1="320" y1="154.5" x2="320" y2="177.5"/>
-<line class="d th" pathLength="1" style="--t:2044ms" x1="360" y1="154.5" x2="360" y2="177.5"/>
-<circle class="d tree" pathLength="1" style="--t:2055ms" cx="310" cy="250" r="47.5"/>
-<line class="d th" pathLength="1" style="--t:2066ms" x1="310" y1="250" x2="336.3" y2="258.1"/>
-<line class="d th" pathLength="1" style="--t:2077ms" x1="310" y1="250" x2="329" y2="279.4"/>
-<line class="d th" pathLength="1" style="--t:2088ms" x1="310" y1="250" x2="304.7" y2="292.2"/>
-<line class="d th" pathLength="1" style="--t:2100ms" x1="310" y1="250" x2="289.8" y2="268.7"/>
-<line class="d th" pathLength="1" style="--t:2111ms" x1="310" y1="250" x2="275" y2="251.7"/>
-<line class="d th" pathLength="1" style="--t:2122ms" x1="310" y1="250" x2="276.1" y2="224.3"/>
-<line class="d th" pathLength="1" style="--t:2133ms" x1="310" y1="250" x2="303.9" y2="223.2"/>
-<line class="d th" pathLength="1" style="--t:2144ms" x1="310" y1="250" x2="326" y2="218.9"/>
-<line class="d th" pathLength="1" style="--t:2155ms" x1="310" y1="250" x2="349.2" y2="233.5"/>
-<circle class="d fu" pathLength="1" style="--t:2166ms" cx="310" cy="250" r="3.5"/>
-<circle class="d th" pathLength="1" style="--t:2177ms" cx="230" cy="215" r="13"/>
-<circle class="d th" pathLength="1" style="--t:2188ms" cx="372.5" cy="317.5" r="15"/>
-<circle class="d th" pathLength="1" style="--t:2200ms" cx="227.5" cy="242.5" r="9"/>
-<circle class="d th" pathLength="1" style="--t:2211ms" cx="60" cy="410" r="20"/>
-<circle class="d th" pathLength="1" style="--t:2222ms" cx="105" cy="470" r="15"/>
-<circle class="d th" pathLength="1" style="--t:2233ms" cx="270" cy="480" r="22.5"/>
-<circle class="d th" pathLength="1" style="--t:2244ms" cx="20" cy="485" r="14"/>
-<circle class="d th" pathLength="1" style="--t:2255ms" cx="619" cy="100" r="9"/>
-<circle class="d th" pathLength="1" style="--t:2266ms" cx="-19" cy="160" r="10"/>
-<rect class="d th" pathLength="1" style="--t:2277ms" x="345" y="327.5" width="30" height="17.5" rx="3"/>
-<rect class="d th" pathLength="1" style="--t:2288ms" x="350" y="360" width="30" height="17.5" rx="3"/>
-<rect class="d th" pathLength="1" style="--t:2300ms" x="335" y="392.5" width="30" height="17.5" rx="3"/>
-</g>
-<g class="st5">
-<line class="d ex" pathLength="1" style="--t:2250ms" x1="-107.5" y1="0" x2="-47.5" y2="0"/>
-<line class="d ex" pathLength="1" style="--t:2268ms" x1="-72.5" y1="150" x2="-47.5" y2="150"/>
-<line class="d ex" pathLength="1" style="--t:2287ms" x1="-72.5" y1="350" x2="-47.5" y2="350"/>
-<line class="d ex" pathLength="1" style="--t:2306ms" x1="-107.5" y1="500" x2="-47.5" y2="500"/>
-<line class="d dm" pathLength="1" style="--t:2325ms" x1="-62.5" y1="0" x2="-62.5" y2="500"/>
-<line class="d dm" pathLength="1" style="--t:2344ms" x1="-97.5" y1="0" x2="-97.5" y2="500"/>
-<line class="d tk" pathLength="1" style="--t:2363ms" x1="-67.5" y1="5.0" x2="-57.5" y2="-5.0"/>
-<line class="d tk" pathLength="1" style="--t:2382ms" x1="-67.5" y1="155.0" x2="-57.5" y2="145.0"/>
-<line class="d tk" pathLength="1" style="--t:2401ms" x1="-67.5" y1="355.0" x2="-57.5" y2="345.0"/>
-<line class="d tk" pathLength="1" style="--t:2420ms" x1="-67.5" y1="505.0" x2="-57.5" y2="495.0"/>
-<line class="d tk" pathLength="1" style="--t:2439ms" x1="-102.5" y1="5.0" x2="-92.5" y2="-5.0"/>
-<line class="d tk" pathLength="1" style="--t:2458ms" x1="-102.5" y1="505.0" x2="-92.5" y2="495.0"/>
-<line class="d ex" pathLength="1" style="--t:2477ms" x1="0" y1="562.5" x2="0" y2="620"/>
-<line class="d ex" pathLength="1" style="--t:2496ms" x1="200" y1="562.5" x2="200" y2="587.5"/>
-<line class="d ex" pathLength="1" style="--t:2515ms" x1="400" y1="562.5" x2="400" y2="587.5"/>
-<line class="d ex" pathLength="1" style="--t:2534ms" x1="600" y1="562.5" x2="600" y2="620"/>
-<line class="d dm" pathLength="1" style="--t:2553ms" x1="0" y1="577.5" x2="600" y2="577.5"/>
-<line class="d dm" pathLength="1" style="--t:2572ms" x1="0" y1="610" x2="600" y2="610"/>
-<line class="d tk" pathLength="1" style="--t:2591ms" x1="-5.0" y1="582.5" x2="5.0" y2="572.5"/>
-<line class="d tk" pathLength="1" style="--t:2610ms" x1="195.0" y1="582.5" x2="205.0" y2="572.5"/>
-<line class="d tk" pathLength="1" style="--t:2629ms" x1="395.0" y1="582.5" x2="405.0" y2="572.5"/>
-<line class="d tk" pathLength="1" style="--t:2648ms" x1="595.0" y1="582.5" x2="605.0" y2="572.5"/>
-<line class="d tk" pathLength="1" style="--t:2667ms" x1="-5.0" y1="615.0" x2="5.0" y2="605.0"/>
-<line class="d tk" pathLength="1" style="--t:2686ms" x1="595.0" y1="615.0" x2="605.0" y2="605.0"/>
-<circle class="d dm" pathLength="1" style="--t:2705ms" cx="-87.5" cy="-147.5" r="17"/>
-<path class="d dm" pathLength="1" style="--t:2724ms" d="M-87.5 -130.5L-87.5 -172.5M-94.5 -157.5L-87.5 -172.5L-80.5 -157.5"/>
-<line class="d dm" pathLength="1" style="--t:2743ms" x1="525" y1="-150" x2="634.9" y2="-150"/>
-<line class="d dm" pathLength="1" style="--t:2762ms" x1="525" y1="-155" x2="525" y2="-145"/>
-<line class="d dm" pathLength="1" style="--t:2781ms" x1="579.9" y1="-155" x2="579.9" y2="-145"/>
-<line class="d dm" pathLength="1" style="--t:2800ms" x1="634.9" y1="-155" x2="634.9" y2="-145"/>
-</g>
-</g>
-<g class="lb" aria-hidden="true">
-<text x="100" y="152.5" class="rn" data-l="living">居間</text>
-<text x="315" y="68.5" class="rn" data-l="dk">食堂・台所</text>
-<text x="525" y="112.5" class="rn" data-l="genkan">玄関</text>
-<text x="262.5" y="325" class="rn" data-l="court">中庭</text>
-<text x="500" y="225" class="rn" data-l="water">洗面</text>
-<text x="500" y="322.5" class="rn" data-l="water">浴室</text>
-<text x="446" y="480" class="rn" data-l="bed">寝室</text>
-<text x="575" y="230" class="mn sm" data-l="water">WC</text>
-<text x="425" y="265" class="sub" transform="rotate(90 425 260)">廊下</text>
-<text x="130" y="445" class="sub" >庭</text>
-<text x="235" y="-62.5" class="sub" >駐車</text>
-<text x="200" y="-142.5" class="sub" >道路</text>
-<text x="470" y="-136" class="sub" >門</text>
-<text x="-87.5" y="-177.5" class="mn" >N</text>
-<text x="525" y="-160" class="mn sm" >0</text>
-<text x="634.9" y="-160" class="mn sm" >2m</text>
-<text x="612.5" y="537.5" class="sub end" >隣地境界線</text>
-<text x="-69" y="75" class="mn" transform="rotate(-90 -69 75)">2,730</text>
-<text x="-69" y="250" class="mn" transform="rotate(-90 -69 250)">3,640</text>
-<text x="-69" y="425" class="mn" transform="rotate(-90 -69 425)">2,730</text>
-<text x="-104" y="250" class="mn" transform="rotate(-90 -104 250)">9,100</text>
-<text x="100" y="571.5" class="mn" >3,640</text>
-<text x="300" y="571.5" class="mn" >3,640</text>
-<text x="500" y="571.5" class="mn" >3,640</text>
-<text x="300" y="604" class="mn" >10,920</text>
-</g>
-</svg>
-      <figcaption>1階平面図　S=1:100　単位 mm</figcaption>
-    </figure>
-    <div class="notes">
-      <p class="notes__t">室名と覚え書き<span>延床 66.25㎡</span></p>
-      <ul id="rooms">
-        <li data-room="court"><h3><button type="button" aria-expanded="false">中庭<span class="a">13.25㎡</span></button></h3><p class="note">3,640mm角の、屋根のない部屋です。南は格子の塀だけにして、日と風を入れました。落葉樹を一本。夏は葉が日よけになり、冬は枝ごしに日が入ります。</p></li>
-        <li data-room="living"><h3><button type="button" aria-expanded="false">居間<span class="a">23.19㎡</span></button></h3><p class="note">東の大きなガラス戸が中庭に向きます。朝は木漏れ日が床に落ち、午後は庭からの静かな光に変わります。道路側は高窓だけにして、通りの視線を切りました。</p></li>
-        <li data-room="dk"><h3><button type="button" aria-expanded="false">食堂・台所<span class="a">12.42㎡</span></button></h3><p class="note">南が中庭です。冬は低い日差しが食卓まで届き、夏は910mmの軒が日を切ります。食卓につくと、中庭ごしに居間と廊下の気配がわかります。</p></li>
-        <li data-room="bed"><h3><button type="button" aria-expanded="false">寝室<span class="a">9.94㎡</span></button></h3><p class="note">道路からいちばん遠い南東の角。東の窓から朝の光が入り、西の窓は庭に向きます。廊下の突き当たりなので、居間の音が届きにくい位置です。</p></li>
-        <li data-room="water"><h3><button type="button" aria-expanded="false">水まわり<span class="a">9.94㎡</span></button></h3><p class="note">洗面と浴室は東に寄せ、朝日で乾くようにしました。廊下のガラス戸と浴室の窓を開けると、中庭から東へ風が抜けます。</p></li>
-        <li data-room="genkan"><h3><button type="button" aria-expanded="false">玄関<span class="a">7.45㎡</span></button></h3><p class="note">門から扉までは飛び石で三歩ほど。扉を開けると、食堂のガラスごしに中庭の木が斜めに見えます。土間は自転車を一台入れられる奥行きです。</p></li>
-      </ul>
-      <p class="vh" aria-live="polite" id="room-live"></p>
-    </div>
-  </div>
-  <dl class="tb"><div><dt>図番</dt><dd>A-03</dd></div><div><dt>図面名</dt><dd>平面図</dd></div><div><dt>縮尺</dt><dd>S=1:100</dd></div></dl>
-</section>
-
-<!-- A-04 -->
-<section class="sheet" id="a04" aria-labelledby="h-a04">
-  <div class="st"><p class="st__no">A-04</p><h2 class="st__h" id="h-a04"><span>敷地ごとに、</span><span>ちがう家。</span></h2></div>
-  <div class="lede">
-    <p>同じ間取りを二度使ったことはありません。敷地がちがえば、光の入り方も隣との距離もちがうからです。</p>
-  </div>
-  <div class="body works">
-    <div class="works__bar">
-      <p class="mono" id="works-count" aria-live="polite">01 / 05</p>
-      <div class="works__nav">
-        <button type="button" id="works-prev" aria-label="前の作品へ" aria-controls="strip"><svg viewBox="0 0 22 12" aria-hidden="true"><path d="M22 6H1M6 1L1 6l5 5"/></svg></button>
-        <button type="button" id="works-next" aria-label="次の作品へ" aria-controls="strip"><svg viewBox="0 0 22 12" aria-hidden="true"><path d="M0 6h21M16 1l5 5-5 5"/></svg></button>
-      </div>
-    </div>
-    <ul class="strip" id="strip" tabindex="0" aria-label="作品一覧（横にスクロールできます）">
-      <li class="plate">
-        <div class="plate__ph"><figure class="ph" style="--w:250px"><!-- 要差し替え：実際の竣工写真 --><img src="img/garden.jpg" width="480" height="604" loading="lazy" alt="中庭の落葉樹ごしに、明かりのついた食堂を見る。コンクリートの壁と大きなガラス"></figure></div>
-        <div><p class="plate__no">W-01</p><h3>中庭と暮らす家</h3>
-        <dl><div><dt>敷地面積</dt><dd>168.10㎡</dd></div><div><dt>延床面積</dt><dd>66.25㎡</dd></div><div><dt>構造</dt><dd>木造 平屋</dd></div></dl>
-        <p>道路側を閉じ、どの部屋からも一本の木が見えるようにした平屋。A-03の平面図の家です。</p></div>
+  <div class="body">
+    <ul class="tz">
+      <li>
+        <p class="k">B-00<span>B-01 – B-03</span></p>
+        <h3>考え方</h3>
+        <p>光・風・隣・道。敷地で何を見て、それを図面のどこに写すのか。木とコンクリートと石が十年でどう変わるか。そして、お引き受けしていない仕事について。</p>
+        <a class="more" href="approach.html">考え方を読む</a>
       </li>
-      <li class="plate">
-        <div class="plate__ph"><figure class="ph" style="--w:290px"><!-- 要差し替え：実際の竣工写真 --><img src="img/hill.jpg" width="428" height="304" loading="lazy" alt="軒下の木の食卓から、遠くの山並みと水面を見下ろす"></figure></div>
-        <div><p class="plate__no">W-02</p><h3>丘の上の家</h3>
-        <dl><div><dt>敷地面積</dt><dd>231.40㎡</dd></div><div><dt>延床面積</dt><dd>98.20㎡</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div></dl>
-        <p>眺めのいい西側は、夏の西日も強い。軒を1,820mm出して、食卓を軒下まで引き出しました。</p></div>
+      <li>
+        <p class="k">C-10<span>S=1:100</span></p>
+        <h3>中庭と暮らす家</h3>
+        <p>夫婦ふたりの平屋を、一枚ずつ読める詳細図にしました。線が引かれていく平面図と、夏至から冬至へ動く太陽の断面図があります。</p>
+        <a class="more" href="work-courtyard.html">平面図をひらく</a>
       </li>
+      <li>
+        <p class="k">D-00<span>13 – 19 か月</span></p>
+        <h3>進め方と費用</h3>
+        <p>はじめてお会いしてから鍵を渡す日まで、四つの段階で何をするか。打ち合わせの回数、設計監理料の考え方と計算の例、お支払いの時期。</p>
+        <a class="more" href="process.html">工程と費用を見る</a>
+      </li>
+      <li>
+        <p class="k">E-00<span>案内図</span></p>
+        <h3>事務所</h3>
+        <p>設計者のこと、所員四人の小さな体制、開いている時間、駅からの道順。土地探しや予算など、よくいただく質問にもここで答えています。</p>
+        <a class="more" href="office.html">事務所の案内へ</a>
+      </li>
+    </ul>
+  </div>
+  <dl class="tb"><div><dt>図番</dt><dd>A-01</dd></div><div><dt>図面名</dt><dd>図面の案内</dd></div><div><dt>縮尺</dt><dd>—</dd></div></dl>
+</section>
+
+<section class="sheet " id="a02" aria-labelledby="h-a02">
+  <div class="st"><p class="st__no">A-02</p><h2 class="st__h" id="h-a02"><span>敷地ごとに、</span><span>ちがう家。</span></h2></div>
+  <div class="lede">
+    <p>同じ間取りを二度使ったことはありません。敷地がちがえば、光の入り方も隣との距離もちがうからです。五つの家のうち、三つを抜き出しました。</p>
+  </div>
+  <div class="body">
+    <ul class="plates">
       <li class="plate">
-        <div class="plate__ph"><figure class="ph" style="--w:270px"><!-- 要差し替え：実際の竣工写真 --><img src="img/alley.jpg" width="360" height="304" loading="lazy" alt="高い壁に囲まれた小さな庭。細い木が一本と、コンクリートの腰掛け"></figure></div>
-        <div><p class="plate__no">W-03</p><h3>路地の家</h3>
-        <dl><div><dt>敷地面積</dt><dd>72.60㎡</dd></div><div><dt>延床面積</dt><dd>89.40㎡</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div></dl>
-        <p>三方を隣家に囲まれた細長い敷地。奥に畳三枚ほどの庭をとり、空からの光を一階まで落としています。</p></div>
+        <div class="plate__ph"><figure class="ph" style="--w:290px"><!-- 要差し替え：実際の竣工写真 --><img src="img/approach.jpg" width="600" height="434" loading="lazy" alt="山を背にした平屋。砂利の庭の先に、木の軒とコンクリートの壁、軒下の食卓が見える"></figure></div>
+        <p class="plate__no">W-05</p><h3><a href="works.html#w05">山裾の家</a></h3>
+        <dl><div><dt>延床面積</dt><dd>84.30㎡</dd></div><div><dt>構造</dt><dd>木造 平屋</dd></div></dl>
+        <p>山から下りてくる夕方の風を、家の真ん中に通しました。</p>
       </li>
       <li class="plate">
         <div class="plate__ph"><figure class="ph" style="--w:290px"><!-- 要差し替え：実際の竣工写真 --><img src="img/terrace.jpg" width="712" height="532" loading="lazy" alt="深い木の軒の下に続く石敷きの縁。ガラス戸の外に砂利の庭と若い木"></figure></div>
-        <div><p class="plate__no">W-04</p><h3>軒の深い家</h3>
-        <dl><div><dt>敷地面積</dt><dd>305.00㎡</dd></div><div><dt>延床面積</dt><dd>112.70㎡</dd></div><div><dt>構造</dt><dd>木造 平屋</dd></div></dl>
-        <p>雨の日も窓を開けておきたい、という一言から始まりました。軒下の縁は、濡れずに歩ける外の廊下です。</p></div>
+        <p class="plate__no">W-04</p><h3><a href="works.html#w04">軒の深い家</a></h3>
+        <dl><div><dt>延床面積</dt><dd>112.70㎡</dd></div><div><dt>構造</dt><dd>木造 平屋</dd></div></dl>
+        <p>雨の日も窓を開けておきたい、という一言から始まりました。</p>
       </li>
       <li class="plate">
-        <div class="plate__ph"><figure class="ph" style="--w:290px"><!-- 要差し替え：実際の竣工写真 --><img src="img/approach.jpg" width="600" height="434" loading="lazy" alt="山を背にした平屋。砂利の庭の先に、木の軒とコンクリートの壁、軒下の食卓が見える"></figure></div>
-        <div><p class="plate__no">W-05</p><h3>山裾の家</h3>
-        <dl><div><dt>敷地面積</dt><dd>412.50㎡</dd></div><div><dt>延床面積</dt><dd>84.30㎡</dd></div><div><dt>構造</dt><dd>木造 平屋</dd></div></dl>
-        <p>山から下りてくる夕方の風を、家の真ん中に通しました。門から玄関まで、砂利を踏んで十二歩あります。</p></div>
+        <div class="plate__ph"><figure class="ph" style="--w:250px"><!-- 要差し替え：実際の竣工写真 --><img src="img/alley.jpg" width="360" height="304" loading="lazy" alt="高い壁に囲まれた小さな庭。細い木が一本と、コンクリートの腰掛け"></figure></div>
+        <p class="plate__no">W-03</p><h3><a href="works.html#w03">路地の家</a></h3>
+        <dl><div><dt>延床面積</dt><dd>89.40㎡</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div></dl>
+        <p>三方を隣家に囲まれた敷地で、空からの光を一階まで落としました。</p>
       </li>
     </ul>
-    <p class="works__note">※ 作品名・面積はすべて架空のものです。</p>
+    <p style="margin-top:26px"><a class="more" href="works.html">五つの作品をすべて見る</a></p>
+    <p class="note">※ 作品名・面積はすべて架空のものです。</p>
   </div>
-  <dl class="tb"><div><dt>図番</dt><dd>A-04</dd></div><div><dt>図面名</dt><dd>作品</dd></div><div><dt>縮尺</dt><dd>—</dd></div></dl>
+  <dl class="tb"><div><dt>図番</dt><dd>A-02</dd></div><div><dt>図面名</dt><dd>作品抄</dd></div><div><dt>縮尺</dt><dd>—</dd></div></dl>
 </section>
 
-<!-- A-05 -->
-<section class="sheet" id="a05" aria-labelledby="h-a05">
-  <div class="st"><p class="st__no">A-05</p><h2 class="st__h" id="h-a05"><span>年をとる</span><span>素材を選ぶ。</span></h2></div>
+<section class="sheet " id="a03" aria-labelledby="h-a03">
+  <div class="st"><p class="st__no">A-03</p><h2 class="st__h" id="h-a03"><span>お知らせと、</span><span>事務所のこと。</span></h2></div>
   <div class="lede">
-    <p>新しいときがいちばんきれいな素材は、なるべく使いません。十年後の夕方に、どう見えるかで選びます。</p>
+    <p>所員四人の小さな事務所です。一年にお引き受けできるのは、三軒から四軒ほど。打ち合わせは予約制で、事務所の二階でおこないます。</p>
   </div>
-  <div class="body">
-    <ul class="mat">
-      <li>
-        <p class="k">W-1</p><h3>木</h3>
-        <figure class="ph"><!-- 要差し替え：実際の素材写真 --><img src="img/wood.jpg" width="398" height="176" loading="lazy" alt="節のある木の板。斜めに日が当たり、木目が浮き出ている"></figure>
-        <div class="tx"><p>傷も日焼けも、十年たつとその家の色になります。素足で歩く床と、見上げる軒の裏に。</p><p class="sp"><b>使う場所</b>　床・軒天・建具</p></div>
-      </li>
-      <li>
-        <p class="k">C-1</p><h3 class="long">コンクリート</h3>
-        <figure class="ph"><!-- 要差し替え：実際の素材写真 --><img src="img/concrete.jpg" width="470" height="176" loading="lazy" alt="打放しコンクリートの壁。型枠の跡と、木の葉の影"></figure>
-        <div class="tx"><p>午前と午後で、同じ壁の表情が変わります。影を受けとめる面として、中庭のまわりに。</p><p class="sp"><b>使う場所</b>　塀・土間・基礎の立ち上がり</p></div>
-      </li>
-      <li>
-        <p class="k">S-1</p><h3>石</h3>
-        <figure class="ph"><!-- 要差し替え：実際の素材写真 --><img src="img/stone.jpg" width="472" height="176" loading="lazy" alt="割り肌の灰色の石。ざらついた表面に光が当たっている"></figure>
-        <div class="tx"><p>雨の日にいちばんきれいに見える素材です。濡れた色を、玄関までの足もとに。</p><p class="sp"><b>使う場所</b>　飛び石・中庭・玄関の土間</p></div>
-      </li>
-    </ul>
-  </div>
-  <dl class="tb"><div><dt>図番</dt><dd>A-05</dd></div><div><dt>図面名</dt><dd>素材</dd></div><div><dt>縮尺</dt><dd>仕上表</dd></div></dl>
-</section>
-
-<!-- A-06 -->
-<section class="sheet sheet--dark" id="a06" aria-labelledby="h-a06">
-  <div class="st"><p class="st__no">A-06</p><h2 class="st__h" id="h-a06"><span>軒の深さは、</span><span>太陽で決める。</span></h2></div>
-  <div class="lede">
-    <p>夏の正午、太陽はほぼ真上に来ます。冬は低く、部屋の奥まで差しこみます。軒の出は、そのあいだで決めます。</p>
-  </div>
-  <div class="body light">
-    <figure id="sunfig">
-      <svg class="dk dk--sec" viewBox="0 -52 640 452" role="img" aria-labelledby="sec-t">
-        <title id="sec-t">食堂と中庭を南北に切った断面図。軒の先を通る日差しが、夏至は軒下で止まり、冬至は食堂の奥まで届く。</title>
-        <path class="fn" d="M0 360H640"/>
-        <path class="fn" d="M20 360l-8 10M70 360l-8 10M330 360l-8 10M430 360l-8 10M520 360l-8 10M610 360l-8 10"/>
-        <path class="md" d="M60 300V360"/>
-        <path class="fill" d="M106 340H264V360H106z"/>
-        <path class="hv" d="M110 208V340"/>
-        <path d="M260 208V340M264 208V340"/>
-        <path d="M110 340H310V360"/>
-        <path class="fill" d="M96 192H310V208H96z"/>
-        <path class="md" d="M96 192H310V208H96z"/>
-        <path d="M168 300h50M174 300v40M212 300v40M152 340v-26h12v26M152 314v-22M193 208v38M183 256h20l-6-10h-8z"/>
-        <path d="M385 360V282M385 300l-14-26M385 290l16-30M385 282l-4-34"/>
-        <circle cx="385" cy="246" r="34" class="ds"/><circle cx="366" cy="262" r="18" class="ds"/><circle cx="404" cy="254" r="20" class="ds"/>
-        <path class="md" d="M460 261V360"/>
-        <path class="md" d="M590 296V360"/>
-        <path class="fn" d="M260 176H310M260 170v12M310 170v12"/>
-        <text x="285" y="166" class="mid">910</text>
-        <path class="fn" d="M86 208V340M80 208h12M80 340h12"/>
-        <text x="76" y="278" class="mid" transform="rotate(-90 76 274)">2,400</text>
-        <text x="30" y="352" class="j q mid">道路</text>
-        <text x="236" y="332" class="j mid">食堂</text>
-        <text x="348" y="352" class="j mid">中庭</text>
-        <text x="525" y="352" class="j q mid">庭</text>
-        <text x="110" y="184" class="j q">北</text>
-        <text x="600" y="184" class="j q">南</text>
-        <path class="ds" d="M388.7 -8.1A230 230 0 0 1 526.1 129.3"/>
-        <circle cx="357.8" cy="-17" r="3"/><circle cx="444.2" cy="21.2" r="3"/><circle cx="507.6" cy="90.2" r="3"/>
-        <text x="368" y="-28" class="j q">夏至 78°</text>
-        <text x="456" y="16" class="j q">春分・秋分 54°</text>
-        <text x="520" y="88" class="j q">冬至 31°</text>
-        <path class="beam" id="beam" d="M260 277.6L215.1 340H260z"/>
-        <path class="ac" id="ray" d="M444.2 21.2L215.1 340"/>
-        <circle class="sun" id="sun" cx="444.2" cy="21.2" r="9"/>
-        <path class="ac md" id="lit" d="M215.1 340H260"/>
-        <path class="ac" id="shd" d="M215.1 378H310M215.1 372v12M310 372v12"/>
-        <text x="262.5" y="396" class="c mid" id="shd-t">軒の影 1,730</text>
-      </svg>
-      <dl class="readout" aria-hidden="true">
-        <div><dt>正午の太陽高度</dt><dd id="r-alt">54°</dd></div>
-        <div><dt>軒先からの影</dt><dd id="r-shd">1,730 mm</dd></div>
-        <div><dt>室内に届く日</dt><dd id="r-in">820 mm</dd></div>
-      </dl>
-      <figcaption>断面図　S=1:100　北緯 35.7° の南中高度で作図　<span class="smo">画面を送ると、夏至から冬至へ太陽が下がります</span></figcaption>
-    </figure>
-    <div class="light__tx">
-      <figure>
-<svg class="dk" viewBox="0 0 300 332" role="img" aria-labelledby="site-t">
-<title id="site-t">配置図。北側の道路に面した敷地の北寄りに建物を置き、南に庭を残している。夏の風は南の庭から中庭へ抜ける。</title>
-<path class="fn" d="M0 47.0H300M0 21.0H300"/>
-<text x="150" y="38.0" class="j q mid">道路</text>
-<path d="M33.4 47.0H274.6V290.0H33.4z"/>
-<path class="fill" d="M46.0 92.0L262.0 92.0L262.0 272.0L190.0 272.0L190.0 146.0L118.0 146.0L118.0 218.0L46.0 218.0z"/>
-<path class="md" d="M46.0 92.0L262.0 92.0L262.0 272.0L190.0 272.0L190.0 146.0L118.0 146.0L118.0 218.0L46.0 218.0z"/>
-<circle cx="157.6" cy="182.0" r="17.1" class="ac"/>
-<path class="ds" d="M0 65.0H22.6V200.0H0M300 74.0H287.2V236.0H300M64.0 332V302.6H208.0V332"/>
-<text x="11.8" y="137.0" class="j q mid" transform="rotate(-90 11.8 137.0)">隣家</text>
-<text x="300.2" y="155.0" class="j q mid" transform="rotate(90 296.2 155.0)">隣家</text>
-<text x="136.0" y="324" class="j q mid">隣家</text>
-<path class="ac" d="M157.6 282.8C143.2 254.0 172.0 236.0 157.6 207.2M150.4 216.2L157.6 207.2L167.5 214.4"/>
-<text x="170.2" y="264.8" class="j c">夏の風</text>
-<text x="82.0" y="126.2" class="j mid">建物</text>
-<text x="85.6" y="259.4" class="j q mid">庭</text>
-<circle cx="24" cy="26" r="11" class="fn"/><path d="M24 37V12M20 19l4-7 4 7"/><text x="42" y="22">N</text>
-</svg>
-        <figcaption>配置図　S=1:200</figcaption>
-      </figure>
-      <p style="margin-top:18px">この家の軒の出は910mm。夏至の正午、日差しは軒下の縁で止まり、室内には入りません。冬至には、同じ軒の下を通って食堂の奥の壁まで届きます。</p>
-      <p>建物は敷地の北に寄せ、南に庭を残しました。夏の南風は、庭から中庭を通って家のなかへ入ります。</p>
-    </div>
-  </div>
-  <dl class="tb"><div><dt>図番</dt><dd>A-06</dd></div><div><dt>図面名</dt><dd>配置と光</dd></div><div><dt>縮尺</dt><dd>S=1:200</dd></div></dl>
-</section>
-
-<!-- A-07 -->
-<section class="sheet" id="a07" aria-labelledby="h-a07">
-  <div class="st"><p class="st__no">A-07</p><h2 class="st__h" id="h-a07"><span>対話から、</span><span>鍵を渡す日まで。</span></h2></div>
-  <div class="lede">
-    <p>はじめてお会いしてから住みはじめるまで、一年と少しかかります。長さの目安を、寸法線にしました。</p>
-  </div>
-  <div class="body">
-    <div class="chain" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span></div>
-    <p class="chain__sum">全体の目安　13 – 19 か月</p>
-    <ol class="steps">
-      <li><span class="n">01</span><div><h3>対話<small><b>目安</b> 1–2 か月</small></h3><p>いまの暮らしを、朝起きてから寝るまで聞かせてください。敷地が決まっていれば、一緒に歩きます。</p></div></li>
-      <li><span class="n">02</span><div><h3>計画<small><b>目安</b> 2–3 か月</small></h3><p>敷地を読み、部屋の並びと庭の位置を決めます。1:100の図面と模型で、光の入り方を確かめます。</p></div></li>
-      <li><span class="n">03</span><div><h3>設計<small><b>目安</b> 4–6 か月</small></h3><p>窓の高さ、軒の出、棚の奥行きまで図面にします。工事の見積もりも、この段階で整えます。</p></div></li>
-      <li><span class="n">04</span><div><h3>施工<small><b>目安</b> 6–8 か月</small></h3><p>工事のあいだは週に一度現場へ通い、図面どおりにできているかを確かめます。完成したら、鍵をお渡しします。</p></div></li>
-    </ol>
-    <p class="proc__note">※ 期間は敷地の条件や規模によって変わります。</p>
-    <figure class="ph proc__ph">
-      <!-- 要差し替え：実際の竣工写真 -->
-      <img src="img/living.jpg" width="924" height="546" loading="lazy" alt="木の天井の居間と食堂。大きなガラス戸の外に、塀に囲まれた庭の木が見える">
-      <figcaption><span>PH-04　食卓から庭を見る</span><span>イメージ</span></figcaption>
-    </figure>
-  </div>
-  <dl class="tb"><div><dt>図番</dt><dd>A-07</dd></div><div><dt>図面名</dt><dd>進め方</dd></div><div><dt>縮尺</dt><dd>工程</dd></div></dl>
-</section>
-
-<!-- A-08 -->
-<section class="sheet" id="a08" aria-labelledby="h-a08">
-  <div class="st"><p class="st__no">A-08</p><h2 class="st__h" id="h-a08"><span>まだ曖昧な</span><span>ままで、どうぞ。</span></h2></div>
-  <div class="lede">
-    <p>土地が決まっていなくても、建てるかどうか迷っていても構いません。朝はどこで過ごしたいか、というくらいの話から始めます。</p>
-  </div>
-  <div class="body ask">
+  <div class="body cols">
     <div>
-      <dl class="contact">
-        <div><dt>電話</dt><dd><a href="tel:0300000000">03-0000-0000</a></dd></div>
-        <div><dt>受付</dt><dd>10:00 – 18:00（水曜・日曜 定休）</dd></div>
-        <div><dt>所在地</dt><dd>東京都○○区○○ 1-2-3</dd></div>
-        <div><dt>返信</dt><dd>三日以内に、担当者からお返事します。</dd></div>
-      </dl>
+      <p class="sub">お知らせ<span>2026</span></p>
+      <ul class="news">
+        <li><time datetime="2026-09-28">2026.09.28</time><p><b>10月12日（月・祝）は休業します</b>前後の11日（日）は定休日のため、連休となります。メールへのお返事は13日（火）から順にお送りします。</p></li>
+        <li><time datetime="2026-09-07">2026.09.07</time><p><b>10月の土曜相談日について</b>17日と24日の土曜は、午前10時からの枠も設けます。平日にお時間のとりにくい方はご利用ください。</p></li>
+        <li><time datetime="2026-08-24">2026.08.24</time><p><b>電話回線の工事のお知らせ</b>8月28日（金）の13時から15時ごろまで、電話がつながりません。お急ぎの方は相談フォームからお願いします。</p></li>
+      </ul>
     </div>
-    <form class="form" id="form" novalidate>
-      <div class="f"><label for="f-name">お名前<span>01</span></label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-      <div class="f"><label for="f-mail">メールアドレス<span>02</span></label><input id="f-mail" name="email" type="email" autocomplete="email" inputmode="email" required></div>
-      <div class="f"><label for="f-place">建てる場所<span>03</span></label>
-        <select id="f-place" name="place">
-          <option value="">選んでください</option>
-          <option>土地は決まっている（事務所から1時間ほどの範囲）</option>
-          <option>土地は決まっている（それより遠い地域）</option>
-          <option>いまの家を建て替える</option>
-          <option>土地を探しているところ</option>
-          <option>まだ決めていない</option>
-        </select></div>
-      <div class="f"><label for="f-body">相談内容<span>04</span></label><textarea id="f-body" name="body" placeholder="家族の人数、いまの住まいで気になっていること など"></textarea></div>
-      <div class="form__end">
-        <button class="btn" type="submit">相談内容を送る</button>
-        <p class="form__msg" id="form-msg" role="status" aria-live="polite"></p>
-      </div>
-    </form>
+    <div>
+      <p class="sub">事務所<span>E-00</span></p>
+      <dl class="contact">
+        <div><dt>所在地</dt><dd>東京都○○区○○ 1-2-3　2階</dd></div>
+        <div><dt>道順</dt><dd>○○駅 南口から歩いて6分</dd></div>
+        <div><dt>受付</dt><dd>10:00 – 18:00（水曜・日曜 定休）</dd></div>
+        <div><dt>電話</dt><dd><a href="tel:0300000000">03-0000-0000</a></dd></div>
+      </dl>
+      <p style="margin-top:14px"><a class="more" href="office.html">案内図とよくある質問</a></p>
+    </div>
   </div>
-  <dl class="tb"><div><dt>図番</dt><dd>A-08</dd></div><div><dt>図面名</dt><dd>相談</dd></div><div><dt>縮尺</dt><dd>—</dd></div></dl>
+  <dl class="tb"><div><dt>図番</dt><dd>A-03</dd></div><div><dt>図面名</dt><dd>お知らせ・事務所</dd></div><div><dt>縮尺</dt><dd>—</dd></div></dl>
 </section>
+
+<aside class="band" aria-labelledby="band-h">
+  <div><p class="k">NEXT → F-00　相談</p><h2 id="band-h">まだ曖昧なままで、どうぞ。</h2><p class="t">土地が決まっていなくても、建てるかどうか迷っていても構いません。はじめの相談は無料です。</p></div>
+  <div class="band__act"><a class="btn" href="contact.html">設計の相談<small>F-00</small></a><a class="tel" href="tel:0300000000">03-0000-0000</a><span class="hrs">10:00 – 18:00（水・日 定休）</span></div>
+</aside>
 </main>
 
 <footer class="foot">
   <div class="w"><p class="k">設計</p><p class="name">余白建築<small>YOHAKU</small></p></div>
-  <div><p class="k">所在地</p><p class="v">東京都○○区○○ 1-2-3</p></div>
+  <div class="w sm"><p class="k">図面リスト（サイトマップ）</p><ul class="map-l"><li><a href="index.html" aria-current="true"><span>A</span>表紙</a></li><li><a href="approach.html"><span>B</span>考え方</a></li><li><a href="works.html"><span>C</span>作品</a></li><li><a href="work-courtyard.html"><span>C</span>中庭と暮らす家</a></li><li><a href="process.html"><span>D</span>進め方と費用</a></li><li><a href="office.html"><span>E</span>事務所</a></li><li><a href="contact.html"><span>F</span>相談</a></li><li><a href="privacy.html"><span>G</span>プライバシーポリシー</a></li></ul></div>
+  <div class="w"><p class="k">所在地</p><p class="v">東京都○○区○○ 1-2-3　2階</p></div>
   <div><p class="k">電話</p><p class="v mono"><a class="tel" href="tel:0300000000">03-0000-0000</a></p></div>
   <div><p class="k">受付</p><p class="v mono">10:00 – 18:00<br>水・日 定休</p></div>
-  <div class="w2"><p class="k">図面</p><p class="v mono">A-01 – A-08　全 8 枚</p></div>
-  <div class="w w2"><p class="k">相談</p><p class="v"><a href="#a08">設計の相談（A-08）へ</a></p></div>
+  <div class="w"><p class="k">相談</p><p class="v"><a href="contact.html">設計の相談（F-00）へ</a></p></div>
   <div class="w demo"><p>架空の事務所を題材にしたデモサイトです。写真と図面はイメージです。</p></div>
+  <div class="w copy"><p>© 2026 余白建築 YOHAKU</p></div>
 </footer>
 
-<script>
-(function(){
-  var d=document,root=d.documentElement,mo=root.classList.contains('mo');
-  var $=function(s,c){return (c||d).querySelector(s)},$$=function(s,c){return [].slice.call((c||d).querySelectorAll(s))};
-
-  /* plan: draw once, then interactive */
-  var plan=$('.plan'),live=$('#room-live'),items=$$('#rooms li'),groups=$$('.room',plan),labels=$$('[data-l]',plan);
-  function select(key,announce){
-    items.forEach(function(li){var on=li.dataset.room===key;li.classList.toggle('is-on',on);$('button',li).setAttribute('aria-expanded',on)});
-    groups.forEach(function(g){g.setAttribute('aria-pressed',g.dataset.room===key)});
-    labels.forEach(function(t){t.classList.toggle('on',t.dataset.l===key)});
-    if(announce){var li=items.filter(function(l){return l.dataset.room===key})[0];live.textContent=$('button',li).firstChild.textContent+'。'+$('.note',li).textContent}
-  }
-  groups.forEach(function(g){
-    g.addEventListener('click',function(){select(g.dataset.room,true)});
-    g.addEventListener('mouseenter',function(){if(matchMedia('(hover:hover)').matches)select(g.dataset.room,false)});
-    g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();select(g.dataset.room,true)}});
-  });
-  items.forEach(function(li){$('button',li).addEventListener('click',function(){select(li.dataset.room,false)})});
-  if(mo){
-    var io=new IntersectionObserver(function(en){
-      if(en[0].isIntersecting){io.disconnect();plan.classList.add('is-go');setTimeout(function(){plan.classList.add('is-done');select('court',false)},3400)}
-    },{threshold:.3});
-    io.observe(plan);
-  }else select('court',false);
-
-  /* works strip */
-  var strip=$('#strip'),prev=$('#works-prev'),next=$('#works-next'),cnt=$('#works-count'),plates=$$('.plate',strip);
-  function step(){return plates[1].offsetLeft-plates[0].offsetLeft}
-  function cur(){return Math.min(plates.length-1,Math.round(strip.scrollLeft/step()))}
-  function sync(){
-    var end=strip.scrollLeft>=strip.scrollWidth-strip.clientWidth-4,i=end&&strip.scrollLeft>0?plates.length-1:cur();
-    cnt.textContent=('0'+(i+1)).slice(-2)+' / '+('0'+plates.length).slice(-2);
-    prev.disabled=strip.scrollLeft<4;next.disabled=end;
-  }
-  function go(n){strip.scrollTo({left:(cur()+n)*step(),behavior:mo?'smooth':'auto'})}
-  prev.addEventListener('click',function(){go(-1)});next.addEventListener('click',function(){go(1)});
-  strip.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}});
-  var st;strip.addEventListener('scroll',function(){clearTimeout(st);st=setTimeout(sync,60)},{passive:true});
-  sync();
-
-  /* sun */
-  var fig=$('#sunfig'),sun=$('#sun'),ray=$('#ray'),beam=$('#beam'),lit=$('#lit'),shd=$('#shd'),shdT=$('#shd-t'),rA=$('#r-alt'),rS=$('#r-shd'),rI=$('#r-in');
-  function f(n){return Math.round(n*10)/10}
-  function mm(u){return (Math.round(u*18.2/10)*10).toLocaleString('en-US')}
-  function setSun(a){
-    var r=a*Math.PI/180,t=Math.tan(r),sx=310+230*Math.cos(r),sy=208-230*Math.sin(r),xh=310-132/t,hx,hy;
-    if(xh<110){hx=110;hy=208+200*t}else{hx=xh;hy=340}
-    sun.setAttribute('cx',f(sx));sun.setAttribute('cy',f(sy));
-    ray.setAttribute('d','M'+f(sx)+' '+f(sy)+'L'+f(hx)+' '+f(hy));
-    var yg=208+50*t;
-    if(yg<340){beam.setAttribute('d',xh<110?'M260 '+f(yg)+'L110 '+f(hy)+'V340H260z':'M260 '+f(yg)+'L'+f(xh)+' 340H260z');lit.setAttribute('d','M'+f(Math.max(xh,110))+' 340H260')}
-    else{beam.setAttribute('d','');lit.setAttribute('d','')}
-    var x0=Math.max(xh,110);
-    shd.setAttribute('d','M'+f(x0)+' 378H310M'+f(x0)+' 372v12M310 372v12');
-    shdT.setAttribute('x',f((x0+310)/2));shdT.textContent=(310-x0<70?'':'軒の影 ')+mm(132/t);
-    rA.textContent=Math.round(a)+'°';rS.textContent=mm(132/t)+' mm';rI.textContent=xh>=260?'0 mm':(xh<=110?'奥の壁まで':mm(260-xh)+' mm');
-  }
-  if(mo){
-    var tick=false,vis=false;
-    function upd(){tick=false;var b=fig.getBoundingClientRect(),vh=innerHeight,c=b.top+b.height/2,p=Math.max(0,Math.min(1,(vh*.95-c)/(vh*.8)));setSun(78-47*p)}
-    new IntersectionObserver(function(en){vis=en[0].isIntersecting;if(vis)upd()}).observe(fig);
-    addEventListener('scroll',function(){if(vis&&!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
-    addEventListener('resize',upd);upd();
-  }else{var s=$('.smo');if(s)s.remove()}
-
-  /* form (demo) */
-  $('#form').addEventListener('submit',function(e){e.preventDefault();$('#form-msg').textContent='デモサイトのため、送信はされません。'});
-})();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

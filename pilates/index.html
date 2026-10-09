@@ -5,20 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.className+=' js';</script>
 <title>FORME PILATES｜軸から整える、マットとリフォーマーのピラティス</title>
-<meta name="description" content="FORME PILATES（フォルム ピラティス）は、からだの軸を確かめることを大切にした少人数制のピラティススタジオです。マットとリフォーマーの2種類のクラス、一週間の時間割、はじめての日の流れ、体験レッスンのご予約をご案内します。">
+<meta name="description" content="FORME PILATES（フォルム ピラティス）は、からだの軸を確かめることを大切にした少人数制のピラティススタジオです。クラス、時間割と料金、はじめての日の流れ、体験レッスンのご予約をご案内します。">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#FAFAFC">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="FORME PILATES">
 <meta property="og:title" content="FORME PILATES｜軸から整える、マットとリフォーマーのピラティス">
-<meta property="og:description" content="からだの軸を確かめることを大切にした、少人数制のピラティススタジオ。マットとリフォーマーのクラス、時間割、体験レッスンのご予約。">
+<meta property="og:description" content="FORME PILATES（フォルム ピラティス）は、からだの軸を確かめることを大切にした少人数制のピラティススタジオです。クラス、時間割と料金、はじめての日の流れ、体験レッスンのご予約をご案内します。">
 <meta property="og:image" content="img/hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231E1B2E'/%3E%3Cpath d='M16 4v24' stroke='%238F7BC4' stroke-width='2'/%3E%3Ccircle cx='16' cy='13' r='4' fill='%23FAFAFC'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -41,321 +42,24 @@
   ]
 }
 </script>
-<style>
-:root{
-  --chalk:#FAFAFC; --ink:#1E1B2E; --lilac:#8F7BC4; --lilac-d:#5B4A94; --pale:#ECE7F6; --warm:#F0B79C;
-  --muted:#55516A; --rule:rgba(30,27,46,.14);
-  --ax:20px; --hang:26px; --gut:20px;
-  --bg:var(--chalk);
-  --ease:cubic-bezier(.2,.7,.2,1);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--chalk);color:var(--ink);
-  font-family:'IBM Plex Sans JP','Noto Sans CJK JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
-  font-weight:500;font-size:.9375rem;line-height:1.95;letter-spacing:.02em;
-  -webkit-font-smoothing:antialiased;overflow-wrap:anywhere;line-break:strict}
-img{display:block;max-width:100%;height:auto}
-h1,h2,h3,p,figure,dl,dd,ol,ul{margin:0;padding:0}
-ol,ul{list-style:none}
-a{color:inherit}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-:focus-visible{outline:2px solid var(--lilac-d);outline-offset:3px;border-radius:1px}
-.book :focus-visible{outline-color:var(--pale)}
-.skip{position:absolute;left:8px;top:-80px;z-index:100;background:var(--ink);color:var(--chalk);padding:12px 18px;text-decoration:none}
-.skip:focus{top:8px}
-
-/* ---------- header ---------- */
-.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
-  max-width:1440px;margin:0 auto;padding:10px var(--gut) 10px calc(var(--ax) + var(--hang))}
-.logo{display:inline-flex;align-items:center;gap:.7em;min-height:44px;text-decoration:none;font-size:.8125rem;letter-spacing:.2em;white-space:nowrap}
-.logo i{display:block;width:1px;height:1.5em;background:var(--lilac)}
-.nav{display:flex;align-items:center;gap:4px}
-.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;font-size:.8125rem;
-  background:linear-gradient(var(--lilac),var(--lilac)) no-repeat 12px calc(50% + .95em)/0 1px;transition:background-size .35s var(--ease)}
-.nav a:hover{background-size:calc(100% - 24px) 1px}
-.nav a.sub{display:none}
-.nav a.go{border:1px solid var(--ink);padding:0 16px;background:none;transition:background-color .25s,color .25s}
-.nav a.go:hover{background:var(--ink);color:var(--chalk)}
-
-/* ---------- axis ---------- */
-main{position:relative;max-width:1440px;margin:0 auto}
-.axis{position:absolute;top:0;bottom:0;left:var(--ax);width:1px;margin-left:-.5px;background:rgba(143,123,196,.3);z-index:1;pointer-events:none}
-.axis-fill{position:absolute;inset:0;background:var(--lilac);transform-origin:50% 0}
-html.js .axis-fill{transform:scaleY(0);transition:transform 1.1s cubic-bezier(.65,0,.2,1) .1s;will-change:transform}
-html.js.live .axis-fill{transition:none}
-.node{position:absolute;left:calc(-1 * var(--hang));top:.72em;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;
-  background:var(--lilac);box-shadow:0 0 0 1px var(--lilac),0 0 0 6px var(--bg);z-index:2;
-  transition:background-color .45s var(--ease),transform .45s var(--ease)}
-.node::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid var(--lilac);opacity:0;transform:scale(.4)}
-html.js .node{background:var(--bg);transform:scale(.78)}
-html.js .node.is-lit{background:var(--lilac);transform:none}
-html.js .node.is-lit::after{animation:ping .9s var(--ease) both}
-html.js:not(.live) .node{transition-delay:.75s}
-html.js:not(.live) .node.is-lit::after{animation-delay:.75s}
-@keyframes ping{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.5)}}
-
-/* ---------- layout ---------- */
-section{--pad:clamp(72px,11vw,150px);padding-block:var(--pad)}
-.row{padding-left:calc(var(--ax) + var(--hang));padding-right:var(--gut)}
-.row + .row{margin-top:clamp(40px,6vw,72px)}
-h1,h2{position:relative;font-weight:300;letter-spacing:.01em;word-break:auto-phrase;text-wrap:balance}
-h1{font-size:clamp(2.125rem,10.8vw,5.25rem);line-height:1.14;letter-spacing:0}
-h2{font-size:clamp(1.625rem,5.2vw,3.25rem);line-height:1.28}
-h3{font-size:1.5rem;font-weight:300;line-height:1.3;letter-spacing:.02em}
-.lead,.inst blockquote p{word-break:auto-phrase}
-.lead{font-size:1.0625rem;font-weight:300;line-height:1.95;color:var(--ink);max-width:34em}
-h2 + .lead{margin-top:1.4em}
-p{max-width:36em;text-wrap:pretty}
-.nb{display:inline-block}
-.note{font-size:.8125rem;color:var(--muted);line-height:1.8}
-
-.ph{position:relative;z-index:2;margin-right:calc(-1 * var(--gut));background:var(--pale);overflow:hidden}
-.ph img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
-.ph.wide{margin-left:calc(-1 * (var(--ax) + var(--hang)))}
-html.js .reveal{clip-path:inset(0 100% 0 0);transition:clip-path 1.1s cubic-bezier(.7,0,.15,1)}
-html.js .reveal img{transform:scale(1.06);transition:transform 1.6s var(--ease)}
-html.js .reveal.in{clip-path:inset(0)}
-html.js .reveal.in img{transform:none}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 30px;border:0;border-radius:2px;cursor:pointer;
-  background:var(--ink);color:var(--chalk);font:inherit;font-size:.9375rem;letter-spacing:.06em;text-decoration:none;position:relative;overflow:hidden;
-  transition:background-color .3s,transform .2s}
-.btn::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--lilac);transform:scaleY(0);transform-origin:50% 0;transition:transform .4s var(--ease)}
-.btn:hover{background:#2E2947}
-.btn:hover::before,.btn:focus-visible::before{transform:scaleY(1)}
-.btn:active{transform:translateY(1px)}
-.tel{display:inline-flex;align-items:center;min-height:44px;font-size:1.25rem;font-weight:300;letter-spacing:.06em;text-decoration:underline;text-decoration-color:var(--lilac);text-underline-offset:6px;text-decoration-thickness:1px}
-.tel:hover{text-decoration-thickness:2px}
-
-/* ---------- hero ---------- */
-.hero{padding-top:clamp(28px,5vw,56px);padding-bottom:0}
-.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
-.hero h1 .ln > span{display:block}
-.hero .node{top:.62em}
-.hero-side{margin-top:28px}
-.hero-side .btn{margin-top:28px;width:100%}
-.hero-side .note{margin-top:14px}
-.hero .ph{margin-top:40px}
-.hero .ph img{aspect-ratio:5/4;object-position:28% 30%}
-html.js .hero h1 .ln > span{animation:rise .9s var(--ease) .3s both}
-html.js .hero h1 .ln + .ln > span{animation-delay:.44s}
-html.js .hero-side > *{animation:fade .8s ease .8s both}
-html.js .hero-side > .btn{animation-delay:.9s}
-html.js .hero-side > .note{animation-delay:1s}
-html.js .hero .ph{animation:wipe 1.15s cubic-bezier(.7,0,.15,1) .35s both}
-html.js .hero .ph img{animation:settle 1.7s var(--ease) .35s both}
-@keyframes rise{from{transform:translateY(108%)}}
-@keyframes fade{from{opacity:0}}
-@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
-@keyframes settle{from{transform:scale(1.08)}}
-
-/* ---------- classes ---------- */
-.cls h3{margin-top:26px}
-.cls .ph + .txt{margin-top:0}
-.txt p{margin-top:14px}
-.facts{margin-top:22px;border-top:1px solid var(--rule);max-width:36em}
-.facts div{display:flex;gap:1.5em;padding:11px 0;border-bottom:1px solid var(--rule);font-size:.875rem;line-height:1.7}
-.facts dt{flex:0 0 5.5em;color:var(--muted)}
-.ph.sq img{aspect-ratio:1/1}
-.ph.mid img{aspect-ratio:5/4}
-.band{margin-top:clamp(56px,9vw,110px)}
-.band img{aspect-ratio:16/9;object-position:70% 50%}
-.cap{margin-top:16px;font-size:.875rem;color:var(--muted);max-width:32em}
-
-/* ---------- instructor ---------- */
-.inst .ph img{aspect-ratio:4/5;object-position:72% 20%}
-.inst .txt{margin-top:30px}
-.inst blockquote p + p{margin-top:1em}
-.inst blockquote{margin:0;font-size:1.0625rem;font-weight:300;line-height:2.05;max-width:31em}
-.who{margin-top:26px;padding-top:18px;border-top:1px solid var(--rule);max-width:31em}
-.who b{display:block;font-size:1.5rem;font-weight:300;letter-spacing:.14em;line-height:1.4}
-.who span{font-size:.8125rem;color:var(--muted)}
-
-/* ---------- timetable ---------- */
-.band-bg{background:var(--pale);box-shadow:0 0 0 100vmax var(--pale);clip-path:inset(0 -100vmax);--bg:var(--pale)}
-.filter{display:none;flex-wrap:wrap;gap:8px;margin-top:28px}
-html.js .filter{display:flex}
-.filter button{min-height:44px;padding:0 18px;border:1px solid var(--ink);border-radius:2px;background:transparent;color:var(--ink);font:inherit;font-size:.875rem;cursor:pointer;
-  transition:background-color .25s,color .25s}
-.filter button:hover{background:rgba(30,27,46,.08)}
-.filter button[aria-pressed="true"]{background:var(--ink);color:var(--chalk)}
-.count{margin-top:14px;font-size:.8125rem;color:var(--muted);min-height:1.8em}
-.scroll{position:relative;z-index:2;margin-top:18px;margin-right:calc(-1 * var(--gut));overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--chalk)}
-.tt{border-collapse:collapse;width:100%;min-width:692px;table-layout:fixed;font-size:.75rem;line-height:1.35}
-.tt caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-.tt th,.tt td{border-bottom:1px solid var(--rule);padding:6px 4px;text-align:center;height:62px}
-.tt thead th{height:54px;font-size:.9375rem;font-weight:500;border-bottom:1px solid var(--ink)}
-.tt thead th small{display:block;font-size:.6875rem;color:var(--muted);line-height:1.2}
-.tt thead th:first-child,.tt tbody th{width:62px;position:sticky;left:0;background:var(--chalk);z-index:1;font-weight:300;font-size:1rem;letter-spacing:0;text-align:left;padding-left:14px}
-.tt tbody tr:last-child > *{border-bottom:0}
-.tt .today{position:relative}
-.tt .today small{color:var(--ink)}
-.tt .today::after{content:"";position:absolute;left:50%;bottom:-4px;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--warm);box-shadow:0 0 0 3px var(--chalk)}
-.tt td.e::before{content:"";display:inline-block;width:10px;height:1px;background:rgba(30,27,46,.25);vertical-align:middle}
-.tt td.off{background:repeating-linear-gradient(135deg,transparent 0 5px,rgba(30,27,46,.045) 5px 6px)}
-.tt td.off::before{display:none}
-.c{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:48px;border-radius:2px;padding:4px 2px;
-  transition:opacity .4s var(--ease),transform .4s var(--ease),background-color .3s}
-.c small{font-size:.6875rem;opacity:.85}
-.c[data-type="mat"]{background:var(--pale);color:var(--ink)}
-.c[data-type="reformer"]{background:var(--lilac-d);color:#fff}
-.tt[data-show="mat"] .c[data-type="reformer"],.tt[data-show="reformer"] .c[data-type="mat"]{opacity:.14;transform:scale(.9)}
-.legend{margin-top:26px;font-size:.8125rem;line-height:1.8}
-.legend li{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(30,27,46,.14)}
-.legend i{flex:0 0 14px;height:14px;border-radius:2px;transform:translateY(2px)}
-.legend .lm{background:var(--chalk);box-shadow:inset 0 0 0 1px rgba(30,27,46,.25)}
-.legend .lr{background:var(--lilac-d)}
-.swipe{margin-top:10px;font-size:.75rem;color:var(--muted)}
-
-/* ---------- studio ---------- */
-.studio{padding-top:0}
-.studio .ph img{aspect-ratio:3/2;object-position:60% 50%}
-.studio .row:nth-child(2){margin-top:clamp(48px,7vw,88px)}
-.info{margin-top:30px;border-top:1px solid var(--ink);max-width:36em}
-.info div{display:flex;gap:1.2em;padding:14px 0;border-bottom:1px solid var(--rule);font-size:.9375rem;line-height:1.75}
-.info dt{flex:0 0 5.2em;color:var(--muted);font-size:.8125rem;padding-top:.15em}
-.info a{display:inline-flex;align-items:center;min-height:44px;margin:-10px 0;text-underline-offset:5px;text-decoration-color:var(--lilac)}
-.side-list{margin-top:34px;font-size:.875rem;line-height:1.85;max-width:36em}
-.side-list li{padding:14px 0;border-bottom:1px solid var(--rule)}
-.side-list li:first-child{border-top:1px solid var(--rule)}
-.side-list b{display:block;font-weight:500}
-.side-list span{color:var(--muted)}
-
-/* ---------- flow ---------- */
-.flow{padding-top:0}
-.flow .ph img{aspect-ratio:4/3;object-position:50% 62%}
-.flow .txt{margin-top:36px}
-.steps{margin-top:30px;counter-reset:s;max-width:36em}
-.steps li{position:relative;counter-increment:s;padding:22px 0 24px 3.4rem;border-top:1px solid var(--rule)}
-.steps li:last-child{border-bottom:1px solid var(--rule)}
-.steps li::before{content:counter(s);position:absolute;left:0;top:14px;font-size:2.5rem;font-weight:300;line-height:1.2;color:var(--lilac-d)}
-.steps h3{font-size:1.25rem}
-.steps p{margin-top:6px;font-size:.9375rem}
-
-/* ---------- booking ---------- */
-.book{background:var(--ink);box-shadow:0 0 0 100vmax var(--ink);clip-path:inset(0 -100vmax);color:var(--chalk);--bg:var(--ink);--rule:rgba(250,250,252,.2);--muted:#C9C3DE;padding-top:0}
-.book .ph img{aspect-ratio:4/3;object-position:50% 30%}
-.book .txt{margin-top:48px}
-.book .lead{color:var(--chalk)}
-form{margin-top:34px;display:grid;gap:22px;max-width:36em}
-.f label{display:block;font-size:.8125rem;color:var(--muted);margin-bottom:6px}
-.f input,.f select{display:block;width:100%;min-height:54px;padding:0 14px;border:1px solid rgba(250,250,252,.38);border-radius:2px;background:rgba(250,250,252,.05);color:var(--chalk);
-  font:inherit;font-size:1rem;color-scheme:dark;transition:border-color .25s,background-color .25s}
-.f select{appearance:none;-webkit-appearance:none;padding-right:40px;
-  background-image:linear-gradient(45deg,transparent 50%,#ECE7F6 50%),linear-gradient(135deg,#ECE7F6 50%,transparent 50%);background-position:calc(100% - 21px) 50%,calc(100% - 15px) 50%;background-size:6px 6px;background-repeat:no-repeat}
-.f select option{color:#1E1B2E;background:#fff}
-.f input:hover,.f select:hover,.f input:focus,.f select:focus{border-color:var(--pale);background-color:rgba(250,250,252,.09)}
-.book .btn{background:var(--pale);color:var(--ink);width:100%}
-.book .btn:hover{background:#fff}
-.book .btn::before{background:var(--lilac-d)}
-.msg{font-size:.9375rem;padding:14px 16px;border-left:2px solid var(--warm);background:rgba(250,250,252,.07);max-width:36em}
-.msg[hidden]{display:none}
-html.js .msg:not([hidden]){animation:fade .5s ease both}
-.alt{margin-top:36px;padding-top:22px;border-top:1px solid var(--rule);max-width:36em;font-size:.875rem;color:var(--muted)}
-.alt .tel{color:var(--chalk);display:flex}
-
-/* ---------- footer ---------- */
-.site-foot{max-width:1440px;margin:0 auto;padding:56px var(--gut) 40px calc(var(--ax) + var(--hang));font-size:.8125rem;line-height:1.9}
-.site-foot address{font-style:normal;margin-top:14px;color:var(--muted)}
-.site-foot address a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink)}
-.foot-nav{display:flex;flex-wrap:wrap;gap:0 22px;margin-top:18px}
-.foot-nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
-.foot-nav a:hover{text-decoration:underline;text-decoration-color:var(--lilac);text-underline-offset:6px}
-.demo{margin-top:26px;padding-top:18px;border-top:1px solid var(--rule);color:var(--muted);max-width:none}
-
-/* ---------- tablet ---------- */
-@media (min-width:600px){
-  :root{--ax:40px;--hang:40px;--gut:40px}
-  body{font-size:1rem}
-  .nav a.sub{display:inline-flex}
-  .hero-side .btn,.book .btn{width:auto}
-  .ph img,.ph.sq img,.ph.mid img,.inst .ph img,.flow .ph img,.book .ph img,.hero .ph img{aspect-ratio:16/10}
-  .band img,.studio .ph img{aspect-ratio:21/9}
-  form{grid-template-columns:1fr 1fr}
-  form .full{grid-column:1/-1}
-}
-
-/* ---------- desktop: axis at about one third ---------- */
-@media (min-width:900px){
-  :root{--ax:34%;--hang:48px;--gut:48px}
-  .site-head{padding-left:var(--gut)}
-  .site-foot{display:grid;grid-template-columns:34% 1fr;padding-left:0;padding-right:0}
-  .site-foot > div:first-child{padding:0 var(--hang) 0 var(--gut)}
-  .site-foot > div:nth-child(2){padding:0 var(--gut) 0 var(--hang)}
-  .site-foot address{margin-top:0}
-  .demo{grid-column:1/-1;margin-left:var(--gut);margin-right:var(--gut)}
-  .row{display:grid;grid-template-columns:var(--ax) minmax(0,1fr);grid-auto-flow:row dense;padding:0;align-items:start}
-  .l{grid-column:1;padding:0 var(--hang) 0 var(--gut);min-width:0}
-  .r{grid-column:2;padding:0 var(--gut) 0 var(--hang);min-width:0}
-  .x{grid-column:1/-1}
-  .ph{margin-right:0}
-  .ph.l,.ph.r{padding:0}
-  .ph.r{margin-right:var(--gut)}
-  .ph.r.bleed{margin-right:0}
-  .ph.wide{margin-left:0}
-  html.js .reveal.l{clip-path:inset(0 0 0 100%)}
-  html.js .reveal.l.in{clip-path:inset(0)}
-  h1{font-size:clamp(3.25rem,6.5vw,5.75rem)}
-  h2{font-size:clamp(2.25rem,3.7vw,3.25rem)}
-  .mid-a{align-self:center}
-  .end-a{align-self:end}
-
-  .hero-h{grid-row:1}
-  .hero-side{grid-row:1 / span 2;align-self:end;margin-top:0;padding-bottom:4px}
-  .hero .ph{grid-row:2;margin-top:48px}
-  .hero .ph img{aspect-ratio:2/1;object-position:30% 28%}
-
-  .cls h3{margin-top:0;font-size:2rem}
-  .ph.sq img{aspect-ratio:1/1}
-  .ph.mid img{aspect-ratio:5/4}
-  .cls .row + .row{margin-top:clamp(72px,9vw,128px)}
-  .band .ph{margin-left:14%}
-  .band img{aspect-ratio:3/1}
-  .band .cap{margin-top:20px}
-
-  .inst .ph img{aspect-ratio:4/3;object-position:50% 50%}
-  .inst .txt{margin-top:0}
-  .inst blockquote{font-size:1rem;line-height:2}
-
-  .tt-side{grid-row:1 / span 2;align-self:end}
-  .legend{margin-top:0}
-  .scroll{margin-right:0;overflow:visible;background:none}
-  .tt{min-width:0;font-size:.8125rem}
-  .tt th,.tt td{height:68px;padding:7px 5px}
-  .tt thead th:first-child,.tt tbody th{background:transparent;position:static;padding-left:0}
-  .tt .today::after{box-shadow:0 0 0 3px var(--pale)}
-  .c[data-type="mat"]{background:var(--chalk)}
-  .swipe{display:none}
-
-  .studio .ph img{aspect-ratio:21/8}
-  .side-list{margin-top:0}
-  .flow .ph img{aspect-ratio:4/5;object-position:50% 60%}
-  .flow .txt{margin-top:0}
-  .book{padding-top:0}
-  .book .ph img{aspect-ratio:4/5;object-position:50% 30%}
-  .book .txt{margin-top:0;padding-top:var(--pad)}
-}
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none !important;transition:none !important}
-  html.js .axis-fill{transform:none !important}
-  html.js .node{background:var(--lilac) !important;transform:none !important}
-  html.js .reveal,html.js .reveal.l{clip-path:none !important}
-  html.js .reveal img{transform:none !important}
-}
-</style>
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
 
 <header class="site-head">
-  <a class="logo" href="#top" aria-label="FORME PILATES トップ">FORME<i aria-hidden="true"></i>PILATES</a>
-  <nav class="nav" aria-label="主なメニュー">
-    <a class="sub" href="#classes">クラス</a>
-    <a class="sub" href="#timetable">時間割</a>
-    <a class="sub" href="#studio">アクセス</a>
-    <a class="go" href="#booking">体験予約</a>
+  <a class="logo" href="index.html" aria-label="FORME PILATES ホーム">FORME<i aria-hidden="true"></i>PILATES</a>
+  <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><i aria-hidden="true"></i><span class="t">メニュー</span></button>
+  <nav class="nav" id="menu" aria-label="主なメニュー">
+    <ul>
+      <li><a href="index.html" aria-current="page">ホーム</a></li>
+      <li><a href="classes.html">クラス</a></li>
+      <li><a href="schedule.html">時間割と料金</a></li>
+      <li><a href="instructors.html">インストラクター</a></li>
+      <li><a href="first.html">はじめての方へ</a></li>
+      <li><a href="access.html">アクセス</a></li>
+      <li class="last"><a class="go" href="reserve.html">体験予約</a></li>
+      <li class="m-only">お電話（営業時間内）<br><a href="tel:03-0000-0000">03-0000-0000</a></li>
+    </ul>
   </nav>
 </header>
 
@@ -367,7 +71,7 @@ html.js .msg:not([hidden]){animation:fade .5s ease both}
       <div class="r hero-h"><h1><span class="node" aria-hidden="true"></span><span class="ln"><span>軸が整うと、</span></span><span class="ln"><span>動きが変わる。</span></span></h1></div>
       <div class="hero-side l">
         <p class="lead">背骨の並び、骨盤の傾き、呼吸の深さ。からだの中心を通る一本の線を、<span class="nb">ひとつずつ</span>確かめていく少人数制のピラティススタジオです。</p>
-        <a class="btn" href="#booking">体験レッスンを予約する</a>
+        <a class="btn" href="reserve.html">体験レッスンを予約する</a>
         <p class="note">体験は55分、3,300円（税込）。はじめての方は「入門」クラスへ。</p>
       </div>
       <!-- 要差し替え：実際のスタジオ写真 -->
@@ -377,56 +81,30 @@ html.js .msg:not([hidden]){animation:fade .5s ease both}
     </div>
   </section>
 
-  <section class="cls" id="classes">
+  <section id="classes">
     <div class="row">
       <div class="r">
         <h2><span class="node" aria-hidden="true"></span>床で整えるか、<br>マシンで整えるか。</h2>
-        <p class="lead">クラスは2種類だけです。どちらも「入門」と「基礎」があり、同じ内容を自分のペースで繰り返せます。迷ったら、体験のときにインストラクターへご相談ください。</p>
+        <p class="lead">クラスは2種類だけです。どちらも55分で、「入門」と「基礎」があります。</p>
       </div>
     </div>
-
     <div class="row">
       <!-- 要差し替え：実際のスタジオ写真 -->
       <figure class="ph sq l reveal">
         <img src="img/mat.jpg" width="1100" height="1100" loading="lazy" alt="マットの上で片腕を頭上へ伸ばし、体の側面を大きく伸ばしている女性">
       </figure>
       <div class="txt r mid-a">
-        <h3>マット</h3>
-        <p>自分の体重だけで動く、ピラティスの基本です。道具の助けがないぶん、左右の差や余計な力みに自分で気づきやすくなります。呼吸と背骨の動きから、順を追って進めます。</p>
         <dl class="facts">
-          <div><dt>定員</dt><dd>6名</dd></div>
-          <div><dt>時間</dt><dd>55分</dd></div>
-          <div><dt>こんな方に</dt><dd>運動が久しぶりの方、自宅でも続けたい方</dd></div>
+          <div><dt>マット</dt><dd>自分の体重だけで動く基本のクラス。定員6名。</dd></div>
+          <div><dt>リフォーマー</dt><dd>スプリングの抵抗と支えを使うマシンのクラス。定員4名。</dd></div>
         </dl>
+        <p>55分の中で何をするのか、入門と基礎はどう違うのか、何を着ていけばよいのかを、クラスのページにまとめました。</p>
+        <a class="more" href="classes.html">クラスを詳しく見る</a>
       </div>
-    </div>
-
-    <div class="row">
-      <!-- 要差し替え：実際のスタジオ写真 -->
-      <figure class="ph mid r reveal">
-        <img src="img/reformer.jpg" width="1200" height="960" loading="lazy" alt="リフォーマーの上に座り、両手でフットバーを押しながら前屈する女性">
-      </figure>
-      <div class="txt l mid-a">
-        <h3>リフォーマー</h3>
-        <p>スプリングの抵抗と支えを使う、専用マシンのクラスです。台が動くので、軸がぶれるとすぐにわかります。支えがあるぶん、正しい位置を見つけやすいのも特長です。</p>
-        <dl class="facts">
-          <div><dt>定員</dt><dd>4名</dd></div>
-          <div><dt>時間</dt><dd>55分</dd></div>
-          <div><dt>こんな方に</dt><dd>動きの幅を広げたい方、マットに慣れてきた方</dd></div>
-        </dl>
-      </div>
-    </div>
-
-    <div class="row band">
-      <!-- 要差し替え：実際のスタジオ写真 -->
-      <figure class="ph wide x reveal">
-        <img src="img/band.jpg" width="1600" height="800" loading="lazy" alt="リフォーマーのフックに掛けられた金属スプリングのクローズアップ">
-      </figure>
-      <p class="cap r">スプリングは色ごとに強さが違います。その日のからだの様子を見て、インストラクターが一人ずつ掛け替えます。</p>
     </div>
   </section>
 
-  <section class="inst" id="instructor">
+  <section class="tight" id="instructor">
     <div class="row">
       <div class="r">
         <h2><span class="node" aria-hidden="true"></span>教えるというより、<br>一緒に探しています。</h2>
@@ -434,15 +112,15 @@ html.js .msg:not([hidden]){animation:fade .5s ease both}
     </div>
     <div class="row">
       <!-- 要差し替え：実際のスタジオ写真 -->
-      <figure class="ph r reveal">
+      <figure class="ph port r reveal">
         <img src="img/inst.jpg" width="1200" height="900" loading="lazy" alt="インストラクター 蒼井 澪。髪をまとめ、ラベンダー色のウェアで窓の方を見ている">
       </figure>
       <div class="txt l end-a">
         <blockquote>
-          <p>同じ動きでも、軸の位置は人によって少しずつ違います。だからレッスン中は、前でお手本を続けるより、一人ずつの背中を見て回る時間を長くとっています。</p>
-          <p>「今日はここが動いた」と自分でわかる瞬間を、毎回ひとつ持ち帰ってもらえたらうれしいです。</p>
+          <p>同じ動きでも、軸の位置は人によって少しずつ違います。だからレッスン中は、一人ずつの背中を見て回る時間を長くとっています。</p>
         </blockquote>
         <p class="who"><b>蒼井 澪</b><span>あおい みお ／ マット、リフォーマー担当</span></p>
+        <a class="more" href="instructors.html">3名のインストラクター</a>
       </div>
     </div>
   </section>
@@ -450,129 +128,64 @@ html.js .msg:not([hidden]){animation:fade .5s ease both}
   <section class="band-bg" id="timetable">
     <div class="row">
       <div class="r">
-        <h2><span class="node" aria-hidden="true"></span>一週間の時間割</h2>
-        <p class="lead">全クラス55分です。体験レッスンは「入門」の枠でお受けいただけます。木曜は定休日です。</p>
-        <div class="filter" role="group" aria-label="クラスの種類で絞り込む">
-          <button type="button" data-f="all" aria-pressed="true">すべて</button>
-          <button type="button" data-f="mat" aria-pressed="false">マット</button>
-          <button type="button" data-f="reformer" aria-pressed="false">リフォーマー</button>
-        </div>
-        <p class="count" id="tt-count" role="status" aria-live="polite"></p>
+        <h2><span class="node" aria-hidden="true"></span>一週間の時間割と料金</h2>
+        <p class="lead">平日は朝7:30から夜20:00開始まで、土日祝は9:30から15:30開始まで。木曜は定休日です。</p>
+        <dl class="info">
+          <div><dt>体験</dt><dd>55分 3,300円（税込）</dd></div>
+          <div><dt>月会費</dt><dd>月4回 13,200円から。月8回、通い放題もあります。</dd></div>
+          <div><dt>都度払い</dt><dd>1回 4,400円。入会金は不要です。</dd></div>
+        </dl>
+        <a class="more" href="schedule.html">時間割と料金表を見る</a>
       </div>
-      <div class="r">
-        <div class="scroll" id="tt-scroll" role="region" aria-label="時間割（横にスクロールできます）" tabindex="0">
-          <table class="tt" id="tt" data-show="all">
-            <caption>FORME PILATES 週間レッスン時間割</caption>
-            <thead>
-              <tr>
-                <th scope="col"><span class="vh">開始時刻</span></th>
-                <th scope="col" data-d="1">月<small></small></th>
-                <th scope="col" data-d="2">火<small></small></th>
-                <th scope="col" data-d="3">水<small></small></th>
-                <th scope="col" data-d="4">木<small>定休</small></th>
-                <th scope="col" data-d="5">金<small></small></th>
-                <th scope="col" data-d="6">土<small></small></th>
-                <th scope="col" data-d="0">日<small></small></th>
-              </tr>
-            </thead>
-            <tbody>
-        <tr>
-          <th scope="row">7:30</th>
-          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
-          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
-          <td class="e off"><span class="vh">定休日</span></td>
-          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-        </tr>
-        <tr>
-          <th scope="row">9:30</th>
-          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
-          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
-          <td class="e off"><span class="vh">定休日</span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
-          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
-        </tr>
-        <tr>
-          <th scope="row">11:00</th>
-          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
-          <td class="e off"><span class="vh">定休日</span></td>
-          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
-          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
-        </tr>
-        <tr>
-          <th scope="row">13:00</th>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td class="e off"><span class="vh">定休日</span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
-          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
-        </tr>
-        <tr>
-          <th scope="row">15:30</th>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td class="e off"><span class="vh">定休日</span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
-        </tr>
-        <tr>
-          <th scope="row">18:30</th>
-          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
-          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
-          <td class="e off"><span class="vh">定休日</span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-        </tr>
-        <tr>
-          <th scope="row">20:00</th>
-          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
-          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
-          <td class="e off"><span class="vh">定休日</span></td>
-          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-          <td class="e"><span class="vh">クラスなし</span></td>
-        </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="swipe">表は横にスクロールできます。</p>
-      </div>
-      <div class="l tt-side">
-        <ul class="legend">
-          <li><i class="lm" aria-hidden="true"></i><span>マット（定員6名）</span></li>
-          <li><i class="lr" aria-hidden="true"></i><span>リフォーマー（定員4名）</span></li>
-          <li><span>入門：はじめての方、体験の方向け<br>基礎：入門を数回受けた方向け</span></li>
-        </ul>
-        <p class="note" style="margin-top:14px">祝日は土日の時間割で開講します。</p>
+      <dl class="figs l end-a">
+        <div><dt>マット</dt><dd>週13<small>本</small></dd></div>
+        <div><dt>リフォーマー</dt><dd>週15<small>本</small></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="first">
+    <div class="row">
+      <!-- 要差し替え：実際のスタジオ写真 -->
+      <figure class="ph tall l reveal">
+        <img src="img/vase.jpg" width="800" height="1600" loading="lazy" alt="白い壁の前に置かれたガラスの花瓶と、壁に落ちる草花の影">
+      </figure>
+      <div class="txt r">
+        <h2><span class="node" aria-hidden="true"></span>はじめての日の流れ</h2>
+        <p class="lead">開始の10分前にお越しください。立ち姿勢と動きのくせを一緒に確認してから、55分のレッスンに入ります。</p>
+        <ol class="steps">
+          <li><h3>予約</h3><p>フォームかお電話で、ご希望の日とクラスをお知らせください。</p></li>
+          <li><h3>体験</h3><p>着替えて、姿勢を確認して、55分。持ちものはウェアだけです。</p></li>
+          <li><h3>ご案内</h3><p>通い方と料金をご説明します。その場で決める必要はありません。</p></li>
+        </ol>
+        <a class="more" href="first.html">当日の流れとよくある質問</a>
       </div>
     </div>
   </section>
 
-  <section class="studio" id="studio">
+  <section class="tight" id="news">
+    <div class="row">
+      <div class="r">
+        <h2><span class="node" aria-hidden="true"></span>お知らせ</h2>
+        <ul class="news">
+          <li><time datetime="2026-10-01">2026.10.01</time><b>11月3日（火・祝）は、土日祝の時間割で開講します</b><p>営業時間は9:00–17:30、最初のクラスは9:30開始です。</p></li>
+          <li><time datetime="2026-09-14">2026.09.14</time><b>10月から、水曜18:30に「マット 入門」を追加しました</b><p>仕事帰りに体験を受けたい方は、この枠もお選びいただけます。</p></li>
+          <li><time datetime="2026-08-24">2026.08.24</time><b>9月8日（火）は、設備点検のため13:00以降のクラスを休講します</b><p>7:30と9:30のクラスは通常どおり行います。</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="studio">
     <div class="row">
       <!-- 要差し替え：実際のスタジオ写真 -->
-      <figure class="ph wide x reveal">
+      <figure class="ph pano wide x reveal">
         <img src="img/studio.jpg" width="1600" height="800" loading="lazy" alt="大きな窓から光が入る白いスタジオ。リフォーマーが一列に並び、観葉植物が置かれている">
       </figure>
     </div>
     <div class="row">
       <div class="r">
         <h2><span class="node" aria-hidden="true"></span>午前の光が入る、<br>3階のスタジオ。</h2>
-        <p class="lead">東向きの窓に沿ってリフォーマーを4台並べています。マットのクラスは、同じ部屋のマシンを寄せて行います。</p>
         <dl class="info">
           <div><dt>住所</dt><dd><span class="nb">東京都○○区○○ 1-2-3</span> <span class="nb">○○ビル 3F</span></dd></div>
           <div><dt>最寄り駅</dt><dd>○○線 ○○駅 北口から徒歩4分</dd></div>
@@ -580,28 +193,7 @@ html.js .msg:not([hidden]){animation:fade .5s ease both}
           <div><dt>定休日</dt><dd>木曜</dd></div>
           <div><dt>電話</dt><dd><a href="tel:03-0000-0000">03-0000-0000</a></dd></div>
         </dl>
-      </div>
-      <ul class="side-list l">
-        <li><b>更衣室とロッカー</b><span>鍵付きのロッカーがあります。仕事帰りにもそのままお越しください。</span></li>
-        <li><b>持ちもの</b><span>動きやすい服と飲みもの。靴は不要で、裸足か滑り止め付きの靴下で行います。</span></li>
-        <li><b>貸し出し</b><span>タオルと靴下は受付でご用意しています。</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="flow" id="flow">
-    <div class="row">
-      <!-- 要差し替え：実際のスタジオ写真 -->
-      <figure class="ph l reveal">
-        <img src="img/vase.jpg" width="800" height="1600" loading="lazy" alt="白い壁の前に置かれたガラスの花瓶と、壁に落ちる草花の影">
-      </figure>
-      <div class="txt r">
-        <h2><span class="node" aria-hidden="true"></span>はじめての日の流れ</h2>
-        <ol class="steps">
-          <li><h3>予約</h3><p>このページのフォームかお電話で、ご希望の日とクラスをお知らせください。折り返し、空いている時間をご案内します。</p></li>
-          <li><h3>体験</h3><p>開始の10分前にお越しください。立ち姿勢と動きのくせを一緒に確認してから、55分のレッスンに入ります。</p></li>
-          <li><h3>ご案内</h3><p>レッスンのあとに、通い方と料金をご説明します。その場で決めていただく必要はありません。</p></li>
-        </ol>
+        <a class="more" href="access.html">設備と駅からの道順</a>
       </div>
     </div>
   </section>
@@ -609,38 +201,13 @@ html.js .msg:not([hidden]){animation:fade .5s ease both}
   <section class="book" id="booking">
     <div class="row">
       <!-- 要差し替え：実際のスタジオ写真 -->
-      <figure class="ph l reveal">
+      <figure class="ph tall top l reveal">
         <img src="img/last.jpg" width="1400" height="1120" loading="lazy" alt="両腕を頭上で組み、背中を伸ばしている女性の後ろ姿">
       </figure>
       <div class="txt r">
-        <h2><span class="node" aria-hidden="true"></span>体験レッスンを<wbr>予約する</h2>
-        <p class="lead">55分、3,300円（税込）。ウェア以外の持ちものは要りません。ご希望の日とクラスをお選びください。</p>
-        <form id="book-form" novalidate>
-          <div class="f">
-            <label for="f-date">ご希望日</label>
-            <input type="date" id="f-date" name="date" required>
-          </div>
-          <div class="f">
-            <label for="f-class">クラス</label>
-            <select id="f-class" name="class" required>
-              <option value="mat">マット（入門）</option>
-              <option value="reformer">リフォーマー（入門）</option>
-              <option value="ask">決めていない（相談したい）</option>
-            </select>
-          </div>
-          <div class="f full">
-            <label for="f-time">ご希望の時間帯</label>
-            <select id="f-time" name="time">
-              <option value="am">午前（7:30〜11:00開始）</option>
-              <option value="pm">午後（13:00〜15:30開始）</option>
-              <option value="night">夜（18:30〜20:00開始）</option>
-            </select>
-          </div>
-          <div class="full">
-            <button class="btn" type="submit">体験レッスンを予約する</button>
-          </div>
-          <p class="msg full" id="book-msg" role="status" aria-live="polite" hidden>デモサイトのため、送信はされません。</p>
-        </form>
+        <h2><span class="node" aria-hidden="true"></span>まずは、<wbr>体験レッスンから。</h2>
+        <p class="lead">55分、3,300円（税込）。持ちものはウェアだけです。ご希望の日とクラスをお選びください。</p>
+        <a class="btn mt" href="reserve.html">体験レッスンを予約する</a>
         <div class="alt">
           <p>お電話でも承ります（営業時間内）。</p>
           <a class="tel" href="tel:03-0000-0000">03-0000-0000</a>
@@ -652,7 +219,7 @@ html.js .msg:not([hidden]){animation:fade .5s ease both}
 
 <footer class="site-foot">
   <div>
-    <a class="logo" href="#top" aria-label="FORME PILATES トップへ戻る">FORME<i aria-hidden="true"></i>PILATES</a>
+    <a class="logo" href="index.html" aria-label="FORME PILATES ホームへ戻る">FORME<i aria-hidden="true"></i>PILATES</a>
   </div>
   <div>
     <address>
@@ -660,95 +227,22 @@ html.js .msg:not([hidden]){animation:fade .5s ease both}
       <span class="nb">平日 7:00–21:30</span>　<span class="nb">土日祝 9:00–17:30</span>　<span class="nb">木曜定休</span><br>
       <a href="tel:03-0000-0000">03-0000-0000</a>
     </address>
-    <nav class="foot-nav" aria-label="フッターメニュー">
-      <a href="#classes">クラス</a>
-      <a href="#instructor">インストラクター</a>
-      <a href="#timetable">時間割</a>
-      <a href="#studio">アクセス</a>
-      <a href="#booking">体験予約</a>
+    <nav class="foot-nav" aria-label="サイトマップ">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="classes.html">クラス</a></li>
+        <li><a href="schedule.html">時間割と料金</a></li>
+        <li><a href="instructors.html">インストラクター</a></li>
+        <li><a href="first.html">はじめての方へ</a></li>
+        <li><a href="access.html">スタジオとアクセス</a></li>
+        <li><a href="reserve.html">体験予約</a></li>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+      </ul>
     </nav>
   </div>
   <p class="demo"><span class="nb">架空のスタジオを題材にしたデモサイトです。</span><span class="nb">写真はイメージです。</span><br>© FORME PILATES</p>
 </footer>
 
-<script>
-(function(){
-  var root=document.documentElement;
-  function showAll(){
-    root.classList.add('live');
-    [].forEach.call(document.querySelectorAll('.reveal'),function(e){e.classList.add('in')});
-    [].forEach.call(document.querySelectorAll('.node'),function(e){e.classList.add('is-lit')});
-    var f=document.querySelector('.axis-fill'); if(f) f.style.transform='none';
-  }
-  try{
-    /* ---- axis: drawn length follows scroll ---- */
-    var axis=document.querySelector('.axis'), fill=axis.querySelector('.axis-fill');
-    var nodes=[].slice.call(document.querySelectorAll('.node'));
-    var revs=[].slice.call(document.querySelectorAll('.reveal'));
-    var reduce=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var ticking=false;
-    function update(){
-      ticking=false;
-      var vh=window.innerHeight, max=root.scrollHeight-vh;
-      var p=max>0?Math.min(1,Math.max(0,window.pageYOffset/max)):1;
-      var tip=vh*(0.56+0.44*p);
-      var r=axis.getBoundingClientRect();
-      var len=Math.min(r.height,Math.max(0,tip-r.top));
-      fill.style.transform='scaleY('+(r.height?len/r.height:1).toFixed(5)+')';
-      for(var i=0;i<nodes.length;i++){
-        var n=nodes[i].getBoundingClientRect();
-        nodes[i].classList.toggle('is-lit', n.top+n.height/2<=tip+1);
-      }
-      for(var j=revs.length-1;j>=0;j--){
-        if(revs[j].getBoundingClientRect().top<vh*0.86){revs[j].classList.add('in');revs.splice(j,1);}
-      }
-    }
-    function req(){ if(!ticking){ticking=true;requestAnimationFrame(update);} }
-    if(reduce || !window.requestAnimationFrame){ showAll(); }
-    else{
-      requestAnimationFrame(function(){requestAnimationFrame(update)});
-      window.addEventListener('scroll',req,{passive:true});
-      window.addEventListener('resize',req);
-      window.addEventListener('load',req);
-      setTimeout(function(){root.classList.add('live');req();},1500);
-      /* safety: never leave an in-view photo hidden */
-      setTimeout(function(){ if(!fill.style.transform){ showAll(); } else { update(); } },3000);
-    }
-  }catch(e){ root.classList.remove('js'); }
-
-  /* ---- timetable filter + today marker ---- */
-  try{
-    var tt=document.getElementById('tt'), count=document.getElementById('tt-count');
-    var btns=[].slice.call(document.querySelectorAll('.filter button'));
-    var names={all:'すべてのクラス',mat:'マット',reformer:'リフォーマー'};
-    function setFilter(k){
-      tt.setAttribute('data-show',k);
-      btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-f')===k))});
-      var n=k==='all'?tt.querySelectorAll('.c').length:tt.querySelectorAll('.c[data-type="'+k+'"]').length;
-      count.textContent=names[k]+'：週'+n+'本';
-    }
-    btns.forEach(function(b){b.addEventListener('click',function(){setFilter(b.getAttribute('data-f'))})});
-    setFilter('all');
-    var th=tt.querySelector('thead th[data-d="'+new Date().getDay()+'"]');
-    if(th){
-      th.classList.add('today');
-      var s=th.querySelector('small'); s.textContent=s.textContent?'今日（定休）':'今日';
-      var sc=document.getElementById('tt-scroll');
-      if(sc.scrollWidth>sc.clientWidth){ sc.scrollLeft=Math.max(0,th.offsetLeft-90); }
-    }
-  }catch(e){}
-
-  /* ---- booking form (UI only) ---- */
-  try{
-    var form=document.getElementById('book-form'), msg=document.getElementById('book-msg'), date=document.getElementById('f-date');
-    var d=new Date(), iso=d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);
-    date.min=iso;
-    form.addEventListener('submit',function(ev){
-      ev.preventDefault();
-      msg.hidden=true; void msg.offsetWidth; msg.hidden=false;
-    });
-  }catch(e){}
-})();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

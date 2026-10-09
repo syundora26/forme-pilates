@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>食事と焚き火｜FIELD NOTE 森のグランピング</title>
+<meta name="description" content="FIELD NOTE 森のグランピングの食事と焚き火のご案内。鉄のフライパンで焼く夕食の内容と流れ、朝のコーヒーとパン、アレルギーや苦手な食材への対応、薪と火の決まり、雨の日の過ごし方をまとめました。">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="FIELD NOTE 森のグランピング">
+<meta property="og:title" content="食事と焚き火｜FIELD NOTE 森のグランピング">
+<meta property="og:description" content="FIELD NOTE 森のグランピングの食事と焚き火のご案内。鉄のフライパンで焼く夕食の内容と流れ、朝のコーヒーとパン、アレルギーや苦手な食材への対応、薪と火の決まり、雨の日の過ごし方をまとめました。">
+<meta property="og:image" content="img/dusk.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#17352A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352A'/%3E%3Cpath d='M8 50 32 12l24 38z' fill='%23E9DFC8'/%3E%3Cpath d='M25 50l7-18 7 18z' fill='%23E8602C'/%3E%3C/svg%3E">
+<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}})(document.documentElement);</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<button class="switch" id="nightSwitch" type="button" role="switch" aria-checked="false" aria-label="夜にする">
+  <span class="sw-txt" aria-hidden="true"><span class="sw-d">夜にする</span><span class="sw-n">朝にする</span></span>
+  <span class="sw-track" aria-hidden="true"><span class="sw-knob"></span></span>
+</button>
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<!-- shared drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+    <radialGradient id="glowg"><stop offset="0" stop-color="#FFB347" stop-opacity=".75"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
+    <symbol id="tree" viewBox="-24 -64 48 74" overflow="visible"><path d="M0-62 15-34H8L21-8H4V9h-8V-8h-17L-8-34h-7z"/></symbol>
+    <symbol id="fire" viewBox="-40 -70 80 84" overflow="visible">
+      <circle class="s-glow" r="62" cy="-18" fill="url(#glowg)"/>
+      <g class="flick"><path class="f-flame" d="M0-64c4 14 20 22 20 40C20-9 11 0 0 0S-20-9-20-24c0-9 5-14 9-20 1 7 4 10 7 11C-6-44-4-54 0-64z"/>
+      <path class="f-in" d="M0-34c2 7 9 11 9 20C9-6 5-1 0-1S-9-6-9-14c0-5 3-8 5-11 1 4 2 5 3 5 0-5 0-9 1-14z"/></g>
+      <path class="f-log" d="M-30 8 26-6M-26-6 30 8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="band b-pine top" id="top">
+  <div class="wrap">
+    <div class="mast">
+      <a class="brand" href="index.html"><b>FIELD NOTE</b><span>森のグランピング</span></a>
+      <div class="mast-row">
+        <a class="btn btn-s mast-cta" href="reserve.html">予約する</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="gnav">
+          <svg width="22" height="18" viewBox="0 0 22 18" aria-hidden="true"><path d="M1 2h20M1 9h14M1 16h18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          <span class="mb-o">もくじ</span><span class="mb-c">とじる</span>
+        </button>
+      </div>
+      <nav class="gnav" id="gnav" aria-label="メインメニュー">
+        <p class="gnav-title" aria-hidden="true">もくじ<small>FIELD NOTE</small></p>
+        <ul>
+          <li><a href="index.html"><span class="no" aria-hidden="true">01</span><span class="t">ホーム</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="stay.html"><span class="no" aria-hidden="true">02</span><span class="t">泊まる</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="food.html" aria-current="page"><span class="no" aria-hidden="true">03</span><span class="t">食事と焚き火</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="day.html"><span class="no" aria-hidden="true">04</span><span class="t">過ごし方</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="price.html"><span class="no" aria-hidden="true">05</span><span class="t">料金</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="faq.html"><span class="no" aria-hidden="true">06</span><span class="t">よくある質問</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="access.html"><span class="no" aria-hidden="true">07</span><span class="t">アクセス</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li class="cta"><a href="reserve.html"><span class="no" aria-hidden="true">08</span><span class="t">予約する</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="band b-canvas torn page-head">
+  <div class="wrap">
+    <nav class="crumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="currentColor"/></svg>ホーム</a><span class="sep" aria-hidden="true"></span></li>
+        <li><span class="cur">食事と焚き火</span></li>
+      </ol>
+    </nav>
+    <div class="ph-grid">
+      <div>
+        <h1>夕食は、<br>火の<em>そば</em>で。</h1>
+        <p class="lead">食材と道具と薪は、サイトまで運びます。焼くのはお客さま、火の番はスタッフも手伝います。</p>
+      </div>
+      <div class="ph-stamp" aria-hidden="true"><p class="stamp" style="--r:8deg">FIELD NOTE<b>p.03</b>食事と火</p></div>
+    </div>
+  </div>
+</div>
+<section class="band b-ember torn" aria-labelledby="h-dinner">
+  <div class="wrap fire-grid">
+    <div class="fire-copy">
+      <h2 class="h2 s" id="h-dinner">かごひとつで、<br>夕食が届く。</h2>
+      <p class="lead">17:15ごろ、食材のかごと鉄のフライパンをサイトまで運びます。</p>
+      <p>切る、下味をつける、といった面倒なところは厨房で済ませてあります。お客さまにお願いするのは、火にかけて、ひっくり返して、食べるところです。</p>
+      <p>焼き方は、かごに入っている手書きのカードを見てください。読まなくても、だいたい焼けます。</p>
+      <ul class="fire-list">
+        <li><b>肉</b><span>牛の赤身ステーキ、骨つきの鶏もも、太いソーセージ</span></li>
+        <li><b>野菜</b><span>その日に地元の畑から届いたものを5種類ほど。秋はきのこが増えます</span></li>
+        <li><b>主食</b><span>鍋で炊くごはん、またはあぶって食べるバゲット</span></li>
+        <li><b>汁もの</b><span>野菜のスープ。鍋ごと火の端に置くだけ</span></li>
+        <li><b>甘いもの</b><span>バターをのせて包んだ焼きりんご</span></li>
+      </ul>
+    </div>
+    <div class="fire-pics">
+      <!-- 要差し替え：実際の施設写真 -->
+<figure class="print tape"><img src="img/skillet.jpg" width="820" height="630" loading="lazy" alt="焚き火にかけた鉄のフライパンで、肉と野菜をトングで焼いている"><figcaption>重いので、両手で</figcaption></figure>
+      <!-- 要差し替え：実際の施設写真 -->
+<figure class="print pin"><img src="img/fire.jpg" width="370" height="348" loading="lazy" alt="星空の下で燃える焚き火と、そばに置かれたマグカップ"><figcaption>食後の火</figcaption></figure>
+      <svg class="bigfire" viewBox="-44 -74 88 92" aria-hidden="true" focusable="false"><use href="#fire" x="-40" y="-70" width="80" height="84"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="band b-canvas torn" aria-labelledby="h-flow">
+  <div class="wrap g2">
+    <div>
+      <h2 class="h2 s" id="h-flow">焼くまでの、<br><em>段取り</em>。</h2>
+      <p class="mt-m">夕食は17:30から。暗くなる前に火を育てておくと、あとが楽です。</p>
+      <ol class="steps mt-m">
+        <li><b>火をおこす</b>薪を井の字に組んで、着火剤に火をつけます。うまくつかなくても大丈夫。スタッフが近くで待機しています。</li>
+        <li><b>おき火を待つ</b>炎が落ち着いて、薪が赤くなるまで15分ほど。ここで焦ると、外が黒くて中が生になります。</li>
+        <li><b>フライパンをのせる</b>直径30センチの鉄のフライパンです。重いので両手で。取っ手は熱くなります。軍手をどうぞ。</li>
+        <li><b>焼いて、食べる</b>肉は片面3分ずつが目安。焼けたものから食べるのが、いちばんおいしい食べ方です。</li>
+        <li><b>りんごを埋める</b>食べ終わるころ、包んだりんごを火の端に置きます。20分後、デザートになっています。</li>
+      </ol>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:center">
+        <!-- 要差し替え：実際の施設写真 -->
+<figure class="print pin" style="--w:340px;--r:3deg"><img src="img/pan.jpg" width="434" height="274" loading="lazy" alt="湯気の立つフライパンで野菜を炒めている手元"><figcaption>つまみ食いは料理のうち</figcaption></figure>
+      </div>
+      <div class="memo mt-l" style="--r:-.8deg">
+        <h3>スタッフが手伝うこと</h3>
+        <ul class="ticks">
+          <li>火おこし。はじめての方には、最初から一緒にやります。</li>
+          <li>火加減の見回り。18時と19時ごろに各サイトをまわります。</li>
+          <li>焦がしたときの相談。たいていは、削れば食べられます。</li>
+        </ul>
+        <p class="note">受付 9:00〜19:00。夜間は受付横の呼び鈴でスタッフにつながります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band b-pine torn" aria-labelledby="h-morning">
+  <div class="wrap g2 center">
+    <div style="display:flex;justify-content:center">
+      <!-- 要差し替え：実際の施設写真 -->
+<figure class="print tape" style="--w:440px;--r:-2.5deg"><img src="img/coffee.jpg" width="776" height="530" loading="lazy" alt="屋外のテーブルで、ケトルからドリッパーへ湯を注いでいる"><figcaption>朝いちばんの湯気</figcaption></figure>
+    </div>
+    <div>
+      <h2 class="h2 s" id="h-morning">朝は、<br><em>豆</em>を挽くところから。</h2>
+      <div class="prose mt-m">
+        <p>7:00から9:00のあいだに、朝食のかごを取りに来てください。受付の前に並べてあります。</p>
+        <p>コーヒーは手回しのミルで挽きます。ひとり分でだいたい百回まわします。眠気はここで覚めます。</p>
+      </div>
+      <dl class="rows mt-m">
+        <div><dt>飲みもの</dt><dd>コーヒー豆とミル、ドリッパー。りんごジュース。お子さまには牛乳</dd></div>
+        <div><dt>パン</dt><dd>地元のパン屋さんの丸パン。フライパンであたためます</dd></div>
+        <div><dt>おかず</dt><dd>卵とベーコン。残り火か、カセットコンロで</dd></div>
+        <div><dt>ほかに</dt><dd>ヨーグルトと季節のジャム</dd></div>
+      </dl>
+      <p class="note mt-s">朝は火をおこさなくても大丈夫です。かごにカセットコンロを入れてあります。</p>
+    </div>
+  </div>
+</section>
+
+<section class="band b-map stitch" aria-labelledby="h-allergy">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2 s" id="h-allergy">食べられない<em>もの</em>が、<br>あるとき。</h2>
+      <p>アレルギーや苦手な食材は、ご宿泊の3日前までにお知らせください。予約の申込票の「伝えておきたいこと」欄か、お電話で。</p>
+    </div>
+    <div class="tbl-scroll" tabindex="0" role="region" aria-labelledby="cap-al">
+      <table>
+        <caption id="cap-al">食事のご要望への対応</caption>
+        <thead><tr><th scope="col">ご要望</th><th scope="col">できること</th><th scope="col">お伝えしておくこと</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">食物アレルギー</th><td>該当の食材を抜く、または別の食材に替えます</td><td>ほかの料理と同じ厨房で用意します。微量の混入までは防げません</td></tr>
+          <tr><th scope="row">肉を食べない</th><td>肉を、厚揚げ・きのこ・焼きチーズに替えます</td><td>スープのだしは野菜だけで取っています</td></tr>
+          <tr><th scope="row">苦手な食材</th><td>3日前までなら、ほかの野菜に替えます</td><td>当日のお申し出は、抜くだけになります</td></tr>
+          <tr><th scope="row">お子さま</th><td>小学生は量を少なめに、ソーセージを多めに。幼児にはおにぎりと小さなハンバーグ</td><td>2歳以下は、大人の分からの取り分けでお願いしています</td></tr>
+          <tr><th scope="row">お祝い</th><td>焼きりんごに、ろうそくを立てます</td><td>ケーキのご用意はありません。持ち込みは冷蔵庫でお預かりします</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-hint">表は横に動かせます。</p>
+    <p class="tbl-note">重いアレルギーをお持ちの方は、ご予約の前にお電話でご相談ください。食事なしのプランで、食材をお持ち込みいただくこともできます。</p>
+  </div>
+</section>
+
+<section class="band b-night torn" aria-labelledby="h-wood">
+  <div class="wrap">
+    <div class="g2">
+      <div>
+        <h2 class="h2 s" id="h-wood">薪と、<br><em>火</em>の決まり。</h2>
+        <div class="prose mt-m">
+          <p>薪は1泊につき1束（およそ6キロ）を、宿泊料金に含めています。夕食を焼いて、そのあと2時間ほど眺められる量です。</p>
+          <p>足りなくなったら、受付で追加できます。よく乾いた広葉樹なので、火持ちがよく、煙は少なめです。</p>
+        </div>
+        <dl class="rows mt-m">
+          <div><dt>薪の追加</dt><dd>1束 800円（受付で、20:00まで）</dd></div>
+          <div><dt>焚きつけ</dt><dd>細割りの薪と着火剤は、何度でも無料</dd></div>
+          <div><dt>焚き火の時間</dt><dd>日没ごろから22:00まで</dd></div>
+        </dl>
+        <p class="tbl-note">※ デモサイトのため、料金は架空のものです。</p>
+      </div>
+      <div>
+        <ul class="ticks">
+          <li><b>焚き火台の上だけで。</b>地面で直接燃やすと、木の根と土の中の生きものが傷みます。</li>
+          <li><b>落ち葉や枝は拾って燃やさない。</b>湿っていて、煙ばかり出ます。となりのサイトが泣きます。</li>
+          <li><b>22:00に火を落とす。</b>水はかけず、残った薪は火消し壺へ。壺はスタッフが朝に回収します。</li>
+          <li><b>風の強い日は中止。</b>判断はスタッフがします。そのときは、夕食を厨房で焼いてお持ちします。</li>
+          <li><b>花火はできません。</b>手持ち花火もご遠慮ください。森が乾いている季節があるためです。</li>
+          <li><b>お子さまのそばには大人を。</b>焚き火台は、火が消えたあとも1時間は熱いままです。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band b-canvas torn" aria-labelledby="h-rain">
+  <div class="wrap g2">
+    <div>
+      <h2 class="h2 s" id="h-rain">雨の日は、<br><em>屋根</em>の下で。</h2>
+      <div class="prose mt-m">
+        <p>雨でも通常どおり営業します。キャビンは軒下、テントロッジはデッキのタープの下に焚き火台を移して、いつもどおり焼けます。</p>
+        <p>テントに当たる雨音は、思ったよりいい音です。これを目当てに、梅雨に来る方もいます。</p>
+      </div>
+    </div>
+    <dl class="rows">
+      <div><dt>小雨</dt><dd>軒下・タープの下で、ふだんどおり焚き火と夕食</dd></div>
+      <div><dt>本降り</dt><dd>共用棟の土間の食堂へ。薪ストーブのそばで、鉄のフライパンはそのまま使えます</dd></div>
+      <div><dt>雷・強風</dt><dd>焚き火は中止。夕食は厨房で焼いてお持ちします</dd></div>
+      <div><dt>台風など</dt><dd>こちらの判断で営業をやめる日は、キャンセル料をいただきません。前日の17時までにご連絡します</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band b-pine torn closing" aria-labelledby="h-close">
+  <div class="wrap cl-grid">
+    <div class="cl-act">
+      <h2 class="h2 s" id="h-close">次の休み、<br><em>森</em>で会いましょう。</h2>
+      <a class="btn mt-s" href="reserve.html"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M9.5 21 12 14l2.5 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg>空きを確認して予約する</a>
+      <p class="note">お電話でも承ります（9:00〜18:00）<br><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+    </div>
+    <div class="cl-stamps" aria-label="チェックインは15時から、チェックアウトは10時まで">
+      <p class="stamp" style="--r:-8deg">チェックイン<b>15:00</b>から</p>
+      <p class="stamp" style="--r:6deg">チェックアウト<b>10:00</b>まで</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="band b-night torn foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="brand" href="index.html"><b>FIELD NOTE</b><span>森のグランピング</span></a>
+      <nav class="foot-nav" aria-label="フッターメニュー">
+        <h2>さくいん</h2>
+        <ul><li><a href="index.html">ホーム</a></li><li><a href="stay.html">泊まる</a></li><li><a href="food.html">食事と焚き火</a></li><li><a href="day.html">過ごし方</a></li><li><a href="price.html">料金</a></li><li><a href="faq.html">よくある質問</a></li><li><a href="access.html">アクセス</a></li><li><a href="reserve.html">予約</a></li><li><a href="privacy.html">プライバシーポリシー</a></li></ul>
+      </nav>
+      <div class="foot-info">
+        <h2>連絡先</h2>
+        <p>長野県○○郡○○町○○ 123</p>
+        <p>受付 9:00〜19:00（7・8月は20:00まで）<br>定休日 水曜（祝日と繁忙日は営業）</p>
+        <p><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+      </div>
+    </div>
+    <p class="demo">架空の施設を題材にしたデモサイトです。写真はイメージです。</p>
+    <small>© FIELD NOTE 森のグランピング</small>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

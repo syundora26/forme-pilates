@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className+=' js';</script>
+<title>時間割と料金｜FORME PILATES</title>
+<meta name="description" content="FORME PILATESの一週間の時間割と料金表。体験レッスン、月4回、月8回、通い放題、都度払い、リフォーマー追加料金、入会金のほか、キャンセルの決まりとお支払い方法をご案内します。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FAFAFC">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="FORME PILATES">
+<meta property="og:title" content="時間割と料金｜FORME PILATES">
+<meta property="og:description" content="FORME PILATESの一週間の時間割と料金表。体験レッスン、月4回、月8回、通い放題、都度払い、リフォーマー追加料金、入会金のほか、キャンセルの決まりとお支払い方法をご案内します。">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231E1B2E'/%3E%3Cpath d='M16 4v24' stroke='%238F7BC4' stroke-width='2'/%3E%3Ccircle cx='16' cy='13' r='4' fill='%23FAFAFC'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="site-head">
+  <a class="logo" href="index.html" aria-label="FORME PILATES ホーム">FORME<i aria-hidden="true"></i>PILATES</a>
+  <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><i aria-hidden="true"></i><span class="t">メニュー</span></button>
+  <nav class="nav" id="menu" aria-label="主なメニュー">
+    <ul>
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="classes.html">クラス</a></li>
+      <li><a href="schedule.html" aria-current="page">時間割と料金</a></li>
+      <li><a href="instructors.html">インストラクター</a></li>
+      <li><a href="first.html">はじめての方へ</a></li>
+      <li><a href="access.html">アクセス</a></li>
+      <li class="last"><a class="go" href="reserve.html">体験予約</a></li>
+      <li class="m-only">お電話（営業時間内）<br><a href="tel:03-0000-0000">03-0000-0000</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="axis" aria-hidden="true"><div class="axis-fill"></div></div>
+
+  <section class="page-head">
+    <div class="row">
+      <nav class="bc r" aria-label="パンくずリスト">
+        <ol><li><a href="index.html">ホーム</a></li><li><span>時間割と料金</span></li></ol>
+      </nav>
+      <div class="r ph-h"><h1><span class="node" aria-hidden="true"></span>時間割と料金</h1></div>
+      <div class="l ph-l"><p class="lead">全クラス55分、木曜定休。月の回数で選ぶ3つの通い方と、都度払いがあります。料金はすべて税込です。</p></div>
+    </div>
+  </section>
+
+  <section class="band-bg" id="timetable">
+    <div class="row">
+      <div class="r">
+        <h2><span class="node" aria-hidden="true"></span>一週間の時間割</h2>
+        <p class="lead">全クラス55分です。体験レッスンは「入門」の枠でお受けいただけます。木曜は定休日です。</p>
+        <div class="filter" role="group" aria-label="クラスの種類で絞り込む">
+          <button type="button" data-f="all" aria-pressed="true">すべて</button>
+          <button type="button" data-f="mat" aria-pressed="false">マット</button>
+          <button type="button" data-f="reformer" aria-pressed="false">リフォーマー</button>
+        </div>
+        <p class="count" id="tt-count" role="status" aria-live="polite"></p>
+      </div>
+      <div class="r">
+        <div class="scroll" id="tt-scroll" role="region" aria-label="時間割（横にスクロールできます）" tabindex="0">
+          <table class="tt" id="tt" data-show="all">
+            <caption>FORME PILATES 週間レッスン時間割</caption>
+            <thead>
+              <tr>
+                <th scope="col"><span class="vh">開始時刻</span></th>
+                <th scope="col" data-d="1">月<small></small></th>
+                <th scope="col" data-d="2">火<small></small></th>
+                <th scope="col" data-d="3">水<small></small></th>
+                <th scope="col" data-d="4">木<small>定休</small></th>
+                <th scope="col" data-d="5">金<small></small></th>
+                <th scope="col" data-d="6">土<small></small></th>
+                <th scope="col" data-d="0">日<small></small></th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr>
+          <th scope="row">7:30</th>
+          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
+          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
+          <td class="e off"><span class="vh">定休日</span></td>
+          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+        </tr>
+        <tr>
+          <th scope="row">9:30</th>
+          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
+          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
+          <td class="e off"><span class="vh">定休日</span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
+          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
+        </tr>
+        <tr>
+          <th scope="row">11:00</th>
+          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
+          <td class="e off"><span class="vh">定休日</span></td>
+          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
+          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
+        </tr>
+        <tr>
+          <th scope="row">13:00</th>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td class="e off"><span class="vh">定休日</span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
+          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
+        </tr>
+        <tr>
+          <th scope="row">15:30</th>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td class="e off"><span class="vh">定休日</span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
+        </tr>
+        <tr>
+          <th scope="row">18:30</th>
+          <td><span class="c" data-type="mat">マット<small>基礎</small></span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
+          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
+          <td class="e off"><span class="vh">定休日</span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+        </tr>
+        <tr>
+          <th scope="row">20:00</th>
+          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
+          <td><span class="c" data-type="mat">マット<small>入門</small></span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>基礎</small></span></td>
+          <td class="e off"><span class="vh">定休日</span></td>
+          <td><span class="c" data-type="reformer">リフォーマー<small>入門</small></span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+          <td class="e"><span class="vh">クラスなし</span></td>
+        </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <p class="swipe">表は横にスクロールできます。</p>
+      </div>
+      <div class="l tt-side">
+        <ul class="legend">
+          <li><i class="lm" aria-hidden="true"></i><span>マット（定員6名）</span></li>
+          <li><i class="lr" aria-hidden="true"></i><span>リフォーマー（定員4名）</span></li>
+          <li><span>入門：はじめての方、体験の方向け<br>基礎：入門を数回受けた方向け</span></li>
+        </ul>
+        <p class="note" style="margin-top:14px">祝日は土日の時間割で開講します。時刻は開始時刻です。受付は各クラスの15分前から開いています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="row">
+      <div class="r">
+        <h2><span class="node" aria-hidden="true"></span>料金</h2>
+        <p class="lead">まず体験を受けていただき、続ける場合は月の回数を選びます。月に何回通えるかわからない方には、都度払いもあります。</p>
+
+        <div class="tw" role="region" aria-label="はじめての方の料金（横にスクロールできます）" tabindex="0">
+          <table class="tbl">
+            <caption>はじめての方（税込）</caption>
+            <thead>
+              <tr><th scope="col">項目</th><th scope="col">料金</th><th scope="col">内容</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">体験レッスン</th><td class="num">3,300<small>円</small></td><td>お一人1回、55分。マット・リフォーマーどちらの「入門」でも同じ料金です。タオルと靴下の貸し出しを含みます。</td></tr>
+              <tr><th scope="row">入会金</th><td class="num">11,000<small>円</small></td><td>月会費のプランを始めるときに一度だけ。体験の当日にお申し込みの場合は5,500円です。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">※ デモサイトのため、料金は架空のものです。</p>
+
+        <div class="tw" role="region" aria-label="通い方と料金（横にスクロールできます）" tabindex="0" style="margin-top:48px">
+          <table class="tbl">
+            <caption>通い方と料金（税込）</caption>
+            <thead>
+              <tr><th scope="col">プラン</th><th scope="col">料金</th><th scope="col">内容</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">月4回</th><td class="num">13,200<small>円／月</small></td><td>週1回の目安。1回あたり3,300円。<small>使わなかった回は翌月末まで繰り越せます。</small></td></tr>
+              <tr><th scope="row">月8回</th><td class="num">23,100<small>円／月</small></td><td>週2回の目安。1回あたり約2,888円。<small>使わなかった回は翌月末まで繰り越せます。</small></td></tr>
+              <tr><th scope="row">通い放題</th><td class="num">33,000<small>円／月</small></td><td>1日1クラスまで、回数の上限なし。<small>リフォーマー追加料金はかかりません。</small></td></tr>
+              <tr><th scope="row">都度払い</th><td class="num">4,400<small>円／回</small></td><td>入会金なしで、1回ずつお支払い。<small>ご予約は7日前から承ります。</small></td></tr>
+              <tr><th scope="row">リフォーマー<br>追加料金</th><td class="num">＋1,100<small>円／回</small></td><td>月4回・月8回・都度払いの方が、リフォーマーのクラスを受けるとき。<small>受けた回数分を翌月にご精算します。</small></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="swipe t">表は横にスクロールできます。</p>
+        <p class="note">※ デモサイトのため、料金は架空のものです。</p>
+      </div>
+      <ul class="side-list l">
+        <li><b>計算の例</b><span>月4回のうち2回をリフォーマーで受けた月は、13,200円＋1,100円×2回で、15,400円です。</span></li>
+        <li><b>プランの変更</b><span>前月20日までのお申し出で、翌月から変更できます。手数料はかかりません。</span></li>
+        <li><b>休会</b><span>月1,100円で、最長3か月まで。前月20日までにお知らせください。</span></li>
+        <li><b>退会</b><span>前月20日までのお申し出で、当月末に退会となります。違約金などはありません。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tight" id="cancel">
+    <div class="row">
+      <div class="r">
+        <h2><span class="node" aria-hidden="true"></span>キャンセルの決まり</h2>
+        <p class="lead">定員が4名、6名と少ないため、空きを待っている方へ席を回せるよう、締め切りを設けています。</p>
+        <div class="tw" role="region" aria-label="キャンセルの扱い（横にスクロールできます）" tabindex="0">
+          <table class="tbl">
+            <caption>キャンセル・変更の扱い</caption>
+            <thead>
+              <tr><th scope="col">ご連絡の時点</th><th scope="col">月4回・月8回</th><th scope="col">通い放題</th><th scope="col">都度払い・体験</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">開始の12時間前まで</th><td>回数は減りません</td><td>費用はかかりません</td><td>費用はかかりません</td></tr>
+              <tr><th scope="row">12時間前を過ぎてから</th><td>1回分を使ったものとします</td><td>1,100円</td><td>料金の全額</td></tr>
+              <tr><th scope="row">ご連絡なしの欠席</th><td>1回分を使ったものとします</td><td>1,100円</td><td>料金の全額</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="swipe t">表は横にスクロールできます。</p>
+        <p class="note">※ デモサイトのため、料金は架空のものです。</p>
+        <ul class="dash" style="margin-top:30px">
+          <li>キャンセルと変更は、受付またはお電話（<a class="txt-link" href="tel:03-0000-0000">03-0000-0000</a>）で承ります。朝7:30のクラスは、前日19:30が締め切りです。</li>
+          <li>開始から10分を過ぎると、準備の動きが終わっているためご参加いただけません。この場合も上の表の「12時間前を過ぎてから」と同じ扱いになります。</li>
+          <li>台風や大雪、設備の不具合などスタジオの都合で休講するときは、回数も費用もかかりません。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="pay">
+    <div class="row">
+      <div class="r">
+        <h2><span class="node" aria-hidden="true"></span>お支払い方法</h2>
+        <dl class="info w">
+          <div><dt>体験・都度払い</dt><dd>当日、受付でお支払いください。クレジットカード、交通系ICカード、QRコード決済、現金がご利用いただけます。</dd></div>
+          <div><dt>月会費</dt><dd>クレジットカードまたは口座振替。毎月27日に、翌月分をお引き落としします。</dd></div>
+          <div><dt>入会金</dt><dd>お申し込みの日に、受付でお支払いください。</dd></div>
+          <div><dt>領収書</dt><dd>受付でお申し付けください。その場で発行します。</dd></div>
+        </dl>
+        <p class="note mt">ご不明な点は、体験のあとのご案内のときにお尋ねください。入会はその場で決めていただかなくてかまいません。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="book cta" aria-labelledby="cta-h">
+    <div class="row">
+      <div class="r">
+        <h2 id="cta-h"><span class="node" aria-hidden="true"></span>まずは、<wbr>体験レッスンから。</h2>
+        <p class="lead">55分、3,300円（税込）。はじめての方は「入門」の枠でお受けいただけます。ウェア以外の持ちものは要りません。</p>
+        <a class="btn" href="reserve.html">体験レッスンを予約する</a>
+      </div>
+      <div class="l end-a alt">
+        <p>お電話でも承ります（営業時間内）。</p>
+        <a class="tel" href="tel:03-0000-0000">03-0000-0000</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div>
+    <a class="logo" href="index.html" aria-label="FORME PILATES ホームへ戻る">FORME<i aria-hidden="true"></i>PILATES</a>
+  </div>
+  <div>
+    <address>
+      東京都○○区○○ 1-2-3 ○○ビル 3F<br>
+      <span class="nb">平日 7:00–21:30</span>　<span class="nb">土日祝 9:00–17:30</span>　<span class="nb">木曜定休</span><br>
+      <a href="tel:03-0000-0000">03-0000-0000</a>
+    </address>
+    <nav class="foot-nav" aria-label="サイトマップ">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="classes.html">クラス</a></li>
+        <li><a href="schedule.html">時間割と料金</a></li>
+        <li><a href="instructors.html">インストラクター</a></li>
+        <li><a href="first.html">はじめての方へ</a></li>
+        <li><a href="access.html">スタジオとアクセス</a></li>
+        <li><a href="reserve.html">体験予約</a></li>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="demo"><span class="nb">架空のスタジオを題材にしたデモサイトです。</span><span class="nb">写真はイメージです。</span><br>© FORME PILATES</p>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

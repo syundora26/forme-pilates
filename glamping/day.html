@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>過ごし方｜FIELD NOTE 森のグランピング</title>
+<meta name="description" content="FIELD NOTE 森のグランピングでの一泊二日の過ごし方。チェックインから翌朝までのモデルコース、森の散歩・焚き火の料理・星空の楽しみ方、春夏秋冬の気温と服装の目安を、ノートのようにまとめました。">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="FIELD NOTE 森のグランピング">
+<meta property="og:title" content="過ごし方｜FIELD NOTE 森のグランピング">
+<meta property="og:description" content="FIELD NOTE 森のグランピングでの一泊二日の過ごし方。チェックインから翌朝までのモデルコース、森の散歩・焚き火の料理・星空の楽しみ方、春夏秋冬の気温と服装の目安を、ノートのようにまとめました。">
+<meta property="og:image" content="img/dusk.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#17352A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352A'/%3E%3Cpath d='M8 50 32 12l24 38z' fill='%23E9DFC8'/%3E%3Cpath d='M25 50l7-18 7 18z' fill='%23E8602C'/%3E%3C/svg%3E">
+<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}})(document.documentElement);</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<button class="switch" id="nightSwitch" type="button" role="switch" aria-checked="false" aria-label="夜にする">
+  <span class="sw-txt" aria-hidden="true"><span class="sw-d">夜にする</span><span class="sw-n">朝にする</span></span>
+  <span class="sw-track" aria-hidden="true"><span class="sw-knob"></span></span>
+</button>
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<!-- shared drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+    <radialGradient id="glowg"><stop offset="0" stop-color="#FFB347" stop-opacity=".75"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
+    <symbol id="tree" viewBox="-24 -64 48 74" overflow="visible"><path d="M0-62 15-34H8L21-8H4V9h-8V-8h-17L-8-34h-7z"/></symbol>
+    <symbol id="fire" viewBox="-40 -70 80 84" overflow="visible">
+      <circle class="s-glow" r="62" cy="-18" fill="url(#glowg)"/>
+      <g class="flick"><path class="f-flame" d="M0-64c4 14 20 22 20 40C20-9 11 0 0 0S-20-9-20-24c0-9 5-14 9-20 1 7 4 10 7 11C-6-44-4-54 0-64z"/>
+      <path class="f-in" d="M0-34c2 7 9 11 9 20C9-6 5-1 0-1S-9-6-9-14c0-5 3-8 5-11 1 4 2 5 3 5 0-5 0-9 1-14z"/></g>
+      <path class="f-log" d="M-30 8 26-6M-26-6 30 8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="band b-pine top" id="top">
+  <div class="wrap">
+    <div class="mast">
+      <a class="brand" href="index.html"><b>FIELD NOTE</b><span>森のグランピング</span></a>
+      <div class="mast-row">
+        <a class="btn btn-s mast-cta" href="reserve.html">予約する</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="gnav">
+          <svg width="22" height="18" viewBox="0 0 22 18" aria-hidden="true"><path d="M1 2h20M1 9h14M1 16h18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          <span class="mb-o">もくじ</span><span class="mb-c">とじる</span>
+        </button>
+      </div>
+      <nav class="gnav" id="gnav" aria-label="メインメニュー">
+        <p class="gnav-title" aria-hidden="true">もくじ<small>FIELD NOTE</small></p>
+        <ul>
+          <li><a href="index.html"><span class="no" aria-hidden="true">01</span><span class="t">ホーム</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="stay.html"><span class="no" aria-hidden="true">02</span><span class="t">泊まる</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="food.html"><span class="no" aria-hidden="true">03</span><span class="t">食事と焚き火</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="day.html" aria-current="page"><span class="no" aria-hidden="true">04</span><span class="t">過ごし方</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="price.html"><span class="no" aria-hidden="true">05</span><span class="t">料金</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="faq.html"><span class="no" aria-hidden="true">06</span><span class="t">よくある質問</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="access.html"><span class="no" aria-hidden="true">07</span><span class="t">アクセス</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li class="cta"><a href="reserve.html"><span class="no" aria-hidden="true">08</span><span class="t">予約する</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="band b-canvas torn page-head">
+  <div class="wrap">
+    <nav class="crumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="currentColor"/></svg>ホーム</a><span class="sep" aria-hidden="true"></span></li>
+        <li><span class="cur">過ごし方</span></li>
+      </ol>
+    </nav>
+    <div class="ph-grid">
+      <div>
+        <h1>一泊二日、<br>だいたいこう<em>歩く</em>。</h1>
+        <p class="lead">はじめての方に向けた、ひとつの例です。寝坊しても、誰も怒りません。</p>
+      </div>
+      <div class="ph-stamp" aria-hidden="true"><p class="stamp" style="--r:8deg">FIELD NOTE<b>p.04</b>過ごし方</p></div>
+    </div>
+  </div>
+</div>
+<section class="band b-map stitch" id="course" aria-labelledby="h-course">
+  <div class="wrap">
+    <div class="course-head">
+      <h2 class="h2 s" id="h-course">15時から、<br>翌朝10時<em>まで</em>。</h2>
+      <p>下へ進むと、足あとが道をたどります。時刻はめやすです。全部こなす必要はありません。</p>
+    </div>
+    <div class="trail-box" id="trailBox">
+      <svg class="trail-svg" id="trailSvg" aria-hidden="true" focusable="false"><path class="t-dots" id="trailDots"/><path class="t-done" id="trailDone"/></svg>
+      <div class="walker" id="walker" aria-hidden="true">
+        <svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="18" fill="#E8602C" stroke="#1B1F1C" stroke-width="3"/><g fill="#1B1F1C"><ellipse cx="15.5" cy="17" rx="4" ry="6.5"/><ellipse cx="15.5" cy="28" rx="3" ry="2.6"/><ellipse cx="27" cy="19.5" rx="4" ry="6.5"/><ellipse cx="27" cy="30.5" rx="3" ry="2.6"/></g></svg>
+      </div>
+      <ol class="trail">
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="15:00">15:00</time><h3>チェックイン</h3>
+          <p>受付で薪とランタン、手描きの地図を受け取ります。荷ほどきは五分で終わるので、あとは椅子に座るだけです。</p></li>
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="16:00">16:00</time><h3>森をひとまわり</h3>
+          <p>明るいうちに、裏の小道を歩いておきます。貸切風呂の札も、このあたりで取っておくと安心です。</p></li>
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="17:30">17:30</time><h3>夕食と焚き火</h3>
+          <p>火おこしから始めます。うまくつかなくても大丈夫。スタッフが着火剤を持って、近くで待機しています。</p></li>
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="20:00">20:00</time><h3>星空</h3>
+          <p>ランタンを消すと、見える星が増えます。曇りの日は、火を眺める時間が長くなるだけです。</p></li>
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="22:00">22:00</time><h3>静かな時間</h3>
+          <p>火を落として、寝床へ。まっ暗で静かなので、いつもより早く眠くなります。</p></li>
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="07:00">7:00</time><h3>朝のコーヒー</h3>
+          <p>豆を挽くところから。鳥のほうが早起きなので、目覚ましはいりません。</p>
+          <!-- 要差し替え：実際の施設写真 -->
+<figure class="print tape"><img src="img/coffee.jpg" width="776" height="530" loading="lazy" alt="屋外のテーブルで、ケトルからドリッパーへ湯を注いでいる"><figcaption>朝いちばんの湯気</figcaption></figure></li>
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="10:00">10:00</time><h3>チェックアウト</h3>
+          <p>荷物をまとめて受付へ。服についた煙の匂いは、おみやげです。</p></li>
+      </ol>
+    </div>
+    <p class="note mt-l">2泊する方は、二日目の昼がまるごと空きます。昼寝に使う人が多いです。</p>
+  </div>
+</section>
+
+<section class="band b-canvas torn" id="do" aria-labelledby="h-do">
+  <svg class="contour" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M820 120c120-60 300-20 340 90s-40 230-170 250-260-30-290-140 20-150 120-200z"/>
+      <path d="M850 170c90-40 220-10 250 70s-30 170-130 180-190-20-210-100 20-110 90-150z"/>
+      <path d="M890 220c60-26 140-6 160 46s-20 110-80 116-124-14-136-64 10-70 56-98z"/>
+      <path d="M-40 560c90-70 260-60 330 30s40 220-70 270-250 10-300-90-30-150 40-210z"/>
+      <path d="M10 610c66-50 180-42 228 22s28 154-48 188-176 8-210-62-20-106 30-148z"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="do-head">
+      <h2 class="h2" id="h-do">することは、<br><em>三つ</em>くらい。</h2>
+      <p>順番も、全部やる必要もありません。気が向いたものだけどうぞ。椅子から動かないのも、立派な過ごし方です。</p>
+    </div>
+
+    <article class="g2 mt-l item">
+      <div style="display:flex;justify-content:center">
+        <!-- 要差し替え：実際の施設写真 -->
+<figure class="print tape" style="--w:290px;--r:-4deg"><img src="img/hike.jpg" width="268" height="332" loading="lazy" alt="リュックを背負って森の小道を歩くふたりの後ろ姿"><figcaption>森の小道</figcaption></figure>
+      </div>
+      <div>
+        <h3 class="label">歩く</h3>
+        <p>サイトの裏から森の小道に入れます。受付でお渡しする手描きの地図に、道を三本書いてあります。飽きたら引き返してください。</p>
+        <dl class="rows mt-s">
+          <div><dt>ひとまわり</dt><dd>約20分。カラマツ林を抜けて戻る、平らな道</dd></div>
+          <div><dt>沢まで</dt><dd>往復 約50分。小さな沢で折り返し。帰りはゆるい登り</dd></div>
+          <div><dt>見晴らし台</dt><dd>往復 約1時間半。山並みが見える草地まで。水筒を持って</dd></div>
+        </dl>
+        <p class="note mt-s">道に街灯はありません。日没の1時間前には戻ってきてください。長靴は受付で貸し出しています。</p>
+      </div>
+    </article>
+
+    <article class="g2 mt-l item">
+      <div style="display:flex;justify-content:center">
+        <!-- 要差し替え：実際の施設写真 -->
+<figure class="print pin" style="--w:360px;--r:3deg"><img src="img/pan.jpg" width="434" height="274" loading="lazy" alt="湯気の立つフライパンで野菜を炒めている手元"><figcaption>つまみ食いは料理のうち</figcaption></figure>
+      </div>
+      <div>
+        <h3 class="label" style="transform:rotate(1.5deg)">食べる</h3>
+        <p>夕食のほかに、何か足して焼く人が多いです。火があると、何か焼きたくなるものです。受付横の小さな売店に、焼けるものを置いています。</p>
+        <ul class="ticks mt-s">
+          <li>焼きマシュマロ。竹串つき。焦がすまでが一連の流れです。</li>
+          <li>焼きりんごのおかわり、焼きいも（秋と冬）。</li>
+          <li>ホットサンドの道具の貸し出し。朝食のパンで作れます。</li>
+          <li>飲みものは、地元のりんごジュース、ビール、あたたかいお茶。</li>
+        </ul>
+        <p class="mt-s"><a class="more" href="food.html">食事と焚き火のこと</a></p>
+      </div>
+    </article>
+
+    <article class="g2 mt-l item">
+      <div style="display:flex;justify-content:center">
+        <!-- 要差し替え：実際の施設写真 -->
+<figure class="print tape t-ember" style="--w:480px;--r:-2deg"><img src="img/night.jpg" width="944" height="464" loading="lazy" alt="満天の星と天の川の下、明かりのともったテントと小さな焚き火"><figcaption>晴れた夜のサイト</figcaption></figure>
+      </div>
+      <div>
+        <h3 class="label">星を見る</h3>
+        <p>ランタンを消して、椅子を倒すだけ。目が慣れるまで、十分ほどかかります。そのあいだスマホを見ると、また最初からです。</p>
+        <ul class="ticks mt-s">
+          <li>いちばん暗いのは、受付の裏の草地。22時までなら歩いて行けます。</li>
+          <li>月の明るい夜は、星は減りますが、森の影がきれいです。</li>
+          <li>夏でも夜は冷えます。ひざ掛けをテントから持って出てください。</li>
+        </ul>
+        <p class="note mt-s">右上のスイッチで、このサイトも夜にできます。曇りの日の予行演習にどうぞ。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="band b-ember torn" aria-labelledby="h-season">
+  <div class="wrap">
+    <div class="g2 center">
+      <div class="sec-head">
+        <h2 class="h2 s" id="h-season">季節の<em>メモ</em>。</h2>
+        <p>標高はおよそ1,100メートル。ふもとの町より、いつも5℃ほど低いと思ってください。気温は目安で、年によって前後します。</p>
+      </div>
+      <div style="display:flex;justify-content:center">
+        <!-- 要差し替え：実際の施設写真 -->
+<figure class="print pin" style="--w:300px;--r:3deg"><img src="img/lake.jpg" width="410" height="274" loading="lazy" alt="夕暮れの湖を望む場所に置かれた椅子とランタン"><figcaption>何もしないための椅子</figcaption></figure>
+      </div>
+    </div>
+    <div class="tbl-scroll" tabindex="0" role="region" aria-labelledby="cap-season">
+      <table>
+        <caption id="cap-season">季節ごとの気温の目安と過ごし方</caption>
+        <thead><tr><th scope="col">季節</th><th scope="col">夜の気温</th><th scope="col">森のようす</th><th scope="col">着るもの</th><th scope="col">泊まれるところ</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">春<br>4〜5月</th><td class="num">2〜8℃</td><td>カラマツの芽吹き。朝は霜がおりる日も</td><td>冬の上着と手袋</td><td>キャビン、テント</td></tr>
+          <tr><th scope="row">夏<br>6〜8月</th><td class="num">14〜18℃</td><td>昼は木陰が涼しい。夕立と虫は多め</td><td>長袖一枚、虫よけ</td><td>キャビン、テント</td></tr>
+          <tr><th scope="row">秋<br>9〜11月</th><td class="num">0〜10℃</td><td>10月中旬から紅葉。空気が澄んで星が増える</td><td>フリースと厚手の靴下</td><td>キャビン、テント</td></tr>
+          <tr><th scope="row">冬<br>12〜3月</th><td class="num">−10〜−2℃</td><td>雪。音がなくなる。焚き火がいちばんありがたい</td><td>スキー場に行く格好</td><td>キャビンのみ</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-hint">表は横に動かせます。</p>
+    <p class="tbl-note">12月から3月にお車で来る方は、冬用タイヤが必要です。くわしくは<a class="inl" href="access.html">アクセス</a>のページへ。</p>
+  </div>
+</section>
+
+<section class="band b-pine torn closing" aria-labelledby="h-close">
+  <div class="wrap cl-grid">
+    <div class="cl-act">
+      <h2 class="h2 s" id="h-close">次の休み、<br><em>森</em>で会いましょう。</h2>
+      <a class="btn mt-s" href="reserve.html"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M9.5 21 12 14l2.5 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg>空きを確認して予約する</a>
+      <p class="note">お電話でも承ります（9:00〜18:00）<br><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+    </div>
+    <div class="cl-stamps" aria-label="チェックインは15時から、チェックアウトは10時まで">
+      <p class="stamp" style="--r:-8deg">チェックイン<b>15:00</b>から</p>
+      <p class="stamp" style="--r:6deg">チェックアウト<b>10:00</b>まで</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="band b-night torn foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="brand" href="index.html"><b>FIELD NOTE</b><span>森のグランピング</span></a>
+      <nav class="foot-nav" aria-label="フッターメニュー">
+        <h2>さくいん</h2>
+        <ul><li><a href="index.html">ホーム</a></li><li><a href="stay.html">泊まる</a></li><li><a href="food.html">食事と焚き火</a></li><li><a href="day.html">過ごし方</a></li><li><a href="price.html">料金</a></li><li><a href="faq.html">よくある質問</a></li><li><a href="access.html">アクセス</a></li><li><a href="reserve.html">予約</a></li><li><a href="privacy.html">プライバシーポリシー</a></li></ul>
+      </nav>
+      <div class="foot-info">
+        <h2>連絡先</h2>
+        <p>長野県○○郡○○町○○ 123</p>
+        <p>受付 9:00〜19:00（7・8月は20:00まで）<br>定休日 水曜（祝日と繁忙日は営業）</p>
+        <p><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+      </div>
+    </div>
+    <p class="demo">架空の施設を題材にしたデモサイトです。写真はイメージです。</p>
+    <small>© FIELD NOTE 森のグランピング</small>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

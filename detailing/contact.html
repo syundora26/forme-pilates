@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
+<title>ご相談｜CLEARLINE AUTO CARE</title>
+<meta name="description" content="CLEARLINE AUTO CARE への施工のご相談フォーム。車種、ご希望の施工、ご希望日、お名前、ご連絡先、車名と色、気になっていることをお知らせください。送信後の流れと、お電話でのご相談方法もご案内します。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#060B16">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="CLEARLINE AUTO CARE">
+<meta property="og:title" content="ご相談｜CLEARLINE AUTO CARE">
+<meta property="og:description" content="CLEARLINE AUTO CARE への施工のご相談フォーム。車種、ご希望の施工、ご希望日、お名前、ご連絡先、車名と色、気になっていることをお知らせください。送信後の流れと、お電話でのご相談方法もご案内します。">
+<meta property="og:image" content="img/polisher.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A1A33'/%3E%3Cpath d='M0 19Q16 11 32 19' fill='none' stroke='%23C9D1DA' stroke-width='1.5'/%3E%3Ccircle cx='22' cy='10' r='2.5' fill='%237ED4F0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500&family=Unbounded:wght@300;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="head">
+  <div class="wrap">
+    <div class="head-row">
+      <a class="mark" href="index.html" aria-label="CLEARLINE AUTO CARE ホーム"><b aria-hidden="true">CLEARLINE</b><small aria-hidden="true">AUTO CARE</small></a>
+    </div>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><i aria-hidden="true"></i><span>メニュー</span></button>
+    <nav class="nav" id="gnav" aria-label="メインメニュー">
+      <ul><li><a href="index.html">ホーム</a></li><li><a href="menu.html">施工メニュー</a></li><li><a href="price.html">料金</a></li><li><a href="flow.html">ご依頼の流れ</a></li><li><a href="studio.html">スタジオ</a></li><li><a href="care.html">お手入れ</a></li><li><a href="faq.html">よくある質問</a></li><li class="act"><a class="nbtn" href="contact.html" aria-current="page">施工を相談する</a></li></ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<nav class="crumb" aria-label="パンくずリスト"><div class="wrap"><ol><li><a href="index.html">ホーム</a></li><li><span>ご相談</span></li></ol></div></nav>
+<div class="phead"><div class="paint strip lit" aria-hidden="true"><i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-glint"></i></div><div class="wrap phead-in"><span class="en" aria-hidden="true">CONSULT</span><h1>施工のご相談</h1><p class="lead">内容が決まっていなくてもかまいません。<br>お車を拝見してから、必要な作業をご提案します。</p></div></div>
+<section class="sec" aria-labelledby="h-form">
+  <div class="wrap narrow">
+    <div class="shead">
+      <p class="num" aria-hidden="true">01</p>
+      <h2 id="h-form">ご相談フォーム</h2>
+      <p>分かる範囲でご記入ください。<br>翌営業日までに、お電話かメールでお返事します。</p>
+    </div>
+    <form class="form" id="form" action="#" method="post" novalidate>
+      <fieldset class="fgroup">
+        <legend>車種</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="car" value="sedan" checked><span>セダン</span></label>
+          <label class="choice"><input type="radio" name="car" value="suv"><span>SUV</span></label>
+          <label class="choice"><input type="radio" name="car" value="van"><span>ミニバン・<wbr>ワゴン</span></label>
+          <label class="choice"><input type="radio" name="car" value="other"><span>その他</span></label>
+        </div>
+        <p class="hint">軽自動車、ハッチバック、クーペなどは「その他」を選び、下の車名にお書きください。</p>
+      </fieldset>
+      <fieldset class="fgroup">
+        <legend>ご希望の施工<span class="opt">複数選べます</span></legend>
+        <div class="choices c4">
+          <label class="choice"><input type="checkbox" name="svc" value="wash"><span>洗車</span></label>
+          <label class="choice"><input type="checkbox" name="svc" value="coat"><span>コーティング</span></label>
+          <label class="choice"><input type="checkbox" name="svc" value="interior"><span>内装ケア</span></label>
+          <label class="choice"><input type="checkbox" name="svc" value="unsure"><span>相談して<wbr>決めたい</span></label>
+        </div>
+      </fieldset>
+      <div class="fgroup two">
+        <div><label class="lab" for="f-date">ご希望日<span class="opt">任意</span></label><input class="inp" id="f-date" name="date" type="date"><p class="hint">水曜は定休日です。</p></div>
+        <div><label class="lab" for="f-name">お名前</label><input class="inp" id="f-name" name="name" type="text" autocomplete="name"></div>
+      </div>
+      <div class="fgroup two">
+        <div><label class="lab" for="f-contact">ご連絡先<span class="opt">電話またはメール</span></label><input class="inp" id="f-contact" name="contact" type="text"></div>
+        <div><label class="lab" for="f-model">車名・色<span class="opt">任意</span></label><input class="inp" id="f-model" name="model" type="text"></div>
+      </div>
+      <div class="fgroup">
+        <label class="lab" for="f-note">気になっていること<span class="opt">任意</span></label>
+        <textarea class="inp" id="f-note" name="note" rows="5" aria-describedby="f-note-h"></textarea>
+        <p class="hint" id="f-note-h">年式、保管場所（屋内・屋外）、過去の施工や再塗装の有無などが分かると、概算を出しやすくなります。</p>
+      </div>
+      <div class="send">
+        <p class="hint" style="margin-bottom:20px">ご記入の内容は、<a href="privacy.html" style="color:var(--white)">プライバシーポリシー</a>に沿って取り扱います。</p>
+        <button class="btn" type="submit">施工を相談する</button>
+        <p class="msg" id="msg" role="status" hidden>デモサイトのため、送信はされません。</p>
+        <noscript><p class="msg">デモサイトのため、送信はされません。</p></noscript>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="sec band" aria-labelledby="h-next">
+  <div class="wrap">
+    <div class="shead">
+      <p class="num" aria-hidden="true">02</p>
+      <h2 id="h-next">送信のあと</h2>
+    </div>
+    <ol class="rows">
+      <li><span><b>翌営業日までに、お返事します</b>作業中は電話に出られないことがあるため、こちらからのご連絡は夕方になることがあります。</span></li>
+      <li><span><b>概算と、空いている日をお伝えします</b>料金表をもとにした幅のある金額です。この時点でご予約は確定しません。</span></li>
+      <li><span><b>ご来店で、お見積り</b>15分ほど、無料です。金額と作業内容を書面でお渡しします。</span></li>
+      <li><span><b>内容にご納得いただいてから、ご予約</b>お預かりの日時を決めます。くわしくは<a href="flow.html">ご依頼の流れ</a>をご覧ください。</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="cta" aria-labelledby="h-tel">
+  <div class="wrap">
+    <p class="num" aria-hidden="true">TEL</p>
+    <h2 id="h-tel" style="margin-top:16px">お電話でのご相談</h2>
+    <p>お急ぎの場合や、フォームでは伝えにくい場合はお電話ください。<br>作業中で出られないときは、折り返しご連絡します。</p>
+    <p class="tel" style="margin-top:26px"><a href="tel:0300000000">03-0000-0000</a><br><span class="note">10:00〜19:00｜水曜定休｜完全予約制</span></p>
+  </div>
+</section>
+
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="mark" href="index.html" aria-label="CLEARLINE AUTO CARE ホームへ戻る"><b aria-hidden="true">CLEARLINE</b><small aria-hidden="true">AUTO CARE</small></a>
+    <nav class="fnav" aria-label="サイトマップ"><ul><li><a href="index.html">ホーム</a></li><li><a href="menu.html">施工メニュー</a></li><li><a href="price.html">料金</a></li><li><a href="flow.html">ご依頼の流れ</a></li><li><a href="studio.html">スタジオ</a></li><li><a href="care.html">お手入れ</a></li><li><a href="faq.html">よくある質問</a></li><li><a href="contact.html">ご相談</a></li><li><a href="privacy.html">プライバシーポリシー</a></li></ul></nav>
+    <dl>
+      <div><dt>所在地</dt><dd>東京都○○区○○ 1-2-3</dd></div>
+      <div><dt>電話</dt><dd><a href="tel:0300000000">03-0000-0000</a></dd></div>
+      <div><dt>営業時間</dt><dd>10:00〜19:00（水曜定休）</dd></div>
+      <div><dt>ご来店</dt><dd>完全予約制（一台ずつお預かり）</dd></div>
+    </dl>
+    <p class="demo">架空の店舗を題材にしたデモサイトです。写真と図はイメージです。</p>
+    <p class="copy">© CLEARLINE AUTO CARE</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

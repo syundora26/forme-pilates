@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>予約｜FIELD NOTE 森のグランピング</title>
+<meta name="description" content="FIELD NOTE 森のグランピングのご予約ページ。チェックイン日、泊数、人数、宿泊タイプを申込票に記入して空き状況をお問い合わせいただけます。お申し込み後の流れと、お電話でのご予約方法もご案内します。">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="FIELD NOTE 森のグランピング">
+<meta property="og:title" content="予約｜FIELD NOTE 森のグランピング">
+<meta property="og:description" content="FIELD NOTE 森のグランピングのご予約ページ。チェックイン日、泊数、人数、宿泊タイプを申込票に記入して空き状況をお問い合わせいただけます。お申し込み後の流れと、お電話でのご予約方法もご案内します。">
+<meta property="og:image" content="img/dusk.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#17352A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352A'/%3E%3Cpath d='M8 50 32 12l24 38z' fill='%23E9DFC8'/%3E%3Cpath d='M25 50l7-18 7 18z' fill='%23E8602C'/%3E%3C/svg%3E">
+<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}})(document.documentElement);</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<button class="switch" id="nightSwitch" type="button" role="switch" aria-checked="false" aria-label="夜にする">
+  <span class="sw-txt" aria-hidden="true"><span class="sw-d">夜にする</span><span class="sw-n">朝にする</span></span>
+  <span class="sw-track" aria-hidden="true"><span class="sw-knob"></span></span>
+</button>
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<!-- shared drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+    <radialGradient id="glowg"><stop offset="0" stop-color="#FFB347" stop-opacity=".75"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
+    <symbol id="tree" viewBox="-24 -64 48 74" overflow="visible"><path d="M0-62 15-34H8L21-8H4V9h-8V-8h-17L-8-34h-7z"/></symbol>
+    <symbol id="fire" viewBox="-40 -70 80 84" overflow="visible">
+      <circle class="s-glow" r="62" cy="-18" fill="url(#glowg)"/>
+      <g class="flick"><path class="f-flame" d="M0-64c4 14 20 22 20 40C20-9 11 0 0 0S-20-9-20-24c0-9 5-14 9-20 1 7 4 10 7 11C-6-44-4-54 0-64z"/>
+      <path class="f-in" d="M0-34c2 7 9 11 9 20C9-6 5-1 0-1S-9-6-9-14c0-5 3-8 5-11 1 4 2 5 3 5 0-5 0-9 1-14z"/></g>
+      <path class="f-log" d="M-30 8 26-6M-26-6 30 8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="band b-pine top" id="top">
+  <div class="wrap">
+    <div class="mast">
+      <a class="brand" href="index.html"><b>FIELD NOTE</b><span>森のグランピング</span></a>
+      <div class="mast-row">
+        <a class="btn btn-s mast-cta" href="reserve.html">予約する</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="gnav">
+          <svg width="22" height="18" viewBox="0 0 22 18" aria-hidden="true"><path d="M1 2h20M1 9h14M1 16h18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          <span class="mb-o">もくじ</span><span class="mb-c">とじる</span>
+        </button>
+      </div>
+      <nav class="gnav" id="gnav" aria-label="メインメニュー">
+        <p class="gnav-title" aria-hidden="true">もくじ<small>FIELD NOTE</small></p>
+        <ul>
+          <li><a href="index.html"><span class="no" aria-hidden="true">01</span><span class="t">ホーム</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="stay.html"><span class="no" aria-hidden="true">02</span><span class="t">泊まる</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="food.html"><span class="no" aria-hidden="true">03</span><span class="t">食事と焚き火</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="day.html"><span class="no" aria-hidden="true">04</span><span class="t">過ごし方</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="price.html"><span class="no" aria-hidden="true">05</span><span class="t">料金</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="faq.html"><span class="no" aria-hidden="true">06</span><span class="t">よくある質問</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li><a href="access.html"><span class="no" aria-hidden="true">07</span><span class="t">アクセス</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+          <li class="cta"><a href="reserve.html" aria-current="page"><span class="no" aria-hidden="true">08</span><span class="t">予約する</span><i class="ld" aria-hidden="true"></i><span class="here" aria-hidden="true">いまここ</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="band b-canvas torn page-head">
+  <div class="wrap">
+    <nav class="crumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="currentColor"/></svg>ホーム</a><span class="sep" aria-hidden="true"></span></li>
+        <li><span class="cur">予約</span></li>
+      </ol>
+    </nav>
+    <div class="ph-grid">
+      <div>
+        <h1>空きを<em>確認</em>して、<br>予約する。</h1>
+        <p class="lead">申込票に書いて送ると、スタッフが空きを確かめてお返事します。お電話でも同じように承ります。</p>
+      </div>
+      <div class="ph-stamp" aria-hidden="true"><p class="stamp" style="--r:8deg">FIELD NOTE<b>p.08</b>予約</p></div>
+    </div>
+  </div>
+</div>
+<section class="band b-pine torn book" id="book" aria-labelledby="h-book">
+  <div class="wrap">
+    <div class="book-head sec-head">
+      <h2 class="h2 s" id="h-book">宿泊の<em>申込票</em>。</h2>
+      <p>送っていただいた時点では、まだ予約は確定していません。スタッフが空きを確かめて、翌日までにお返事します。料金は<a class="inl" href="price.html">料金のページ</a>でご確認ください。</p>
+    </div>
+    <div class="ticket">
+      <form class="t-main" id="bookForm" novalidate>
+        <p class="t-title"><b>宿泊申込票</b><span>FIELD NOTE 森のグランピング</span></p>
+        <div class="fields">
+          <div class="field"><label for="f-date">チェックイン日<span class="req">必須</span></label><input type="date" id="f-date" name="checkin" required></div>
+          <div class="field"><label for="f-nights">泊数</label>
+            <select id="f-nights" name="nights"><option>1泊</option><option>2泊</option><option>3泊</option></select></div>
+          <div class="field"><label for="f-guests">人数</label>
+            <select id="f-guests" name="guests"><option>1名</option><option selected>2名</option><option>3名</option><option>4名</option></select></div>
+        </div>
+        <div class="fields f2 mt-s">
+          <div class="field"><label for="f-type">泊まるところ</label>
+            <select id="f-type" name="type"><option>森のキャビン（2〜4名）</option><option>テントロッジ（2〜3名・4〜11月）</option><option>どちらでもよい</option></select></div>
+          <div class="field"><label for="f-meal">食事</label>
+            <select id="f-meal" name="meal"><option>夕食と朝食</option><option>夕食だけ</option><option>朝食だけ</option><option>食事なし</option></select></div>
+        </div>
+        <p class="t-sub">ご連絡先</p>
+        <div class="fields f2">
+          <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input type="text" id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-tel">電話番号<span class="req">必須</span></label><input type="tel" id="f-tel" name="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="field full"><label for="f-mail">メールアドレス<span class="req">必須</span></label><input type="email" id="f-mail" name="email" autocomplete="email" required></div>
+          <div class="field full"><label for="f-note">伝えておきたいこと<span class="opt">任意</span></label><textarea id="f-note" name="note" rows="4" aria-describedby="f-note-h"></textarea>
+            <p class="note" id="f-note-h" style="margin-top:6px">アレルギーや苦手な食材、お子さまの年齢、到着の予定時刻、送迎車のご希望など。</p></div>
+        </div>
+        <button class="btn" type="submit">空きを確認して予約する</button>
+        <p class="msg" id="bookMsg" role="status" aria-live="polite"></p>
+        <p class="note" style="margin-top:16px">お預かりした内容の扱いは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+      </form>
+      <div class="t-stub">
+        <div class="stamps" aria-hidden="true">
+          <p class="stamp" style="--r:-8deg">チェックイン<b>15:00</b>から</p>
+          <p class="stamp" style="--r:6deg">チェックアウト<b>10:00</b>まで</p>
+        </div>
+        <p class="note">お支払いは、当日に受付で。<br>ご予約のときに、お金はいただきません。</p>
+        <p class="note">お電話でも承ります（9:00〜18:00）<br><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band b-canvas torn" aria-labelledby="h-next">
+  <div class="wrap g2">
+    <div>
+      <h2 class="h2 s" id="h-next">送った<em>あと</em>の、<br>流れ。</h2>
+      <ol class="steps mt-m">
+        <li><b>空きを確かめます</b>スタッフが台帳を見て、ご希望の日と寝床が空いているか確かめます。</li>
+        <li><b>翌日までにお返事</b>メールで、空き状況と合計の料金をお知らせします。水曜は定休日のため、お返事が木曜になります。</li>
+        <li><b>お返事に「お願いします」と返信</b>この時点で予約が確定します。前金やカード番号は必要ありません。</li>
+        <li><b>3日前にご連絡</b>到着の時刻と、食事のご要望を最後にもう一度うかがいます。あとは来るだけです。</li>
+      </ol>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:center">
+        <!-- 要差し替え：実際の施設写真 -->
+<figure class="print pin" style="--w:320px;--r:3deg"><img src="img/fire.jpg" width="370" height="348" loading="lazy" alt="星空の下で燃える焚き火と、そばに置かれたマグカップ"><figcaption>火は、つけて待っています</figcaption></figure>
+      </div>
+      <div class="memo mt-l" style="--r:-.8deg">
+        <h3>電話のほうが早いとき</h3>
+        <ul class="ticks">
+          <li>ご宿泊が3日以内に迫っているとき</li>
+          <li>5名以上、または2棟以上をまとめて取りたいとき</li>
+          <li>重い食物アレルギーがあるとき</li>
+          <li>日程の変更、キャンセルのご連絡</li>
+        </ul>
+        <p><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+        <p class="note">受付 9:00〜18:00（水曜定休）。出られないときは、折り返しお電話します。</p>
+      </div>
+      <p class="mt-m">迷っていることがあれば、先に<a class="inl" href="faq.html">よくある質問</a>をどうぞ。</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="band b-night torn foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="brand" href="index.html"><b>FIELD NOTE</b><span>森のグランピング</span></a>
+      <nav class="foot-nav" aria-label="フッターメニュー">
+        <h2>さくいん</h2>
+        <ul><li><a href="index.html">ホーム</a></li><li><a href="stay.html">泊まる</a></li><li><a href="food.html">食事と焚き火</a></li><li><a href="day.html">過ごし方</a></li><li><a href="price.html">料金</a></li><li><a href="faq.html">よくある質問</a></li><li><a href="access.html">アクセス</a></li><li><a href="reserve.html">予約</a></li><li><a href="privacy.html">プライバシーポリシー</a></li></ul>
+      </nav>
+      <div class="foot-info">
+        <h2>連絡先</h2>
+        <p>長野県○○郡○○町○○ 123</p>
+        <p>受付 9:00〜19:00（7・8月は20:00まで）<br>定休日 水曜（祝日と繁忙日は営業）</p>
+        <p><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+      </div>
+    </div>
+    <p class="demo">架空の施設を題材にしたデモサイトです。写真はイメージです。</p>
+    <small>© FIELD NOTE 森のグランピング</small>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

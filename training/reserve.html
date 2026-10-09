@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
+<title>体験予約｜PACE TRAINING</title>
+<meta name="description" content="PACE TRAININGの体験トレーニングのご予約ページです。ご希望の日時と目的、お名前、ご連絡先を入力してお申し込みください。予約から体験、ご提案までの4つのステップと、お電話でのご予約方法も案内しています。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#15171A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="PACE TRAINING">
+<meta property="og:title" content="体験予約｜PACE TRAINING">
+<meta property="og:description" content="PACE TRAININGの体験トレーニングのご予約ページです。ご希望の日時と目的、お名前、ご連絡先を入力してお申し込みください。予約から体験、ご提案までの4つのステップと、お電話でのご予約方法も案内しています。">
+<meta property="og:image" content="img/lat.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2315171A'/%3E%3Cpath d='M13 5h9L19 27h-9z' fill='%23FF5A1F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&family=Noto+Sans+JP:wght@400;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="PACE TRAINING ホーム">
+      <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true"><path d="M8 0h14L14 30H0z" fill="#FF5A1F"/></svg>
+      PACE TRAINING
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="gnav"><span class="menu-ico" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-txt">メニュー</span></button>
+    <nav class="nav" id="gnav" aria-label="メインメニュー">
+      <ul><li><a href="index.html">ホーム</a></li><li><a href="sessions.html">セッション</a></li><li><a href="trainers.html">トレーナー</a></li><li><a href="facility.html">施設</a></li><li><a href="price.html">料金</a></li><li><a href="faq.html">よくある質問</a></li></ul>
+      <a class="btn btn--s nav-cta" href="reserve.html" aria-current="page">体験を予約</a>
+      <a class="head-tel" href="tel:0300000000" aria-label="電話 03-0000-0000">03-0000-0000</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="phead">
+    <div class="wrap">
+      <nav class="crumb" aria-label="パンくずリスト"><ol><li><a href="index.html">ホーム</a></li><li><span>体験予約</span></li></ol></nav>
+      <div class="phead-grid">
+        <div>
+          <h1 class="tilt">体験予約</h1>
+          <p class="lead">体験も、通常と同じ50分。ご希望の日時を2分ほどで送れます。お電話でも受け付けています。</p>
+        </div>
+        <p class="chip"><span class="num">20:00</span><span>ご予約は前日の20時まで</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--orange cut before-cut" aria-labelledby="book-h" style="--cx:36%">
+    <div class="wrap book">
+      <div>
+        <h2 class="tilt" id="book-h">まずは一度、<br>体験から。</h2>
+        <p class="lead">動きやすい服がなくても大丈夫です。ウェアとシューズ、タオル、水はこちらで用意します。体験料は 3,300円（税込）、当日受付でお支払いください。</p>
+        <p class="note">※ デモサイトのため、料金は架空のものです。</p>
+        <ul class="slash-list" style="margin-top:26px;--orange:#15171A">
+          <li><b>所要時間</b>　着替えを入れて1時間半ほど</li>
+          <li><b>持ち物</b>　靴下だけご用意ください</li>
+          <li><b>その場での入会</b>　必要ありません</li>
+        </ul>
+        <p class="book-tel"><a class="tel" href="tel:0300000000"><small>お電話でのご予約（平日 7:00–22:00／土日 9:00–19:00）</small><span class="num">03-0000-0000</span></a></p>
+        <p class="note">火曜定休。セッション中は出られないことがあります。留守番電話にお名前とお電話番号を残していただければ、当日中に折り返します。</p>
+      </div>
+      <form class="form" id="bookForm" novalidate aria-labelledby="form-h">
+        <h2 id="form-h">予約フォーム</h2>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-date">ご希望日<span class="req">必須</span></label>
+            <input type="date" id="f-date" name="date" min="2026-10-10" required>
+          </div>
+          <div class="field">
+            <label for="f-time">ご希望の時間<span class="req">必須</span></label>
+            <select id="f-time" name="time" required>
+              <option>7:00</option><option>9:00</option><option selected>10:00</option><option>12:00</option><option>14:00</option><option>16:00</option><option>18:00</option><option>19:30</option><option>21:00</option>
+            </select>
+          </div>
+          <div class="field field--wide">
+            <label for="f-purpose">ご希望の目的<span class="req">必須</span></label>
+            <select id="f-purpose" name="purpose" required>
+              <option>はじめて（運動が久しぶり）</option><option>筋力</option><option>コンディショニング</option><option>まだ決めていない</option>
+            </select>
+          </div>
+          <div class="field field--wide">
+            <label for="f-name">お名前<span class="req">必須</span></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" placeholder="例）山田 花子" required>
+          </div>
+          <div class="field">
+            <label for="f-tel">電話番号<span class="req">必須</span></label>
+            <input type="tel" id="f-tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="例）090-0000-0000" required>
+          </div>
+          <div class="field">
+            <label for="f-mail">メールアドレス<span class="req">必須</span></label>
+            <input type="email" id="f-mail" name="email" autocomplete="email" placeholder="例）hanako@example.com" required>
+          </div>
+          <div class="field field--wide">
+            <label for="f-note">備考<small>けがや通院中のこと、ウェアのサイズ、担当の希望など</small></label>
+            <textarea id="f-note" name="note" rows="4"></textarea>
+          </div>
+        </div>
+        <button class="btn btn--dark" type="submit">体験トレーニングを予約する</button>
+        <p class="form-msg" id="formMsg" role="status" hidden>デモサイトのため、送信はされません。</p>
+        <p class="form-note">平日は 7:00–21:00、土日・祝日は 9:00–18:00 の開始枠からお選びください。火曜定休。ご予約は前日の20時までにお願いします。入力いただいた内容の取り扱いは<a class="txt-link" href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec cut" aria-labelledby="step-h" style="--cx:66%">
+    <div class="wrap">
+      <h2 class="tilt" id="step-h">はじめるまでの、<br>4つのステップ</h2>
+      <p class="lead">予約してから、合いそうなプランのご案内まで。当日の滞在は、着替えを入れて1時間半ほどです。</p>
+      <ol class="steps">
+        <li><h3>予約<small>前日20時まで</small></h3><p>フォームかお電話で、希望の日時と目的をお知らせください。フォームの場合は、翌営業日までにメールかお電話で確定のご連絡をします。</p></li>
+        <li><h3>相談<small>当日・10分</small></h3><p>開始の10分前にお越しください。着替えのあと、座って目的や不安なこと、体調、これまでの運動の経験をうかがいます。</p></li>
+        <li><h3>体験<small>30分＋ふり返り10分</small></h3><p>無理のない強さで、3種目ほどを実際に動いてみます。最後にストレッチをしながら、今日できたことを一緒に確認します。</p></li>
+        <li><h3>ご提案<small>10分ほど</small></h3><p>合いそうなセッションと回数、料金をご案内します。その場で決めていただく必要はありません。入会される場合の手続きは15分ほどです。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec sec--concrete" aria-labelledby="day-h">
+    <div class="wrap side">
+      <div>
+        <h2 class="tilt tilt--m" id="day-h">当日の<wbr>ご案内</h2>
+        <dl class="spec" style="margin-top:28px">
+          <div><dt>持ち物</dt><dd>とくにありません。靴下だけご用意ください（受付でも販売しています）</dd></div>
+          <div><dt>来店時刻</dt><dd>開始の10分前。早く着きすぎた場合は、前の方の清掃が終わるまで入口でお待ちいただくことがあります</dd></div>
+          <div><dt>食事</dt><dd>開始の2時間前までに、軽く済ませておくと動きやすくなります</dd></div>
+          <div><dt>お支払い</dt><dd>体験料 3,300円（税込）を当日受付で。現金・クレジットカード・QRコード決済</dd></div>
+          <div><dt>変更</dt><dd>前日の20時まで、お電話で</dd></div>
+        </dl>
+        <p class="note">※ デモサイトのため、料金は架空のものです。</p>
+        <p class="price-note">けがや持病のある方、通院中の方は、先に主治医にご相談のうえ、備考欄でお知らせください。</p>
+        <a class="more" href="faq.html"><span>よくある質問を見る</span></a>
+      </div>
+      <div>
+        <!-- 要差し替え：実際のジム・トレーナーの写真 -->
+        <figure class="frame" style="aspect-ratio:388/306;max-width:440px"><img src="img/talk.jpg" width="388" height="306" loading="lazy" alt="しゃがんで目線を合わせ、利用者と話すトレーナー"></figure>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html" aria-label="PACE TRAINING ホーム">
+          <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true"><path d="M8 0h14L14 30H0z" fill="#FF5A1F"/></svg>
+          PACE TRAINING
+        </a>
+        <p style="margin-top:10px">あなたのペースで、強くなる。</p>
+        <nav class="foot-nav" aria-label="サイトマップ">
+          <h2>サイトマップ</h2>
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="sessions.html">セッション</a></li>
+            <li><a href="trainers.html">トレーナー</a></li>
+            <li><a href="facility.html">施設</a></li>
+            <li><a href="price.html">料金</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="reserve.html">体験予約</a></li>
+            <li><a href="privacy.html">プライバシーポリシー</a></li>
+          </ul>
+        </nav>
+      </div>
+      <dl>
+        <div><dt>所在地</dt><dd>東京都○○区○○ 1-2-3 <span class="nw">○○ビル 2F</span><br>○○駅から徒歩4分</dd></div>
+        <div><dt>営業時間</dt><dd>平日 7:00–22:00<br>土日・祝日 9:00–19:00<br>火曜定休・完全予約制</dd></div>
+        <div><dt>電話</dt><dd><a href="tel:0300000000">03-0000-0000</a></dd></div>
+      </dl>
+    </div>
+    <p class="demo">架空のジムを題材にしたデモサイトです。写真はイメージです。</p>
+    <p class="copy">© PACE TRAINING</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

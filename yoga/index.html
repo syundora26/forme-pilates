@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.classList.add('js');</script>
-<title>呼吸舎｜呼吸から、わたしに戻る。東京のヨガスタジオ（体験受付）</title>
+<title>呼吸舎｜呼吸から、わたしに戻る。東京のヨガスタジオ</title>
 <meta name="description" content="東京の小さなヨガスタジオ「呼吸舎」。朝・昼・夜、その日の自分に合うクラスを選べます。からだがかたい方、運動が久しぶりの方も歓迎です。はじめての方は、手ぶらで参加できる体験クラスからどうぞ。">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#E8EEE6">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="呼吸舎">
-<meta property="og:title" content="呼吸舎｜呼吸から、わたしに戻る。">
-<meta property="og:description" content="朝・昼・夜、その日の自分に合うクラスを選べる東京のヨガスタジオ。はじめての方は体験クラスからどうぞ。">
+<meta property="og:title" content="呼吸舎｜呼吸から、わたしに戻る。東京のヨガスタジオ">
+<meta property="og:description" content="東京の小さなヨガスタジオ「呼吸舎」。朝・昼・夜、その日の自分に合うクラスを選べます。からだがかたい方、運動が久しぶりの方も歓迎です。はじめての方は、手ぶらで参加できる体験クラスからどうぞ。">
 <meta property="og:image" content="img/studio-a.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23E8EEE6'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%238FA286'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='%23E7B08F'/%3E%3C/svg%3E">
@@ -41,216 +41,24 @@
   ]
 }
 </script>
-<style>
-:root{
-  --mist:#E8EEE6; --ink:#2F3A2E; --sage:#8FA286; --apricot:#E7B08F; --night:#1E2830;
-  --noon:#EFEBD9; --sage-tint:#D6DFD1; --muted:#485445; --paper:#F4F7F2; --light:#EEF1EA;
-  --mincho:'Zen Old Mincho','Noto Serif CJK JP','Hiragino Mincho ProN','Yu Mincho',serif;
-  --gothic:'Zen Kaku Gothic New','Noto Sans CJK JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
-  --r:28px; --gut:24px; --col:1040px;
-}
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:var(--mist);color:var(--ink);font-family:var(--gothic);font-size:16px;line-height:2;letter-spacing:.04em;line-break:strict;overflow-wrap:anywhere}
-img{max-width:100%;height:auto;display:block}
-h1,h2,h3,p,ul,dl,dd,figure{margin:0}
-ul{padding:0;list-style:none}
-h1,h2,h3{font-family:var(--mincho);font-weight:400;letter-spacing:.12em;line-height:1.6;word-break:auto-phrase;text-wrap:balance}
-a{color:inherit;text-underline-offset:.3em;text-decoration-thickness:1px}
-:focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:4px}
-.wrap{max-width:var(--col);margin-inline:auto;padding-inline:var(--gut)}
-.skip{position:absolute;left:16px;top:-80px;background:var(--ink);color:var(--light);padding:10px 18px;border-radius:999px;z-index:10;text-decoration:none}
-.skip:focus{top:12px}
-.photo{border-radius:var(--r);overflow:hidden;background:var(--sage-tint)}
-.photo img{width:100%}
-
-/* button */
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:8px 34px;border:0;border-radius:999px;background:var(--apricot);color:var(--ink);font:500 16px/1.5 var(--gothic);letter-spacing:.1em;text-decoration:none;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(47,58,46,.14);transition:background-color .3s,color .3s,box-shadow .3s}
-.btn:hover{background:var(--ink);color:var(--light)}
-.btn:active{box-shadow:inset 0 0 0 3px var(--apricot)}
-
-/* header */
-.head{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1200px;margin-inline:auto;padding:14px var(--gut)}
-.logo{font-family:var(--mincho);font-size:22px;letter-spacing:.3em;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:12px}
-.logo::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--sage);box-shadow:0 0 0 5px rgba(143,162,134,.28)}
-.nav{display:flex;align-items:center;gap:4px}
-.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;text-decoration:none;font-size:14.5px;border-radius:999px;transition:background-color .25s}
-.nav a:hover{background:rgba(143,162,134,.28)}
-.nav .nav__sub{display:none}
-.nav .nav__book{box-shadow:inset 0 0 0 1px var(--ink);padding:0 20px}
-.nav .nav__book:hover{background:var(--ink);color:var(--light)}
-
-/* hero */
-.hero{position:relative;overflow:hidden;overflow:clip;padding:36px 0 88px}
-.hero__in{display:grid;gap:40px}
-.hero h1{font-size:clamp(34px,9.6vw,68px);line-height:1.5;letter-spacing:.1em}
-.hero__lead{margin-top:22px;max-width:25em;color:var(--muted)}
-.hero .btn{margin-top:30px}
-.hero__note{margin-top:14px;font-size:13.5px;color:var(--muted)}
-.breath{position:relative;width:min(86vw,340px);aspect-ratio:1;margin-inline:auto 0;margin-right:-6vw}
-.breath__ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(47,58,46,.2)}
-.breath__fill{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 42% 38%,rgba(231,176,143,.75) 0%,rgba(190,196,160,.6) 42%,rgba(143,162,134,.55) 72%,rgba(143,162,134,.18) 100%);transform:scale(.88)}
-.breath__words{position:absolute;left:30%;right:4%;top:24%;white-space:nowrap;text-align:center;font-family:var(--mincho);font-size:clamp(19px,5.2vw,26px);letter-spacing:.12em;line-height:1.6}
-.breath .photo{position:absolute;left:-14%;bottom:-14%;width:46%;box-shadow:0 0 0 6px var(--mist)}
-@keyframes breathe{0%,100%{transform:scale(.7);opacity:.72;animation-timing-function:cubic-bezier(.4,0,.4,1)}40%{transform:scale(1);opacity:1;animation-timing-function:cubic-bezier(.45,0,.45,1)}}
-@keyframes word-in{0%{opacity:.5}5%,35%{opacity:1}45%,95%{opacity:0}100%{opacity:.5}}
-@keyframes word-out{0%{opacity:.5}5%,35%{opacity:0}45%,95%{opacity:1}100%{opacity:.5}}
-@keyframes arrive{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:no-preference){
-  .breath__fill{animation:breathe 10s infinite;will-change:transform,opacity}
-  .breath__words{left:44%;right:0;top:26%;letter-spacing:.3em}
-  .breath__words span{position:absolute;left:0;right:0;top:0}
-  .breath__words .sep{display:none}
-  .breath__words .in{animation:word-in 10s linear infinite}
-  .breath__words .out{animation:word-out 10s linear infinite}
-  html.js .hero h1{animation:arrive 1s cubic-bezier(.2,.6,.2,1) both}
-  html.js .hero__lead{animation:arrive 1s .18s cubic-bezier(.2,.6,.2,1) both}
-}
-
-/* day */
-.day{position:relative;background:var(--mist);overflow:clip}
-.day__intro{padding-block:72px 24px}
-.day__intro h2{font-size:clamp(26px,6.6vw,42px)}
-.day__intro p{margin-top:18px;max-width:27em;color:var(--muted)}
-.time{--fg:var(--ink);--sub:var(--muted);--rule:rgba(47,58,46,.22);background:var(--mist);color:var(--fg);padding:64px 0}
-.time--noon{background:var(--noon)}
-.time--night{--fg:var(--light);--sub:#BCC8C1;--rule:rgba(238,241,234,.26);background:var(--night)}
-.time__in{display:grid;gap:36px}
-.time h3{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;line-height:1.3}
-.time h3 b{font-weight:400;font-size:clamp(76px,22vw,128px);letter-spacing:0;line-height:1}
-.time h3 span{font-size:clamp(17px,4.6vw,21px);letter-spacing:.14em;line-height:1.8}
-.time__lead{margin-top:18px;color:var(--sub);max-width:24em;transition:color .4s}
-.slots{margin-top:28px;border-top:1px solid var(--rule);transition:border-color .4s}
-.slots li{display:grid;grid-template-columns:5.2em 1fr;column-gap:8px;padding:18px 0;border-bottom:1px solid var(--rule);transition:border-color .4s}
-.slots time{font-family:var(--mincho);font-size:24px;letter-spacing:.04em;line-height:1.5}
-.slots strong{font-weight:500;font-size:17px;line-height:1.7;display:block;padding-top:3px}
-.slots small{grid-column:2;font-size:14px;line-height:1.8;color:var(--sub);transition:color .4s}
-.time .photo{width:min(78%,300px)}
-.time--noon .photo{margin-left:auto}
-.day__sky{display:none}
-
-/* live (scroll-driven) mode: section carries the colour */
-.day--live{transition:background-color .4s linear,color .4s linear;color:var(--ink)}
-.day--live.is-night{color:var(--light)}
-.day--live .time{--fg:inherit;background:transparent;color:inherit;min-height:92vh;display:grid;align-items:center}
-.day--live .time>.wrap{width:100%}
-.day--live.is-night .time{--sub:#BCC8C1;--rule:rgba(238,241,234,.26)}
-.day--live:not(.is-night) .time{--sub:var(--muted);--rule:rgba(47,58,46,.22)}
-.day--live .day__intro p{transition:color .4s}
-.day--live.is-night .day__intro p{color:#BCC8C1}
-.day--live .day__sky{display:block;position:sticky;top:0;height:100vh;height:100svh;margin-bottom:-100vh;margin-bottom:-100svh;pointer-events:none;z-index:1}
-.sky__track{position:absolute;right:3px;top:16%;height:68%;width:30px}
-.sky__track svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;opacity:.45}
-.sky__mark{position:absolute;left:-8px;top:-8px;width:16px;height:16px;border-radius:50%;background:var(--apricot);box-shadow:0 0 0 6px rgba(231,176,143,.3);transition:background-color .4s,box-shadow .4s;will-change:transform}
-.is-night .sky__mark{background:transparent;box-shadow:inset -5px -3px 0 0 var(--light)}
-.day--live .time>.wrap,.day--live .day__intro{padding-right:44px}
-
-/* beginners */
-.sec{padding:96px 0}
-.sec h2{font-size:clamp(26px,6.6vw,40px)}
-.sec__lead{margin-top:20px;max-width:28em}
-.first__in{display:grid;gap:44px}
-.first .photo{width:min(86%,380px);margin-left:auto}
-.notes{margin-top:34px;border-top:1px solid rgba(47,58,46,.22)}
-.notes div{padding:22px 0;border-bottom:1px solid rgba(47,58,46,.22)}
-.notes dt{font-family:var(--mincho);font-size:19px;letter-spacing:.14em}
-.notes dd{margin-top:4px;color:var(--muted)}
-.price{margin-top:30px;font-family:var(--mincho);font-size:19px;letter-spacing:.1em;line-height:1.9}
-.price small{display:block;font-family:var(--gothic);font-size:14px;color:var(--muted);letter-spacing:.04em}
-
-/* instructor */
-.teacher{background:var(--sage-tint)}
-.teacher__in{display:grid;gap:36px}
-.teacher .photo{width:200px}
-.teacher blockquote{margin:24px 0 0;max-width:27em}
-.teacher__name{margin-top:26px;font-size:14px;color:var(--muted);line-height:1.7}
-.teacher__name strong{display:block;font-family:var(--mincho);font-weight:400;font-size:23px;letter-spacing:.24em;color:var(--ink)}
-
-/* studio */
-.studio .photo{margin-top:40px;max-width:720px}
-.access{margin-top:40px;max-width:720px;margin-left:auto;border-top:1px solid rgba(47,58,46,.22)}
-.access div{display:grid;grid-template-columns:5.5em 1fr;gap:12px;padding:16px 0;border-bottom:1px solid rgba(47,58,46,.22)}
-.access dt{color:var(--muted);font-size:14.5px;padding-top:2px}
-.access a{display:inline-flex;align-items:center;min-height:44px;font-family:var(--mincho);font-size:22px;letter-spacing:.08em}
-
-/* booking */
-.book{position:relative;overflow:hidden;overflow:clip;padding:104px 0 112px}
-.book::before{content:"";position:absolute;width:clamp(700px,70vw,900px);aspect-ratio:1;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(231,176,143,.42) 0%,rgba(143,162,134,.34) 55%,rgba(143,162,134,.08) 100%)}
-.book__in{position:relative;max-width:640px;margin-inline:auto;padding-inline:var(--gut)}
-.book h2{font-size:clamp(26px,6.8vw,40px)}
-.book__lead{margin-top:18px}
-.form{margin-top:36px;display:grid;gap:22px}
-.field label{display:block;font-weight:500;font-size:15px;margin-bottom:6px}
-.field input,.field select{width:100%;min-height:54px;padding:10px 16px;border:1px solid rgba(47,58,46,.55);border-radius:14px;background:var(--paper);color:var(--ink);font:400 16px/1.5 var(--gothic);letter-spacing:.04em;transition:border-color .25s,box-shadow .25s,background-color .25s}
-.field select{appearance:none;-webkit-appearance:none;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%232F3A2E' stroke-width='1.5'%3E%3Cpath d='M1 1l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
-.field input:hover,.field select:hover{border-color:var(--ink);background-color:#fff}
-.field input:focus-visible,.field select:focus-visible{outline:none;border-color:var(--ink);background-color:#fff;box-shadow:0 0 0 3px var(--mist),0 0 0 5px var(--ink)}
-.field input:user-invalid{border-color:#8C3B1E;box-shadow:inset 0 0 0 1px #8C3B1E}
-.form .btn{width:100%;margin-top:8px}
-.form__msg{min-height:2em;font-weight:500;text-align:center}
-.form__msg:not(:empty){padding:12px 16px;border-radius:14px;background:var(--paper);box-shadow:inset 0 0 0 1px rgba(47,58,46,.3)}
-.book__tel{margin-top:26px;text-align:center;font-size:14.5px}
-.book__tel a{display:inline-flex;align-items:center;min-height:44px;font-family:var(--mincho);font-size:22px;letter-spacing:.08em;margin-left:6px}
-
-/* footer */
-.foot{background:var(--night);color:var(--light);padding:64px 0 40px}
-.foot__in{display:grid;gap:32px}
-.foot .logo{font-size:24px}
-.foot__info{font-size:14.5px;color:#C9D2CC}
-.foot__nav{display:flex;flex-wrap:wrap;gap:0 22px}
-.foot__nav a{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px}
-.foot__demo{margin-top:8px;padding-top:24px;border-top:1px solid rgba(238,241,234,.22);font-size:13.5px;color:#C9D2CC;line-height:1.8}
-
-@media (min-width:768px){
-  :root{--gut:48px}
-  body{font-size:17px}
-  .nav .nav__sub{display:inline-flex}
-  .hero{padding:56px 0 140px}
-  .hero__in{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:24px;max-width:1160px}
-  .hero h1{font-size:clamp(40px,5.2vw,62px);white-space:nowrap}
-  .breath{width:clamp(310px,37vw,470px);margin-right:0}
-  .breath .photo{left:-12%;bottom:-16%;width:44%}
-  .day__intro{padding-block:120px 40px}
-  .time{padding:112px 0}
-  .time__in{grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:64px;align-items:center}
-  .time .photo{width:100%;max-width:400px;margin-left:auto}
-  .time--noon .photo{order:-1;margin-left:0}
-  .time--noon .time__in{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}
-  .sec{padding:150px 0}
-  .first__in{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:start}
-  .first .photo{width:100%;max-width:440px;margin:8px 0 0}
-  .teacher__in{grid-template-columns:240px minmax(0,1fr);gap:72px;align-items:center;max-width:860px;margin-left:auto}
-  .teacher .photo{width:240px}
-  .studio .photo{margin-left:auto}
-  .access div{grid-template-columns:8em 1fr}
-  .book{padding:160px 0}
-  .form{grid-template-columns:1fr 1fr}
-  .form .wide{grid-column:1/-1}
-  .foot__in{grid-template-columns:1fr auto;align-items:end}
-  .foot__demo{grid-column:1/-1}
-  .sky__track{right:22px}
-  .day--live .time>.wrap,.day--live .day__intro{padding-right:var(--gut)}
-}
-@media (min-width:1180px){
-  .hero__in{gap:56px}
-  .first__in{padding-left:80px}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
-}
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動する</a>
 
 <header class="head">
-  <a class="logo" href="#top" aria-label="呼吸舎 トップへ">呼吸舎</a>
-  <nav class="nav" aria-label="主なメニュー">
-    <a class="nav__sub" href="#day">一日のクラス</a>
-    <a class="nav__sub" href="#first">はじめての方へ</a>
-    <a class="nav__sub" href="#studio">スタジオ</a>
-    <a class="nav__book" href="#book">体験予約</a>
+  <a class="logo" href="index.html" aria-label="呼吸舎 ホームへ">呼吸舎</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><span>メニュー</span></button>
+  <nav class="nav" id="gnav" aria-label="主なメニュー">
+    <ul>
+      <li><a href="index.html" aria-current="page">ホーム</a></li>
+      <li><a href="classes.html">クラス</a></li>
+      <li><a href="beginners.html">はじめての方へ</a></li>
+      <li><a href="price.html">料金</a></li>
+      <li><a href="instructors.html">インストラクター</a></li>
+      <li><a href="studio.html">スタジオ</a></li>
+      <li><a class="nav__book" href="reserve.html">体験クラスを予約する</a></li>
+    </ul>
   </nav>
 </header>
 
@@ -260,7 +68,7 @@ a{color:inherit;text-underline-offset:.3em;text-decoration-thickness:1px}
       <div>
         <h1>呼吸から、<br>わたしに戻る。</h1>
         <p class="hero__lead">一日じゅう画面を見ていると、息が浅くなっていることに気づきません。四秒吸って、六秒かけて吐く。まずはそれだけの時間を、ここで。</p>
-        <a class="btn" href="#book">体験クラスを予約する</a>
+        <a class="btn" href="reserve.html">体験クラスを予約する</a>
         <p class="hero__note">はじめての方は、手ぶらで参加できます。</p>
       </div>
       <div class="breath">
@@ -273,153 +81,91 @@ a{color:inherit;text-underline-offset:.3em;text-decoration-thickness:1px}
     </div>
   </section>
 
-  <section class="day" id="day">
-    <div class="day__sky" aria-hidden="true">
-      <div class="sky__track">
-        <svg viewBox="0 0 30 100" preserveAspectRatio="none"><path d="M26 0 Q-18 50 26 100" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg>
-        <span class="sky__mark"></span>
+  <section class="tease" aria-labelledby="t-day">
+    <div class="wrap tease__in">
+      <div>
+        <h2 id="t-day">呼吸舎の一日</h2>
+        <p>出勤前、昼休み、仕事のあと。朝から夜まで、六つのクラスがあります。その日のからだに合う時間を、ひとつ選んでください。</p>
+        <ul class="glance">
+          <li><b>朝</b><span>7:00 モーニングフロー<br>9:00 やさしいハタヨガ</span></li>
+          <li><b>昼</b><span>12:00 リフレッシュヨガ<br>14:00 コンディショニングヨガ</span></li>
+          <li><b>夜</b><span>18:30 やさしい陰ヨガ<br>20:00 ナイトリラックスヨガ</span></li>
+        </ul>
+        <a class="more" href="classes.html">クラスと時間割を見る</a>
       </div>
-    </div>
-
-    <div class="wrap day__intro">
-      <h2>呼吸舎の一日</h2>
-      <p>出勤前、昼休み、仕事のあと。朝から夜まで、六つのクラスがあります。その日のからだに合う時間を、ひとつ選んでください。</p>
-    </div>
-
-    <div class="time time--morning" data-time>
-      <div class="wrap time__in">
-        <div>
-          <h3><b>朝</b><span>すっきりと、<br>一日のはじまりを。</span></h3>
-          <p class="time__lead">寝起きのこわばったからだを、ゆっくり起こす時間です。終わってから出勤に間に合います。</p>
-          <ul class="slots">
-            <li><time datetime="07:00">7:00</time><strong>モーニングフロー</strong><small>60分。呼吸に合わせて、とぎれずに動きます。</small></li>
-            <li><time datetime="09:00">9:00</time><strong>やさしいハタヨガ</strong><small>60分。基本のポーズを、ひとつずつ丁寧に。</small></li>
-          </ul>
-        </div>
-        <!-- 要差し替え：実際のスタジオ写真 -->
-        <figure class="photo"><img src="img/stretch.jpg" width="438" height="368" loading="lazy" alt="朝の光が入るスタジオで、床に座って片腕を伸ばし、体の横を伸ばす女性"></figure>
-      </div>
-    </div>
-
-    <div class="time time--noon" data-time>
-      <div class="wrap time__in">
-        <div>
-          <h3><b>昼</b><span>ひと息ついて、<br>午後のわたしへ。</span></h3>
-          <p class="time__lead">座りっぱなしで固まった肩と腰を、動かしてほぐします。昼休みにも通える長さです。</p>
-          <ul class="slots">
-            <li><time datetime="12:00">12:00</time><strong>リフレッシュヨガ</strong><small>45分。デスクワークの合間に、短く集中して。</small></li>
-            <li><time datetime="14:00">14:00</time><strong>コンディショニングヨガ</strong><small>60分。立ち姿勢と体幹を、じっくり使います。</small></li>
-          </ul>
-        </div>
-        <!-- 要差し替え：実際のスタジオ写真 -->
-        <figure class="photo"><img src="img/warrior2.jpg" width="436" height="368" loading="lazy" alt="明るいスタジオで、両腕を左右に広げて戦士のポーズをとる女性と参加者たち"></figure>
-      </div>
-    </div>
-
-    <div class="time time--night" data-time>
-      <div class="wrap time__in">
-        <div>
-          <h3><b>夜</b><span>静けさのなかで、<br>一日をほどく。</span></h3>
-          <p class="time__lead">照明を落として、動きは少なめに。仕事帰りにそのまま寄れる時間です。</p>
-          <ul class="slots">
-            <li><time datetime="18:30">18:30</time><strong>やさしい陰ヨガ</strong><small>75分。ひとつの姿勢を長く保ち、力を抜いていきます。</small></li>
-            <li><time datetime="20:00">20:00</time><strong>ナイトリラックスヨガ</strong><small>60分。寝ころぶ姿勢が中心の、静かなクラス。</small></li>
-          </ul>
-        </div>
-        <!-- 要差し替え：実際のスタジオ写真 -->
-        <figure class="photo"><img src="img/night.jpg" width="388" height="388" loading="lazy" alt="あかりを落とした夜のスタジオで、静かに座って横を向く女性"></figure>
-      </div>
+      <!-- 要差し替え：実際のスタジオ写真 -->
+      <figure class="photo"><img src="img/stretch.jpg" width="438" height="368" loading="lazy" alt="朝の光が入るスタジオで、床に座って片腕を伸ばし、体の横を伸ばす女性"></figure>
     </div>
   </section>
 
-  <section class="sec first" id="first">
-    <div class="wrap first__in">
+  <section class="tease tease--flip sec--paper" aria-labelledby="t-first">
+    <div class="wrap tease__in">
       <div>
-        <h2>はじめての方へ</h2>
-        <p class="sec__lead">前屈で床に手が届かなくても、まったく問題ありません。届かせることが目的ではないからです。隣の人と比べる時間もありません。</p>
-        <dl class="notes">
-          <div><dt>持ちもの</dt><dd>飲みものとタオルだけ。マットは無料でお貸しします。</dd></div>
-          <div><dt>服装</dt><dd>Tシャツとスウェットで十分です。更衣室があるので、仕事着のままお越しください。</dd></div>
-          <div><dt>からだがかたい方</dt><dd>ポーズごとに、らくな形をお伝えします。きついときは休んでいてかまいません。</dd></div>
-        </dl>
-        <p class="price">体験クラス　一回 1,500円（税込）<small>どの時間帯のクラスでも受けられます。開始の15分前までにお越しください。</small></p>
+        <h2 id="t-first">はじめての方へ</h2>
+        <p>前屈で床に手が届かなくても、まったく問題ありません。届かせることが目的ではないからです。持ちものは飲みものとタオルだけ。マットは無料でお貸しします。</p>
+        <a class="more" href="beginners.html">当日の流れとよくある質問</a><br>
+        <a class="more" href="price.html" style="margin-top:0">料金を見る</a>
       </div>
       <!-- 要差し替え：実際のスタジオ写真 -->
       <figure class="photo"><img src="img/mat.jpg" width="744" height="634" loading="lazy" alt="木の床の上で、ヨガマットを両手で巻いている手もと"></figure>
     </div>
   </section>
 
-  <section class="sec teacher" id="teacher">
-    <div class="wrap teacher__in">
+  <section class="tease tease--teacher" aria-labelledby="t-teacher">
+    <div class="wrap tease__in">
+      <div>
+        <h2 id="t-teacher">がんばらない時間を、<br>つくりたくて。</h2>
+        <p>ヨガは、上手にやるものではないと思っています。うまく動けない日は、呼吸だけして帰ってもらえたら、それで十分です。</p>
+        <p class="tease__name">スタジオディレクター<strong>田中 美咲</strong></p>
+        <a class="more" href="instructors.html">三人のインストラクター</a>
+      </div>
       <!-- 要差し替え：実際のスタジオ写真 -->
       <figure class="photo"><img src="img/portrait.jpg" width="286" height="320" loading="lazy" alt="スタジオディレクター 田中 美咲の横顔"></figure>
+    </div>
+  </section>
+
+  <section class="tease" aria-labelledby="t-studio">
+    <div class="wrap tease__in">
       <div>
-        <h2>がんばらない時間を、<br>つくりたくて。</h2>
-        <blockquote>
-          <p>ヨガは、上手にやるものではないと思っています。うまく動けない日は、呼吸だけして帰ってもらえたら、それで十分です。クラスでは、一人ひとりの様子を見ながら、ゆっくり進めます。</p>
-        </blockquote>
-        <p class="teacher__name">スタジオディレクター<strong>田中 美咲</strong></p>
+        <h2 id="t-studio">スタジオ</h2>
+        <p>大きな窓から、庭の木が見える部屋です。一クラスの定員は十二名。となりの人と手がぶつからない広さで、マットを敷いています。</p>
+        <a class="more" href="studio.html">設備と道順を見る</a>
+      </div>
+      <!-- 要差し替え：実際のスタジオ写真 -->
+      <figure class="photo"><img src="img/studio-a.jpg" width="896" height="540" loading="lazy" alt="大きな窓から木もれ日が入り、ヨガマットとブロックが並ぶ板張りのスタジオ"></figure>
+    </div>
+  </section>
+
+  <section class="sec sec--paper" aria-labelledby="t-news">
+    <div class="wrap info">
+      <div>
+        <h2 id="t-news">お知らせ</h2>
+        <ul class="news">
+          <li><time datetime="2026-10-01">2026.10.01</time><span>10月19日（月）は定休日です。前後の日のクラスは、いつもどおり行います。</span></li>
+          <li><time datetime="2026-09-14">2026.09.14</time><span>10月から、金曜20:00のナイトリラックスヨガを始めます。夜のクラスは週六回になります。</span></li>
+          <li><time datetime="2026-08-24">2026.08.24</time><span>9月8日（火）は、床の手入れのため終日お休みをいただきます。</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 id="t-access">営業時間とアクセス</h2>
+        <dl class="access">
+          <div><dt>住所</dt><dd>東京都○○区○○ 1-2-3</dd></div>
+          <div><dt>最寄り駅</dt><dd>○○線 ○○駅から歩いて5分</dd></div>
+          <div><dt>営業時間</dt><dd>平日 6:30〜21:30<br>土日祝 7:30〜18:00</dd></div>
+          <div><dt>定休日</dt><dd>毎月第3月曜日</dd></div>
+          <div><dt>電話</dt><dd><a class="tel" href="tel:0300000000">03-0000-0000</a></dd></div>
+        </dl>
+        <a class="more" href="studio.html">地図と道順</a>
       </div>
     </div>
   </section>
 
-  <section class="sec studio" id="studio">
-    <div class="wrap">
-      <h2>スタジオ</h2>
-      <p class="sec__lead">大きな窓から、庭の木が見える部屋です。一クラスの定員は十二名。となりの人と手がぶつからない広さで、マットを敷いています。</p>
-      <!-- 要差し替え：実際のスタジオ写真 -->
-      <figure class="photo"><img src="img/studio-a.jpg" width="896" height="540" loading="lazy" alt="大きな窓から木もれ日が入り、ヨガマットとブロックが並ぶ板張りのスタジオ"></figure>
-      <dl class="access">
-        <div><dt>住所</dt><dd>東京都○○区○○ 1-2-3</dd></div>
-        <div><dt>最寄り駅</dt><dd>○○線 ○○駅から歩いて5分</dd></div>
-        <div><dt>営業時間</dt><dd>平日 6:30〜21:30<br>土日祝 7:30〜18:00</dd></div>
-        <div><dt>定休日</dt><dd>毎月第3月曜日</dd></div>
-        <div><dt>電話</dt><dd><a href="tel:0300000000">03-0000-0000</a></dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="book" id="book">
+  <section class="book book--band" aria-labelledby="band-h">
     <div class="book__in">
-      <h2>体験クラスを予約する</h2>
-      <p class="book__lead">日にちとクラスを選ぶだけです。当日の朝でも、空きがあればご案内できます。</p>
-      <form class="form" id="form">
-        <div class="field">
-          <label for="f-date">ご希望の日</label>
-          <input type="date" id="f-date" name="date" required>
-        </div>
-        <div class="field">
-          <label for="f-class">クラス</label>
-          <select id="f-class" name="class" required>
-            <option value="">選んでください</option>
-            <optgroup label="朝">
-              <option>7:00 モーニングフロー</option>
-              <option>9:00 やさしいハタヨガ</option>
-            </optgroup>
-            <optgroup label="昼">
-              <option>12:00 リフレッシュヨガ</option>
-              <option>14:00 コンディショニングヨガ</option>
-            </optgroup>
-            <optgroup label="夜">
-              <option>18:30 やさしい陰ヨガ</option>
-              <option>20:00 ナイトリラックスヨガ</option>
-            </optgroup>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-name">お名前</label>
-          <input type="text" id="f-name" name="name" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="f-mail">メールアドレス</label>
-          <input type="email" id="f-mail" name="email" autocomplete="email" inputmode="email" required>
-        </div>
-        <div class="wide">
-          <button class="btn" type="submit">この内容で予約する</button>
-        </div>
-        <p class="form__msg wide" id="form-msg" role="status" aria-live="polite"></p>
-      </form>
-      <p class="book__tel">お電話でも受け付けています<a href="tel:0300000000">03-0000-0000</a></p>
+      <h2 id="band-h">まずは一度、<span class="nw">呼吸をしに。</span></h2>
+      <p class="book__lead">体験クラスは一回 1,500円（税込）。<span class="nw">どの時間帯のクラスでも受けられます。</span></p>
+      <a class="btn" href="reserve.html">体験クラスを予約する</a>
+      <p class="book__tel">お電話でも受け付けています<a class="tel" href="tel:0300000000">03-0000-0000</a></p>
     </div>
   </section>
 </main>
@@ -427,55 +173,25 @@ a{color:inherit;text-underline-offset:.3em;text-decoration-thickness:1px}
 <footer class="foot">
   <div class="wrap foot__in">
     <div>
-      <a class="logo" href="#top">呼吸舎</a>
-      <p class="foot__info">東京都○○区○○ 1-2-3<br>平日 6:30〜21:30／土日祝 7:30〜18:00</p>
+      <a class="logo" href="index.html" aria-label="呼吸舎 ホームへ">呼吸舎</a>
+      <p class="foot__info">東京都○○区○○ 1-2-3<br>○○線 ○○駅から歩いて5分<br>平日 6:30〜21:30／土日祝 7:30〜18:00<br>定休日　毎月第3月曜日<br>電話　<a href="tel:0300000000">03-0000-0000</a></p>
     </div>
-    <nav class="foot__nav" aria-label="フッターメニュー">
-      <a href="#day">一日のクラス</a>
-      <a href="#first">はじめての方へ</a>
-      <a href="#teacher">インストラクター</a>
-      <a href="#studio">スタジオ</a>
-      <a href="#book">体験予約</a>
+    <nav class="foot__nav" aria-label="サイトマップ">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="classes.html">クラス</a></li>
+        <li><a href="beginners.html">はじめての方へ</a></li>
+        <li><a href="price.html">料金</a></li>
+        <li><a href="instructors.html">インストラクター</a></li>
+        <li><a href="studio.html">スタジオとアクセス</a></li>
+        <li><a href="reserve.html">体験予約</a></li>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+      </ul>
     </nav>
-    <p class="foot__demo">架空のスタジオを題材にしたデモサイトです。写真はイメージです。<br>© 呼吸舎</p>
+    <p class="foot__demo">架空のスタジオを題材にしたデモサイトです。<span class="nw">写真はイメージです。</span><br>© 呼吸舎</p>
   </div>
 </footer>
 
-<script>
-(function(){
-  var form=document.getElementById('form'),msg=document.getElementById('form-msg');
-  if(form)form.addEventListener('submit',function(e){e.preventDefault();msg.textContent='デモサイトのため、送信はされません。';});
-
-  var day=document.querySelector('.day');
-  if(!day||!window.requestAnimationFrame||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var blocks=day.querySelectorAll('[data-time]'),track=day.querySelector('.sky__track'),mark=day.querySelector('.sky__mark');
-  if(blocks.length!==3||!track||!mark)return;
-  // morning -> midday -> dusk | (snap) | deep blue -> night. The gap between dusk and deep blue
-  // is never rendered as a resting colour, so text always sits on a readable ground.
-  var M=[232,238,230],N=[239,235,217],D=[230,205,184],B=[51,65,76],K=[30,40,48];
-  var stops=[[0,M],[.35,M],[.75,N],[1.3,N],[1.6,D]],dark=[[1.6,B],[1.85,K],[9,K]];
-  function mix(a,b,t){return 'rgb('+a.map(function(v,i){return Math.round(v+(b[i]-v)*t)}).join(',')+')';}
-  function at(list,t){for(var i=1;i<list.length;i++){if(t<=list[i][0]){var a=list[i-1],b=list[i];return mix(a[1],b[1],(t-a[0])/(b[0]-a[0]));}}var l=list[list.length-1][1];return mix(l,l,0);}
-  var ticking=false;
-  function update(){
-    ticking=false;
-    var mid=window.innerHeight/2,c=[];
-    for(var i=0;i<3;i++){var r=blocks[i].getBoundingClientRect();c.push(r.top+r.height/2);}
-    var t;
-    if(mid<=c[0])t=0;else if(mid>=c[2])t=2;
-    else if(mid<c[1])t=(mid-c[0])/(c[1]-c[0]);else t=1+(mid-c[1])/(c[2]-c[1]);
-    var night=t>1.6;
-    day.style.backgroundColor=night?at(dark,t):at(stops,t);
-    day.classList.toggle('is-night',night);
-    var s=t/2,h=track.clientHeight;
-    mark.style.transform='translate('+(26-88*s*(1-s))+'px,'+(s*h)+'px)';
-  }
-  function req(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
-  day.classList.add('day--live');
-  update();
-  window.addEventListener('scroll',req,{passive:true});
-  window.addEventListener('resize',req);
-})();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

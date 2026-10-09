@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className+=' js';</script>
+<title>体験予約｜FORME PILATES</title>
+<meta name="description" content="FORME PILATESの体験レッスン予約ページ。ご希望日、クラス、時間帯、お名前とご連絡先を入力するフォームと、送信後の流れ、お電話でのご予約方法をご案内します。体験は55分、3,300円です。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FAFAFC">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="FORME PILATES">
+<meta property="og:title" content="体験予約｜FORME PILATES">
+<meta property="og:description" content="FORME PILATESの体験レッスン予約ページ。ご希望日、クラス、時間帯、お名前とご連絡先を入力するフォームと、送信後の流れ、お電話でのご予約方法をご案内します。体験は55分、3,300円です。">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231E1B2E'/%3E%3Cpath d='M16 4v24' stroke='%238F7BC4' stroke-width='2'/%3E%3Ccircle cx='16' cy='13' r='4' fill='%23FAFAFC'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="site-head">
+  <a class="logo" href="index.html" aria-label="FORME PILATES ホーム">FORME<i aria-hidden="true"></i>PILATES</a>
+  <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><i aria-hidden="true"></i><span class="t">メニュー</span></button>
+  <nav class="nav" id="menu" aria-label="主なメニュー">
+    <ul>
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="classes.html">クラス</a></li>
+      <li><a href="schedule.html">時間割と料金</a></li>
+      <li><a href="instructors.html">インストラクター</a></li>
+      <li><a href="first.html">はじめての方へ</a></li>
+      <li><a href="access.html">アクセス</a></li>
+      <li class="last"><a class="go" href="reserve.html" aria-current="page">体験予約</a></li>
+      <li class="m-only">お電話（営業時間内）<br><a href="tel:03-0000-0000">03-0000-0000</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="axis" aria-hidden="true"><div class="axis-fill"></div></div>
+
+  <section class="page-head">
+    <div class="row">
+      <nav class="bc r" aria-label="パンくずリスト">
+        <ol><li><a href="index.html">ホーム</a></li><li><span>体験予約</span></li></ol>
+      </nav>
+      <div class="r ph-h"><h1><span class="node" aria-hidden="true"></span>体験予約</h1></div>
+      <div class="l ph-l"><p class="lead">体験レッスンは55分、3,300円（税込）。ご希望の日とクラスを<span class="nb">お知らせください。</span>空きを確認して、こちらからご連絡します。</p></div>
+    </div>
+  </section>
+
+  <section class="book" id="form">
+    <div class="row">
+      <!-- 要差し替え：実際のスタジオ写真 -->
+      <figure class="ph tall top l reveal">
+        <img src="img/last.jpg" width="1400" height="1120" alt="両腕を頭上で組み、背中を伸ばしている女性の後ろ姿">
+      </figure>
+      <div class="txt r">
+        <h2><span class="node" aria-hidden="true"></span><span class="nb">ご希望を</span><span class="nb">お知らせください</span></h2>
+        <p class="lead">体験は「入門」クラスでお受けいただけます。<a class="txt-link" href="schedule.html#timetable">時間割</a>を見て、通えそうな日と時間帯をお選びください。</p>
+        <form id="book-form" novalidate>
+          <div class="f">
+            <label for="f-date">ご希望日<em>必須</em></label>
+            <input type="date" id="f-date" name="date" required>
+          </div>
+          <div class="f">
+            <label for="f-class">クラス<em>必須</em></label>
+            <select id="f-class" name="class" required>
+              <option value="mat">マット（入門）</option>
+              <option value="reformer">リフォーマー（入門）</option>
+              <option value="ask">決めていない（相談したい）</option>
+            </select>
+          </div>
+          <div class="f full">
+            <label for="f-time">ご希望の時間帯<em>必須</em></label>
+            <select id="f-time" name="time" required>
+              <option value="am">午前（9:30〜11:00開始）</option>
+              <option value="pm">午後（15:30開始・土日祝のみ）</option>
+              <option value="night">夜（18:30〜20:00開始・平日のみ）</option>
+              <option value="any">どの時間帯でもよい</option>
+            </select>
+            <p class="hint">木曜は定休日です。入門クラスのない時間帯は、近い時間でご提案します。</p>
+          </div>
+          <div class="f full">
+            <label for="f-name">お名前<em>必須</em></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" placeholder="例）山田 花子" required>
+          </div>
+          <div class="f">
+            <label for="f-email">メールアドレス<em>必須</em></label>
+            <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" placeholder="example@example.com" required>
+          </div>
+          <div class="f">
+            <label for="f-tel">電話番号<em>必須</em></label>
+            <input type="tel" id="f-tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="090-0000-0000" required>
+          </div>
+          <div class="f full">
+            <label for="f-note">備考（任意）</label>
+            <textarea id="f-note" name="note" rows="4" placeholder="気になるところ、通院中・妊娠中の方はその旨、ご一緒の方のお名前など"></textarea>
+          </div>
+          <p class="agree full">送信の前に、<a href="privacy.html">プライバシーポリシー</a>をご確認ください。</p>
+          <div class="full">
+            <button class="btn" type="submit">体験レッスンを予約する</button>
+          </div>
+          <p class="msg full" id="book-msg" role="status" aria-live="polite" hidden>デモサイトのため、送信はされません。</p>
+        </form>
+        <div class="alt">
+          <p>お電話でも承ります（営業時間内）。当日・翌日のご希望は、お電話のほうが確実です。</p>
+          <a class="tel" href="tel:03-0000-0000">03-0000-0000</a>
+          <p>平日 7:00–21:30／土日祝 9:00–17:30／木曜定休。レッスン中は出られないことがあります。その場合は折り返します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="after">
+    <div class="row">
+      <div class="r">
+        <h2><span class="node" aria-hidden="true"></span>送信したあと</h2>
+        <p class="lead">フォームを送っただけでは、まだ予約は確定していません。こちらからのご連絡をもって確定となります。</p>
+        <ol class="steps">
+          <li><h3>受付のメールが届きます</h3><span class="when">送信の直後</span><p>入力いただいた内容の控えを、自動でお送りします。届かないときは、迷惑メールのフォルダをご確認ください。</p></li>
+          <li><h3>空きを確認してご連絡します</h3><span class="when">翌営業日まで</span><p>ご希望の枠に空きがあれば、その日時で確定のメールをお送りします。満員のときは、近い日時を2つほどご提案します。</p></li>
+          <li><h3>予約の確定</h3><span class="when">メールへのご返信で</span><p>ご提案した日時でよければ、そのままご返信ください。当日の持ちものと道順を、あらためてお送りします。</p></li>
+          <li><h3>当日</h3><span class="when">開始の10分前</span><p>3階の受付へお越しください。体験料金 3,300円（税込）は、当日受付でお支払いいただきます。</p></li>
+        </ol>
+      </div>
+      <ul class="side-list l">
+        <li><b>変更とキャンセル</b><span>開始の12時間前までは、費用はかかりません。お電話でご連絡ください。</span></li>
+        <li><b>お伝えいただきたいこと</b><span>通院中の方、妊娠中の方は、事前に医師へご相談のうえ、備考欄でお知らせください。</span></li>
+        <li><b>当日の流れ</b><span><a class="txt-link" href="first.html">はじめての方へ</a> に、受付から帰りまでの流れをまとめています。</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div>
+    <a class="logo" href="index.html" aria-label="FORME PILATES ホームへ戻る">FORME<i aria-hidden="true"></i>PILATES</a>
+  </div>
+  <div>
+    <address>
+      東京都○○区○○ 1-2-3 ○○ビル 3F<br>
+      <span class="nb">平日 7:00–21:30</span>　<span class="nb">土日祝 9:00–17:30</span>　<span class="nb">木曜定休</span><br>
+      <a href="tel:03-0000-0000">03-0000-0000</a>
+    </address>
+    <nav class="foot-nav" aria-label="サイトマップ">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="classes.html">クラス</a></li>
+        <li><a href="schedule.html">時間割と料金</a></li>
+        <li><a href="instructors.html">インストラクター</a></li>
+        <li><a href="first.html">はじめての方へ</a></li>
+        <li><a href="access.html">スタジオとアクセス</a></li>
+        <li><a href="reserve.html">体験予約</a></li>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="demo"><span class="nb">架空のスタジオを題材にしたデモサイトです。</span><span class="nb">写真はイメージです。</span><br>© FORME PILATES</p>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

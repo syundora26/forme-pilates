@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
+<title>クラス｜呼吸舎</title>
+<meta name="description" content="呼吸舎の六つのクラスを、朝・昼・夜の順にご紹介します。開始時刻と長さ、動きの強さ、向いている方、当日の流れ、担当インストラクター、曜日ごとの時間割をまとめました。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#E8EEE6">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="呼吸舎">
+<meta property="og:title" content="クラス｜呼吸舎">
+<meta property="og:description" content="呼吸舎の六つのクラスを、朝・昼・夜の順にご紹介します。開始時刻と長さ、動きの強さ、向いている方、当日の流れ、担当インストラクター、曜日ごとの時間割をまとめました。">
+<meta property="og:image" content="img/studio-a.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23E8EEE6'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%238FA286'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='%23E7B08F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動する</a>
+
+<header class="head">
+  <a class="logo" href="index.html" aria-label="呼吸舎 ホームへ">呼吸舎</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><span>メニュー</span></button>
+  <nav class="nav" id="gnav" aria-label="主なメニュー">
+    <ul>
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="classes.html" aria-current="page">クラス</a></li>
+      <li><a href="beginners.html">はじめての方へ</a></li>
+      <li><a href="price.html">料金</a></li>
+      <li><a href="instructors.html">インストラクター</a></li>
+      <li><a href="studio.html">スタジオ</a></li>
+      <li><a class="nav__book" href="reserve.html">体験クラスを予約する</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="phead">
+    <div class="phead__breath" aria-hidden="true"></div>
+    <div class="wrap">
+      <nav class="crumb" aria-label="パンくずリスト">
+        <ol><li><a href="index.html">ホーム</a></li><li aria-current="page">クラス</li></ol>
+      </nav>
+      <h1>クラス</h1>
+      <p class="phead__lead">朝に二つ、昼に二つ、夜に二つ。動きの多いものから、ほとんど動かないものまであります。その日のからだに合わせて選んでください。</p>
+    </div>
+  </div>
+  <section class="day" id="day">
+    <div class="day__sky" aria-hidden="true">
+      <div class="sky__track">
+        <svg viewBox="0 0 30 100" preserveAspectRatio="none"><path d="M26 0 Q-18 50 26 100" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg>
+        <span class="sky__mark"></span>
+      </div>
+    </div>
+
+    <div class="wrap day__intro">
+      <h2>呼吸舎の一日</h2>
+      <p>出勤前、昼休み、仕事のあと。朝から夜まで、六つのクラスがあります。どのクラスも定員は十二名、予約制です。</p>
+    </div>
+
+    <div class="time time--morning" data-time id="morning">
+      <div class="wrap">
+        <div class="time__in">
+          <div>
+            <h3><b>朝</b><span>すっきりと、<br>一日のはじまりを。</span></h3>
+            <p class="time__lead">寝起きのこわばったからだを、ゆっくり起こす時間です。終わってから出勤に間に合います。</p>
+          </div>
+          <!-- 要差し替え：実際のスタジオ写真 -->
+          <figure class="photo"><img src="img/stretch.jpg" width="438" height="368" alt="朝の光が入るスタジオで、床に座って片腕を伸ばし、体の横を伸ばす女性"></figure>
+        </div>
+        <div class="clss">
+          <article class="cls" id="morning-flow">
+            <p class="cls__time"><time datetime="07:00">7:00</time>〜8:00・60分</p>
+            <h4>モーニングフロー</h4>
+            <p>呼吸に合わせて、とぎれずに動きます。吸いながら伸び、吐きながらたたむ。その繰り返しで、少しずつからだが温まっていきます。</p>
+            <dl>
+              <div><dt>動きの強さ</dt><dd>中くらい。後半はうっすら汗をかきます。</dd></div>
+              <div><dt>向いている方</dt><dd>朝のうちに一度からだを動かしておきたい方。何回かヨガをしたことがある方。</dd></div>
+              <div><dt>すること</dt><dd>座って呼吸を数える → 四つんばいで背中を動かす → 太陽礼拝をゆっくり五回 → 立つポーズ → 仰向けで休む（5分）</dd></div>
+              <div><dt>開催日</dt><dd>月・火・水・木・金</dd></div>
+              <div><dt>担当</dt><dd>小野 遥</dd></div>
+            </dl>
+          </article>
+          <article class="cls" id="hatha">
+            <p class="cls__time"><time datetime="09:00">9:00</time>〜10:00・60分</p>
+            <h4>やさしいハタヨガ</h4>
+            <p>基本のポーズを、ひとつずつ丁寧に。動きと動きのあいだに休む時間があるので、説明を聞きながら自分の速さで進められます。</p>
+            <dl>
+              <div><dt>動きの強さ</dt><dd>弱め。息が上がることはほとんどありません。</dd></div>
+              <div><dt>向いている方</dt><dd>はじめての方、久しぶりの方。体験クラスで迷ったら、まずこのクラスを。</dd></div>
+              <div><dt>すること</dt><dd>呼吸の練習 → 首・肩・股関節をほぐす → 立つポーズと座るポーズを六つほど → 仰向けで休む（8分）</dd></div>
+              <div><dt>開催日</dt><dd>月・水・金・土・日</dd></div>
+              <div><dt>担当</dt><dd>田中 美咲</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="time time--noon" data-time id="noon">
+      <div class="wrap">
+        <div class="time__in">
+          <div>
+            <h3><b>昼</b><span>ひと息ついて、<br>午後のわたしへ。</span></h3>
+            <p class="time__lead">座りっぱなしで固まった肩と腰を、動かしてほぐします。昼休みにも通える長さです。</p>
+          </div>
+          <!-- 要差し替え：実際のスタジオ写真 -->
+          <figure class="photo"><img src="img/warrior2.jpg" width="436" height="368" loading="lazy" alt="明るいスタジオで、両腕を左右に広げて戦士のポーズをとる女性と参加者たち"></figure>
+        </div>
+        <div class="clss">
+          <article class="cls" id="refresh">
+            <p class="cls__time"><time datetime="12:00">12:00</time>〜12:45・45分</p>
+            <h4>リフレッシュヨガ</h4>
+            <p>デスクワークの合間に、短く集中して。汗をかかない程度の動きなので、着替えてそのまま午後の仕事に戻れます。</p>
+            <dl>
+              <div><dt>動きの強さ</dt><dd>弱め。汗はほとんどかきません。</dd></div>
+              <div><dt>向いている方</dt><dd>昼休みに通いたい方。肩や腰のこわばりが気になる方。</dd></div>
+              <div><dt>すること</dt><dd>肩まわりを大きく動かす → 背骨を前後・左右にひねる → 股関節を開く → 座って呼吸を整える（3分）</dd></div>
+              <div><dt>開催日</dt><dd>月・火・水・木・金</dd></div>
+              <div><dt>担当</dt><dd>森 拓海</dd></div>
+            </dl>
+          </article>
+          <article class="cls" id="conditioning">
+            <p class="cls__time"><time datetime="14:00">14:00</time>〜15:00・60分</p>
+            <h4>コンディショニングヨガ</h4>
+            <p>立ち姿勢と体幹を、じっくり使います。六つのなかでは、いちばんしっかり動くクラスです。きついポーズには、らくな形も用意しています。</p>
+            <dl>
+              <div><dt>動きの強さ</dt><dd>強め。脚とお腹まわりを使い、汗をかきます。</dd></div>
+              <div><dt>向いている方</dt><dd>しっかり動きたい方。やさしいクラスに慣れて、もう一歩進みたい方。</dd></div>
+              <div><dt>すること</dt><dd>からだを温める → 戦士のポーズなど立つポーズを長めに保つ → 板のポーズなど体幹の動き → 仰向けで休む（5分）</dd></div>
+              <div><dt>開催日</dt><dd>火・木・土・日</dd></div>
+              <div><dt>担当</dt><dd>小野 遥</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="time time--night" data-time id="night">
+      <div class="wrap">
+        <div class="time__in">
+          <div>
+            <h3><b>夜</b><span>静けさのなかで、<br>一日をほどく。</span></h3>
+            <p class="time__lead">照明を落として、動きは少なめに。仕事帰りにそのまま寄れる時間です。</p>
+          </div>
+          <!-- 要差し替え：実際のスタジオ写真 -->
+          <figure class="photo"><img src="img/night.jpg" width="388" height="388" loading="lazy" alt="あかりを落とした夜のスタジオで、静かに座って横を向く女性"></figure>
+        </div>
+        <div class="clss">
+          <article class="cls" id="yin">
+            <p class="cls__time"><time datetime="18:30">18:30</time>〜19:45・75分</p>
+            <h4>やさしい陰ヨガ</h4>
+            <p>ひとつの姿勢を三分から五分ほど保ち、力を抜いていきます。クッションやブロックでからだを支えるので、がんばって形をつくる必要はありません。</p>
+            <dl>
+              <div><dt>動きの強さ</dt><dd>ごく弱め。ほとんど動かず、床に近い姿勢で過ごします。</dd></div>
+              <div><dt>向いている方</dt><dd>動くより、じっとしていたい日の方。からだがかたい方にも向いています。</dd></div>
+              <div><dt>すること</dt><dd>座って呼吸を数える → 床に座る・寝る姿勢を六つほど、それぞれ長く保つ → 仰向けで休む（10分）</dd></div>
+              <div><dt>開催日</dt><dd>月・水・金</dd></div>
+              <div><dt>担当</dt><dd>田中 美咲</dd></div>
+            </dl>
+          </article>
+          <article class="cls" id="night-relax">
+            <p class="cls__time"><time datetime="20:00">20:00</time>〜21:00・60分</p>
+            <h4>ナイトリラックスヨガ</h4>
+            <p>寝ころぶ姿勢が中心の、静かなクラス。部屋のあかりは手もとが見える程度まで落とします。最後は毛布をかけて、長めに休みます。</p>
+            <dl>
+              <div><dt>動きの強さ</dt><dd>ごく弱め。立つポーズはありません。</dd></div>
+              <div><dt>向いている方</dt><dd>仕事のあと、頭を休めてから帰りたい方。はじめての方も参加できます。</dd></div>
+              <div><dt>すること</dt><dd>仰向けで呼吸を感じる → 寝たまま脚や背中をゆっくり伸ばす → 長く吐く呼吸の練習 → 仰向けで休む（12分）</dd></div>
+              <div><dt>開催日</dt><dd>火・木・金</dd></div>
+              <div><dt>担当</dt><dd>森 拓海</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="week-h">
+    <div class="wrap">
+      <h2 id="week-h">一週間の時間割</h2>
+      <p class="sec__lead">平日は朝7:00から夜21:00まで、土日祝は9:00と14:00の二つです。祝日は、曜日にかかわらず土日と同じ時間割になります。</p>
+      <div class="tbl tbl--week" tabindex="0" role="group" aria-labelledby="week-cap">
+        <table>
+          <caption id="week-cap">クラスの開催曜日（印のある日に開催）</caption>
+          <thead>
+            <tr><th scope="col">クラス</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th><th scope="col">日</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">モーニングフロー<small>7:00〜8:00</small></th><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td></tr>
+            <tr><th scope="row">やさしいハタヨガ<small>9:00〜10:00</small></th><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td></tr>
+            <tr><th scope="row">リフレッシュヨガ<small>12:00〜12:45</small></th><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td></tr>
+            <tr><th scope="row">コンディショニングヨガ<small>14:00〜15:00</small></th><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td></tr>
+            <tr><th scope="row">やさしい陰ヨガ<small>18:30〜19:45</small></th><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td></tr>
+            <tr><th scope="row">ナイトリラックスヨガ<small>20:00〜21:00</small></th><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="on"></span><span class="vh">開催</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td><td><span class="off" aria-hidden="true">–</span><span class="vh">なし</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">※ 毎月第3月曜日は定休日のため、すべてのクラスがお休みです。<br>※ デモサイトのため、時間割は架空のものです。</p>
+
+      <div class="sec__sub narrow">
+        <h3>クラスの選び方</h3>
+        <dl class="notes">
+          <div><dt>はじめてなら</dt><dd>9:00 のやさしいハタヨガか、20:00 のナイトリラックスヨガを。説明の時間が長く、動きもゆっくりです。</dd></div>
+          <div><dt>疲れている日は</dt><dd>夜の二つのクラスを。ほとんど床の上で過ごします。途中で眠ってしまってもかまいません。</dd></div>
+          <div><dt>しっかり動きたい日は</dt><dd>7:00 のモーニングフローか、14:00 のコンディショニングヨガを。</dd></div>
+          <div><dt>時間がない日は</dt><dd>12:00 のリフレッシュヨガを。着替えを入れても、一時間ほどで出られます。</dd></div>
+        </dl>
+        <p class="note">どのクラスも、開始の10分前から部屋に入れます。開始後の入室は、安全のため10分までとしています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="book book--band" aria-labelledby="band-h">
+    <div class="book__in">
+      <h2 id="band-h">まずは一度、<span class="nw">呼吸をしに。</span></h2>
+      <p class="book__lead">体験クラスは一回 1,500円（税込）。<span class="nw">どの時間帯のクラスでも受けられます。</span></p>
+      <a class="btn" href="reserve.html">体験クラスを予約する</a>
+      <p class="book__tel">お電話でも受け付けています<a class="tel" href="tel:0300000000">03-0000-0000</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div>
+      <a class="logo" href="index.html" aria-label="呼吸舎 ホームへ">呼吸舎</a>
+      <p class="foot__info">東京都○○区○○ 1-2-3<br>○○線 ○○駅から歩いて5分<br>平日 6:30〜21:30／土日祝 7:30〜18:00<br>定休日　毎月第3月曜日<br>電話　<a href="tel:0300000000">03-0000-0000</a></p>
+    </div>
+    <nav class="foot__nav" aria-label="サイトマップ">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="classes.html">クラス</a></li>
+        <li><a href="beginners.html">はじめての方へ</a></li>
+        <li><a href="price.html">料金</a></li>
+        <li><a href="instructors.html">インストラクター</a></li>
+        <li><a href="studio.html">スタジオとアクセス</a></li>
+        <li><a href="reserve.html">体験予約</a></li>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+      </ul>
+    </nav>
+    <p class="foot__demo">架空のスタジオを題材にしたデモサイトです。<span class="nw">写真はイメージです。</span><br>© 呼吸舎</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
