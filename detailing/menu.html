@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(){var h=document.documentElement;h.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('mo','mo-intro');setTimeout(function(){h.classList.remove('mo-intro')},2200);try{if(sessionStorage.getItem('clw')){sessionStorage.removeItem('clw');h.classList.add('mo-enter')}}catch(e){}setTimeout(function(){if(!window.__mo)h.classList.remove('mo','mo-enter')},2500)}}catch(e){}})();</script>
 <title>施工メニュー｜CLEARLINE AUTO CARE</title>
 <meta name="description" content="CLEARLINE AUTO CARE の施工メニュー。手洗い洗車、下地研磨を含むコーティング、素材別の内装ケアについて、作業の手順、所要時間、向いている方、できないことを正直にご案内します。三つの施工の比較表も掲載しています。">
 <meta name="robots" content="noindex">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500&family=Unbounded:wght@300;600&display=swap">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 
 </head>
 <body>
@@ -39,7 +40,7 @@
 
 <main id="main">
 <nav class="crumb" aria-label="パンくずリスト"><div class="wrap"><ol><li><a href="index.html">ホーム</a></li><li><span>施工メニュー</span></li></ol></div></nav>
-<div class="phead"><div class="paint strip lit" aria-hidden="true"><i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-glint"></i></div><div class="wrap phead-in"><span class="en" aria-hidden="true">MENU</span><h1>施工メニュー</h1><p class="lead">洗車、コーティング、内装ケア。<br>それぞれの手順と時間、そして「しないこと」まで。</p></div></div>
+<div class="phead"><div class="paint strip lit" aria-hidden="true"><i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-glint"></i><i class="p-sweep"></i></div><div class="wrap phead-in"><span class="en" aria-hidden="true">MENU</span><h1>施工メニュー</h1><p class="lead">洗車、コーティング、内装ケア。<br>それぞれの手順と時間、そして「しないこと」まで。</p></div></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <radialGradient id="bbody" cx=".5" cy=".5" r=".5" fx=".34" fy=".3">
@@ -86,6 +87,14 @@
       <img src="img/foam.jpg" width="288" height="412" loading="lazy" alt="泡に覆われたボディを、黒い手袋をした手が青いミットでなでている">
       <!-- 要差し替え：実際の施工写真 -->
       <img src="img/towel.jpg" width="444" height="580" loading="lazy" alt="黒い手袋をした手が、毛足の長いクロスで濡れたボディの水分を吸い取っている">
+    </figure>
+    <figure class="vis field wipe js-only" id="wipe">
+      <div class="paint lit" data-lit="field" role="img" aria-label="泡を流したあとの塗装面に、天井の照明が映り込んでいる図">
+        <i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i>
+        <canvas class="wipe-c" aria-hidden="true"></canvas>
+      </div>
+      <figcaption>泡をなぞると、洗い上がりの面が現れます（イメージ図）</figcaption>
+      <button class="mini-btn" id="wipe-btn" type="button">水で流す</button>
     </figure>
     <dl class="spec3">
       <div><dt>こんな方に</dt><dd><ul><li>洗車機の細かな傷が気になる方</li><li>コーティング施工車を定期的に整えたい方</li><li>濃色車にお乗りの方</li></ul></dd></div>
@@ -296,5 +305,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

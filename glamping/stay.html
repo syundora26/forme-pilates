@@ -15,11 +15,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#17352A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352A'/%3E%3Cpath d='M8 50 32 12l24 38z' fill='%23E9DFC8'/%3E%3Cpath d='M25 50l7-18 7 18z' fill='%23E8602C'/%3E%3C/svg%3E">
-<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}})(document.documentElement);</script>
+<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}
+try{if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.classList.add('mo');try{if(sessionStorage.getItem('fn-zip')){sessionStorage.removeItem('fn-zip');d.classList.add('zip-in')}}catch(e){}
+setTimeout(function(){if(!window.__mo)d.classList.remove('mo')},2500)}}catch(e){}})(document.documentElement);</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
@@ -36,12 +39,6 @@
     <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
     <radialGradient id="glowg"><stop offset="0" stop-color="#FFB347" stop-opacity=".75"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
     <symbol id="tree" viewBox="-24 -64 48 74" overflow="visible"><path d="M0-62 15-34H8L21-8H4V9h-8V-8h-17L-8-34h-7z"/></symbol>
-    <symbol id="fire" viewBox="-40 -70 80 84" overflow="visible">
-      <circle class="s-glow" r="62" cy="-18" fill="url(#glowg)"/>
-      <g class="flick"><path class="f-flame" d="M0-64c4 14 20 22 20 40C20-9 11 0 0 0S-20-9-20-24c0-9 5-14 9-20 1 7 4 10 7 11C-6-44-4-54 0-64z"/>
-      <path class="f-in" d="M0-34c2 7 9 11 9 20C9-6 5-1 0-1S-9-6-9-14c0-5 3-8 5-11 1 4 2 5 3 5 0-5 0-9 1-14z"/></g>
-      <path class="f-log" d="M-30 8 26-6M-26-6 30 8"/>
-    </symbol>
   </defs>
 </svg>
 
@@ -98,14 +95,14 @@
         <!-- 要差し替え：実際の施設写真 -->
 <figure class="print tape" style="--w:330px;--r:-3deg"><img src="img/cabin.jpg" width="338" height="378" loading="lazy" alt="木立のなかに建つ、ウッドデッキつきの木のキャビン"><figcaption>森のキャビン／デッキつき</figcaption></figure>
         <svg class="plan" viewBox="0 0 420 250" role="img" aria-label="森のキャビンの間取り図。室内にベッド2台と洗面台、はしごで上がるロフトに布団2組、外にウッドデッキと焚き火台。">
-          <rect class="pl" x="20" y="30" width="250" height="180"/>
+          <rect class="pl" pathLength="1" x="20" y="30" width="250" height="180"/>
           <rect class="pd" x="24" y="34" width="110" height="172"/>
           <text x="34" y="56">ロフト</text><text x="34" y="74">布団2組</text>
-          <path class="pl" d="M140 150v52M154 150v52M140 162h14M140 176h14M140 190h14"/>
-          <rect class="pl" x="172" y="44" width="40" height="76" rx="4"/><rect class="pl" x="220" y="44" width="40" height="76" rx="4"/>
+          <path class="pl" pathLength="1" d="M140 150v52M154 150v52M140 162h14M140 176h14M140 190h14"/>
+          <rect class="pl" pathLength="1" x="172" y="44" width="40" height="76" rx="4"/><rect class="pl" pathLength="1" x="220" y="44" width="40" height="76" rx="4"/>
           <text x="184" y="140">ベッド2台</text>
-          <rect class="pl" x="36" y="172" width="34" height="26" rx="3"/><text x="78" y="190">洗面</text>
-          <path class="pl" d="M270 150v40" stroke="var(--bg)" stroke-width="6"/><path class="pl" d="M270 150l24 18"/>
+          <rect class="pl" pathLength="1" x="36" y="172" width="34" height="26" rx="3"/><text x="78" y="190">洗面</text>
+          <path class="pl" pathLength="1" d="M270 150v40" stroke="var(--bg)" stroke-width="6"/><path class="pl" pathLength="1" d="M270 150l24 18"/>
           <rect class="pd" x="270" y="60" width="130" height="150"/>
           <text x="296" y="84">デッキ</text>
           <path class="pf" d="M340 160c3 8 11 12 11 22 0 8-5 13-11 13s-11-5-11-13c0-5 3-8 5-11 1 4 2 6 4 6 0-6 0-11 2-17z"/>
@@ -171,6 +168,10 @@
       <h2 class="h2 s" id="h-cmp">並べて、<em>くらべる</em>。</h2>
       <p>迷ったら、いちばん気になる行だけ見てください。たいてい「虫」か「寒さ」か「値段」です。</p>
     </div>
+    <ul class="hang" aria-label="ふたつの寝床">
+      <li><div class="htag" style="--hr:-3deg"><div class="htag-in"><b>森のキャビン</b><span>木の壁と鍵。2〜4名、通年</span><em>22,000<small>円から</small></em></div></div></li>
+      <li><div class="htag" style="--hr:2.5deg"><div class="htag-in"><b>テントロッジ</b><span>帆布とファスナー。2〜3名、4〜11月</span><em>18,000<small>円から</small></em></div></div></li>
+    </ul>
     <div class="tbl-scroll" tabindex="0" role="region" aria-labelledby="cap-cmp">
       <table>
         <caption id="cap-cmp">森のキャビンとテントロッジの比較</caption>
@@ -302,5 +303,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

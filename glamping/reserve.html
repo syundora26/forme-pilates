@@ -15,11 +15,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#17352A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352A'/%3E%3Cpath d='M8 50 32 12l24 38z' fill='%23E9DFC8'/%3E%3Cpath d='M25 50l7-18 7 18z' fill='%23E8602C'/%3E%3C/svg%3E">
-<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}})(document.documentElement);</script>
+<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}
+try{if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.classList.add('mo');try{if(sessionStorage.getItem('fn-zip')){sessionStorage.removeItem('fn-zip');d.classList.add('zip-in')}}catch(e){}
+setTimeout(function(){if(!window.__mo)d.classList.remove('mo')},2500)}}catch(e){}})(document.documentElement);</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
@@ -36,12 +39,6 @@
     <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
     <radialGradient id="glowg"><stop offset="0" stop-color="#FFB347" stop-opacity=".75"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
     <symbol id="tree" viewBox="-24 -64 48 74" overflow="visible"><path d="M0-62 15-34H8L21-8H4V9h-8V-8h-17L-8-34h-7z"/></symbol>
-    <symbol id="fire" viewBox="-40 -70 80 84" overflow="visible">
-      <circle class="s-glow" r="62" cy="-18" fill="url(#glowg)"/>
-      <g class="flick"><path class="f-flame" d="M0-64c4 14 20 22 20 40C20-9 11 0 0 0S-20-9-20-24c0-9 5-14 9-20 1 7 4 10 7 11C-6-44-4-54 0-64z"/>
-      <path class="f-in" d="M0-34c2 7 9 11 9 20C9-6 5-1 0-1S-9-6-9-14c0-5 3-8 5-11 1 4 2 5 3 5 0-5 0-9 1-14z"/></g>
-      <path class="f-log" d="M-30 8 26-6M-26-6 30 8"/>
-    </symbol>
   </defs>
 </svg>
 
@@ -122,7 +119,7 @@
             <p class="note" id="f-note-h" style="margin-top:6px">アレルギーや苦手な食材、お子さまの年齢、到着の予定時刻、送迎車のご希望など。</p></div>
         </div>
         <button class="btn" type="submit">空きを確認して予約する</button>
-        <p class="msg" id="bookMsg" role="status" aria-live="polite"></p>
+        <div class="msg-box"><p class="msg" id="bookMsg" role="status" aria-live="polite"></p></div>
         <p class="note" style="margin-top:16px">お預かりした内容の扱いは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
       </form>
       <div class="t-stub">
@@ -191,5 +188,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

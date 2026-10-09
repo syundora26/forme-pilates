@@ -1,0 +1,232 @@
+/* 呼吸舎 — motion layer 「呼吸」: breath, flow, light, water.
+   Everything here is gated by html.mo, which the inline head script adds only when
+   JavaScript runs, IntersectionObserver exists and prefers-reduced-motion is not "reduce". */
+
+:root{--arr:0ms;--ease-breath:cubic-bezier(.22,.61,.2,1);--ease-water:cubic-bezier(.3,.7,.2,1)}
+html.mo-arrive .hero,html.mo-arrive .phead{--arr:200ms}
+
+/* ---------- keyframes ---------- */
+@keyframes mo-veil-out{from{transform:scale(1)}to{transform:scale(0)}}
+@keyframes mo-veil-in{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes mo-ch{0%{opacity:0;transform:translateY(.6em);filter:blur(9px)}55%{opacity:1}100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes mo-rise{0%{opacity:0;transform:translateY(16px);filter:blur(5px)}100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes mo-fade{from{opacity:0}to{opacity:1}}
+@keyframes mo-brush{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes mo-blob{
+  0%{opacity:0;clip-path:inset(22% 26% 24% 20% round 64% 36% 58% 42% / 46% 62% 38% 54%);transform:scale(.9)}
+  18%{opacity:1}
+  52%{clip-path:inset(5% 3% 6% 7% round 38% 54% 34% 48% / 52% 36% 56% 40%)}
+  100%{opacity:1;clip-path:inset(0 0 0 0 round 28px 28px 28px 28px / 28px 28px 28px 28px);transform:none}
+}
+@keyframes mo-ink{0%{transform:scaleX(0) scaleY(4);opacity:.2}60%{opacity:1}100%{transform:none;opacity:1}}
+@keyframes mo-row{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:none}}
+@keyframes mo-stone{0%{opacity:0;transform:translateY(-30px)}45%{opacity:1;transform:translateY(5px)}68%{transform:translateY(-2px)}100%{opacity:1;transform:none}}
+@keyframes mo-stone-ring{0%{opacity:0;transform:scale(.08)}12%{opacity:.85}100%{opacity:0;transform:scale(1)}}
+@keyframes mo-dot{0%{transform:scale(0);opacity:0}60%{transform:scale(1.35);opacity:1}100%{transform:none;opacity:1}}
+@keyframes mo-surface{0%{opacity:0;transform:translateY(46px) scale(.97);filter:blur(10px)}60%{opacity:1}100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes mo-tint{from{opacity:1}to{opacity:0}}
+@keyframes mo-map{0%{opacity:0;clip-path:circle(0% at 21% 80%)}15%{opacity:1}100%{opacity:1;clip-path:circle(140% at 21% 80%)}}
+@keyframes mo-wash{0%{opacity:0;filter:blur(14px) saturate(.2)}30%{opacity:1}100%{opacity:1;filter:blur(0) saturate(1)}}
+@keyframes mo-ring-loop{0%{transform:scale(1.9);opacity:0}30%{opacity:.32}40%{transform:scale(1);opacity:.5}100%{transform:scale(4.6);opacity:0}}
+@keyframes mo-band{0%,100%{transform:translate(-50%,-50%) scale(.92)}40%{transform:translate(-50%,-50%) scale(1.06)}}
+@keyframes mo-bloom{0%{transform:scale(.2);opacity:0}100%{transform:none;opacity:1}}
+@keyframes mo-rip{0%{transform:scale(0);opacity:1}70%{opacity:.8}100%{transform:scale(1);opacity:0}}
+@keyframes mo-field{0%,100%{filter:drop-shadow(0 0 0 rgba(231,176,143,0))}40%{filter:drop-shadow(0 0 12px rgba(214,140,96,.75))}}
+@keyframes mo-cloud{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 760px))}}
+@keyframes mo-twinkle{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes mo-shoot{0%{transform:translate(0,0) rotate(24deg) scaleX(0);opacity:0}4%{opacity:.9;transform:translate(0,0) rotate(24deg) scaleX(1)}9%{transform:translate(220px,98px) rotate(24deg) scaleX(.2);opacity:0}100%{transform:translate(220px,98px) rotate(24deg) scaleX(.2);opacity:0}}
+@keyframes mo-sway-a{from{transform:rotate(-7deg) translate(-10px,0)}to{transform:rotate(6deg) translate(14px,6px)}}
+@keyframes mo-sway-b{from{transform:rotate(5deg) translate(10px,-4px)}to{transform:rotate(-8deg) translate(-12px,8px)}}
+@keyframes mo-prog-breath{0%,100%{transform:scale(.82)}40%{transform:scale(1)}}
+@keyframes mo-drop{0%{transform:scale(.6);opacity:0}30%{opacity:1}100%{transform:none;opacity:1}}
+
+/* ---------- page transition: the breath covers, then lets go ---------- */
+.mo-veil{position:fixed;inset:0;overflow:hidden;z-index:999;pointer-events:none}
+.mo-veil i{position:absolute;border-radius:50%;background:var(--mist);box-shadow:0 0 0 2px rgba(143,162,134,.5),0 0 0 26px rgba(143,162,134,.22),0 0 0 70px rgba(231,176,143,.16);transform:scale(0);animation:mo-veil-in .38s cubic-bezier(.5,0,.3,1) forwards}
+html.mo-arrive body::before{content:"";position:fixed;left:50%;top:42%;width:300vmax;height:300vmax;margin:-150vmax 0 0 -150vmax;border-radius:50%;background:var(--mist);box-shadow:0 0 0 2px rgba(143,162,134,.5),0 0 0 26px rgba(143,162,134,.22),0 0 0 70px rgba(231,176,143,.16);z-index:999;pointer-events:none;animation:mo-veil-out .75s cubic-bezier(.55,0,.25,1) forwards}
+
+/* ---------- ambient layers ---------- */
+.mo-motes{position:fixed;left:0;top:0;width:100%;height:100%;z-index:6;pointer-events:none}
+.mo-sun{position:fixed;left:0;top:0;width:78vmax;height:78vmax;margin:-39vmax 0 0 -39vmax;border-radius:50%;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(255,250,236,.95) 0%,rgba(252,234,206,.6) 38%,rgba(250,226,196,.22) 68%,rgba(255,255,255,0) 100%);will-change:transform}
+
+/* photos: slow parallax float + breathing on hover/press */
+html.mo .photo img{transform:translate3d(0,var(--py,0%),0) scale(1.09)}
+html.mo .photo{transition:transform 1.8s cubic-bezier(.45,0,.45,1)}
+html.mo .photo:hover,html.mo .photo:active{transform:scale(1.028)}
+
+/* ---------- site.css overrides (hero used a simple fade) ---------- */
+html.mo .hero h1,html.mo .hero__lead{animation:none}
+html.mo .hero{isolation:isolate}
+
+/* ---------- generic reveal plumbing ---------- */
+html.mo .is-in,html.mo .is-in::before,html.mo .is-in::after{animation-fill-mode:backwards;animation-timing-function:var(--ease-breath);animation-delay:calc(var(--d,0ms) + var(--d0,0ms) + var(--arr,0ms))}
+
+/* headlines: characters rise like breath on cold air */
+html.mo :is(main h1,main h2:not(.vh),.time h3>b,.time h3>span):not(.is-in){opacity:0}
+html.mo :is(main h1,main h2:not(.vh)){position:relative}
+.mo-ch{display:inline-block;font-style:normal;animation:mo-ch .85s var(--ease-breath) backwards;animation-delay:calc(var(--i,0)*var(--st,45ms) + var(--d,0ms) + var(--d0,0ms) + var(--arr,0ms))}
+.mo-brush{position:absolute;left:0;bottom:-.36em;width:min(100%,5.2em);height:.26em;max-width:none;fill:var(--sage);opacity:.62;pointer-events:none;overflow:visible;animation:mo-brush .8s cubic-bezier(.5,0,.2,1) backwards;animation-delay:calc(var(--bd,500ms) + var(--d,0ms) + var(--d0,0ms) + var(--arr,0ms))}
+.phead h1 .mo-brush,.hero h1 .mo-brush{width:min(100%,4.2em);bottom:-.2em;height:.17em}
+.book--band h2 .mo-brush{left:50%;margin-left:-2.6em}
+.is-night .mo-brush,.time--night .mo-brush{fill:var(--apricot)}
+html.mo .hero h1{--d0:60ms}
+html.mo .phead h1{--d0:50ms}
+
+/* text: drifts up out of a blur */
+html.mo :is(.hero__lead,.hero .btn,.hero__note,.sec__lead,.tease__in>div>p,.more,.note,.day__intro p,.time__lead,.book__lead,.book .btn,.book__tel,.policy>p,.policy>ul,.person__role,.person blockquote,.form>:not(.form__msg),.tbl caption,.tbl__hint,h3.sec__sub,.sec__sub>h3,.mo-prog,.faq details):not(.is-in){opacity:0}
+html.mo :is(.hero__lead,.hero .btn,.hero__note,.sec__lead,.tease__in>div>p,.more,.note,.day__intro p,.time__lead,.book__lead,.book .btn,.book__tel,.policy>p,.policy>ul,.person__role,.person blockquote,.form>:not(.form__msg),.tbl caption,.tbl__hint,h3.sec__sub,.sec__sub>h3,.mo-prog,.faq details).is-in{animation-name:mo-rise;animation-duration:.9s}
+html.mo .hero__lead{--d0:420ms}
+html.mo .hero .btn{--d0:600ms}
+html.mo .hero__note{--d0:700ms}
+html.mo .more:not(.is-in)::after{transform:scaleX(0)}
+
+/* page header (inner pages): pure CSS at load */
+html.mo .crumb{animation:mo-fade .8s var(--ease-breath) backwards;animation-delay:var(--arr,0ms)}
+html.mo .phead__lead{animation:mo-rise .9s var(--ease-breath) backwards;animation-delay:calc(420ms + var(--arr,0ms))}
+html.mo .phead__breath{animation:mo-bloom 1.3s var(--ease-breath) backwards;animation-delay:var(--arr,0ms)}
+.mo-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(47,58,46,.3);pointer-events:none;opacity:0}
+.phead__breath .mo-ring{animation:mo-ring-loop 10s linear infinite}
+.phead__breath .mo-ring:nth-child(2){animation-delay:.7s}
+.phead__breath .mo-ring:nth-child(3){animation-delay:1.4s}
+
+/* photos: blob -> rounded rectangle */
+html.mo .photo:not(.person>.photo):not(.is-in){opacity:0}
+html.mo .photo:not(.person>.photo).is-in{animation-name:mo-blob;animation-duration:1.5s;animation-timing-function:cubic-bezier(.3,.5,.2,1)}
+html.mo .breath .photo{--d0:520ms}
+
+/* instructors: ink wash */
+html.mo :is(.person>.photo,.person__ph):not(.is-in){opacity:0}
+html.mo :is(.person>.photo,.person__ph).is-in{animation-name:mo-wash;animation-duration:1.7s;animation-timing-function:ease-out}
+.mo-defs{position:absolute;width:0;height:0;overflow:hidden}
+
+/* map: opens like a ripple from the station */
+html.mo .map:not(.is-in){opacity:0}
+html.mo .map.is-in{animation-name:mo-map;animation-duration:1.5s;animation-timing-function:cubic-bezier(.4,.2,.2,1)}
+.mo-route{opacity:0}
+.mo-route.is-on{opacity:1}
+.mo-walker{opacity:0;transition:opacity .5s}
+.mo-walker.is-on{opacity:1}
+
+/* hairline lists: lines spread like ink, then the words surface */
+html.mo :is(.notes,.access,.person dl,.glance,.news,.steps){position:relative;border-top-color:transparent}
+html.mo :is(.notes,.access,.person dl,.glance,.news,.steps)::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--rule);transform-origin:0 50%;pointer-events:none}
+html.mo :is(.notes,.access,.person dl,.glance,.news,.steps):not(.is-in)::before{transform:scaleX(0)}
+html.mo :is(.notes,.access,.person dl,.glance,.news,.steps).is-in::before{animation-name:mo-ink;animation-duration:1.2s}
+html.mo :is(:is(.notes,.access,.person dl)>div,:is(.glance,.news,.steps)>li){position:relative;border-bottom-color:transparent}
+html.mo :is(:is(.notes,.access,.person dl)>div,:is(.glance,.news,.steps)>li)::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--rule);transform-origin:0 50%;pointer-events:none}
+html.mo :is(:is(.notes,.access,.person dl)>div,:is(.glance,.news,.steps)>li):not(.is-in)::after{transform:scaleX(0)}
+html.mo :is(:is(.notes,.access,.person dl)>div,:is(.glance,.news,.steps)>li).is-in::after{animation-name:mo-ink;animation-duration:1.2s}
+html.mo :is(:is(.notes,.access,.person dl)>div,:is(.glance,.news,.steps)>li):not(.is-in)>*,html.mo .steps>li:not(.is-in)::before{opacity:0}
+html.mo :is(:is(.notes,.access,.person dl)>div,:is(.glance,.news,.steps)>li).is-in>*{animation:mo-rise .85s var(--ease-breath) backwards;animation-delay:calc(var(--d,0ms) + 140ms)}
+html.mo .steps>li.is-in::before{animation-name:mo-drop;animation-duration:1s}
+
+/* tables: rows rise like ripples; price rows settle like stones */
+html.mo .tbl tr:not(.is-in){opacity:0}
+html.mo .tbl tr.is-in{animation-name:mo-row;animation-duration:.8s}
+html.mo .tbl--price tbody tr.is-in{animation-name:mo-stone;animation-duration:1s;animation-timing-function:cubic-bezier(.3,.6,.3,1)}
+html.mo .tbl tbody tr{transition:background-color .35s}
+html.mo .tbl tbody tr:hover{background-color:rgba(143,162,134,.14)}
+html.mo .tbl--week tr.is-in .on::before{animation:mo-dot .7s var(--ease-breath) backwards;animation-delay:calc(var(--d,0ms) + 180ms + var(--c,0)*70ms)}
+html.mo .tbl--week td:nth-child(3){--c:1}html.mo .tbl--week td:nth-child(4){--c:2}html.mo .tbl--week td:nth-child(5){--c:3}html.mo .tbl--week td:nth-child(6){--c:4}html.mo .tbl--week td:nth-child(7){--c:5}html.mo .tbl--week td:nth-child(8){--c:6}
+.mo-pond{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.mo-pond i{position:absolute;left:-70px;width:220px;height:56px;margin-top:-28px;border-radius:50%;border:1.5px solid rgba(96,120,88,.95);opacity:0;animation:mo-stone-ring 1.7s cubic-bezier(.2,.6,.3,1) both}
+.mo-num{display:inline-block}
+
+/* class cards surface as their time arrives */
+html.mo .cls:not(.is-in){opacity:0}
+html.mo .cls.is-in{animation-name:mo-surface;animation-duration:1.2s}
+html.mo .cls{position:relative}
+html.mo .cls::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--apricot);transform:scaleX(0);transform-origin:0 50%;transition:transform .8s var(--ease-water)}
+html.mo .cls:hover::before,html.mo .cls:focus-within::before{transform:none}
+
+/* sections: arrive under a warm tint that clears */
+html.mo :is(.sec,.tease){position:relative;isolation:isolate}
+html.mo :is(.sec,.tease)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(231,176,143,.34),rgba(143,162,134,.26));opacity:0}
+html.mo :is(.sec,.tease):not(.is-in)::before{opacity:1}
+html.mo :is(.sec,.tease).is-in::before{animation-name:mo-tint;animation-duration:2.2s;animation-timing-function:ease-out}
+html.mo .book--band::before{animation:mo-band 10s cubic-bezier(.45,0,.45,1) infinite}
+
+/* ---------- interaction ---------- */
+html.mo .btn,html.mo .nav .nav__book,html.mo .menu-btn{position:relative;overflow:hidden}
+html.mo .btn{transition:background-color .3s,color .3s,box-shadow .3s,transform .5s var(--ease-water)}
+.mo-rip{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.28) 0%,rgba(255,255,255,.2) 44%,rgba(255,255,255,.75) 62%,rgba(255,255,255,0) 71%);pointer-events:none;animation:mo-rip 1.15s cubic-bezier(.3,.45,.4,1) forwards}
+.mo-rip--ring{background:radial-gradient(circle,rgba(255,255,255,0) 52%,rgba(255,255,255,.6) 60%,rgba(255,255,255,0) 68%)}
+html.mo .more::after{transform-origin:0 50%;transition:transform .7s var(--ease-water)}
+html.mo .more:hover::after,html.mo .more:focus-visible::after{width:44px;transform:scaleX(1.5)}
+html.mo .more.is-in::after{animation:mo-ink 1s var(--ease-breath) backwards;animation-delay:calc(var(--d,0ms) + 300ms)}
+html.mo .foot__nav a{position:relative}
+html.mo .foot__nav a::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--apricot);transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--ease-water)}
+html.mo .foot__nav a:hover::after,html.mo .foot__nav a:focus-visible::after{transform:none}
+html.mo .foot__nav a:hover{text-decoration:none}
+html.mo .logo::before{animation:breathe-soft 10s infinite}
+@media (min-width:1080px){
+  html.mo .nav a:not(.nav__book)::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:0 50%;transition:transform .6s var(--ease-water)}
+  html.mo .nav a:not(.nav__book):hover::after,html.mo .nav a:not(.nav__book):focus-visible::after{transform:none}
+}
+@media (max-width:1079px){
+  html.mo .nav.is-open li{animation:mo-rise .6s var(--ease-breath) backwards}
+  html.mo .nav.is-open li:nth-child(2){animation-delay:50ms}html.mo .nav.is-open li:nth-child(3){animation-delay:100ms}html.mo .nav.is-open li:nth-child(4){animation-delay:150ms}html.mo .nav.is-open li:nth-child(5){animation-delay:200ms}html.mo .nav.is-open li:nth-child(6){animation-delay:250ms}html.mo .nav.is-open li:nth-child(7){animation-delay:300ms}
+}
+html.mo .field :is(input,select,textarea):focus{animation:mo-field 10s infinite}
+html.mo .faq details>div{transform-origin:50% 0}
+html.mo .faq summary{transition:color .3s}
+html.mo .faq summary:hover::after{transform:scale(1.3)}
+.mo-msg-rings{position:absolute;width:0;height:0;pointer-events:none}
+.mo-msg-rings i{position:absolute;left:-210px;top:-210px;width:420px;height:420px;border-radius:50%;border:1.5px solid rgba(47,58,46,.55);opacity:0;animation:mo-stone-ring 1.9s cubic-bezier(.2,.6,.3,1) both}
+
+/* ---------- home: breathing guide ---------- */
+html.mo .breath.mo-guide .breath__fill{animation:none;transform:scale(.7);opacity:.72;transition:transform 6s cubic-bezier(.45,0,.45,1),opacity 6s cubic-bezier(.45,0,.45,1)}
+html.mo .breath.mo-guide.is-inhale .breath__fill{transform:scale(1);opacity:1;transition-duration:4s;transition-timing-function:cubic-bezier(.4,0,.4,1)}
+html.mo .breath.mo-guide .breath__words span{animation:none;opacity:0;transition:opacity .9s}
+html.mo .breath.mo-guide.is-inhale .breath__words .in,html.mo .breath.mo-guide:not(.is-inhale) .breath__words .out{opacity:1}
+html.mo .breath__ring{animation:mo-bloom 1.3s var(--ease-breath) backwards;animation-delay:var(--arr,0ms)}
+.mo-rings{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.mo-rings i{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(47,58,46,.42);opacity:0}
+.breath__btn{position:absolute;inset:0;border-radius:50%;border:0;padding:0;background:none;color:inherit;cursor:pointer;touch-action:pan-y;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none;overflow:hidden}
+.breath__btn:focus-visible{outline-offset:-6px;border-radius:50%}
+.breath__count{position:absolute;left:44%;right:0;top:45%;text-align:center;font-family:var(--mincho);font-size:17px;line-height:1.4;letter-spacing:.1em;color:var(--ink);pointer-events:none}
+.breath__hint{position:absolute;left:48%;right:4%;bottom:17%;text-align:center;font-size:12.5px;line-height:1.65;letter-spacing:.08em;color:var(--ink);pointer-events:none;animation:mo-rise 1s var(--ease-breath) 1s backwards}
+
+/* ---------- classes: sky ---------- */
+html.mo .day--live .day__sky{z-index:0}
+html.mo .day--live>:not(.day__sky){position:relative;z-index:1}
+.sky{position:absolute;inset:0;overflow:hidden}
+.sky__dusk{position:absolute;inset:0;opacity:0;transition:opacity .45s linear;background:linear-gradient(180deg,rgba(240,170,170,0) 10%,rgba(244,180,172,.32) 52%,rgba(246,190,170,.58) 100%)}
+.sky__sun{position:absolute;left:0;top:0;width:190px;height:190px;margin:-95px 0 0 -95px;border-radius:50%;background:radial-gradient(circle,rgba(255,240,214,.96) 0%,rgba(250,214,176,.7) 30%,rgba(236,180,146,.3) 54%,rgba(231,176,143,0) 72%);will-change:transform,opacity}
+.sky__clouds{position:absolute;inset:0;transition:opacity .6s linear}
+.sky__cloud{position:absolute;left:-380px;width:380px;height:120px;filter:blur(7px);background:radial-gradient(closest-side,rgba(255,255,255,.85),rgba(255,255,255,0)) 0 30px/220px 90px no-repeat,radial-gradient(closest-side,rgba(255,255,255,.8),rgba(255,255,255,0)) 110px 0/200px 110px no-repeat,radial-gradient(closest-side,rgba(255,255,255,.75),rgba(255,255,255,0)) 200px 36px/180px 80px no-repeat;animation:mo-cloud 80s linear infinite}
+.sky__cloud--a{top:9%;animation-delay:-12s}
+.sky__cloud--b{top:38%;animation-duration:110s;animation-delay:-70s;opacity:.8;transform-origin:0 0}
+.sky__cloud--c{top:64%;animation-duration:95s;animation-delay:-40s;opacity:.7}
+.sky__stars{position:absolute;inset:0;opacity:0;transition:opacity .6s linear}
+.sky__stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#F4F7F2;animation:mo-twinkle 4s ease-in-out infinite}
+.sky__stars b{position:absolute;left:18%;top:16%;width:90px;height:1px;background:linear-gradient(90deg,rgba(244,247,242,0),#F4F7F2);transform-origin:100% 50%;opacity:0;animation:mo-shoot 11s linear infinite}
+
+/* ---------- flowing line (first-class timeline, directions, policy) ---------- */
+.mo-river{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;max-width:none}
+.mo-river path{fill:none;stroke-linecap:round}
+.mo-river .w{stroke:var(--sage);stroke-width:7;opacity:.2}
+.mo-river .l{stroke:var(--sage);stroke-width:1.6}
+.mo-river .h{fill:var(--apricot);stroke:var(--paper);stroke-width:1.5;opacity:0;transition:opacity .4s}
+.mo-river .h.is-on{opacity:1}
+.mo-river .k{fill:var(--sage);transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform .7s var(--ease-breath)}
+.mo-river .k.is-on{transform:none}
+
+/* ---------- studio: leaf shadows ---------- */
+.mo-leaves{position:absolute;inset:-6%;width:112%;height:112%;max-width:none;pointer-events:none;mix-blend-mode:multiply;opacity:.5;filter:blur(2.5px)}
+.mo-leaves g{transform-box:fill-box;transform-origin:100% 0}
+.mo-leaves .a{animation:mo-sway-a 5s ease-in-out infinite alternate}
+.mo-leaves .b{animation:mo-sway-b 6.5s ease-in-out infinite alternate}
+.mo-leaves .c{animation:mo-sway-a 8s ease-in-out -4s infinite alternate}
+
+/* ---------- reserve: progress ring ---------- */
+.mo-prog{display:flex;align-items:center;gap:16px;margin-top:26px}
+.mo-prog svg{width:68px;height:68px;flex:none;overflow:visible}
+.mo-prog__bg{fill:none;stroke:rgba(47,58,46,.2);stroke-width:1}
+.mo-prog__arc{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round;transition:stroke-dashoffset 1.6s cubic-bezier(.45,0,.3,1)}
+.mo-prog__in{transform-box:fill-box;transform-origin:center;transform:scale(var(--s,.3));transition:transform 1.6s cubic-bezier(.45,0,.3,1)}
+.mo-prog__in circle{fill:url(#mo-prog-g);transform-box:fill-box;transform-origin:center;animation:mo-prog-breath 10s cubic-bezier(.45,0,.45,1) infinite}
+.mo-prog__rip{fill:none;stroke:var(--sage);stroke-width:1;transform-box:fill-box;transform-origin:center;opacity:0}
+.mo-prog p{font-size:14px;line-height:1.6;color:var(--muted)}
+.mo-prog p b{display:inline-block;font-family:var(--mincho);font-weight:400;font-size:26px;line-height:1;color:var(--ink);margin-right:2px}
+.mo-prog p span{display:block}

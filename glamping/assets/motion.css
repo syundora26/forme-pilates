@@ -1,0 +1,446 @@
+
+/* =====================================================================
+   motion layer 「フィールドノート」  (everything that hides or moves is
+   gated by html.mo, which is only set when motion is allowed and JS runs)
+   ===================================================================== */
+:root{--flame-mid:#F6A63C;--fglow:.4}
+html[data-mode="night"]{--fglow:1}
+.b-ember{--flame-mid:#8A2D09}
+html[data-mode="night"] .b-ember{--flame-mid:#F6A63C}
+
+/* ---------- fire (inline, layered) ---------- */
+.fire{overflow:visible}
+.f-glow{opacity:var(--fglow)}
+.f-mid{fill:var(--flame-mid)}
+.f-hit{fill:transparent;pointer-events:all}
+html.mo .fire .fl,html.mo .fire .fl>*{transform-box:fill-box;transform-origin:50% 100%}
+html.mo .fire .fl{transform:scale(var(--lv,1));transition:transform .45s cubic-bezier(.3,1.7,.4,1)}
+html.mo .fire.flare .fl{transform:scale(1.6)}
+html.mo .fire .fl-a{animation:fl1 .92s steps(4,jump-none) infinite alternate}
+html.mo .fire .fl-b{animation:fl2 .66s steps(3,jump-none) infinite alternate}
+html.mo .fire .fl-b2{animation:fl2 .78s steps(3,jump-none) -.3s infinite alternate-reverse}
+html.mo .fire .fl-m{animation:fl3 .58s steps(3,jump-none) infinite alternate}
+html.mo .fire .fl-c{animation:fl3 .44s steps(3,jump-none) -.2s infinite alternate-reverse}
+html.mo .fire .f-glow{animation:glowp 1.7s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+html.mo .scene .fire,html.mo .bigfire .fire,html.mo .cf-svg .fire{cursor:pointer}
+@keyframes fl1{0%{transform:scale(1,1) skewX(0deg)}50%{transform:scale(.92,1.1) skewX(-4deg)}100%{transform:scale(1.06,.93) skewX(4deg)}}
+@keyframes fl2{0%{transform:scale(.85,.7) rotate(-5deg)}100%{transform:scale(1.1,1.2) rotate(6deg)}}
+@keyframes fl3{0%{transform:scale(1.05,.86)}100%{transform:scale(.9,1.14)}}
+@keyframes glowp{0%{transform:scale(.92)}100%{transform:scale(1.08)}}
+
+/* ---------- page transition: tent flap + zipper ---------- */
+.zipx{position:fixed;inset:0;z-index:200;pointer-events:none}
+.zipx .zl,.zipx .zr,html.zip-in::before,html.zip-in::after{content:"";position:fixed;top:0;bottom:0;z-index:200;pointer-events:none;background-color:#E9DFC8}
+.zipx .zl,html.zip-in::before{left:0;right:50%;
+  background-image:linear-gradient(#1B1F1C,#1B1F1C),repeating-linear-gradient(180deg,#1B1F1C 0 5px,transparent 5px 11px),repeating-linear-gradient(180deg,rgba(27,31,28,.5) 0 10px,transparent 10px 18px),linear-gradient(90deg,transparent,rgba(23,53,42,.16));
+  background-size:4px 100%,10px 100%,2px 100%,100% 100%;background-position:right top,right 4px top,right 26px top,0 0;background-repeat:no-repeat}
+.zipx .zr,html.zip-in::after{left:50%;right:0;
+  background-image:linear-gradient(#1B1F1C,#1B1F1C),repeating-linear-gradient(180deg,transparent 0 5px,#1B1F1C 5px 11px),repeating-linear-gradient(180deg,rgba(27,31,28,.5) 0 10px,transparent 10px 18px),linear-gradient(270deg,transparent,rgba(23,53,42,.16));
+  background-size:4px 100%,10px 100%,2px 100%,100% 100%;background-position:left top,left 4px top,left 26px top,0 0;background-repeat:no-repeat}
+html[data-mode="night"] .zipx .zl,html[data-mode="night"] .zipx .zr,html[data-mode="night"].zip-in::before,html[data-mode="night"].zip-in::after{background-color:#D8BC86}
+.zipx .zp,html.zip-in body::before{content:"";position:fixed;left:50%;top:0;z-index:201;width:26px;height:46px;margin-left:-13px;border-radius:5px 5px 13px 13px;background:#E8602C;border:3px solid #1B1F1C;box-shadow:3px 4px 0 rgba(4,10,13,.4);pointer-events:none;
+  background-image:radial-gradient(circle at 50% 70%,#1B1F1C 0 4px,transparent 5px)}
+.zipx .zl{animation:zipL .3s cubic-bezier(.5,0,.25,1) both}
+.zipx .zr{animation:zipR .3s cubic-bezier(.5,0,.25,1) both}
+.zipx .zp{animation:zipD .3s cubic-bezier(.4,0,.3,1) .1s both}
+@keyframes zipL{from{transform:translateX(-102%)}to{transform:none}}
+@keyframes zipR{from{transform:translateX(102%)}to{transform:none}}
+@keyframes zipD{from{transform:translateY(-60px)}to{transform:translateY(calc(100vh - 20px))}}
+html.zip-in{--z:360ms}
+html.zip-in::before{animation:flapL .66s cubic-bezier(.5,0,.3,1) forwards}
+html.zip-in::after{animation:flapR .66s cubic-bezier(.5,0,.3,1) forwards}
+html.zip-in body::before{animation:zipU .5s cubic-bezier(.4,0,.3,1) forwards}
+@keyframes flapL{0%{clip-path:polygon(0 0,100% 0,100% 100%,100% 100%,0 100%);transform:none}
+  48%{clip-path:polygon(0 0,100% 0,100% 6%,30% 100%,0 100%);transform:none}
+  100%{clip-path:polygon(0 0,100% 0,100% 6%,30% 100%,0 100%);transform:translateX(-106%) rotate(-4deg)}}
+@keyframes flapR{0%{clip-path:polygon(0 0,100% 0,100% 100%,0 100%,0 100%);transform:none}
+  48%{clip-path:polygon(0 0,100% 0,100% 100%,70% 100%,0 6%);transform:none}
+  100%{clip-path:polygon(0 0,100% 0,100% 100%,70% 100%,0 6%);transform:translateX(106%) rotate(4deg)}}
+@keyframes zipU{0%{transform:translateY(calc(100vh - 30px));opacity:1}62%{transform:translateY(4vh);opacity:1}100%{transform:translateY(-70px);opacity:0}}
+
+/* ---------- fixed layers ---------- */
+.mo-sky,.mo-fx{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.mo-sky{z-index:1}
+.mo-fx{z-index:50}
+.mo-prog{position:fixed;left:0;right:0;top:0;height:5px;z-index:58;pointer-events:none}
+.mo-prog i{position:absolute;inset:0;background:repeating-linear-gradient(90deg,#E8602C 0 9px,#1B1F1C 9px 11px,transparent 11px 16px);clip-path:inset(0 100% 0 0)}
+.mo-prog b{position:absolute;left:0;top:0;width:16px;height:14px;margin-left:-8px;background:#E8602C;clip-path:polygon(50% 0,100% 100%,0 100%);will-change:transform}
+
+/* ---------- hidden states (opacity only, so observers still see the box) ---------- */
+html.mo :is(.print,.stamp,.memo,.tag,.price,.label,.tbl-scroll,.warn,.honest,.htag,.ticket,.lead,.campfire,.h2,.page-head h1,.hero h1,.policy h2,.faq-list details):not(.in){opacity:0}
+html.mo :is(.ticks,.three,.news,.steps,.fire-list)>li:not(.in),html.mo :is(.rows,.access dl)>div:not(.in){opacity:0}
+html.mo .stop:not(.in)>*:not(.stop-pin):not(.print){opacity:0}
+html.mo .torn:not(.in)::before,html.mo .stitch:not(.in)::after{clip-path:inset(0 100% 0 0)}
+
+/* ---------- headline: letters stamped one by one ---------- */
+html.mo .hero h1{animation:none}
+html.mo .ch,html.mo .hero h1 span.ch{display:inline-block;position:relative;white-space:pre;transform:rotate(var(--cf,0deg));transform-origin:50% 85%}
+html.mo .hero h1 span.sp{display:block}
+html.mo .still .ch,html.mo .still .ch::after,html.mo .still em,html.mo .hero h1.still .l2{animation:none !important}
+html.mo .in .ch{animation:stampch .44s cubic-bezier(.2,.9,.3,1) backwards;animation-delay:var(--cd,0ms)}
+@keyframes stampch{0%{opacity:0;transform:translateY(-.45em) scale(2) rotate(var(--cr,8deg))}
+  12%{opacity:1}
+  52%{opacity:1;transform:translateY(.03em) scale(1.14,.8) rotate(calc(var(--cr,8deg)*.25))}
+  76%{transform:scale(.95,1.07) rotate(var(--cf,0deg))}
+  100%{opacity:1;transform:rotate(var(--cf,0deg))}}
+html.mo .ch::after{content:"";position:absolute;left:50%;bottom:.1em;width:.07em;height:.07em;border-radius:50%;background:currentColor;opacity:0;pointer-events:none;
+  box-shadow:-.5em .06em 0 -.005em currentColor,.52em .02em 0 .01em currentColor,-.34em .2em 0 0 currentColor,.3em .22em 0 -.01em currentColor,-.62em -.2em 0 -.015em currentColor,.64em -.26em 0 -.01em currentColor}
+html.mo .in .ch::after{animation:splat .5s ease-out backwards;animation-delay:calc(var(--cd,0ms) + 200ms)}
+@keyframes splat{0%{opacity:0;transform:scale(.2)}30%{opacity:.85;transform:scale(1)}100%{opacity:0;transform:scale(1.35)}}
+html.mo .in em,html.mo .hero h1.in .l2{animation:emberflick 1.3s ease-in-out backwards;animation-delay:var(--ed,900ms)}
+@keyframes emberflick{0%,100%{filter:none}18%{filter:brightness(1.5) drop-shadow(0 0 .14em rgba(255,179,71,.95))}34%{filter:brightness(.88)}56%{filter:brightness(1.38) drop-shadow(0 0 .2em rgba(255,179,71,.8))}78%{filter:brightness(1.06)}}
+
+/* ---------- page intro (pure CSS, cannot get stuck) ---------- */
+html.mo .mast .brand{transform-origin:20% 0;animation:hangin .62s cubic-bezier(.3,.9,.4,1) backwards;animation-delay:calc(var(--z,0ms) + 40ms)}
+@keyframes hangin{0%{opacity:0;transform:translateY(-80px) rotate(9deg)}55%{opacity:1;transform:translateY(5px) rotate(-5deg)}78%{transform:translateY(-2px) rotate(-.5deg)}100%{opacity:1;transform:rotate(-2deg)}}
+html.mo .switch{animation:swdrop .55s cubic-bezier(.3,1.5,.4,1) backwards;animation-delay:calc(var(--z,0ms) + 180ms)}
+@keyframes swdrop{from{opacity:0;transform:translateY(-70px) rotate(8deg)}to{opacity:1;transform:none}}
+html.mo .mast-row{animation:rowpop .45s cubic-bezier(.3,1.5,.4,1) backwards;animation-delay:calc(var(--z,0ms) + 160ms)}
+@keyframes rowpop{from{opacity:0;transform:translateY(14px) scale(.9)}to{opacity:1;transform:none}}
+html.mo .crumb{animation:crumbin .5s cubic-bezier(.3,1.3,.4,1) backwards;animation-delay:calc(var(--z,0ms) + 80ms)}
+@keyframes crumbin{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
+.gnav li:nth-child(1){--i:0}.gnav li:nth-child(2){--i:1}.gnav li:nth-child(3){--i:2}.gnav li:nth-child(4){--i:3}.gnav li:nth-child(5){--i:4}.gnav li:nth-child(6){--i:5}.gnav li:nth-child(7){--i:6}.gnav li:nth-child(8){--i:7}
+@media (min-width:1180px){
+  html.mo:not(.intro-done) .gnav li{transform-origin:50% 0;animation:tabdrop .5s cubic-bezier(.3,1.5,.4,1) backwards;animation-delay:calc(var(--z,0ms) + 90ms + var(--i,0)*45ms)}
+  html.mo .gnav a{transform-origin:50% 0}
+  html.mo .gnav a:hover,html.mo .gnav a:focus-visible{animation:tabflip .5s ease-out}
+  html.mo .gnav a:active{scale:1 .9}
+}
+@keyframes tabdrop{0%{transform:translateY(-105%) rotate(calc((var(--i,0) - 3.5)*1.6deg))}100%{transform:none}}
+@keyframes tabflip{0%{transform:perspective(260px) rotateX(0deg)}30%{transform:perspective(260px) rotateX(-46deg)}62%{transform:perspective(260px) rotateX(18deg)}82%{transform:perspective(260px) rotateX(-6deg)}100%{transform:perspective(260px) rotateX(0deg)}}
+@media (max-width:1179px){
+  html.mo .gnav.open{transform-origin:50% 0;animation:noteopen .42s cubic-bezier(.3,1.3,.4,1)}
+  html.mo .gnav.open li{animation:pagein .36s cubic-bezier(.3,1.4,.4,1) backwards;animation-delay:calc(90ms + var(--i,0)*38ms)}
+  html.mo .gnav a:active{translate:6px 0}
+  html.mo .menu-btn:active{scale:1.08 .86}
+}
+@keyframes noteopen{0%{opacity:0;transform:perspective(900px) rotateX(-75deg) rotate(-.4deg)}60%{opacity:1;transform:perspective(900px) rotateX(10deg) rotate(-.4deg)}100%{transform:rotate(-.4deg)}}
+@keyframes pagein{from{opacity:0;transform:translateX(-22px) rotate(-3deg)}to{opacity:1;transform:none}}
+html.mo .hero-copy .btn{animation:btnpop .5s cubic-bezier(.3,1.6,.4,1) backwards;animation-delay:calc(var(--z,0ms) + 950ms)}
+@keyframes btnpop{0%{opacity:0;transform:rotate(-7deg) scale(.5,.3)}60%{opacity:1;transform:rotate(1deg) scale(1.08,1.12)}100%{opacity:1;transform:rotate(-1deg)}}
+html.mo .hero-copy .note{animation:fadein .5s ease backwards;animation-delay:calc(var(--z,0ms) + 1150ms)}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+html.mo .page-head .lead.in,html.mo .hero .lead.in{animation-delay:calc(var(--z,0ms) + 620ms)}
+html.mo .ph-stamp .stamp.in{animation-delay:calc(var(--z,0ms) + 800ms)}
+html.mo .ph-stamp .stamp.in::after{animation-delay:calc(var(--z,0ms) + 990ms)}
+html.mo .hero-prints .print.in{animation-delay:calc(var(--z,0ms) + 620ms)}
+html.mo .hero-prints .print:nth-child(2).in{animation-delay:calc(var(--z,0ms) + 790ms)}
+html.mo .hero-prints .print.in::before{animation-delay:calc(var(--z,0ms) + 1110ms)}
+html.mo .hero-prints .print:nth-child(2).in::before{animation-delay:calc(var(--z,0ms) + 1260ms)}
+
+/* ---------- 1. toss: prints thrown onto the page, tape a beat later ---------- */
+html.mo .print.in{animation:toss .74s cubic-bezier(.3,.6,.4,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes toss{0%{opacity:0;transform:translate(var(--tx,-150px),-80px) rotate(calc(var(--r,-2deg) + var(--spin,-22deg))) scale(1.16)}
+  18%{opacity:1}
+  56%{opacity:1;transform:translate(0,7px) rotate(calc(var(--r,-2deg) + 3.5deg)) scale(.98)}
+  76%{transform:translate(0,-5px) rotate(calc(var(--r,-2deg) - 1.6deg)) scale(1.006)}
+  90%{transform:translate(0,1px) rotate(calc(var(--r,-2deg) + .6deg))}
+  100%{opacity:1;transform:rotate(var(--r,-2deg))}}
+html.mo .print.tape:not(.in)::before,html.mo .print.pin:not(.in)::before{opacity:0}
+html.mo .print.tape.in::before{animation:slap .3s cubic-bezier(.3,1.6,.4,1) backwards;animation-delay:calc(var(--d,0ms) + 560ms)}
+html.mo .print.pin.in::before{animation:pindrop .34s cubic-bezier(.3,1.6,.4,1) backwards;animation-delay:calc(var(--d,0ms) + 560ms)}
+@keyframes slap{0%{opacity:0;transform:rotate(calc(var(--tr,-4deg) - 16deg)) scale(2.1)}60%{opacity:1;transform:rotate(var(--tr,-4deg)) scale(.92,.86)}100%{opacity:1;transform:rotate(var(--tr,-4deg))}}
+@keyframes pindrop{0%{opacity:0;transform:translateY(-34px) scale(1.7)}65%{opacity:1;transform:translateY(2px) scale(.86)}100%{opacity:1;transform:none}}
+html.mo .print{touch-action:pan-y;cursor:grab;transition:translate .6s cubic-bezier(.3,2.1,.4,1),rotate .6s cubic-bezier(.3,2.1,.4,1),scale .28s ease}
+html.mo .print img{-webkit-user-drag:none;-webkit-user-select:none;user-select:none}
+html.mo .print.drag{transition:none;cursor:grabbing;z-index:6;-webkit-user-select:none;user-select:none}
+@media (hover:hover){html.mo .print:hover{translate:0 -8px;rotate:1.8deg;scale:1.035}}
+
+/* ---------- 2. thump: rubber stamps with ink bleed ---------- */
+html.mo .stamp.in{animation:thump .46s cubic-bezier(.3,.7,.4,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes thump{0%{opacity:0;transform:rotate(calc(var(--r,-9deg) + 16deg)) scale(2.4)}42%{opacity:1;transform:rotate(var(--r,-9deg)) scale(.88)}66%{transform:rotate(var(--r,-9deg)) scale(1.06)}100%{opacity:1;transform:rotate(var(--r,-9deg)) scale(1)}}
+html.mo .stamp::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:7px solid currentColor;opacity:0;pointer-events:none}
+html.mo .stamp.in::after{animation:bleed .6s ease-out backwards;animation-delay:calc(var(--d,0ms) + 190ms)}
+@keyframes bleed{0%{opacity:.75;transform:scale(.86)}100%{opacity:0;transform:scale(1.32)}}
+html.mo .stamp{transition:rotate .5s cubic-bezier(.3,2,.4,1),scale .3s}
+@media (hover:hover){html.mo .stamp:hover{rotate:7deg;scale:1.07}}
+
+/* ---------- 3. tear: torn paper edges rip open, stitches sew across ---------- */
+html.mo .torn.in::before{animation:tear .95s steps(16,jump-none) backwards}
+html.mo .stitch.in::after{animation:tear 1.1s steps(22,jump-none) backwards}
+@keyframes tear{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+/* ---------- 4. write: list rows written in, with a scribbled underline ---------- */
+html.mo :is(.ticks,.three,.news,.steps,.fire-list)>li.in,html.mo :is(.rows,.access dl)>div.in{animation:write .62s cubic-bezier(.4,.1,.3,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes write{0%{opacity:1;clip-path:inset(-14px 100% -14px -14px)}100%{opacity:1;clip-path:inset(-14px -14px -14px -14px)}}
+html.mo .lead.in{animation:write .7s cubic-bezier(.4,.1,.3,1) backwards;animation-delay:var(--d,0ms)}
+html.mo .steps>li.in::before{animation:numstamp .42s cubic-bezier(.3,1.6,.4,1) backwards;animation-delay:calc(var(--d,0ms) + 80ms)}
+@keyframes numstamp{0%{transform:rotate(20deg) scale(2)}100%{transform:rotate(-8deg) scale(1)}}
+html.mo .ticks>li.in::before{animation:tickpop .4s cubic-bezier(.3,1.8,.4,1) backwards;animation-delay:calc(var(--d,0ms) + 60ms)}
+@keyframes tickpop{0%{transform:scale(0) rotate(-90deg)}100%{transform:none}}
+.scrib{display:none}
+html.mo .scrib{display:block;position:absolute;left:0;bottom:-5px;width:100%;max-width:9em;height:7px;overflow:visible;pointer-events:none}
+html.mo .scrib path{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:1 3;stroke-dashoffset:1.05}
+html.mo .in .scrib path{animation:draw .5s ease-out forwards;animation-delay:calc(var(--d,0ms) + 380ms)}
+html.mo :is(.rows dt,.access dl dt,.steps li>b,.fire-list b,.news time,.ticks li>b){position:relative}
+html.mo .news time{justify-self:start}
+html.mo .policy h2.in{animation:write .6s cubic-bezier(.4,.1,.3,1) backwards;animation-delay:var(--d,0ms)}
+
+/* ---------- 5. unroll: tables open like a paper scroll ---------- */
+html.mo .tbl-scroll.in{animation:unroll .85s cubic-bezier(.4,.2,.3,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes unroll{0%{opacity:1;clip-path:inset(0 0 100% 0)}100%{opacity:1;clip-path:inset(0 0 0 0)}}
+.mo-roll{position:absolute;z-index:3;height:22px;margin-top:-11px;border-radius:11px;border:2px solid #1B1F1C;background:linear-gradient(180deg,#FFFBF0 0 22%,#E9DFC8 22% 60%,#C8BB98 60%);box-shadow:3px 5px 0 rgba(4,10,13,.35);pointer-events:none;
+  animation:rolldown .85s cubic-bezier(.4,.2,.3,1) both,rollout .25s ease .85s forwards;animation-delay:var(--d,0ms),calc(var(--d,0ms) + .85s)}
+@keyframes rolldown{from{transform:translateY(0) rotate(-1deg)}to{transform:translateY(var(--h,300px)) rotate(.6deg)}}
+@keyframes rollout{to{opacity:0;transform:translateY(var(--h,300px)) scaleY(.2)}}
+html.mo tbody tr{transition:background-color .15s}
+html.mo tbody tr:hover,html.mo tbody tr:active{background:rgba(232,96,44,.16)}
+
+/* ---------- 6. swing: price tags on a string ---------- */
+html.mo .tag,html.mo .price{transform-origin:14px 50%}
+html.mo .tag.in,html.mo .price.in{animation:swingin 1.15s ease-out backwards;animation-delay:var(--d,0ms)}
+@keyframes swingin{0%{opacity:0;transform:rotate(-30deg)}14%{opacity:1}28%{transform:rotate(15deg)}48%{transform:rotate(-8deg)}66%{transform:rotate(5deg)}83%{transform:rotate(-1deg)}100%{opacity:1;transform:rotate(1deg)}}
+html.mo .htag.in{animation:hangswing 1.3s ease-out backwards;animation-delay:var(--d,0ms)}
+@keyframes hangswing{0%{opacity:0;transform:rotate(calc(var(--hr,-2deg) + 46deg))}12%{opacity:1}26%{transform:rotate(calc(var(--hr,-2deg) - 24deg))}44%{transform:rotate(calc(var(--hr,-2deg) + 13deg))}62%{transform:rotate(calc(var(--hr,-2deg) - 7deg))}80%{transform:rotate(calc(var(--hr,-2deg) + 3deg))}100%{opacity:1;transform:rotate(var(--hr,-2deg))}}
+html.mo .hang:not(.in)>li::before{clip-path:inset(-4px 100% -4px 0)}
+html.mo .hang.in>li::before{animation:ropein .5s steps(8,jump-none) backwards}
+@keyframes ropein{from{clip-path:inset(-4px 100% -4px 0)}to{clip-path:inset(-4px 0 -4px 0)}}
+
+/* ---------- 7. paper drops, label gun, warning thud ---------- */
+html.mo .memo.in{animation:paperdrop .66s cubic-bezier(.3,.7,.4,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes paperdrop{0%{opacity:0;transform:translateY(-54px) rotate(calc(var(--r,.6deg) + 9deg)) scale(1.07)}50%{opacity:1;transform:translateY(5px) rotate(calc(var(--r,.6deg) - 2deg)) scale(.99)}75%{transform:translateY(-3px) rotate(calc(var(--r,.6deg) + .8deg))}100%{opacity:1;transform:rotate(var(--r,.6deg))}}
+html.mo .memo{transition:rotate .5s cubic-bezier(.3,1.8,.4,1),translate .5s cubic-bezier(.3,1.8,.4,1)}
+html.mo .label.in{animation:labelgun .48s cubic-bezier(.3,.8,.3,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes labelgun{0%{opacity:1;clip-path:inset(0 100% 0 0);translate:-12px 0;rotate:-5deg}70%{clip-path:inset(0 0 0 0);translate:3px 0;rotate:2deg}100%{opacity:1;clip-path:inset(0 0 0 0);translate:0 0;rotate:0deg}}
+html.mo .warn.in{animation:thud .6s cubic-bezier(.3,.7,.4,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes thud{0%{opacity:0;transform:rotate(-6deg) scale(1.25)}35%{opacity:1;transform:rotate(1deg) scale(.97)}50%{transform:rotate(-2deg) translateX(-5px)}65%{transform:rotate(.6deg) translateX(4px)}80%{transform:rotate(-1deg) translateX(-2px)}100%{opacity:1;transform:rotate(-.6deg)}}
+html.mo .warn.in::before{animation:bang .7s cubic-bezier(.3,1.7,.4,1) backwards;animation-delay:calc(var(--d,0ms) + 320ms)}
+@keyframes bang{0%{transform:scale(0) rotate(-200deg)}100%{transform:none}}
+html.mo .honest.in{animation:honest .6s cubic-bezier(.3,.9,.3,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes honest{0%{opacity:1;clip-path:inset(100% 0 0 0)}45%{clip-path:inset(0 calc(100% - 6px) 0 0)}100%{opacity:1;clip-path:inset(0 -4px 0 0)}}
+
+/* ---------- 8. pop-up book stops (trail) ---------- */
+html.mo .stop.in>*:not(.stop-pin):not(.print){transform-origin:50% 100%;animation:popup .6s cubic-bezier(.3,.8,.4,1) backwards;animation-delay:var(--d,0ms)}
+html.mo .stop.in>h3{animation-delay:calc(var(--d,0ms) + 90ms)}
+html.mo .stop.in>p{animation-delay:calc(var(--d,0ms) + 170ms)}
+@keyframes popup{0%{opacity:0;transform:perspective(520px) rotateX(-92deg)}14%{opacity:1}55%{transform:perspective(520px) rotateX(16deg)}78%{transform:perspective(520px) rotateX(-7deg)}100%{opacity:1;transform:perspective(520px) rotateX(0deg)}}
+html.mo .stop-pin{transition:scale .3s cubic-bezier(.3,2.2,.4,1)}
+html.mo .stop.on .stop-pin{scale:1.25}
+.fp>g{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2);transition:transform .22s cubic-bezier(.3,2,.4,1),opacity .15s}
+.fp.on>g{opacity:.62;transform:none}
+.fp ellipse{fill:var(--fg)}
+html.mo #course{transition:background-color .9s ease,color .9s ease}
+html.mo #course::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .9s ease;
+  background:radial-gradient(circle,#F6EFD9 0 1.2px,transparent 1.8px) 20px 30px/190px 170px,radial-gradient(circle,#F6EFD9 0 1px,transparent 1.5px) 110px 96px/230px 210px,radial-gradient(circle,#F6EFD9 0 1.7px,transparent 2.3px) 70px 150px/310px 270px}
+html.mo #course[data-sky="dusk"]{--bg:#E3A877;--accent:#7A2607}
+html.mo #course[data-sky="night"]{--bg:#0C1A22;--fg:#E9DFC8;--accent:#F4A582;--rule:rgba(233,223,200,.45)}
+html.mo #course[data-sky="night"]::before{opacity:.8}
+html.mo #course[data-sky="morning"]{--bg:#CFE0DC;--accent:#8A2D09}
+html.mo[data-mode="night"] #course[data-sky="dusk"]{--bg:#3A2219;--accent:#F4A582}
+html.mo[data-mode="night"] #course[data-sky="night"]{--bg:#04090D;--accent:#F4A582}
+html.mo[data-mode="night"] #course[data-sky="morning"]{--bg:#1E4250;--accent:#F4A582}
+.sky-tag{display:none}
+html.mo .sky-tag{display:inline-flex;justify-self:start;align-items:center;gap:8px;margin-top:14px;font-weight:700;font-size:.86rem;border:2px solid var(--fg);border-radius:20px;padding:2px 14px 2px 6px}
+html.mo .sky-tag i{width:20px;height:20px;border-radius:50%;background:var(--ember);border:2px solid var(--fg);transition:transform .6s cubic-bezier(.3,1.6,.4,1)}
+html.mo #course[data-sky="night"] .sky-tag i{background:#F6EFD9;box-shadow:inset -6px -2px 0 #0C1A22;transform:rotate(-30deg)}
+html.mo #course[data-sky="dusk"] .sky-tag i{transform:translateY(5px) scale(.9)}
+
+/* ---------- 9. FAQ: folded notes ---------- */
+html.mo .faq-list details.in{transform-origin:50% 0;animation:foldin .6s cubic-bezier(.3,.8,.4,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes foldin{0%{opacity:0;transform:perspective(700px) rotateX(-88deg)}16%{opacity:1}58%{transform:perspective(700px) rotateX(14deg)}80%{transform:perspective(700px) rotateX(-5deg)}100%{opacity:1;transform:perspective(700px) rotateX(0deg)}}
+html.mo .faq-list details[open]>p{transform-origin:50% 0;animation:unfold .62s cubic-bezier(.3,.8,.3,1) backwards}
+html.mo .faq-list details.in[open]>p{animation-delay:calc(var(--d,0ms) + 0ms)}
+html.mo .faq-list details.opened[open]>p{animation-delay:0ms}
+@keyframes unfold{0%{opacity:0;transform:perspective(600px) rotateX(-86deg);clip-path:inset(0 52% 0 0)}
+  12%{opacity:1}
+  46%{transform:perspective(600px) rotateX(8deg);clip-path:inset(0 52% 0 0)}
+  60%{transform:perspective(600px) rotateX(0deg);clip-path:inset(0 52% 0 0)}
+  100%{opacity:1;transform:perspective(600px) rotateX(0deg);clip-path:inset(0 0 0 0)}}
+html.mo .faq-list details.folding>p{animation:foldup .2s cubic-bezier(.5,0,.8,.4) forwards}
+@keyframes foldup{0%{transform:perspective(600px) rotateX(0deg);opacity:1}100%{transform:perspective(600px) rotateX(-80deg);opacity:0}}
+html.mo .faq-list summary{transition:translate .3s cubic-bezier(.3,1.9,.4,1)}
+html.mo .faq-list summary::after{transition:transform .4s cubic-bezier(.3,1.9,.4,1)}
+html.mo .faq-list details[open]>summary::after{transform:rotate(180deg)}
+@media (hover:hover){html.mo .faq-list summary:hover{translate:8px 0}html.mo .faq-list summary:hover::after{transform:rotate(90deg) scale(1.12)}}
+html.mo .faq-list summary:active{translate:4px 2px}
+
+/* ---------- buttons, phone, small links ---------- */
+html.mo .btn{transition:scale .2s}
+html.mo .tel{transform-origin:10% 60%}
+@media (hover:hover){html.mo .tel:hover{animation:ring .6s ease-in-out}}
+html.mo .tel:active{animation:ring .6s ease-in-out}
+@keyframes ring{0%,100%{transform:none}15%{transform:rotate(-5deg)}30%{transform:rotate(5deg)}45%{transform:rotate(-4deg)}60%{transform:rotate(3deg)}80%{transform:rotate(-1deg)}}
+html.mo .foot-nav a{transition:translate .25s cubic-bezier(.3,1.9,.4,1)}
+html.mo .foot-nav a:hover,html.mo .foot-nav a:active{translate:5px 0}
+html.mo .more svg,html.mo .more::after{transition:translate .25s}
+html.mo .more:active{translate:3px 1px}
+
+/* ---------- night switch showpiece ---------- */
+html.mo .sw-knob::before{content:"";position:absolute;inset:-7px;border-radius:50%;background:conic-gradient(from 0deg,#E8602C 0 8%,transparent 8% 12.5%,#E8602C 12.5% 20.5%,transparent 20.5% 25%,#E8602C 25% 33%,transparent 33% 37.5%,#E8602C 37.5% 45.5%,transparent 45.5% 50%,#E8602C 50% 58%,transparent 58% 62.5%,#E8602C 62.5% 70.5%,transparent 70.5% 75%,#E8602C 75% 83%,transparent 83% 87.5%,#E8602C 87.5% 95.5%,transparent 95.5%);
+  -webkit-mask:radial-gradient(circle,transparent 0 12px,#000 12.5px 15px,transparent 15.5px);mask:radial-gradient(circle,transparent 0 12px,#000 12.5px 15px,transparent 15.5px);animation:rays 9s linear infinite;transition:opacity .3s}
+html.mo .switch[aria-checked="true"] .sw-knob::before{opacity:0}
+html.mo .sw-knob::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset -7px -1px 0 #0C1A22;opacity:0;transition:opacity .3s .15s}
+html.mo .switch[aria-checked="true"] .sw-knob::after{opacity:1}
+@keyframes rays{to{transform:rotate(360deg)}}
+html.mo .switch:active .sw-track{scale:.92}
+html.wiping::view-transition-old(root){animation:none;mix-blend-mode:normal}
+html.wiping::view-transition-new(root){animation:skywipe .95s cubic-bezier(.55,0,.25,1) both;mix-blend-mode:normal}
+@keyframes skywipe{from{clip-path:circle(0px at var(--wx,90%) var(--wy,30px))}to{clip-path:circle(150vmax at var(--wx,90%) var(--wy,30px))}}
+.skyarc{position:fixed;right:0;top:0;width:min(74vw,460px);height:min(60vw,360px);z-index:70;pointer-events:none;overflow:hidden;view-transition-name:fnarc;animation:arcfade .95s ease both}
+@keyframes arcfade{0%,72%{opacity:1}100%{opacity:0}}
+.skyarc i{position:absolute;left:0;top:0;width:100%;height:100%;transform-origin:50% 100%}
+.skyarc b{position:absolute;left:50%;top:16%;width:62px;height:62px;margin-left:-31px;border-radius:50%;border:3px solid #1B1F1C}
+.sa-sun b{background:#E8602C;box-shadow:0 0 0 9px rgba(232,96,44,.3)}
+.sa-moon b{background:#F6EFD9;box-shadow:inset -17px -5px 0 #9FAEB0}
+.skyarc.to-night .sa-sun{animation:arcset .9s cubic-bezier(.5,0,.7,.6) both}
+.skyarc.to-night .sa-moon{animation:arcrise .9s cubic-bezier(.2,.7,.3,1) both}
+.skyarc.to-day .sa-moon{animation:arcset .9s cubic-bezier(.5,0,.7,.6) both}
+.skyarc.to-day .sa-sun{animation:arcrise .9s cubic-bezier(.2,.7,.3,1) both}
+@keyframes arcset{from{transform:rotate(0deg)}to{transform:rotate(118deg)}}
+@keyframes arcrise{from{transform:rotate(-118deg)}to{transform:rotate(0deg)}}
+.lantern{position:absolute;top:-6px;right:clamp(16px,8vw,110px);width:30px;height:54px;z-index:2;opacity:0;pointer-events:none;color:var(--fg);transform-origin:50% 0;transition:opacity .2s}
+.lantern svg{overflow:visible;width:100%;height:100%}
+.lantern .ll{fill:#FFC766;stroke:currentColor;stroke-width:2}
+html[data-mode="night"] .lantern{opacity:1;transition:opacity .01s linear calc(var(--li,0)*150ms + 520ms);animation:lsway 4.6s ease-in-out infinite alternate}
+html[data-mode="night"] .lantern .lg{animation:lglow 1.9s steps(5,jump-none) infinite alternate;transform-box:fill-box;transform-origin:center}
+@keyframes lsway{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+@keyframes lglow{from{opacity:.55;transform:scale(.9)}to{opacity:1;transform:scale(1.08)}}
+
+/* ---------- hero scene: alive ---------- */
+.s-cloud{fill:var(--sky-obj);opacity:.42}
+html[data-mode="night"] .s-cloud{opacity:.13}
+.s-bird{fill:none;stroke:var(--fg);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.s-smoke circle{fill:var(--fg);opacity:0}
+.s-owl{opacity:var(--glow);fill:var(--tree)}
+.s-owl .eye{fill:#FFC766}
+.scene.lamp-on{--door:#FFC766;--glow:1}
+.scene.lamp-off{--door:#0E2A21;--glow:0}
+.scene.lamp-on .s-owl,.scene.lamp-off .s-owl{opacity:1}
+html:not([data-mode="night"]) .scene.lamp-on .s-owl,html:not([data-mode="night"]) .scene.lamp-off .s-owl{opacity:0}
+html.mo .s-tent,html.mo .s-door{cursor:pointer}
+html.mo .s-door,html.mo .s-glow{transition:fill .25s,opacity .35s}
+html.mo .s-cloud.c1{animation:drift 46s linear infinite alternate}
+html.mo .s-cloud.c2{animation:drift 62s linear -20s infinite alternate-reverse}
+html.mo .s-cloud.c3{animation:drift 54s linear -8s infinite alternate}
+@keyframes drift{from{transform:translateX(-70px)}to{transform:translateX(90px)}}
+html.mo .s-tree use{transform-box:fill-box;transform-origin:50% 100%;animation:sway 3.8s ease-in-out infinite alternate}
+html.mo .s-tree use:nth-child(2n){animation-duration:4.6s;animation-delay:-1.2s}
+html.mo .s-tree use:nth-child(3n){animation-duration:5.2s;animation-delay:-2.1s}
+@keyframes sway{from{transform:rotate(-1.6deg)}to{transform:rotate(1.9deg)}}
+html.mo .s-bird{animation:birdfly 17s linear 2.5s infinite}
+html.mo .s-bird path{transform-box:fill-box;transform-origin:50% 100%;animation:flap .34s steps(2,jump-none) infinite alternate}
+@keyframes birdfly{0%{opacity:.9;transform:translate(-80px,150px)}22%{transform:translate(520px,96px)}44%{opacity:.9;transform:translate(1280px,128px)}45%,100%{opacity:0;transform:translate(1280px,128px)}}
+@keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(-.5)}}
+html.mo .s-smoke circle{transform-box:fill-box;transform-origin:center;animation:smoke 3.6s ease-out infinite}
+html.mo .s-smoke circle:nth-child(2){animation-delay:-1.2s}
+html.mo .s-smoke circle:nth-child(3){animation-delay:-2.4s}
+@keyframes smoke{0%{opacity:0;transform:translate(0,0) scale(.5)}15%{opacity:.3}60%{opacity:.16;transform:translate(-16px,-62px) scale(1.7)}100%{opacity:0;transform:translate(8px,-118px) scale(2.6)}}
+html.mo .s-owl .eye{transform-box:fill-box;transform-origin:center;animation:blink 5.5s steps(1) infinite}
+@keyframes blink{0%,91%,100%{transform:none}92%,96%{transform:scaleY(.1)}}
+html.mo .compass:not(.in){opacity:0}
+html.mo .compass.in{animation:compassin .8s cubic-bezier(.3,1.4,.4,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes compassin{from{opacity:0;transform:rotate(-200deg) scale(.4)}to{opacity:1;transform:none}}
+.needle{transform-origin:60px 62px}
+html.mo .contour.pl1 path{stroke-dasharray:1 3}
+html.mo .contour.pl1:not(.in) path{stroke-dashoffset:1.05}
+html.mo .contour.pl1.in path{animation:drawfrom 2.6s ease-out backwards}
+html.mo .contour.pl1.in path:nth-child(2){animation-delay:.25s}
+html.mo .contour.pl1.in path:nth-child(3){animation-delay:.5s}
+html.mo .contour.pl1.in path:nth-child(4){animation-delay:.2s}
+html.mo .contour.pl1.in path:nth-child(5){animation-delay:.6s}
+@keyframes drawfrom{from{stroke-dashoffset:1.05}to{stroke-dashoffset:0}}
+
+/* ---------- hanging tags (stay / price) ---------- */
+.hang{position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:58px 22px;margin-top:34px;padding:46px 4px 8px;list-style:none}
+.hang>li{position:relative;flex:1 1 140px;max-width:230px}
+.hang>li::before{content:"";position:absolute;left:-12px;right:-12px;top:-40px;border-top:4px solid var(--fg);border-radius:2px}
+.htag{position:relative;transform:rotate(var(--hr,-2deg));transform-origin:50% -37px;filter:drop-shadow(4px 5px 0 rgba(4,10,13,.34))}
+.htag::before{content:"";position:absolute;z-index:1;left:50%;top:-38px;height:58px;margin-left:-1.5px;border-left:3px solid var(--fg)}
+.htag-in{position:relative;display:grid;gap:4px;justify-items:center;text-align:center;background:var(--paper);color:#1B1F1C;padding:42px 12px 16px;clip-path:polygon(50% 0,100% 26px,100% 100%,0 100%,0 26px)}
+.htag-in::before{content:"";position:absolute;left:50%;top:13px;width:14px;height:14px;margin-left:-7px;border-radius:50%;border:3px solid #1B1F1C;background:var(--bg)}
+.htag b{font-family:var(--display);font-weight:400;font-size:1.12rem;line-height:1.3}
+.htag span{font-size:.82rem;font-weight:700;line-height:1.5;word-break:auto-phrase}
+.htag em{font-style:normal;font-family:var(--display);font-size:1.42rem;line-height:1.25;color:#9C340C;white-space:nowrap}
+.htag em small{font-family:var(--body);font-weight:700;font-size:.74rem;color:#1B1F1C}
+@media (min-width:768px){.hang{justify-content:flex-start;gap:58px 44px;padding-inline:26px}.hang>li{flex:0 1 230px}.hang>li::before{left:-23px;right:-23px}}
+
+/* ---------- stay: floor plan draws itself ---------- */
+html.mo .plan .pl{stroke-dasharray:1 3}
+html.mo .plan:not(.in) .pl{stroke-dashoffset:1.05}
+html.mo .plan:not(.in) :is(.pd,text,.pf){opacity:0}
+html.mo .plan.in .pl{animation:drawfrom .7s ease-in-out backwards;animation-delay:calc(var(--k,0)*150ms)}
+html.mo .plan.in :is(.pd,text){animation:fadein .01s steps(1) backwards;animation-delay:calc(var(--k,0)*150ms + 250ms)}
+html.mo .plan .pf{transform-box:fill-box;transform-origin:50% 100%}
+html.mo .plan.in .pf{animation:firepop .5s cubic-bezier(.3,1.9,.4,1) backwards,fl3 .5s steps(3,jump-none) .5s infinite alternate;animation-delay:calc(var(--k,0)*150ms + 250ms),calc(var(--k,0)*150ms + 750ms)}
+@keyframes firepop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:none}}
+
+/* ---------- food: campfire you can feed ---------- */
+.campfire{display:grid;gap:22px;justify-items:center;margin-top:56px;padding-top:40px;border-top:2px dashed var(--rule)}
+.cf-svg{width:100%;max-width:440px;overflow:visible;color:var(--fg);--log:#B98A5A;--flame:#F0712F;--flame-in:#FFD27A;--flame-mid:#F6A63C}
+.cf-glow{opacity:.5;transform-box:fill-box;transform-origin:center}
+.cf-line{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.cf-stones ellipse{fill:#3B4A4E;stroke:currentColor;stroke-width:2}
+.cf-panb{fill:#2A3238;stroke:currentColor;stroke-width:2.5;stroke-linejoin:round}
+.cf-food .a{fill:#E8602C}.cf-food .b{fill:#C9D9D2}.cf-food .c{fill:#8A2D09}.cf-food .d{fill:#E9DFC8}
+.cf-food>*{stroke:#1B1F1C;stroke-width:1.5}
+.cf-steam path{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;opacity:.5}
+.cf-log{stroke:#B98A5A;stroke-width:9;stroke-linecap:round;fill:none}
+.cf-txt{max-width:26em}
+.cf-txt p{margin-top:8px}
+.cf-ui{display:grid;gap:12px;justify-items:start;margin-top:16px}
+.cf-say{font-weight:700;min-height:1.9em}
+@media (min-width:768px){.campfire{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;gap:50px}}
+html.mo .campfire.in{animation:fadein .5s ease backwards}
+html.mo .cf-glow{transform:scale(var(--lv,1));transition:transform .6s ease,opacity .6s ease;opacity:calc(.25 + var(--lv,1)*.3)}
+html.mo .cf-steam path{stroke-dasharray:.34 .66;animation:steam 2.4s linear infinite;opacity:calc(var(--st,.25))}
+html.mo .cf-steam path:nth-child(2){animation-delay:-.8s;animation-duration:2.9s}
+html.mo .cf-steam path:nth-child(3){animation-delay:-1.5s;animation-duration:2.1s}
+@keyframes steam{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+html.mo .campfire.sizzle .cf-pan{animation:sizzle .16s steps(2,jump-none) infinite alternate}
+@keyframes sizzle{from{transform:translate(0,0)}to{transform:translate(.8px,-.9px)}}
+html.mo .campfire.sizzle .cf-food>*{transform-box:fill-box;transform-origin:center;animation:hop .5s steps(3,jump-none) infinite alternate}
+html.mo .campfire.sizzle .cf-food>*:nth-child(2n){animation-duration:.38s;animation-delay:-.2s}
+@keyframes hop{from{transform:none}to{transform:translateY(-3px) rotate(8deg)}}
+
+/* ---------- access: the route draws itself ---------- */
+.m-go,.m-car,.m-train{display:none}
+html.mo .m-go{display:block;fill:none;stroke:#E8602C;stroke-width:5;stroke-linecap:round;stroke-dasharray:1 3;stroke-dashoffset:1.05}
+html.mo .m-car,html.mo .m-train{display:block}
+html.mo .map .m-road{opacity:.5}
+.m-car .body{fill:#E8602C;stroke:#1B1F1C;stroke-width:2;stroke-linejoin:round}
+.m-car .wh{fill:#1B1F1C}
+.m-car .beam{fill:#FFC766;opacity:0;transition:opacity .3s}
+.m-car.lit .beam{opacity:.85}
+.m-train rect{fill:var(--bg);stroke:var(--fg);stroke-width:2}
+.m-train .win{fill:var(--fg);stroke:none}
+html.mo .map{cursor:pointer}
+html.mo .map .m-river{stroke-dasharray:1 3}
+html.mo .map:not(.in) .m-river{stroke-dashoffset:1.05}
+html.mo .map.in .m-river{animation:drawfrom 1.1s ease-out backwards}
+html.mo .map:not(.in) text{opacity:0}
+html.mo .map.in text{animation:fadein .01s steps(1) backwards;animation-delay:calc(var(--k,0)*90ms + 300ms)}
+html.mo .map.in{animation:mapdrop .6s cubic-bezier(.3,.8,.4,1) backwards}
+html.mo .map:not(.in){opacity:0}
+@keyframes mapdrop{0%{opacity:0;transform:rotate(7deg) translateY(-40px) scale(1.06)}60%{opacity:1;transform:rotate(-.5deg) translateY(4px)}100%{opacity:1;transform:rotate(1.2deg)}}
+.map-hint{display:none}
+html.mo .map-hint{display:block}
+
+/* ---------- reserve: ticket printed, punched, stamped ---------- */
+html.mo .ticket.in{animation:printout 1.15s steps(12,jump-none) backwards;animation-delay:var(--d,0ms)}
+@keyframes printout{0%{opacity:1;clip-path:inset(-20px -20px 100% -20px);transform:rotate(-.6deg) translateY(-26px)}100%{opacity:1;clip-path:inset(-20px -20px -20px -20px);transform:rotate(-.6deg) translateY(0)}}
+.punch{margin-bottom:22px;padding-bottom:16px;border-bottom:2px dashed rgba(27,31,28,.45);text-align:center}
+.punch p{font-family:var(--display);font-size:.92rem;line-height:1.4;margin-bottom:10px}
+.punch div{display:flex;justify-content:center;gap:8px}
+.punch i{position:relative;font-style:normal;display:grid;justify-items:center;gap:4px;width:48px;font-size:.7rem;font-weight:700;line-height:1.2}
+.punch i::before{content:"";width:26px;height:26px;border-radius:50%;border:2px dashed #1B1F1C;transition:transform .35s cubic-bezier(.3,2.4,.4,1)}
+.punch i.on::before{border-style:solid;background:var(--bg);box-shadow:inset 3px 4px 0 rgba(0,0,0,.4);transform:scale(1.1)}
+.punch i::after{content:"";position:absolute;left:50%;top:4px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#FFFBF0;border:1.5px solid #1B1F1C;opacity:0;pointer-events:none}
+html.mo .punch i.on::after{animation:chad .7s cubic-bezier(.4,0,.8,.5) forwards}
+@keyframes chad{0%{opacity:1;transform:none}100%{opacity:0;transform:translate(14px,70px) rotate(220deg) scale(.7)}}
+.msg-box{position:relative}
+.uke{position:absolute;right:10px;bottom:9px;width:74px;height:74px;border-radius:50%;border:3px solid #B3260C;color:#B3260C;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;transform:rotate(-13deg);filter:url(#rough);pointer-events:none}
+.uke::before{content:"";position:absolute;inset:4px;border-radius:50%;border:1.5px solid currentColor}
+.uke b{font-family:var(--display);font-weight:400;font-size:1.3rem}
+.uke small{font-size:.6rem;font-weight:700;letter-spacing:.1em;margin-top:4px}
+.msg-box.done .msg{padding-right:96px;min-height:94px;display:flex;align-items:center}
+html.mo .uke{animation:ukethump .5s cubic-bezier(.3,.7,.4,1) .15s backwards}
+@keyframes ukethump{0%{opacity:0;transform:rotate(12deg) scale(2.8)}45%{opacity:1;transform:rotate(-13deg) scale(.86)}70%{transform:rotate(-13deg) scale(1.07)}100%{opacity:1;transform:rotate(-13deg)}}
+html.mo .uke::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:7px solid currentColor;opacity:0;animation:bleed .6s ease-out .36s backwards}
+html.mo .field{position:relative}
+.fscrib{position:absolute;left:2px;width:calc(100% - 4px);height:8px;overflow:visible;pointer-events:none}
+.fscrib path{fill:none;stroke:#E8602C;stroke-width:3;stroke-linecap:round;stroke-dasharray:1 3;stroke-dashoffset:1.05;transition:stroke-dashoffset .55s cubic-bezier(.4,.1,.3,1),stroke .3s}
+.field:focus-within .fscrib path,.field.ok .fscrib path{stroke-dashoffset:0}
+.field.ok .fscrib path{stroke:#24503F}
+html.mo .field label{width:fit-content;transform-origin:0 100%;transition:rotate .3s cubic-bezier(.3,2,.4,1),translate .3s cubic-bezier(.3,2,.4,1)}
+html.mo .field:focus-within label{rotate:-2deg;translate:2px -2px}
+.scene svg.fire{width:46px;height:48px}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(d,w){var h=d.documentElement;h.classList.add('js');try{if(w.IntersectionObserver&&w.requestAnimationFrame&&w.matchMedia&&!w.matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('mo');try{if(sessionStorage.getItem('mo-veil')){sessionStorage.removeItem('mo-veil');h.classList.add('mo-arrive');}}catch(e){}setTimeout(function(){if(!w.__mo)h.classList.remove('mo','mo-arrive');},2500);}}catch(e){}})(document,window);</script>
 <title>スタジオとアクセス｜呼吸舎</title>
 <meta name="description" content="呼吸舎のスタジオと設備、住所、営業時間、最寄り駅からの道順のご案内。定員十二名の板張りの部屋、更衣室とロッカー、貸しマットなど、来る前に知っておきたいことをまとめました。">
 <meta name="robots" content="noindex">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動する</a>
@@ -130,7 +131,7 @@
               <path d="M56 84H262" stroke-width="10"/>
             </g>
             <path d="M10 318H390" stroke="#2F3A2E" stroke-width="1.5" stroke-dasharray="10 6"/>
-            <path d="M86 296V168H262V78" fill="none" stroke="#C97F55" stroke-width="2.5" stroke-dasharray="1 8" stroke-linecap="round"/>
+            <path class="map__route" d="M86 296V168H262V78" fill="none" stroke="#C97F55" stroke-width="2.5" stroke-dasharray="1 8" stroke-linecap="round"/>
             <rect x="28" y="300" width="116" height="36" rx="12" fill="#2F3A2E"/>
             <text x="86" y="323" text-anchor="middle" font-size="15.5" style="fill:#EEF1EA">○○駅 南口</text>
             <text x="100" y="270" font-size="15">駅前通り</text>
@@ -205,5 +206,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

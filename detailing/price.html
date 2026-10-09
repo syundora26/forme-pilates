@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(){var h=document.documentElement;h.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('mo','mo-intro');setTimeout(function(){h.classList.remove('mo-intro')},2200);try{if(sessionStorage.getItem('clw')){sessionStorage.removeItem('clw');h.classList.add('mo-enter')}}catch(e){}setTimeout(function(){if(!window.__mo)h.classList.remove('mo','mo-enter')},2500)}}catch(e){}})();</script>
 <title>料金｜CLEARLINE AUTO CARE</title>
 <meta name="description" content="CLEARLINE AUTO CARE の料金表。車の大きさ（S・M・L・LL）ごとの洗車、コーティング、内装ケアの基本料金、ホイールやガラス撥水などのオプション、お見積りの方法、予約金とキャンセル、お支払い方法をご案内します。">
 <meta name="robots" content="noindex">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500&family=Unbounded:wght@300;600&display=swap">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 
 </head>
 <body>
@@ -39,7 +40,7 @@
 
 <main id="main">
 <nav class="crumb" aria-label="パンくずリスト"><div class="wrap"><ol><li><a href="index.html">ホーム</a></li><li><span>料金</span></li></ol></div></nav>
-<div class="phead"><div class="paint strip lit" aria-hidden="true"><i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-glint"></i></div><div class="wrap phead-in"><span class="en" aria-hidden="true">PRICE</span><h1>料金</h1><p class="lead">車の大きさと施工内容で決まる基本料金です。<br>状態を拝見して、正式なお見積りをお出しします。</p></div></div>
+<div class="phead"><div class="paint strip lit" aria-hidden="true"><i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-glint"></i><i class="p-sweep"></i></div><div class="wrap phead-in"><span class="en" aria-hidden="true">PRICE</span><h1>料金</h1><p class="lead">車の大きさと施工内容で決まる基本料金です。<br>状態を拝見して、正式なお見積りをお出しします。</p></div></div>
 <section class="sec" aria-labelledby="h-size">
   <div class="wrap">
     <div class="shead">
@@ -69,6 +70,22 @@
       <p class="num" aria-hidden="true">02</p>
       <h2 id="h-base">基本料金</h2>
       <p>すべて税込の金額です。</p>
+    </div>
+    <div class="sizer js-only" id="sizer">
+      <fieldset>
+        <legend>大きさを選ぶと、料金が切り替わります</legend>
+        <div class="choices sz">
+          <label class="choice"><input type="radio" name="size" value="0" checked><span>S</span></label>
+          <label class="choice"><input type="radio" name="size" value="1"><span>M</span></label>
+          <label class="choice"><input type="radio" name="size" value="2"><span>L</span></label>
+          <label class="choice"><input type="radio" name="size" value="3"><span>LL</span></label>
+        </div>
+      </fieldset>
+      <div class="sizer-stage">
+        <svg viewBox="0 0 600 220" aria-hidden="true" focusable="false"><path class="sz-ground" d="M20 181H580"/><path class="sz-body"/><path class="sz-win"/><circle class="sz-w" r="30"/><circle class="sz-w" r="30"/><circle class="sz-h" r="11"/><circle class="sz-h" r="11"/><path class="sz-dim"/></svg>
+        <p class="sizer-len" id="sz-len">全長 4.0m 未満</p>
+      </div>
+      <dl class="sizer-out" id="sz-out" aria-live="polite"></dl>
     </div>
     <div class="tbl-wrap" tabindex="0" role="region" aria-labelledby="cap-base">
       <table class="tbl price">
@@ -212,5 +229,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

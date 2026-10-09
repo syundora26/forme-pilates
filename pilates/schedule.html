@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.className+=' js';</script>
+<script>(function(){var d=document.documentElement,c=' js';try{if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){c+=' mo';try{var t=+sessionStorage.getItem('fp-nav');sessionStorage.removeItem('fp-nav');if(t&&Date.now()-t<4000)c+=' mo-in'}catch(e){}setTimeout(function(){if(!window.__fpmo)d.classList.remove('mo','mo-in')},2500)}}catch(e){}d.className+=c})();</script>
 <title>時間割と料金｜FORME PILATES</title>
 <meta name="description" content="FORME PILATESの一週間の時間割と料金表。体験レッスン、月4回、月8回、通い放題、都度払い、リフォーマー追加料金、入会金のほか、キャンセルの決まりとお支払い方法をご案内します。">
 <meta name="robots" content="noindex">
@@ -20,8 +20,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
-<body>
+<body class="p-schedule">
+<div class="sweep" aria-hidden="true"></div>
 <a class="skip" href="#main">本文へ移動</a>
 
 <header class="site-head">
@@ -303,5 +305,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

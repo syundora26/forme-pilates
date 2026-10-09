@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(w,c){c.add('js');try{if(w.matchMedia&&w.matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(!('IntersectionObserver' in w)||!w.requestAnimationFrame||!w.CSS||!CSS.supports('clip-path','inset(0)')||!document.documentElement.animate)return;c.add('mo');setTimeout(function(){if(!w.__mo)c.remove('mo','mo-arrive')},2500);var t=sessionStorage.getItem('pace-slash');if(t){sessionStorage.removeItem('pace-slash');if(Date.now()-t<4000)c.add('mo-arrive')}}catch(e){}})(window,document.documentElement.classList);</script>
 <title>セッション｜PACE TRAINING</title>
 <meta name="description" content="PACE TRAININGの3つのセッション「はじめて」「筋力」「コンディショニング」の内容です。向いている方、1回のメニュー例、進み具合の見かた、切り替え方と、相談10分・トレーニング30分・ふり返り10分の流れを紹介します。">
 <meta name="robots" content="noindex">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&family=Noto+Sans+JP:wght@400;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
@@ -54,7 +55,7 @@
     </div>
   </section>
 
-  <section class="sec cut before-cut" aria-labelledby="sess-h">
+  <section class="sec cut" aria-labelledby="sess-h">
     <div class="wrap">
       <h2 class="tilt" id="sess-h">目的で選ぶ、<br>3つのセッション</h2>
       <p class="lead">ちがうのは、30分のトレーニングの中身です。前後の相談とふり返りは、どのセッションでも同じようにとります。迷ったら「はじめて」から始めてください。</p>
@@ -172,6 +173,8 @@
       </article>
     </div>
   </section>
+
+  <div class="mq mq--orange mq--pre" aria-hidden="true"><div class="mq-track"><div class="mq-set"><span>はじめて</span><i></i><span>筋力</span><i></i><span>コンディショニング</span><i></i><span class="en">50 MIN</span><i></i></div></div></div>
 
   <section class="sec sec--asphalt cut before-cut" id="run" aria-labelledby="run-h">
     <div class="wrap">
@@ -314,5 +317,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

@@ -20,17 +20,22 @@
   function store(night){ try{ if(night)sessionStorage.setItem('fn-mode','night'); else sessionStorage.removeItem('fn-mode'); }catch(e){} }
   if(sw){
     if(root.getAttribute('data-mode')==='night'){ sw.setAttribute('aria-checked','true'); makeStars(); }
+    var apply=function(night){
+      sw.setAttribute('aria-checked',night?'true':'false');
+      if(night)root.setAttribute('data-mode','night'); else root.removeAttribute('data-mode');
+      store(night);
+    };
     sw.addEventListener('click',function(){
       var night=sw.getAttribute('aria-checked')!=='true';
       makeStars();
+      /* motion layer (if loaded) turns the switch into a sky wipe */
+      if(!reduce&&window.fnWipe){ try{ window.fnWipe(sw,night,apply); return; }catch(e){} }
       if(!reduce){
         root.classList.add('theme-anim');
         clearTimeout(timer);
         timer=setTimeout(function(){root.classList.remove('theme-anim');},950);
       }
-      sw.setAttribute('aria-checked',night?'true':'false');
-      if(night)root.setAttribute('data-mode','night'); else root.removeAttribute('data-mode');
-      store(night);
+      apply(night);
     });
   }
 
@@ -79,6 +84,7 @@
       dots.setAttribute('d',d); done.setAttribute('d',d);
       len=dots.getTotalLength(); ys=pts.map(function(p){return p[1];});
       root.classList.add('trail-on');
+      if(window.fnTrailBuilt){ try{ window.fnTrailBuilt(dots,len,ys); }catch(e2){} }
       update();
     }catch(err){ root.classList.remove('trail-on'); }
   }
@@ -95,6 +101,7 @@
     walker.style.transform='translate('+pt.x.toFixed(1)+'px,'+pt.y.toFixed(1)+'px) rotate('+rot.toFixed(1)+'deg)';
     done.style.strokeDasharray=L.toFixed(1)+' '+(len+10).toFixed(1);
     for(var i=0;i<stops.length;i++){ stops[i].classList.toggle('on', ys[i]<=pt.y+2); }
+    if(window.fnTrailHook){ try{ window.fnTrailHook(p,L,len); }catch(e3){} }
   }
   function onScroll(){ if(!ticking){ticking=true; requestAnimationFrame(update);} }
   build();

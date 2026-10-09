@@ -15,11 +15,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#17352A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352A'/%3E%3Cpath d='M8 50 32 12l24 38z' fill='%23E9DFC8'/%3E%3Cpath d='M25 50l7-18 7 18z' fill='%23E8602C'/%3E%3C/svg%3E">
-<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}})(document.documentElement);</script>
+<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}
+try{if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.classList.add('mo');try{if(sessionStorage.getItem('fn-zip')){sessionStorage.removeItem('fn-zip');d.classList.add('zip-in')}}catch(e){}
+setTimeout(function(){if(!window.__mo)d.classList.remove('mo')},2500)}}catch(e){}})(document.documentElement);</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
@@ -36,12 +39,6 @@
     <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
     <radialGradient id="glowg"><stop offset="0" stop-color="#FFB347" stop-opacity=".75"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
     <symbol id="tree" viewBox="-24 -64 48 74" overflow="visible"><path d="M0-62 15-34H8L21-8H4V9h-8V-8h-17L-8-34h-7z"/></symbol>
-    <symbol id="fire" viewBox="-40 -70 80 84" overflow="visible">
-      <circle class="s-glow" r="62" cy="-18" fill="url(#glowg)"/>
-      <g class="flick"><path class="f-flame" d="M0-64c4 14 20 22 20 40C20-9 11 0 0 0S-20-9-20-24c0-9 5-14 9-20 1 7 4 10 7 11C-6-44-4-54 0-64z"/>
-      <path class="f-in" d="M0-34c2 7 9 11 9 20C9-6 5-1 0-1S-9-6-9-14c0-5 3-8 5-11 1 4 2 5 3 5 0-5 0-9 1-14z"/></g>
-      <path class="f-log" d="M-30 8 26-6M-26-6 30 8"/>
-    </symbol>
   </defs>
 </svg>
 
@@ -95,9 +92,11 @@
   <div class="wrap access-grid">
     <div class="map-fig">
       <svg class="map big" viewBox="0 0 400 290" role="img" aria-label="○○ICと○○駅から、川沿いの道を通ってFIELD NOTEへ向かう略図。ICの先に最後のコンビニ、橋を渡ってから街灯のない区間が約4キロ続く。">
-        <path class="m-river" d="M-10 220c60-30 110 10 170-14s90-70 150-66 70 30 100 26"/>
+        <path class="m-river" pathLength="1" d="M-10 220c60-30 110 10 170-14s90-70 150-66 70 30 100 26"/>
         <path class="m-rail" d="M20 262h150M30 256v12M50 256v12M70 256v12M90 256v12M110 256v12M130 256v12M150 256v12"/>
         <path class="m-road" d="M60 240c20-50 70-40 96-74s20-70 70-84 50 8 66-6"/>
+        <path class="m-go" pathLength="1" d="M60 240c20-50 70-40 96-74s20-70 70-84 50 8 66-6"/>
+        <g class="m-train"><rect x="94" y="250" width="30" height="11" rx="2"/><rect x="126" y="250" width="30" height="11" rx="2"/><rect class="win" x="99" y="253" width="6" height="4"/><rect class="win" x="109" y="253" width="6" height="4"/><rect class="win" x="131" y="253" width="6" height="4"/><rect class="win" x="141" y="253" width="6" height="4"/></g>
         <rect x="34" y="232" width="52" height="26" rx="4" fill="var(--bg)" stroke="var(--fg)" stroke-width="2.5"/>
         <text x="60" y="250" text-anchor="middle">○○駅</text>
         <rect x="118" y="150" width="56" height="26" rx="13" fill="var(--bg)" stroke="var(--fg)" stroke-width="2.5"/>
@@ -108,7 +107,8 @@
         <text x="130" y="112" text-anchor="middle" style="font-size:11px">橋。ここから</text>
         <text x="130" y="127" text-anchor="middle" style="font-size:11px">街灯なし 4km</text>
         <g fill="var(--fg)"><use href="#tree" x="212" y="34" width="26" height="40"/><use href="#tree" x="238" y="44" width="20" height="30"/><use href="#tree" x="352" y="62" width="26" height="40"/><use href="#tree" x="206" y="112" width="22" height="34"/><use href="#tree" x="278" y="104" width="24" height="36"/></g>
-        <path d="M296 80 320 44l24 36z" fill="#E8602C" stroke="var(--fg)" stroke-width="2.5" stroke-linejoin="round"/>
+        <path class="m-tent" d="M296 80 320 44l24 36z" fill="#E8602C" stroke="var(--fg)" stroke-width="2.5" stroke-linejoin="round"/>
+        <g class="m-car" transform="translate(60 240)"><path class="beam" d="M9-1 34-9v16z"/><path class="body" d="M-10 4v-6l3-1 3-5h7l4 5 3 1v6z"/><circle class="wh" cx="-5" cy="5" r="3"/><circle class="wh" cx="5" cy="5" r="3"/></g>
         <text x="320" y="32" text-anchor="middle">FIELD NOTE</text>
         <text x="270" y="200" text-anchor="middle">○○川</text>
         <g transform="translate(30 36)" fill="none" stroke="var(--fg)" stroke-width="2.2" stroke-linecap="round"><path d="M0 16V-16M-6-8 0-17l6 9"/></g>
@@ -252,5 +252,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

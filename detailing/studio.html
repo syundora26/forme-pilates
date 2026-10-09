@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(){var h=document.documentElement;h.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('mo','mo-intro');setTimeout(function(){h.classList.remove('mo-intro')},2200);try{if(sessionStorage.getItem('clw')){sessionStorage.removeItem('clw');h.classList.add('mo-enter')}}catch(e){}setTimeout(function(){if(!window.__mo)h.classList.remove('mo','mo-enter')},2500)}}catch(e){}})();</script>
 <title>スタジオと道具｜CLEARLINE AUTO CARE</title>
 <meta name="description" content="CLEARLINE AUTO CARE のスタジオと道具のご紹介。一台だけの作業場、色と角度を変えられる照明、純水の設備、部位で分けたクロスについてと、所在地、曜日ごとの営業時間、最寄り駅からの地図を掲載しています。">
 <meta name="robots" content="noindex">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500&family=Unbounded:wght@300;600&display=swap">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 
 </head>
 <body>
@@ -39,7 +40,7 @@
 
 <main id="main">
 <nav class="crumb" aria-label="パンくずリスト"><div class="wrap"><ol><li><a href="index.html">ホーム</a></li><li><span>スタジオと道具</span></li></ol></div></nav>
-<div class="phead"><div class="paint strip lit" aria-hidden="true"><i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-glint"></i></div><div class="wrap phead-in"><span class="en" aria-hidden="true">STUDIO</span><h1>スタジオと道具</h1><p class="lead">仕上がりの差は、見えるかどうかで決まります。<br>だから、まず見える環境を整えています。</p></div></div>
+<div class="phead"><div class="paint strip lit" aria-hidden="true"><i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-glint"></i><i class="p-sweep"></i></div><div class="wrap phead-in"><span class="en" aria-hidden="true">STUDIO</span><h1>スタジオと道具</h1><p class="lead">仕上がりの差は、見えるかどうかで決まります。<br>だから、まず見える環境を整えています。</p></div></div>
 <section class="sec" aria-labelledby="h-env">
   <div class="wrap">
     <div class="shead">
@@ -77,6 +78,15 @@
         </div>
       </div>
     </div>
+    <figure class="vis field lightdemo js-only" id="lightdemo">
+      <div class="ld-box"><canvas role="img" aria-label="暗い塗装面に照明を当てると、光のまわりにだけ、円を描くような細かな洗車傷が浮かび上がる図"></canvas></div>
+      <figcaption>照明を動かすと、傷は見えたり消えたりします（イメージ図）</figcaption>
+      <fieldset class="ld-ctl">
+        <legend class="mo-sr">照明の色</legend>
+        <label class="choice"><input type="radio" name="ld" value="w" checked><span>白い光</span></label>
+        <label class="choice"><input type="radio" name="ld" value="a"><span>暖かい光</span></label>
+      </fieldset>
+    </figure>
   </div>
 </section>
 
@@ -240,5 +250,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

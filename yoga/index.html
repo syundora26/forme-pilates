@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(d,w){var h=d.documentElement;h.classList.add('js');try{if(w.IntersectionObserver&&w.requestAnimationFrame&&w.matchMedia&&!w.matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('mo');try{if(sessionStorage.getItem('mo-veil')){sessionStorage.removeItem('mo-veil');h.classList.add('mo-arrive');}}catch(e){}setTimeout(function(){if(!w.__mo)h.classList.remove('mo','mo-arrive');},2500);}}catch(e){}})(document,window);</script>
 <title>呼吸舎｜呼吸から、わたしに戻る。東京のヨガスタジオ</title>
 <meta name="description" content="東京の小さなヨガスタジオ「呼吸舎」。朝・昼・夜、その日の自分に合うクラスを選べます。からだがかたい方、運動が久しぶりの方も歓迎です。はじめての方は、手ぶらで参加できる体験クラスからどうぞ。">
 <meta name="robots" content="noindex">
@@ -42,6 +42,7 @@
 }
 </script>
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動する</a>
@@ -193,5 +194,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

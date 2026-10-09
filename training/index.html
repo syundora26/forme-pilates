@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(w,c){c.add('js');try{if(w.matchMedia&&w.matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(!('IntersectionObserver' in w)||!w.requestAnimationFrame||!w.CSS||!CSS.supports('clip-path','inset(0)')||!document.documentElement.animate)return;c.add('mo');setTimeout(function(){if(!w.__mo)c.remove('mo','mo-arrive')},2500);var t=sessionStorage.getItem('pace-slash');if(t){sessionStorage.removeItem('pace-slash');if(Date.now()-t<4000)c.add('mo-arrive')}}catch(e){}})(window,document.documentElement.classList);</script>
 <title>PACE TRAINING｜自分のペースで続けるパーソナルトレーニングジム</title>
 <meta name="description" content="PACE TRAININGは、運動が久しぶりの方でも自分のペースで始められるパーソナルトレーニングジムです。1回50分、相談・トレーニング・ふり返りの3段階で、その日の体調に合わせて進めます。まずは体験トレーニングから。">
 <meta name="robots" content="noindex">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&family=Noto+Sans+JP:wght@400;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -121,6 +122,8 @@
       </div>
     </div>
   </section>
+
+  <div class="mq " aria-hidden="true"><div class="mq-track"><div class="mq-set"><span>相談</span><i></i><span>トレーニング</span><i></i><span>ふり返り</span><i></i><span class="en">YOUR PACE</span><i></i></div></div></div>
 
   <section class="sec sec--concrete" aria-labelledby="fp-h">
     <div class="wrap">
@@ -242,5 +245,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

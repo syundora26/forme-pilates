@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(){var h=document.documentElement;h.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('mo','mo-intro');setTimeout(function(){h.classList.remove('mo-intro')},2200);try{if(sessionStorage.getItem('clw')){sessionStorage.removeItem('clw');h.classList.add('mo-enter')}}catch(e){}setTimeout(function(){if(!window.__mo)h.classList.remove('mo','mo-enter')},2500)}}catch(e){}})();</script>
 <title>CLEARLINE AUTO CARE｜洗車・コーティング・内装ケアの専門スタジオ</title>
 <meta name="description" content="CLEARLINE AUTO CARE は、洗車・コーティング・内装ケアを一台ずつ行う完全予約制のカーディテイリングスタジオです。塗装の状態を照明の下で確認し、必要な作業だけをご提案します。施工メニュー、料金、ご依頼の流れをご案内します。">
 <meta name="robots" content="noindex">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500&family=Unbounded:wght@300;600&display=swap">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,8 +64,8 @@
 <section class="hero" id="top" aria-labelledby="h-hero">
   <div class="wrap">
     <div class="panel-box">
-      <div class="paint panel lit" data-lit="hero" role="img" aria-label="磨き上げた紺色の塗装面に、天井の照明と水平線が映り込んでいる図">
-        <i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-crease"></i><i class="p-glint"></i><i class="p-shut"></i><i class="p-sweep"></i>
+      <div class="paint panel lit" data-lit="hero" role="img" aria-label="磨き上げた紺色の塗装面に、天井の照明と水平線が映り込み、車の輪郭が細い線で描かれている図">
+        <i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-crease"></i><i class="p-glint"></i><svg class="p-car" viewBox="0 0 1000 300" aria-hidden="true" focusable="false"><g class="draw" fill="none" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M95 214C84 196 88 168 112 158L176 146C236 104 318 78 420 76C520 74 600 96 668 138L832 158C880 164 912 182 914 214L806 214A62 62 0 0 0 682 214L318 214A62 62 0 0 0 194 214Z"/><path pathLength="1" d="M236 142C286 108 346 91 420 90C500 89 560 104 620 138Z"/><path pathLength="1" d="M436 90L442 140"/><path pathLength="1" d="M128 178C300 168 640 166 866 182"/><circle pathLength="1" cx="744" cy="214" r="46"/><circle pathLength="1" cx="256" cy="214" r="46"/><circle pathLength="1" cx="744" cy="214" r="18"/><circle pathLength="1" cx="256" cy="214" r="18"/></g><path class="trace" fill="none" stroke-linecap="round" pathLength="1" d="M95 214C84 196 88 168 112 158L176 146C236 104 318 78 420 76C520 74 600 96 668 138L832 158C880 164 912 182 914 214"/></svg><i class="p-shut"></i><i class="p-sweep"></i>
       </div>
       <div class="floor" aria-hidden="true"></div>
       <p class="rule"><span>塗装面の映り込み</span><span>イメージ図</span></p>
@@ -221,5 +222,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

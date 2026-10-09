@@ -1,0 +1,421 @@
+/* ================= motion layer 「図面」 =================
+   Everything that hides or offsets content is scoped to html.mo (set in <head> only when
+   motion is allowed and IntersectionObserver exists). Without it the page is static. */
+:root{--e:cubic-bezier(.2,.7,.2,1);--eo:cubic-bezier(.3,1.5,.5,1);--d:0ms}
+html.pre main,html.pre .foot{visibility:hidden}
+html.mo main{overflow-x:clip}
+.fx,.fxb{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.fx{z-index:14}
+.fxb{z-index:-1}
+
+/* ---- page transition: the next sheet is laid on the table ---- */
+.xs,html.arr::before{position:fixed;inset:52px 0 0 0;z-index:90;pointer-events:none;display:grid;place-items:center;align-content:center;gap:14px;
+  background-color:var(--paper);background-image:linear-gradient(rgba(34,37,42,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(34,37,42,.055) 1px,transparent 1px);background-size:24px 24px;
+  font:400 clamp(52px,11vw,112px)/1 var(--mono);color:var(--ink);letter-spacing:.02em}
+.xs{transform:translate(6%,104%) rotate(3deg);transform-origin:0 100%;box-shadow:0 -24px 60px rgba(34,37,42,.34),0 0 0 1px var(--ink);transition:transform .32s cubic-bezier(.25,.8,.3,1);visibility:hidden}
+.xs::before,html.arr::after{content:"";position:fixed;inset:62px 10px 10px 10px;border:1px solid var(--ink);z-index:91;pointer-events:none}
+.xs::before{position:absolute;inset:10px}
+.xs b{font-weight:400}
+.xs small{font:400 11px/1 var(--mono);letter-spacing:.24em;color:var(--cedar-d)}
+html.is-leaving .xs{transform:none;visibility:visible}
+html.is-leaving main{transform:translate(-2.5%,-34px) rotate(-1.5deg);opacity:.5;transition:transform .32s cubic-bezier(.4,0,.8,.4),opacity .32s linear}
+html.arr::before{content:attr(data-no);animation:arr .36s .08s both ease-out}
+html.arr::after{animation:arr .36s .08s both ease-out}
+@keyframes arr{from{opacity:1}to{opacity:0;visibility:hidden}}
+@media (min-width:900px){
+  .xs,html.arr::before{inset:0 0 0 72px}
+  html.arr::after{inset:14px 14px 14px 86px}
+  .xs::before{inset:14px}
+}
+
+/* ---- rail: first visit of the session ---- */
+html.mo.first .rail__mark{animation:railin .7s var(--e) both}
+html.mo.first .menu li{animation:railin .6s var(--e) both}
+html.mo.first .menu li:nth-child(2){animation-delay:.12s}html.mo.first .menu li:nth-child(3){animation-delay:.19s}html.mo.first .menu li:nth-child(4){animation-delay:.26s}html.mo.first .menu li:nth-child(5){animation-delay:.33s}html.mo.first .menu li:nth-child(6){animation-delay:.42s}
+@keyframes railin{from{opacity:0;transform:translateX(-26px)}}
+html.mo:not(.settled) .crumb ol{animation:crumb .7s var(--e) both}
+@keyframes crumb{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 -4px 0 -4px)}}
+
+/* ---- sheet: border lines drawn from two corners, with overshoot ---- */
+.bd{position:absolute;inset:0;pointer-events:none}
+.bd i{position:absolute;background:var(--ink)}
+.bd i:nth-child(1){top:-1px;left:-7px;right:-7px;height:1px;transform-origin:0 50%}
+.bd i:nth-child(2){left:-1px;top:-7px;bottom:-7px;width:1px;transform-origin:50% 0}
+.bd i:nth-child(3){bottom:-1px;left:-7px;right:-7px;height:1px;transform-origin:100% 50%}
+.bd i:nth-child(4){right:-1px;top:-7px;bottom:-7px;width:1px;transform-origin:50% 100%}
+.foot .bd i:nth-child(odd){left:-1px;right:-1px}
+.foot .bd i:nth-child(even),.band .bd i:nth-child(even){top:-1px;bottom:-1px}
+html.mo .dr{border-color:transparent}
+html.mo .dr::before,html.mo .dr::after{content:none}
+html.mo .dr .bd i{transition:transform .7s var(--e) var(--d)}
+html.mo .dr .bd i:nth-child(n+3){transition-delay:calc(var(--d) + .28s)}
+html.mo .dr:not(.in) .bd i:nth-child(odd){transform:scaleX(0)}
+html.mo .dr:not(.in) .bd i:nth-child(even){transform:scaleY(0)}
+
+/* dimension line under each sheet: extends from its midpoint, width counts up in mm */
+.dm{position:absolute;left:-1px;right:-1px;bottom:-10px;height:1px;pointer-events:none}
+.dm::before{content:"";position:absolute;inset:0;background:var(--ink2);opacity:.75;transition:transform .9s var(--e) calc(var(--d) + .5s)}
+.dm i{position:absolute;top:-4px;width:1px;height:9px;background:var(--ink);transform:rotate(45deg);transition:opacity .2s linear calc(var(--d) + 1.2s)}
+.dm i:first-child{left:0}.dm i:last-of-type{right:0}
+.dm b{position:absolute;left:50%;top:-7px;transform:translateX(-50%);padding:0 7px;background:var(--paper);font:400 10px/14px var(--mono);color:var(--ink2);white-space:nowrap;transition:opacity .3s linear calc(var(--d) + .5s)}
+html.mo .dr:not(.in) .dm::before{transform:scaleX(0)}
+html.mo .dr:not(.in) .dm i,html.mo .dr:not(.in) .dm b{opacity:0}
+@media (min-width:900px){.dm{bottom:-21px}}
+
+/* title block ruled in from the right */
+html.mo .rv-tb:not(.in){opacity:0}
+html.mo .rv-tb.in{animation:rv-tb .6s var(--e) var(--d) both}
+@keyframes rv-tb{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(-2px 0 0 -2px)}}
+
+/* ---- headlines: guide line first, then each character inked by a descending mask ---- */
+.ch{display:inline-block}
+.ln{position:relative}
+.ln::before{content:"";position:absolute;left:50%;top:-.25em;bottom:-.1em;width:1px;background:var(--cedar);opacity:0;transform-origin:50% 0;pointer-events:none}
+.ttl--h .ln{display:block}
+.ttl--h .ln::before{left:0;right:0;top:auto;bottom:.08em;width:auto;height:1px;transform-origin:0 50%}
+html.mo .ttl.in .ln::before{animation:guide 1.5s var(--e) var(--d) both}
+html.mo .ttl--h.in .ln::before{animation-name:guideh}
+@keyframes guide{0%{transform:scaleY(0);opacity:.9}30%{transform:scaleY(1);opacity:.9}70%{transform:scaleY(1);opacity:.55}100%{transform:scaleY(1);opacity:0}}
+@keyframes guideh{0%{transform:scaleX(0);opacity:.9}30%{transform:scaleX(1);opacity:.9}70%{transform:scaleX(1);opacity:.55}100%{transform:scaleX(1);opacity:0}}
+html.mo .ttl .ch{transition:clip-path .46s var(--e),transform .46s var(--e),filter .46s linear;transition-delay:calc(var(--d) + .26s + var(--i) * 46ms)}
+html.mo .ttl:not(.in) .ch{clip-path:inset(-.2em -.4em 105% -.4em);transform:translateY(-.22em);filter:blur(2px)}
+html.mo .ttl.in .ch{clip-path:inset(-.2em -.4em -.2em -.4em)}
+html.mo .ttl--h:not(.in) .ch{clip-path:inset(-.2em 105% -.2em -.2em);transform:translateX(-.2em)}
+html.mo .ttl.done .ch{clip-path:none}
+
+/* DM Mono annotations typed with a caret */
+.tyo{display:inline-block;position:relative}
+.tyi{display:inline-block}
+.tyo::after{content:"";position:absolute;left:0;top:12%;bottom:12%;width:100%;border-left:.5em solid var(--cedar);opacity:0;pointer-events:none}
+.sheet--dark .tyo::after{border-color:var(--cedar-l)}
+html.mo .rv-type:not(.in) .tyi{clip-path:inset(0 100% 0 0)}
+html.mo .rv-type.in .tyi{animation:ty calc(var(--n) * 24ms) steps(var(--n)) var(--d) both}
+html.mo .rv-type.in .tyo::after{animation:tyx calc(var(--n) * 24ms) steps(var(--n)) var(--d) both,tyb calc(var(--n) * 24ms + .5s) linear var(--d) both}
+html.mo .rv-type.done .tyi{animation:none}
+html.mo .rv-type.done .tyo::after{animation:none}
+@keyframes ty{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(-2px -2px -2px 0)}}
+@keyframes tyx{from{transform:translateX(0)}to{transform:translateX(100%)}}
+@keyframes tyb{0%{opacity:1}75%{opacity:1}82%{opacity:0}90%{opacity:1}99%{opacity:1}100%{opacity:0}}
+
+/* ---- scroll entrances ---- */
+/* ink: paragraphs soak down the page */
+html.mo .rv-ink:not(.in){opacity:0}
+html.mo .rv-ink.in{animation:rv-ink .75s var(--e) var(--d) both}
+@keyframes rv-ink{from{clip-path:inset(0 0 100% 0);transform:translateY(12px)}to{clip-path:inset(-6px -6px -6px -6px);transform:none}}
+/* rule: rows ruled left to right */
+html.mo .rv-rule:not(.in){opacity:0}
+html.mo .rv-rule.in{animation:rv-rule .6s var(--e) var(--d) both}
+@keyframes rv-rule{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(-2px -2px -2px -2px)}}
+/* brush: larger headings */
+html.mo .rv-brush:not(.in){opacity:0}
+html.mo .rv-brush.in{animation:rv-brush .65s var(--e) var(--d) both}
+@keyframes rv-brush{from{clip-path:inset(-.15em 100% -.15em -.1em);filter:blur(5px)}to{clip-path:inset(-.15em -.3em -.15em -.1em);filter:blur(0)}}
+/* lay: a print laid on the table */
+html.mo .rv-lay{transition:opacity .3s linear var(--d),transform .75s var(--eo) var(--d),filter .75s linear var(--d)}
+html.mo .rv-lay:not(.in){opacity:0;transform:translate(28px,-36px) rotate(2.4deg);filter:drop-shadow(0 26px 16px rgba(34,37,42,.3))}
+html.mo .rv-lay:nth-child(even):not(.in){transform:translate(-24px,-30px) rotate(-2deg)}
+html.mo .rv-lay.in{filter:drop-shadow(0 0 0 rgba(34,37,42,0))}
+/* pop: buttons arrive like a stamp */
+html.mo .rv-pop{transition:opacity .2s linear var(--d),transform .5s var(--eo) var(--d)}
+html.mo .rv-pop:not(.in){opacity:0;transform:scale(1.25) rotate(-3deg)}
+html.mo .rv.done{clip-path:none!important;filter:none!important;transition:none!important;animation:none!important}
+html.mo .rv-pop.done,html.mo .rv-lay.done{transform:none}
+
+/* photo: developed from a line sketch */
+html.mo .rv-photo{position:relative}
+.sk{position:absolute;left:0;top:0;pointer-events:none}
+html.mo .rv-photo:not(.in) > img:not(.sk){opacity:0}
+html.mo .rv-photo:not(.in) > .sk{clip-path:inset(0 100% 0 0)}
+html.mo .rv-photo.in > .sk{animation:sk 1.2s var(--d) both}
+html.mo .rv-photo.in > img:not(.sk){animation:dev 1.2s var(--d) both}
+html.mo .rv-photo.done > img:not(.sk){animation:none}
+@keyframes sk{0%{clip-path:inset(0 100% 0 0);opacity:1}42%{clip-path:inset(0 0 0 0);opacity:1}58%{opacity:1}100%{clip-path:inset(0 0 0 0);opacity:0}}
+@keyframes dev{0%,45%{opacity:0;filter:grayscale(1) contrast(1.5) brightness(1.25)}70%{opacity:.85;filter:grayscale(.8) contrast(1.2) brightness(1.1)}100%{opacity:1;filter:grayscale(0) contrast(1) brightness(1)}}
+
+/* tables: ruled line by line (diagonal sweep), then filled row by row */
+html.mo .rv-table:not(.in){opacity:0}
+html.mo .rv-table.in{animation:rv-table .9s cubic-bezier(.4,0,.3,1) var(--d) both}
+@keyframes rv-table{from{clip-path:polygon(0 0,0 0,-80% 100%,0 100%)}to{clip-path:polygon(0 0,180% 0,100% 100%,0 100%)}}
+html.mo .rv-table tr > *,html.mo .rv-table caption{transition:opacity .4s linear calc(var(--d) + .3s + var(--r,0) * 70ms)}
+html.mo .rv-table:not(.in) tr > *,html.mo .rv-table:not(.in) caption{opacity:0}
+
+/* diagrams drawn stroke by stroke; fills, dashes and lettering follow */
+html.mo .rv-draw:not(.done) .dw{stroke-dasharray:1 2;stroke-dashoffset:1.01;stroke-linecap:butt}
+html.mo .rv-draw.in:not(.done) .dw{stroke-dashoffset:0;transition:stroke-dashoffset .6s ease-in-out calc(var(--d) + var(--i) * var(--s))}
+html.mo .rv-draw .fd{transition:opacity .45s linear calc(var(--d) + .15s + var(--i) * var(--s))}
+html.mo .rv-draw:not(.in) .fd{opacity:0}
+html.mo .rv-draw .north{transition:transform 1.7s cubic-bezier(.3,1.35,.45,1) calc(var(--d) + .3s),opacity .3s linear var(--d)}
+html.mo .rv-draw:not(.in) .north{transform:rotate(-250deg);opacity:0}
+html.mo .rv-draw .live{transition:opacity .5s linear calc(var(--d) + 1.3s)}
+html.mo .rv-draw:not(.in) .live{opacity:0}
+
+/* ---- ambient ---- */
+/* sun through a window frame, moving across the paper with the scroll (time of day) */
+.sunw{position:absolute;left:0;top:-30vh;width:44vmax;height:170vh;transform-origin:50% 0;will-change:transform;filter:blur(2.5px);
+  background:linear-gradient(90deg,transparent 0 2%,rgba(255,251,241,.5) 2% 47.5%,transparent 47.5% 52.5%,rgba(255,251,241,.5) 52.5% 98%,transparent 98%);
+  -webkit-mask-image:repeating-linear-gradient(180deg,#000 0 34vh,transparent 34vh calc(34vh + 16px));mask-image:repeating-linear-gradient(180deg,#000 0 34vh,transparent 34vh calc(34vh + 16px))}
+/* grid pulse at the snapped pointer position */
+.gp{position:absolute;left:0;top:0;width:312px;height:312px;margin:-156px 0 0 -156px;opacity:0;transition:opacity .5s linear;will-change:transform}
+.gp.on{opacity:1}
+.gp i{position:absolute;inset:0;background-image:linear-gradient(rgba(154,91,52,.75) 1px,transparent 1px),linear-gradient(90deg,rgba(154,91,52,.75) 1px,transparent 1px);background-size:24px 24px;background-position:12px 12px;opacity:0}
+.gp i:nth-child(1){-webkit-mask-image:radial-gradient(circle,#000 0,transparent 30%);mask-image:radial-gradient(circle,#000 0,transparent 30%)}
+.gp i:nth-child(2){-webkit-mask-image:radial-gradient(circle,transparent 16%,#000 32%,transparent 50%);mask-image:radial-gradient(circle,transparent 16%,#000 32%,transparent 50%)}
+.gp i:nth-child(3){-webkit-mask-image:radial-gradient(circle,transparent 34%,#000 50%,transparent 70%);mask-image:radial-gradient(circle,transparent 34%,#000 50%,transparent 70%)}
+.gp.on i{animation:gp 2.1s ease-out infinite}
+.gp.on i:nth-child(2){animation-delay:.28s}.gp.on i:nth-child(3){animation-delay:.56s}
+@keyframes gp{0%{opacity:0}18%{opacity:.85}60%{opacity:.12}100%{opacity:0}}
+.gp b{position:absolute;left:150px;top:150px;width:13px;height:13px;background:linear-gradient(var(--cedar-d),var(--cedar-d)) center/100% 1px no-repeat,linear-gradient(var(--cedar-d),var(--cedar-d)) center/1px 100% no-repeat}
+/* crosshair + coordinate readout (fine pointers only) */
+.xh{position:absolute;left:0;top:0;background:rgba(122,68,36,.34);opacity:0;will-change:transform}
+.xh--v{width:1px;height:100%}.xh--h{height:1px;width:100%}
+.fx.on .xh{opacity:1}
+.hud{position:fixed;right:0;bottom:0;z-index:15;display:none;font:400 11px/1 var(--mono);color:var(--ink);background:var(--paper);border-top:1px solid var(--ink);border-left:1px solid var(--ink);pointer-events:none;letter-spacing:.02em}
+.hud span{padding:7px 11px 6px;border-right:1px solid var(--rule);white-space:pre}
+.hud span:last-child{border-right:0}
+.hud b{font-weight:400;color:var(--cedar-d)}
+html.fine .hud{display:flex}
+html.fine.mo body{cursor:crosshair}
+/* T-square on the page edge: tracks scroll, shows the sheet number */
+.tsq{position:fixed;right:0;top:0;z-index:13;width:0;height:0;pointer-events:none;will-change:transform}
+.tsq i{position:absolute;right:0;top:-1px;width:9px;height:2px;background:var(--cedar-d)}
+.tsq b{position:absolute;right:0;top:5px;writing-mode:vertical-rl;font:400 9px/10px var(--mono);color:var(--cedar-d);letter-spacing:.06em;white-space:nowrap}
+.tsq-t{position:fixed;right:4px;top:56px;bottom:0;width:1px;z-index:12;pointer-events:none;background:repeating-linear-gradient(180deg,rgba(34,37,42,.3) 0 1px,transparent 1px 8px)}
+@media (min-width:900px){
+  .tsq i{width:26px}
+  .tsq i::before{content:"";position:absolute;left:-1px;top:-6px;width:3px;height:14px;background:var(--cedar-d)}
+  .tsq b{writing-mode:horizontal-tb;right:3px;top:7px;font-size:10.5px;line-height:1}
+  .tsq-t{right:12px;top:0}
+}
+
+/* ---- interaction ---- */
+/* links: a ruled underline with end ticks, drawn left to right */
+html.mo .more{position:relative;border-bottom-color:transparent}
+html.mo .more::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:6px;border:solid var(--cedar);border-width:0 1px 1px;clip-path:inset(0 1px 0 1px);pointer-events:none}
+html.mo .more:hover::before,html.mo .more:focus-visible::before,html.mo .more.tap::before{animation:rule .55s var(--e) both}
+html.mo .more::after{display:inline-block;transition:transform .3s var(--eo)}
+html.mo .more:hover::after,html.mo .more.tap::after{transform:translateX(6px)}
+@keyframes rule{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+html.mo .ul{position:relative}
+html.mo .ul::after{content:"";position:absolute;left:0;right:0;top:calc(50% + .72em);height:5px;border:solid var(--cedar);border-width:0 1px 1px;clip-path:inset(0 100% 0 0);pointer-events:none}
+html.mo .ul.ul--i::after{top:auto;bottom:-4px}
+html.mo .ul:hover::after,html.mo .ul:focus-visible::after,html.mo .ul.tap::after{animation:rule .5s var(--e) both}
+.sheet--dark .ul::after{border-color:var(--cedar-l)}
+/* buttons: an approval stamp */
+html.mo .btn,html.mo .rail .rail__cta,html.mo .menu li.cta a{position:relative;transition:transform .2s var(--e)}
+html.mo .btn:hover{transform:translateY(-2px) rotate(-.7deg)}
+html.mo .btn:active,html.mo .rail .rail__cta:active,html.mo .menu li.cta a:active{transform:scale(.93) rotate(-1.4deg)}
+html.mo .btn::after,html.mo .rail .rail__cta::after{content:"";position:absolute;inset:-6px;border:2px solid var(--cedar);border-radius:3px;opacity:0;pointer-events:none}
+html.mo .stamp{animation:stamp .45s var(--eo)}
+html.mo .stamp::after{animation:stampr .55s ease-out}
+@keyframes stamp{0%{transform:scale(1.16) rotate(-3deg)}34%{transform:scale(.9) rotate(-1.6deg)}100%{transform:none}}
+@keyframes stampr{0%{opacity:.95;transform:scale(.95)}100%{opacity:0;transform:scale(1.2) rotate(-2.5deg)}}
+/* photographs lift off the table like prints */
+html.mo .ph > img:not(.sk){transition:transform .4s var(--e),filter .4s var(--e)}
+html.mo .ph.lift > img:not(.sk){transform:perspective(800px) translateY(-7px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) rotate(-.6deg);filter:drop-shadow(0 18px 14px rgba(34,37,42,.3))}
+/* rail: a tab slides out from under it */
+.rtab{position:fixed;left:72px;top:0;z-index:19;display:none;align-items:center;gap:12px;height:44px;padding:0 18px 0 14px;background:var(--ink);color:var(--pale);font-size:14px;letter-spacing:.14em;white-space:nowrap;pointer-events:none;transform:translate(-103%,var(--y,0px));transition:transform .3s var(--e)}
+.rtab b{font:400 11px/1 var(--mono);color:var(--cedar-l);letter-spacing:.02em}
+.rtab.on{transform:translate(0,var(--y,0px))}
+@media (min-width:900px){
+  .rtab{display:flex}
+  html.mo .menu a{transition:transform .28s var(--eo)}
+  html.mo .menu li:not(.cta) a:hover,html.mo .menu li:not(.cta) a:focus-visible{transform:translateX(4px)}
+  html.mo .menu li.cta a:hover{transform:translateX(3px)}
+}
+@media (max-width:899.98px){
+  html.mo .rail.is-open .menu{animation:unroll .36s var(--e) both}
+  html.mo .rail.is-open .menu li{animation:mli .42s var(--e) both}
+  html.mo .rail.is-open .menu li:nth-child(2){animation-delay:.04s}html.mo .rail.is-open .menu li:nth-child(3){animation-delay:.08s}html.mo .rail.is-open .menu li:nth-child(4){animation-delay:.12s}html.mo .rail.is-open .menu li:nth-child(5){animation-delay:.16s}html.mo .rail.is-open .menu li:nth-child(6){animation-delay:.2s}
+  html.mo .menu a{transition:transform .2s var(--e)}
+  html.mo .menu a:active{transform:translateX(8px)}
+}
+@keyframes unroll{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 -30px 0)}}
+@keyframes mli{from{opacity:0;transform:translateX(-18px)}}
+/* index / toc rows */
+html.mo .idx a .n,html.mo .idx a .s{transition:transform .3s var(--eo)}
+html.mo .idx a:hover .n,html.mo .idx a:active .n{transform:translateX(6px)}
+html.mo .idx a:hover .s,html.mo .idx a:active .s{transform:translateX(-6px)}
+/* table rows */
+html.mo .tbl tbody tr:hover > *{background:rgba(154,91,52,.09)}
+html.mo .tbl tbody tr:hover > :first-child{box-shadow:inset 3px 0 0 var(--cedar)}
+.sheet--dark .tbl tbody tr:hover > *{background:rgba(221,167,120,.12)}
+/* FAQ folds open like a drawing sheet */
+html.mo .faq .a{transform-origin:50% 0}
+html.mo .faq details[open] .a{animation:fold .55s var(--eo) both}
+html.mo .faq details.closing .a{animation:unfold .24s ease-in both}
+@keyframes fold{0%{transform:perspective(700px) rotateX(-86deg);opacity:.15;filter:brightness(.8)}100%{transform:perspective(700px) rotateX(0);opacity:1;filter:brightness(1)}}
+@keyframes unfold{to{transform:perspective(700px) rotateX(-86deg);opacity:0}}
+html.mo .faq summary::after{transition:transform .35s var(--eo)}
+html.mo .faq details[open] summary::after{transform:rotate(180deg)}
+html.mo .faq summary .n{transition:transform .3s var(--eo)}
+html.mo .faq summary:hover .n,html.mo .faq details[open] summary .n{transform:translateX(5px)}
+/* form: fields ruled in on focus, labels typed */
+.fr{display:block;position:relative;height:0}
+.fr::before{content:"";position:absolute;left:0;right:0;top:-6px;height:6px;border:solid var(--cedar-d);border-width:0 1px 2px;transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--e);pointer-events:none}
+.form :focus + .fr::before{transform:scaleX(1)}
+html.mo .form .f.foc label .tyi{animation:ty calc(var(--n) * 30ms) steps(var(--n)) both}
+html.mo .form .f.foc label .tyo::after{animation:tyx calc(var(--n) * 30ms) steps(var(--n)) both,tyb calc(var(--n) * 30ms + .5s) linear both}
+.form label span.ok{color:var(--cedar-d)}
+html.mo .form .f.filled label > span:last-child{display:inline-block;animation:okp .4s var(--eo)}
+@keyframes okp{from{transform:scale(1.8)}}
+.form{position:relative}
+.rev{display:flex;position:relative;border-bottom:1px solid var(--ink);font:400 11px/1.4 var(--mono);background:var(--paper)}
+.rev > span{padding:7px 12px 6px;border-right:1px solid var(--rule);white-space:nowrap}
+.rev > span:first-child{font-family:var(--serif);letter-spacing:.14em;font-weight:600;font-size:12px;margin-right:auto;border-right:0}
+.rev > span:last-of-type{border-right:0}
+.rev b{font-weight:400;color:var(--cedar-d)}
+.rev .bar{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--cedar-d);transform:scaleX(var(--p,0));transform-origin:0 50%;transition:transform .5s var(--e)}
+.odo{display:inline-block;height:1.4em;overflow:hidden;vertical-align:bottom;color:var(--cedar-d)}
+.odo i{display:block;font-style:normal;line-height:1.4}
+.odo.roll i{transform:translateY(-100%);transition:transform .45s var(--eo)}
+.form__end{position:relative}
+.seal{position:absolute;right:14px;top:-66px;width:86px;height:86px;border:2px solid var(--cedar-d);border-radius:50%;display:grid;place-items:center;align-content:center;color:var(--cedar-d);font:600 25px/1.1 var(--serif);letter-spacing:.12em;text-indent:.12em;transform:rotate(-11deg);pointer-events:none;mix-blend-mode:multiply;opacity:.9}
+.seal::before{content:"";position:absolute;inset:4px;border:1px solid var(--cedar-d);border-radius:50%}
+.seal small{display:block;font:400 9px/1.5 var(--mono);letter-spacing:.04em;text-indent:0;border-top:1px solid var(--cedar-d);margin-top:3px;padding-top:2px}
+html.mo .seal{animation:seal .5s cubic-bezier(.2,1.5,.4,1) both}
+html.mo .form.thud{animation:thud .3s .16s linear}
+@keyframes seal{0%{transform:scale(2.8) rotate(9deg);opacity:0}55%{opacity:1}100%{transform:scale(1) rotate(-11deg);opacity:.9}}
+@keyframes thud{0%{transform:translateY(0)}25%{transform:translateY(3px)}60%{transform:translateY(-1px)}100%{transform:none}}
+
+/* small tool buttons (view / replay / filter) */
+.tool{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid var(--ink);background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:13.5px;letter-spacing:.1em;cursor:pointer;position:relative}
+.tool:hover{background:var(--pale);color:var(--cedar-d)}
+.tool:focus-visible{outline:2px solid var(--cedar);outline-offset:2px}
+.tool[aria-pressed="true"]{background:var(--ink);color:var(--pale)}
+.tool small{font:400 10.5px/1 var(--mono);letter-spacing:.02em;color:var(--cedar-d)}
+.tool[aria-pressed="true"] small{color:var(--cedar-l)}
+html.mo .tool{transition:transform .18s var(--e)}
+html.mo .tool:active{transform:scale(.94) rotate(-1deg)}
+.sheet--dark .tool{background:transparent;border-color:var(--pale2);color:var(--pale)}
+.sheet--dark .tool:hover{background:rgba(228,229,225,.1);color:var(--cedar-l)}
+
+/* ---- showpiece: home — axonometric model ---- */
+.axo{margin:0 0 34px;display:grid;gap:10px}
+.axo__stage{position:relative;border:1px solid var(--ink);background:var(--print);touch-action:pan-y;overflow:hidden}
+.axo__svg{display:block;width:100%;height:auto;overflow:hidden}
+.axo.can-drag .axo__svg{cursor:grab}
+.axo.is-drag .axo__svg{cursor:grabbing}
+.axo path,.axo circle{fill:none;stroke:var(--ink);stroke-width:1.1;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.axo .ax-s{stroke:var(--ink2)}.axo .ax-t{stroke-width:.7}.axo .ax-m{stroke-width:1.6}
+.axo .ax-d{stroke-width:.7;stroke-dasharray:3 3;stroke:var(--ink2)}
+.axo .ax-dm{stroke-width:.8;stroke:var(--cedar-d)}
+.axo .ax-sh{fill:#DADBD7;stroke:#DADBD7;stroke-width:.5}
+.axo .ax-f{fill:var(--print)}.axo .ax-c{fill:#E9DCCB;stroke-width:.7}
+.axo .ax-w{fill:var(--print);stroke-width:1.4}.axo .ax-w2{fill:var(--panel);stroke-width:1.4}.axo .ax-wi{fill:var(--pale);stroke-width:.8}
+.axo .ax-wn{fill:var(--paper);stroke-width:.8}.axo .ax-g{fill:rgba(221,167,120,.35);stroke-width:.8;stroke:var(--cedar-d)}.axo .ax-dr{fill:var(--cedar);stroke-width:.8}
+.axo .ax-e{fill:#B98458;stroke-width:1}.axo .ax-r{fill:var(--paper);stroke-width:1.5}
+.axo .ax-tr{stroke:var(--cedar-d);stroke-width:1.4}.axo .ax-cr{fill:rgba(237,238,236,.84);stroke:var(--cedar);stroke-width:1.1;stroke-dasharray:4 3}
+.axo text{font:400 12px var(--mono);fill:var(--cedar-d);text-anchor:middle}
+.axo__steps{position:absolute;left:10px;top:10px;display:grid;gap:1px;font:400 11px/1.5 var(--mono);color:var(--ink2);pointer-events:none}
+.axo__steps li{padding:1px 8px 1px 6px;border-left:2px solid var(--rule);transition:color .2s,border-color .2s}
+.axo__steps li b{font-family:var(--serif);font-weight:400;font-size:12px;letter-spacing:.1em;margin-left:6px}
+.axo__steps li.on{color:var(--ink);border-color:var(--ink)}
+.axo__steps li.cur{color:var(--cedar-d);border-color:var(--cedar)}
+.axo__ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.axo__ctl .sp{margin-left:auto}
+.axo figcaption{font-family:var(--mono);font-size:11px;color:var(--ink2);line-height:1.6}
+@media (min-width:900px){.axo{max-width:820px}.axo text{font-size:10px}.axo__steps{left:14px;top:14px;font-size:12px}}
+@media (max-width:599.98px){.axo__stage{margin-inline:-8px}.axo text{font-size:17px}.axo__steps{font-size:10px}.axo__steps li b{font-size:11px;margin-left:4px}}
+
+/* ---- showpiece: approach — four site readings ---- */
+.dg .lv{stroke:var(--cedar-d);stroke-width:1.4}
+.dg .lvf{fill:var(--cedar-d);stroke:none}
+.dg .wf{stroke:var(--cedar);stroke-width:2.2;stroke-dasharray:2 15;stroke-linecap:round}
+.dg.done .wf{animation:wf 1s linear infinite}
+.dg.done .wfw{animation:wf2 .7s linear infinite}
+.dg .sight{stroke:var(--cedar-d);stroke-width:1.8;stroke-dasharray:1 2;stroke-dashoffset:1;stroke-linecap:butt}
+.dg.done .sight{animation:sight 3.6s ease-in-out infinite}
+.dg .xm{transform-box:fill-box;transform-origin:50% 50%}
+.dg.done .xm{animation:xm 3.6s linear infinite}
+.dg.done .cut{animation:cut 3.6s linear infinite}
+.dg .eye{transform-box:fill-box;transform-origin:50% 50%}
+.dg.done .eye{animation:eye 3.6s linear infinite}
+.dg .stone.on{fill:rgba(154,91,52,.4)}
+.dg.done .look{animation:look 6.5s linear infinite}
+.dg:not(.vis) .wf,.dg:not(.vis) .sight,.dg:not(.vis) .xm,.dg:not(.vis) .cut,.dg:not(.vis) .eye,.dg:not(.vis) .look,.dg:not(.vis) .ping{animation-play-state:paused}
+@keyframes wf{to{stroke-dashoffset:-17}}
+@keyframes wf2{to{stroke-dashoffset:-7}}
+@keyframes sight{0%,8%{stroke-dashoffset:1;opacity:1}42%{stroke-dashoffset:0;opacity:1}78%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes xm{0%,40%{transform:scale(1)}46%{transform:scale(1.9)}56%{transform:scale(1)}100%{transform:scale(1)}}
+@keyframes cut{0%,42%{opacity:1}48%{opacity:.15}54%{opacity:1}60%{opacity:.15}66%,100%{opacity:1}}
+@keyframes eye{0%,4%{transform:scaleY(1)}6%{transform:scaleY(.1)}9%,100%{transform:scaleY(1)}}
+@keyframes look{0%{opacity:.25}6%,18%{opacity:1}30%,100%{opacity:.25}}
+.dg .ping{transform-box:fill-box;transform-origin:50% 50%;animation:ping 1.8s ease-out infinite;fill:none;stroke:var(--cedar-d);stroke-width:1.5}
+@keyframes ping{0%{transform:scale(.4);opacity:1}100%{transform:scale(2.6);opacity:0}}
+
+/* ---- showpiece: works — filter / sort ---- */
+.wkbar{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;margin-bottom:20px}
+.wkbar p{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.wkbar p > span{font-size:12px;letter-spacing:.14em;color:var(--ink2);margin-right:6px}
+.wkbar .tool + .tool{margin-left:-7px}
+.wkbar__n{font:400 11.5px/1 var(--mono);color:var(--cedar-d);margin-left:auto}
+.wk > li[hidden]{display:none}
+
+/* ---- showpiece: work detail — plan, sun, walk ---- */
+.plan .pencil{pointer-events:none}
+.plan .pencil path{stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}
+.plan .walk-t{fill:none;stroke:var(--cedar-d);stroke-width:3;stroke-dasharray:3 9;stroke-linecap:round}
+.plan .walk-d{fill:var(--cedar-d);stroke:var(--print);stroke-width:3}
+.plan .walk-r{fill:none;stroke:var(--cedar-d);stroke-width:2;transform-box:fill-box;transform-origin:50% 50%;animation:ping 1.5s ease-out infinite}
+.room .hx{clip-path:inset(0 100% 0 0);transition:clip-path .5s var(--e);opacity:.55}
+.room:hover .hx,.room[aria-pressed="true"] .hx{clip-path:inset(0 0 0 0)}
+.planctl{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:12px;padding-inline:12px}
+.planctl span{font:400 11px/1.5 var(--mono);color:var(--ink2)}
+@media (min-width:900px){.planctl{padding-inline:0}}
+.sunctl{margin-top:16px;max-width:520px}
+.sunctl label{display:block;font-size:12px;letter-spacing:.12em;color:var(--pale2)}
+.sunctl output{font:400 12px/1 var(--mono);color:var(--cedar-l);margin-left:10px;letter-spacing:.02em}
+.sunctl input{-webkit-appearance:none;appearance:none;display:block;width:100%;height:44px;margin:0;background:transparent;cursor:ew-resize}
+.sunctl input::-webkit-slider-runnable-track{height:1px;background:var(--pale2)}
+.sunctl input::-moz-range-track{height:1px;background:var(--pale2)}
+.sunctl input::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;margin-top:-12px;border-radius:50%;background:var(--cedar-l);border:0;box-shadow:0 0 0 5px rgba(221,167,120,.22)}
+.sunctl input::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--cedar-l);border:0;box-shadow:0 0 0 5px rgba(221,167,120,.22)}
+.sunctl input:focus-visible{outline:2px solid var(--cedar-l);outline-offset:2px}
+.sunctl .tk{display:flex;justify-content:space-between;font:400 11px/1 var(--serif);color:var(--pale2);letter-spacing:.06em;margin-top:-6px}
+#sunhit{fill:transparent;stroke:none;cursor:grab;touch-action:none}
+.dk #tsh{stroke:var(--cedar-l);stroke-width:5;opacity:.4;stroke-linecap:butt}
+html.mo #sun{animation:sunp 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 50%}
+@keyframes sunp{50%{transform:scale(1.25)}}
+
+/* ---- showpiece: process — timeline bar + small building ---- */
+.procbar{display:grid;grid-template-columns:minmax(0,1fr) 84px;column-gap:12px;align-items:end;margin-bottom:6px;background:var(--paper)}
+.procbar .chain{margin-bottom:0}
+.procbar__c{grid-column:1;font:400 11px/1.4 var(--mono);color:var(--ink2);padding:6px 6px 4px}
+.procbar__c b{font-weight:400;color:var(--cedar-d)}
+.bld{grid-column:2;grid-row:1/span 2;width:84px;height:auto;overflow:visible}
+.bld *{fill:none;stroke:var(--ink);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+.bld .b1 path{stroke:var(--cedar-d);stroke-width:.9}
+.bld .b2 path{stroke-width:.8}
+.bld .b3 path{stroke-width:.9;stroke:var(--ink2)}
+.bld .b4 .w{fill:var(--panel)}.bld .b4 .r{stroke-width:3;stroke-linecap:butt}.bld .b4 .dr{fill:var(--cedar);stroke-width:.8}.bld .b4 .wn{fill:var(--print);stroke-width:.8}.bld .b4 .tr{stroke:var(--cedar)}
+.bld .b1,.bld .b2,.bld .b3{opacity:0}
+html.mo .procbar{position:sticky;top:52px;z-index:5;padding-top:8px;box-shadow:0 1px 0 var(--rule),0 10px 12px -12px rgba(34,37,42,.5)}
+html.mo .bld g{transition:opacity .4s linear}
+html.mo .bld g path,html.mo .bld g rect,html.mo .bld g circle{stroke-dasharray:1 2;stroke-dashoffset:1.01;transition:stroke-dashoffset .8s ease-in-out}
+html.mo .bld .b4 .w,html.mo .bld .b4 .dr,html.mo .bld .b4 .wn{transition:stroke-dashoffset .8s ease-in-out,fill-opacity .5s linear .5s;fill-opacity:0}
+html.mo .bld .b4{opacity:0}
+html.mo .bld.s1 .b1,html.mo .bld.s2 .b2,html.mo .bld.s3 .b3,html.mo .bld.s4 .b4{opacity:1}
+html.mo .bld.s2 .b1{opacity:.3}html.mo .bld.s3 .b2{opacity:.45}
+html.mo .bld.s1 .b1 *,html.mo .bld.s2 .b1 *,html.mo .bld.s2 .b2 *,html.mo .bld.s3 .b2 *,html.mo .bld.s3 .b3 *,html.mo .bld.s4 .b4 *{stroke-dashoffset:0}
+html.mo .bld.s4 .b4 .w,html.mo .bld.s4 .b4 .dr,html.mo .bld.s4 .b4 .wn{fill-opacity:1}
+html.mo .chain span{transition:clip-path .7s var(--e),color .3s}
+html.mo .chain span:not(.on){clip-path:inset(-12px 100% -4px -2px)}
+html.mo .chain span.on{clip-path:inset(-12px -3px -4px -3px)}
+html.mo .chain span.cur{color:var(--ink)}
+html.mo .chain span.cur b{color:var(--cedar-d)}
+.chain span i{position:absolute;left:0;right:0;top:-3px;height:5px;background:var(--cedar);transform:scaleX(0);transform-origin:0 50%;transition:transform .5s var(--e)}
+html.mo .chain span.cur i{transform:scaleX(1)}
+@media (min-width:900px){.procbar{grid-template-columns:minmax(0,1fr) 124px;column-gap:28px}.bld{width:124px}html.mo .procbar{top:0;padding-top:14px}}
+
+/* ---- showpiece: office — the walk from the station ---- */
+.dg .rt{stroke:var(--cedar-d);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.dg .wd{fill:var(--cedar-d);stroke:var(--print);stroke-width:2}
+.mapctl{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:10px}
+.mapctl span{font:400 11px/1.5 var(--mono);color:var(--ink2)}
+
+/* ---- showpiece: privacy — each article read and sealed ---- */
+.chk{margin-left:auto;flex:none;width:30px;height:30px;border:1.5px solid var(--cedar-d);border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:600;color:var(--cedar-d);letter-spacing:0;transform:rotate(-12deg);align-self:center}
+html.mo .pol h2:not(.in) .chk{opacity:0;transform:scale(2.6) rotate(10deg)}
+html.mo .pol h2 .chk{transition:opacity .2s linear calc(var(--d) + .7s),transform .45s cubic-bezier(.2,1.5,.4,1) calc(var(--d) + .7s)}
+.polc{font:400 11px/1.6 var(--mono);color:var(--cedar-d);margin-top:22px;border-top:1px solid var(--ink);padding-top:8px}
+@media (max-width:599.98px){.procbar{grid-template-columns:minmax(0,1fr) 64px}.procbar .chain{grid-column:1/-1}.bld{grid-row:2;width:64px}.procbar__c{align-self:end}}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.className+=' js';</script>
+<script>(function(){var d=document.documentElement,c=' js';try{if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){c+=' mo';try{var t=+sessionStorage.getItem('fp-nav');sessionStorage.removeItem('fp-nav');if(t&&Date.now()-t<4000)c+=' mo-in'}catch(e){}setTimeout(function(){if(!window.__fpmo)d.classList.remove('mo','mo-in')},2500)}}catch(e){}d.className+=c})();</script>
 <title>スタジオとアクセス｜FORME PILATES</title>
 <meta name="description" content="FORME PILATESのスタジオと設備、住所、曜日ごとの営業時間、○○駅 北口からの道順をご案内します。更衣室、鍵付きロッカー、タオルの貸し出しなど、設備の一覧と略図つきです。">
 <meta name="robots" content="noindex">
@@ -20,8 +20,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
-<body>
+<body class="p-access">
+<div class="sweep" aria-hidden="true"></div>
 <a class="skip" href="#main">本文へ移動</a>
 
 <header class="site-head">
@@ -173,16 +175,16 @@
           <text x="196" y="120" class="sm">信号 2</text>
           <text x="170" y="16" text-anchor="middle" class="sm">駅前通り</text>
           <!-- studio building -->
-          <rect x="52" y="60" width="44" height="38" fill="#5B4A94"/>
+          <rect class="goal" x="52" y="60" width="44" height="38" fill="#5B4A94"/>
           <text x="74" y="50" text-anchor="middle">FORME PILATES</text>
           <text x="74" y="84" text-anchor="middle" style="fill:#fff;font-size:11px">3F</text>
           <text x="102" y="84" class="sm">1F 花屋</text>
           <!-- route: drawn like the axis -->
           <path class="route" d="M170 346V115H74V100"/>
-          <circle cx="170" cy="346" r="4.5" fill="#FAFAFC" stroke="#5B4A94" stroke-width="1.5"/>
-          <circle cx="170" cy="245" r="4.5" fill="#FAFAFC" stroke="#5B4A94" stroke-width="1.5"/>
-          <circle cx="170" cy="115" r="4.5" fill="#FAFAFC" stroke="#5B4A94" stroke-width="1.5"/>
-          <circle cx="74" cy="100" r="5.5" fill="#8F7BC4" stroke="#FAFAFC" stroke-width="2"/>
+          <circle class="wp" cx="170" cy="346" r="4.5" fill="#FAFAFC" stroke="#5B4A94" stroke-width="1.5"/>
+          <circle class="wp" cx="170" cy="245" r="4.5" fill="#FAFAFC" stroke="#5B4A94" stroke-width="1.5"/>
+          <circle class="wp" cx="170" cy="115" r="4.5" fill="#FAFAFC" stroke="#5B4A94" stroke-width="1.5"/>
+          <circle class="wp" cx="74" cy="100" r="5.5" fill="#8F7BC4" stroke="#FAFAFC" stroke-width="2"/>
           <!-- north -->
           <path d="M306 60V30M300 38l6-8 6 8" stroke="#1E1B2E" stroke-width="1" fill="none"/>
           <text x="306" y="76" text-anchor="middle" class="sm">北</text>
@@ -252,5 +254,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

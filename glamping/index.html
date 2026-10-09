@@ -15,11 +15,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#17352A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352A'/%3E%3Cpath d='M8 50 32 12l24 38z' fill='%23E9DFC8'/%3E%3Cpath d='M25 50l7-18 7 18z' fill='%23E8602C'/%3E%3C/svg%3E">
-<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}})(document.documentElement);</script>
+<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('fn-mode')==='night')d.setAttribute('data-mode','night')}catch(e){}
+try{if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.classList.add('mo');try{if(sessionStorage.getItem('fn-zip')){sessionStorage.removeItem('fn-zip');d.classList.add('zip-in')}}catch(e){}
+setTimeout(function(){if(!window.__mo)d.classList.remove('mo')},2500)}}catch(e){}})(document.documentElement);</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,12 +58,6 @@
     <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
     <radialGradient id="glowg"><stop offset="0" stop-color="#FFB347" stop-opacity=".75"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
     <symbol id="tree" viewBox="-24 -64 48 74" overflow="visible"><path d="M0-62 15-34H8L21-8H4V9h-8V-8h-17L-8-34h-7z"/></symbol>
-    <symbol id="fire" viewBox="-40 -70 80 84" overflow="visible">
-      <circle class="s-glow" r="62" cy="-18" fill="url(#glowg)"/>
-      <g class="flick"><path class="f-flame" d="M0-64c4 14 20 22 20 40C20-9 11 0 0 0S-20-9-20-24c0-9 5-14 9-20 1 7 4 10 7 11C-6-44-4-54 0-64z"/>
-      <path class="f-in" d="M0-34c2 7 9 11 9 20C9-6 5-1 0-1S-9-6-9-14c0-5 3-8 5-11 1 4 2 5 3 5 0-5 0-9 1-14z"/></g>
-      <path class="f-log" d="M-30 8 26-6M-26-6 30 8"/>
-    </symbol>
   </defs>
 </svg>
 
@@ -108,8 +105,16 @@
     <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMax slice" focusable="false">
       <circle class="s-sky" cx="800" cy="150" r="44"/>
       <circle class="s-cres" cx="820" cy="140" r="38"/>
+      <g class="s-clouds">
+        <g class="s-cloud c1"><ellipse cx="470" cy="150" rx="50" ry="13"/><ellipse cx="452" cy="140" rx="22" ry="13"/><ellipse cx="486" cy="136" rx="27" ry="17"/></g>
+        <g class="s-cloud c2"><ellipse cx="980" cy="112" rx="58" ry="14"/><ellipse cx="960" cy="101" rx="26" ry="15"/><ellipse cx="1000" cy="98" rx="30" ry="18"/></g>
+        <g class="s-cloud c3"><ellipse cx="170" cy="126" rx="44" ry="11"/><ellipse cx="156" cy="117" rx="20" ry="12"/><ellipse cx="186" cy="115" rx="23" ry="14"/></g>
+      </g>
+      <g class="s-bird"><path d="M0 0q9-11 18 0q9-11 18 0"/></g>
+      <g class="s-far">
       <path class="s-ridge" d="M0 262 118 204l88 34 124-90 122 84 108-52 142 62 118-72 142 76 118-52 120 58V400H0z"/>
       <path class="s-line s-draw" pathLength="1" d="M0 262 118 204l88 34 124-90 122 84 108-52 142 62 118-72 142 76 118-52 120 58"/>
+      </g>
       <path class="s-ground" d="M0 334c200-28 400-10 600-20s400-12 600 12v74H0z"/>
       <g class="s-tree">
         <use href="#tree" x="38" y="262" width="62" height="96"/><use href="#tree" x="112" y="276" width="46" height="70"/>
@@ -117,11 +122,13 @@
         <use href="#tree" x="770" y="250" width="64" height="98"/><use href="#tree" x="836" y="272" width="46" height="72"/>
         <use href="#tree" x="1010" y="248" width="70" height="108"/><use href="#tree" x="1084" y="274" width="48" height="74"/>
       </g>
+      <g class="s-owl"><path d="M851 258l3 6h10l3-6 1 12c0 8-4 13-9 13s-9-5-9-13z"/><circle class="eye" cx="855" cy="268" r="2.6"/><circle class="eye" cx="863" cy="268" r="2.6"/></g>
+      <g class="s-smoke"><circle cx="699" cy="280" r="8"/><circle cx="699" cy="280" r="8"/><circle cx="699" cy="280" r="8"/></g>
       <circle class="s-glow" cx="566" cy="300" r="96" fill="url(#glowg)"/>
       <path class="s-tent" d="M486 328 566 214l80 114z"/>
       <path class="s-door" d="M546 328 566 262l20 66z"/>
       <path class="s-line s-draw" pathLength="1" d="M474 330 566 214l92 116M566 214v-16M566 198l22 8-22 7"/>
-      <use href="#fire" x="676" y="286" width="46" height="48"/>
+      <svg class="fire" x="676" y="286" width="46" height="48" viewBox="-40 -70 80 84" overflow="visible"><circle class="f-glow" r="62" cy="-18" fill="url(#glowg)"/><g class="fl"><path class="f-flame fl-b" d="M-10-1C-21-9-20-24-12-36c1 8 5 10 6 16 2 8 0 14-4 19z"/><path class="f-flame fl-b2" d="M11-1c10-8 10-21 3-31-1 6-5 9-6 15-1 7 0 12 3 16z"/><path class="f-flame fl-a" d="M0-64c4 14 20 22 20 40C20-9 11 0 0 0S-20-9-20-24c0-9 5-14 9-20 1 7 4 10 7 11C-6-44-4-54 0-64z"/><path class="f-mid fl-m" d="M0-47c3 10 14 15 14 28C14-8 8-1 0-1S-14-8-14-19c0-6 4-10 6-14 1 5 3 7 5 8-1-8 0-14 3-22z"/><path class="f-in fl-c" d="M0-30c2 6 8 10 8 18C8-5 4-1 0-1S-8-5-8-12c0-4 3-7 4-10 1 4 2 5 3 5 0-5 0-8 1-13z"/></g><path class="f-log" d="M-30 8 26-6M-26-6 30 8"/><rect class="f-hit" x="-60" y="-92" width="120" height="112"/></svg>
     </svg>
   </div>
 </header>
@@ -144,8 +151,8 @@
           <circle cx="60" cy="62" r="44"/><circle cx="60" cy="62" r="36" stroke-width="1.5" stroke-dasharray="2 7"/>
           <path d="M60 10v10M60 104v8M10 62h8M102 62h8"/>
         </g>
-        <path d="M60 28 70 62H50z" fill="#E8602C" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M60 96 70 62H50z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+        <g class="needle"><path d="M60 28 70 62H50z" fill="#E8602C" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M60 96 70 62H50z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></g>
         <circle cx="60" cy="62" r="4" fill="currentColor"/>
       </svg>
       <!-- 要差し替え：実際の施設写真 -->
@@ -284,5 +291,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

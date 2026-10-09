@@ -1,0 +1,415 @@
+/* PACE TRAINING — motion layer 「ペース」: impact, tempo, reps.
+   1) base styles for the two static pieces this layer adds to the markup (marquee band, per-session price bars)
+   2) everything that moves — only inside prefers-reduced-motion:no-preference AND under html.mo
+      (html.mo is set by the inline script in <head> when JS runs and motion is allowed; it is removed again
+      after 2.5 s if motion.js did not start, so nothing can stay hidden). */
+
+/* ---------- 1. static pieces ---------- */
+.mq{position:relative;overflow:hidden;background:var(--asphalt);padding:12px 0 16px;line-height:1;white-space:nowrap;--mqs:#fff;--mqe:var(--orange);--mqi:var(--orange)}
+.mq--orange{background:var(--orange);--mqs:var(--asphalt);--mqe:var(--asphalt);--mqi:#fff}
+.mq--pre{padding-bottom:calc(16px + var(--step))}
+.mq-track{display:flex;width:max-content}
+.mq-set{display:flex;align-items:center;gap:.42em;padding-right:.42em;font-weight:900;font-size:clamp(3.25rem,13vw,7.5rem)}
+.mq-set span{display:block;transform:skewX(-8deg);color:transparent;-webkit-text-stroke:2px var(--mqs);padding:.06em 0 .1em}
+.mq-set .en{font-family:var(--num);font-style:italic;font-weight:600;font-size:1.12em;letter-spacing:.01em;transform:none;color:var(--mqe);-webkit-text-stroke:0}
+.mq-set i{flex:none;width:.14em;height:.7em;background:var(--mqi);transform:skewX(-8deg)}
+
+.pbars{max-width:760px}
+.pbars figcaption{font-size:clamp(1.4rem,6vw,2rem)}
+.pbars>p:not(.note){margin-top:16px}
+.pbars-list{--H:170px;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;margin-top:30px}
+.pbars-list li{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center;line-height:1.3}
+.pbars-v{margin-bottom:8px;font-weight:900;white-space:nowrap}
+.pbars-v .num{font-size:clamp(1rem,4.5vw,2.25rem)}
+.pbars-v small{margin-left:1px;font-size:.625rem}
+.pbars-list i{display:block;width:60%;height:calc(var(--v) * var(--H));background:var(--orange);transform:skewX(-8deg);transform-origin:50% 100%}
+.pbars-list li:first-child i{background:var(--steel)}
+.pbars-list li:nth-child(n+4) i{background:var(--asphalt)}
+.pbars-list b{display:block;align-self:stretch;padding-top:8px;border-top:3px solid var(--asphalt);font-weight:900;font-size:.9375rem}
+.pbars-list li>small{font-size:.6875rem;line-height:1.5}
+@media (min-width:768px){.pbars-list{--H:250px}.pbars-list b{font-size:1.0625rem}.pbars-list li>small{font-size:.8125rem}.pbars-v small{font-size:.875rem}}
+
+/* ---------- 2. motion ---------- */
+@media (prefers-reduced-motion:no-preference){
+:root{--slam:cubic-bezier(.2,1.6,.35,1);--cutz:cubic-bezier(.7,0,.2,1);--out:cubic-bezier(.2,.8,.2,1);--d0:0s}
+.mo-arrive{--d0:.2s}
+.mo .sec,.mo .phead,.mo .band{overflow-x:clip}
+
+/* shared keyframes */
+@keyframes mo-punch{0%{opacity:0;transform:translate(-.55em,.5em) skewX(-26deg) scale(1.12);filter:blur(6px)}45%{opacity:1;filter:blur(0)}100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes mo-slam{from{opacity:0;transform:translate(-28px,14px) skewX(-14deg)}to{opacity:1;transform:none}}
+@keyframes mo-stamp{from{opacity:0;transform:scale(1.55) translate(-12px,-14px) skewX(-10deg)}to{opacity:1;transform:none}}
+@keyframes mo-wipe{from{clip-path:inset(-24px 100% -24px -24px)}to{clip-path:inset(-24px -24px -24px -24px)}}
+@keyframes mo-impact{0%,100%{transform:none}15%{transform:translate(-5px,4px)}35%{transform:translate(4px,-3px)}55%{transform:translate(-3px,2px)}75%{transform:translate(2px,-1px)}}
+@keyframes mo-blink{50%{opacity:.25}}
+
+/* ---- page transition: slanted bars slam across (leave) and exit the other side (arrive) ---- */
+.mo-slash{position:fixed;inset:0;z-index:90;overflow:hidden;pointer-events:none}
+.mo-slash i{position:absolute;top:-10vh;bottom:-10vh;left:-30vw;width:160vw;transform:translateX(-112%) skewX(-8deg);animation:mo-slash-in .25s var(--cutz) forwards}
+.mo-slash i:nth-child(1){background:var(--orange)}
+.mo-slash i:nth-child(2){background:#fff;animation-delay:.045s}
+.mo-slash i:nth-child(3){background:var(--asphalt);animation-delay:.09s}
+@keyframes mo-slash-in{to{transform:translateX(0) skewX(-8deg)}}
+.mo-arrive body::before,.mo-arrive body::after{content:"";position:fixed;top:-10vh;bottom:-10vh;left:-30vw;width:160vw;pointer-events:none;animation:mo-slash-out .32s var(--cutz) both}
+.mo-arrive body::before{z-index:92;background:var(--asphalt);animation-delay:.03s}
+.mo-arrive body::after{z-index:91;background:var(--orange);animation-delay:.12s}
+@keyframes mo-slash-out{from{transform:translateX(0) skewX(-8deg)}to{transform:translateX(112%) skewX(-8deg)}}
+
+/* ---- ambient chrome: session-bar progress + lap timer ---- */
+.mo-prog{position:fixed;left:6px;right:6px;top:0;height:6px;z-index:60;overflow:hidden;pointer-events:none;transform:skewX(-8deg)}
+.mo-prog i{position:absolute;inset:0;background:var(--orange);transform:scaleX(0);transform-origin:0 50%}
+.mo-prog::before,.mo-prog::after{content:"";position:absolute;z-index:1;top:0;bottom:0;width:4px;background:#fff}
+.mo-prog::before{left:20%}.mo-prog::after{left:80%}
+.mo-lap{position:absolute;right:max(var(--pad),calc((100% - 1160px) / 2 + var(--pad)));top:100%;z-index:-1;isolation:isolate;display:flex;align-items:center;gap:7px;height:22px;padding:0 12px 0 10px;color:#fff;font-family:var(--num);font-style:italic;font-weight:600;font-size:.8125rem;line-height:1;letter-spacing:.05em;font-variant-numeric:tabular-nums;pointer-events:none;animation:mo-slam .4s calc(var(--d0) + .5s) var(--slam) backwards}
+.mo-lap::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--asphalt);transform:skewX(-8deg)}
+.mo-lap b{font-weight:600;color:var(--orange)}
+.mo-lap i{width:6px;height:6px;background:var(--orange);transform:skewX(-8deg);animation:mo-blink 1s steps(1,end) infinite}
+.mo-lap span{min-width:4.1em}
+
+/* ---- header intro + menu ---- */
+.mo .head .logo svg{animation:mo-logo .5s var(--d0) var(--slam) backwards}
+@keyframes mo-logo{from{transform:translateY(-40px) skewX(-30deg)}}
+.mo .logo svg{transition:transform .3s var(--slam)}
+.mo .logo:hover svg,.mo .logo:focus-visible svg{transform:skewX(-18deg) translateX(3px)}
+.mo .logo:active svg{transform:scale(.8)}
+/* header intro runs once (html.mo-intro is dropped after 1.8 s) so a later breakpoint change cannot replay it */
+.mo-intro .head .nav li{animation:mo-slam .32s var(--slam) backwards;animation-delay:calc(var(--d0) + .06s + var(--i,0) * .045s)}
+.mo-intro .head .nav .nav-cta{animation:mo-stamp .36s calc(var(--d0) + .36s) var(--slam) backwards}
+.mo-intro .head .nav .head-tel{animation:mo-slam .34s calc(var(--d0) + .44s) var(--slam) backwards}
+@media (min-width:1024px){
+  .mo .nav li a{overflow:hidden;isolation:isolate}
+  .mo .nav li a::before{content:"";position:absolute;z-index:-1;top:7px;bottom:7px;left:-34%;width:34%;background:var(--orange);transform:skewX(-24deg) translateX(-60%)}
+  .mo .nav li a:not([aria-current]):hover::before,.mo .nav li a:not([aria-current]):focus-visible::before{animation:mo-whip .36s var(--cutz)}
+  @keyframes mo-whip{from{transform:skewX(-24deg) translateX(-60%)}to{transform:skewX(-24deg) translateX(460%)}}
+  .mo .nav li a:active{transform:scale(.94)}
+}
+@media (max-width:1023.98px){
+  .mo:not(.mo-intro) .nav.is-open li{animation:mo-slam .34s var(--slam) backwards;animation-delay:calc(.04s + var(--i,0) * .045s)}
+  .mo:not(.mo-intro) .nav.is-open .nav-cta{animation:mo-stamp .36s .34s var(--slam) backwards}
+  .mo:not(.mo-intro) .nav.is-open .head-tel{animation:mo-slam .34s .42s var(--slam) backwards}
+  .mo .nav li a{position:relative;transition:transform .12s ease-out}
+  .mo .nav li a:active{transform:skewX(-6deg) translateX(12px)}
+  .mo .nav li a::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:4px;background:var(--orange);transform:scaleX(0);transform-origin:0 50%;transition:transform .16s var(--cutz)}
+  .mo .nav li a:active::after{transform:scaleX(1)}
+  .mo .menu-btn{transition:transform .12s ease-out}
+  .mo .menu-btn:active{transform:scale(.92,.86)}
+}
+
+/* ---- headlines: lines punch in from the diagonal ---- */
+.mo .mo-l,.mo .mo-li{display:block}
+.mo h1 .mo-c{display:inline-block}
+.mo .hero h1:not(.mo-split),.mo .phead h1:not(.mo-split){opacity:0}
+.mo .sec .tilt.mo-split .mo-li{transition:transform .5s var(--slam),opacity .18s linear,filter .3s linear;transition-delay:calc(var(--i,0) * .11s)}
+.mo .sec .tilt.mo-split:not(.is-in) .mo-li{opacity:0;transform:translate(-44px,26px) skewX(-22deg);filter:blur(5px);transition:none}
+.mo-sp{position:absolute;left:-10px;top:10%;bottom:10%;width:min(100%,460px);z-index:-1;pointer-events:none;opacity:var(--v,0);transform:translateX(calc(var(--v,0) * -30px)) scaleX(calc(.35 + var(--v,0) * .65));transform-origin:0 50%;
+  background:linear-gradient(var(--spc,var(--orange)),var(--spc,var(--orange))) 0 10%/62% 4px no-repeat,linear-gradient(var(--spc,var(--orange)),var(--spc,var(--orange))) 14% 50%/86% 4px no-repeat,linear-gradient(var(--spc,var(--orange)),var(--spc,var(--orange))) 5% 90%/44% 4px no-repeat}
+.sec--orange .mo-sp{--spc:var(--asphalt)}
+
+/* ---- intro: home hero ---- */
+.mo .hero h1 .mo-li{animation:mo-punch .55s var(--slam) backwards;animation-delay:calc(var(--d0) + .14s + var(--i,0) * .13s)}
+.mo .hero{animation:mo-impact .34s calc(var(--d0) + .7s) linear}
+.mo .hero-sub{animation:mo-wipe .42s calc(var(--d0) + .72s) var(--cutz) backwards}
+.mo .hero-act>*{animation:mo-slam .4s calc(var(--d0) + .88s) var(--slam) backwards}
+.mo .hero-act>*+*{animation-delay:calc(var(--d0) + .98s)}
+.mo .hero .clock{animation:mo-stamp .42s calc(var(--d0) + .5s) var(--slam) backwards}
+.mo .hero-visual::before{animation:mo-panel .6s var(--d0) var(--cutz) backwards;translate:var(--hp,0px) 0}
+@keyframes mo-panel{from{transform:translateX(60%) skewX(-8deg)}}
+.mo .hero.mo-go .wipe{display:block;position:absolute;z-index:4;top:-10%;bottom:-10%;left:0;width:46%;background:var(--orange);pointer-events:none;animation:wipe .75s var(--cutz) both}
+
+/* ---- intro: inner page header ---- */
+.mo .phead::after{animation:mo-slab .55s var(--d0) var(--cutz) backwards;translate:var(--hp,0px) 0}
+@keyframes mo-slab{from{transform:translateX(160%) skewX(-8deg)}}
+.mo .crumb li{animation:mo-slam .3s calc(var(--d0) + .04s) var(--out) backwards}
+.mo .crumb li+li{animation-delay:calc(var(--d0) + .12s)}
+.mo .phead h1 .mo-c{animation:mo-punch .5s var(--slam) backwards;animation-delay:calc(var(--d0) + .14s + var(--i,0) * .045s)}
+.mo .phead .lead{animation:mo-wipe .42s calc(var(--d0) + .55s) var(--cutz) backwards}
+.mo .phead .chip{animation:mo-stamp .42s calc(var(--d0) + .62s) var(--slam) backwards}
+.mo .phead .wrap{animation:mo-impact .3s calc(var(--d0) + .82s) linear}
+
+/* ---- scroll entrance A: body copy cut in with a wipe ---- */
+.mo .sec .lead,.mo .sess-intro{transition:clip-path .5s var(--cutz) .1s}
+.mo .sec .lead:not(.is-in),.mo .sess-intro:not(.is-in){clip-path:inset(-24px 100% -24px -24px);transition:none}
+.mo .sec .lead.is-in:not(.is-set),.mo .sess-intro.is-in:not(.is-set){clip-path:inset(-24px -24px -24px -24px)}
+
+/* ---- scroll entrance B: photos slice in as slanted strips that lock together ---- */
+.mo .frame:not(.is-in)>img{opacity:0}
+.mo .frame::before{translate:var(--sx,0px) var(--sy,0px);transition:transform .4s var(--slam),translate .3s var(--slam)}
+.mo .frame:not(.is-in)::before{transform:translate(0,0)}
+.mo .frame.is-in:not(.is-set)>img{animation:mo-lock .3s var(--slam)}
+@keyframes mo-lock{from{scale:1.045}}
+.mo-strips{position:absolute;inset:0;display:block}
+.mo .frame .mo-strip{position:absolute;inset:0;width:100%;height:100%;
+  --x0:calc(var(--k) + (100% - var(--k)) * var(--a));--x1:calc(var(--k) + (100% - var(--k)) * var(--b));
+  --y0:calc((100% - var(--k)) * var(--a));--y1:calc((100% - var(--k)) * var(--b));
+  clip-path:polygon(var(--x0) 0,var(--x1) 0,var(--x1) 0,var(--x0) 0);transform:translateY(-22px);
+  transition:clip-path .43s var(--cutz),transform .5s var(--slam);transition-delay:calc(var(--i) * 70ms)}
+.mo .frame .mo-strip--up{clip-path:polygon(var(--y0) 100%,var(--y1) 100%,var(--y1) 100%,var(--y0) 100%);transform:translateY(22px)}
+.mo .frame.is-slicing .mo-strip{clip-path:polygon(var(--x0) 0,var(--x1) 0,var(--y1) 100%,var(--y0) 100%);transform:none}
+.mo .frame>img{transition:filter .25s linear,scale .35s var(--slam)}
+
+/* ---- scroll entrance C: lists hit one by one on a beat ---- */
+.mo .is-in:not(.is-set)>li,.mo .is-in:not(.is-set)>div,.mo .rows.is-in:not(.is-set)>.row,.mo .jump.is-in:not(.is-set)>a,.mo .faq-list.is-in:not(.is-set)>.qa,.mo .band-act.is-in:not(.is-set)>*{transition:transform .42s var(--slam),opacity .16s linear,clip-path .45s var(--cutz);transition-delay:calc(var(--i,0) * 80ms)}
+.mo .slash-list:not(.is-in)>li{opacity:0;transform:translateX(-24px) skewX(-12deg)}
+.mo .rules:not(.is-in)>div{opacity:0;transform:translateX(-34px)}
+.mo .numbered:not(.is-in)>li{opacity:0;transform:translateY(32px) scale(.96)}
+.mo .news:not(.is-in)>li{opacity:0;transform:translateX(40px)}
+.mo .rows:not(.is-in)>.row{opacity:0;transform:translateX(-64px) skewX(-10deg)}
+.mo .steps:not(.is-in)>li{opacity:0;transform:translateY(36px)}
+.mo .figs:not(.is-in)>li{opacity:0;transform:scale(1.45)}
+.mo .jump:not(.is-in)>a{opacity:0;transform:translateY(-18px) scale(.9)}
+.mo .faq-list:not(.is-in)>.qa{opacity:0;transform:translateX(-30px)}
+.mo .band-act:not(.is-in)>*{opacity:0;transform:translate(-30px,16px) skewX(-14deg)}
+.mo .spec:not(.is-in)>div{clip-path:inset(0 100% 0 0)}
+.mo .spec.is-in:not(.is-set)>div{clip-path:inset(0 0 0 0)}
+/* single pieces */
+.mo .more::after{transition:transform .15s ease-out,opacity .15s linear}
+.mo .more:not(.is-in)::after{opacity:0;transform:translateX(-46px)}
+.mo .more.is-in:not(.is-set)::after{transition:transform .45s var(--slam) .1s,opacity .1s linear .1s}
+.mo .price-note:not(.is-in),.mo .eyebrow:not(.is-in),.mo .voice:not(.is-in),.mo .policy h2:not(.is-in){opacity:0;transform:translateX(-26px) skewX(-10deg)}
+.mo .price-note.is-in:not(.is-set),.mo .eyebrow.is-in:not(.is-set),.mo .voice.is-in:not(.is-set),.mo .policy h2.is-in:not(.is-set){transition:transform .42s var(--slam),opacity .16s linear}
+.mo .sess-head:not(.is-in)>div{opacity:0;transform:translateX(56px) skewX(-10deg)}
+.mo .sess-head.is-in:not(.is-set)>div{transition:transform .45s var(--slam) .12s,opacity .16s linear .12s}
+.mo .form:not(.is-in){opacity:0;transform:translate(34px,22px) skewX(-4deg)}
+.mo .form.is-in:not(.is-set){transition:transform .5s var(--slam),opacity .16s linear}
+.mo .split:not(.is-in) .split-bar i{transform:scaleX(0)}
+.mo .split-bar i{transform-origin:0 50%}
+.mo .split.is-in:not(.is-set) .split-bar i{transition:transform .26s var(--cutz)}
+.mo .split.is-in:not(.is-set) .split-bar i:nth-child(2){transition-duration:.42s;transition-delay:.22s}
+.mo .split.is-in:not(.is-set) .split-bar i:nth-child(3){transition-delay:.62s}
+.mo .split:not(.is-in) .split-list li{opacity:0;transform:translateY(-16px) scale(1.2)}
+.mo .split.is-in:not(.is-set) .split-list li{transition:transform .4s var(--slam),opacity .14s linear;transition-delay:.1s}
+.mo .split.is-in:not(.is-set) .split-list li:nth-child(2){transition-delay:.4s}
+.mo .split.is-in:not(.is-set) .split-list li:nth-child(3){transition-delay:.72s}
+.mo .map:not(.is-in){clip-path:polygon(0 0,0 0,-14% 100%,0 100%)}
+.mo .map.is-in:not(.is-set){clip-path:polygon(0 0,114% 0,100% 100%,0 100%);transition:clip-path .6s var(--cutz)}
+.mo .map.is-live path[stroke-dasharray="2 13"]{animation:mo-march 1.1s linear infinite}
+@keyframes mo-march{to{stroke-dashoffset:-15}}
+
+/* ---- scroll entrance D: tables build row by row behind an orange scan bar ---- */
+.mo .tbl-wrap{position:relative}
+.mo .tbl-wrap:not(.is-in) tbody tr>*{opacity:0;transform:translateX(-18px)}
+.mo .tbl-wrap.is-in:not(.is-set) tbody tr>*{transition:transform .34s var(--slam),opacity .14s linear;transition-delay:calc(var(--i,0) * 70ms + .14s)}
+.mo .tbl-wrap:not(.is-in) thead th{clip-path:inset(0 100% 0 0)}
+.mo .tbl-wrap.is-in:not(.is-set) thead th{clip-path:inset(0 0 0 0);transition:clip-path .3s var(--cutz)}
+.mo .tbl-wrap:not(.is-in) .tbl--big tbody tr>*{transform:translateY(-22px)}
+.mo .tbl-wrap.is-in:not(.is-set) .tbl--big tbody tr>*:nth-child(1){transition-delay:.12s}
+.mo .tbl-wrap.is-in:not(.is-set) .tbl--big tbody tr>*:nth-child(2){transition-delay:.3s}
+.mo .tbl-wrap.is-in:not(.is-set) .tbl--big tbody tr>*:nth-child(3){transition-delay:.48s}
+.mo .tbl-wrap.is-in:not(.is-set) .tbl--big tbody tr>*:nth-child(4){transition-delay:.66s}
+.mo-scan{position:absolute;left:0;top:0;z-index:2;width:100%;height:5px;background:var(--orange);opacity:0;pointer-events:none}
+.mo-scan--v{width:6px;height:100%;transform-origin:0 0}
+
+/* ---- scroll entrance E: section edges cut in, the notch slides to its place ---- */
+.mo .cut{transition:clip-path .55s cubic-bezier(.3,1.3,.5,1)}
+.mo .cut:not(.is-cut){clip-path:polygon(0 var(--step),100% var(--step),100% 0,100% 0,100% 100%,0 100%);transition:none}
+
+/* ---- numbers: scoreboard reels ---- */
+/* !important: the site has a few `span:last-child` rules (chip, clock) that would otherwise restyle the reels */
+.mo-d,.mo-dc{display:inline-block!important;font-size:inherit!important;line-height:inherit!important;margin:0!important;color:inherit!important}
+.mo-d{clip-path:inset(-.06em -.4em)}
+.mo-dc{position:relative;animation:mo-reel .85s cubic-bezier(.16,.9,.3,1) both}
+.mo-dc i{position:absolute;left:-.3em;right:-.3em;text-align:center;font-style:inherit}
+@keyframes mo-reel{from{transform:translateY(calc(var(--s) * 100%))}78%{transform:translateY(-8%)}to{transform:none}}
+
+/* ---- marquee band ---- */
+.mo .mq-track{will-change:transform}
+
+/* ---- interaction ---- */
+.mo .btn{transition:transform .12s ease-out,translate .25s var(--slam)}
+.mo .btn:active{transform:translate(4px,4px) scale(.95,.88)}
+.mo .btn--s:active{transform:translate(2px,2px) scale(.94,.88)}
+.mo-shock{position:absolute;inset:-2px;z-index:-2;border:3px solid var(--orange);transform:skewX(-8deg);opacity:0;pointer-events:none;animation:mo-shock .5s var(--out) forwards}
+.btn--dark .mo-shock{border-color:#fff}
+.form .btn--dark .mo-shock,.mo-start .mo-shock{border-color:var(--orange)}
+.sec--orange .btn:not(.btn--dark) .mo-shock{border-color:var(--asphalt)}
+@keyframes mo-shock{from{opacity:.95;transform:skewX(-8deg) scale(1)}to{opacity:0;transform:skewX(-8deg) scale(1.3,1.95)}}
+.mo .row{isolation:isolate;transition:background-color .15s}
+.mo .row::before{content:"";position:absolute;z-index:-1;inset:0 auto 0 0;width:10px;background:var(--orange);transform:skewX(-8deg) scaleY(0);transform-origin:50% 100%;transition:transform .22s var(--slam)}
+.mo .row h3,.mo .row .num{transition:transform .22s var(--slam)}
+.mo .row:active h3,.mo .row.is-tap h3{transform:skewX(-6deg) translateX(12px)}
+.mo .row:active::before,.mo .row.is-tap::before{transform:skewX(-8deg) scaleY(1)}
+.mo .jump a{transition:transform .12s ease-out}
+.mo .jump a:active{transform:scale(.92,.86)}
+.mo .tbl tbody th{transition:transform .2s var(--slam)}
+.mo .tbl tbody tr.is-tap th{box-shadow:inset 6px 0 0 var(--orange)}
+.mo .frame.is-tap::before{translate:-20px -20px}
+.mo .frame--plain.is-tap>img{scale:1.03}
+.mo .person .frame>img{transition:filter .3s linear,scale .35s var(--slam)}
+.mo .person.is-sel .frame>img,.mo .person.is-tap .frame>img{filter:grayscale(1) contrast(1.15) sepia(1) hue-rotate(-24deg) saturate(2.8)}
+.mo .txt-link,.mo .crumb a,.mo .foot-nav a{transition:translate .2s var(--slam)}
+.mo .foot-nav a::before{transition:transform .2s var(--slam)}
+.mo .foot-nav a:active::before{transform:skewX(-8deg) scaleY(1.6)}
+@media (hover:hover){
+  .mo .row:hover h3{transform:skewX(-6deg) translateX(12px)}
+  .mo .row:hover .num{transform:scale(1.2)}
+  .mo .row:hover::before{transform:skewX(-8deg) scaleY(1)}
+  .mo .tbl tbody tr:hover th{transform:translateX(6px)}
+  .mo .frame:hover>img{scale:1.03}
+  .mo .person:hover .frame>img{filter:grayscale(1) contrast(1.15) sepia(1) hue-rotate(-24deg) saturate(2.8)}
+  .mo .foot-nav a:hover{translate:6px 0}
+  .mo .foot-nav a:hover::before{transform:skewX(-8deg) scaleY(1.6)}
+  .mo .jump a:hover{transform:translateY(-3px)}
+}
+/* faq rows kick open */
+.mo .qa summary{position:relative;isolation:isolate;overflow:hidden}
+.mo .qa[open]>summary::before{content:"";position:absolute;z-index:-1;inset:0;background:var(--orange);transform:translateX(-104%) skewX(-8deg);animation:mo-sweep .42s var(--cutz)}
+@keyframes mo-sweep{from{transform:translateX(-104%) skewX(-8deg)}to{transform:translateX(104%) skewX(-8deg)}}
+.mo .qa summary::after{transition:transform .34s var(--slam)}
+.mo .qa[open]>summary::after{transform:skewX(-8deg) rotate(180deg)}
+.mo .qa[open]>summary .num{animation:mo-jolt .42s var(--slam)}
+@keyframes mo-jolt{from{transform:translateX(-12px) scale(1.5) skewX(-18deg)}}
+.mo .qa[open]>.qa-a{animation:mo-kick .38s var(--slam)}
+@keyframes mo-kick{from{opacity:0;transform:translate(-20px,-16px) skewX(-8deg);clip-path:inset(-24px -24px 100% -24px)}40%{opacity:1}to{opacity:1;transform:none;clip-path:inset(-24px -24px -24px -24px)}}
+.mo .qa summary:active .num{transform:scale(.85)}
+/* form: charge bars + round-complete banner */
+.mo .field{position:relative}
+.mo-charge{position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--orange);transform:scaleX(var(--c,0));transform-origin:0 50%;transition:transform .22s var(--slam);pointer-events:none}
+.mo-charge.is-pre{background:var(--steel)}
+.mo-charge.is-full{animation:mo-full .4s var(--out)}
+@keyframes mo-full{from{transform:scaleX(1) scaleY(3.2)}to{transform:scaleX(1) scaleY(1)}}
+.mo .form-msg{position:relative;overflow:hidden;background:var(--asphalt);color:#fff;border-left-color:var(--orange)}
+.mo .form-msg::before{content:"ROUND COMPLETE";content:"ROUND COMPLETE" / "";display:block;margin-bottom:2px;font-family:var(--num);font-style:italic;font-weight:600;font-size:1.5rem;line-height:1.1;letter-spacing:.04em;color:var(--orange)}
+.mo .form-msg.mo-fin{animation:mo-banner .5s var(--slam)}
+@keyframes mo-banner{from{opacity:0;transform:translateX(-46px) skewX(-16deg) scale(1.08);clip-path:inset(0 100% 0 0)}35%{opacity:1}to{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
+.mo .form-msg.mo-fin::after{content:"";position:absolute;inset:0;background:var(--orange);transform:translateX(-104%) skewX(-8deg);animation:mo-sweep .5s .08s var(--cutz)}
+
+/* ---- showpiece (home): START = 5-second interval ---- */
+.mo-start{position:absolute;right:12px;bottom:calc(100% - 6px);isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:112px;min-height:46px;padding:0 16px;border:0;background:none;font-family:var(--num);font-style:italic;font-weight:600;font-size:1.5rem;line-height:1;letter-spacing:.05em;color:var(--asphalt);cursor:pointer;transition:transform .12s ease-out;animation:mo-stamp .4s calc(var(--d0) + 1s) var(--slam) backwards}
+.mo-start::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--orange);transform:skewX(-8deg);box-shadow:4px 4px 0 var(--asphalt)}
+.mo-start::after{content:"";width:12px;height:14px;background:currentColor;clip-path:polygon(0 0,100% 50%,0 100%);animation:mo-nudge 2.2s var(--out) infinite}
+@keyframes mo-nudge{0%,60%,100%{transform:none}72%{transform:translateX(6px)}84%{transform:translateX(-1px)}}
+.mo-start span{display:inline!important;margin:0!important;font-size:inherit!important;line-height:1!important;color:inherit!important;min-width:0}
+.mo-start:active{transform:translate(3px,3px) scale(.94,.86)}
+.mo-start[aria-disabled="true"]{cursor:default}
+.mo-start[aria-disabled="true"]::before{background:#fff}
+.mo-start[aria-disabled="true"]::after{animation:none;clip-path:none;width:6px;transform:skewX(-8deg)}
+.mo-reps{position:absolute;left:14px;right:20px;top:calc(100% + 8px);display:grid!important;margin:0!important;grid-template-columns:repeat(5,1fr);gap:5px;height:9px;transform:skewX(-8deg);opacity:0;transition:opacity .2s linear;pointer-events:none}
+.mo-reps i{background:rgba(21,23,26,.22);transition:background-color .1s linear}
+.mo-reps i.on{background:var(--orange);animation:mo-full .3s var(--out)}
+.clock.is-run .mo-reps{opacity:1}
+
+/* ---- showpiece (sessions): 50-minute ring + phases slam in ---- */
+.mo .hud{overflow:hidden}
+.mo .hud::after{content:"";position:absolute;top:-10%;bottom:-10%;left:0;width:34%;background:var(--orange);transform:translateX(-140%) skewX(-8deg);pointer-events:none}
+.mo .hud.mo-hit::after{animation:mo-hudsweep .46s var(--cutz)}
+@keyframes mo-hudsweep{from{transform:translateX(-140%) skewX(-8deg)}to{transform:translateX(420%) skewX(-8deg)}}
+.mo .bar::before,.mo .bar::after{z-index:2}
+.mo-ticks{position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(90deg,transparent 0 calc(2% - 1px),rgba(21,23,26,.55) calc(2% - 1px) 2%);pointer-events:none}
+.mo-ring{position:absolute;right:0;top:8px;width:58px;pointer-events:none}
+.mo-ring-dial{position:relative;display:block}
+.mo-ring svg{width:100%;height:auto;overflow:visible}
+.mo-ring-base{stroke:#3a3f45}
+.mo-ring-fill{stroke:var(--orange)}
+.mo-ring-ph{stroke:#8d949b}
+.mo-ring-n{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;line-height:1}
+.mo-ring-n b{font-size:1.5rem;font-weight:600;color:var(--orange)}
+.mo-ring-n small{font-family:var(--num);font-style:italic;font-size:.75rem;margin-left:1px}
+.mo-ring-t{display:none}
+.mo-ring.mo-hit .mo-ring-n{animation:mo-stamp .4s var(--slam)}
+.mo .hud-clock{padding-right:68px}
+.mo .phase.mo-hit h3{animation:mo-phase .5s var(--slam)}
+@keyframes mo-phase{from{transform:skewX(-26deg) translate(-36px,20px) scale(1.14);filter:blur(4px)}40%{filter:blur(0)}to{transform:skewX(-6deg)}}
+.mo .phase.mo-hit::before{animation:mo-phasebar .45s var(--slam)}
+@keyframes mo-phasebar{from{transform:skewX(-8deg) scaleY(0) translateY(-30px)}}
+.mo .phase.mo-hit .phase-h .num{animation:mo-stamp .42s .1s var(--slam) backwards}
+.mo .bar-labels li.is-active{animation:mo-jolt .4s var(--slam)}
+@media (min-width:1024px){
+  .mo .hud{overflow:visible}
+  .mo .hud::after{display:none}
+  .mo .hud-clock{padding-right:0}
+  .mo-ring{position:static;display:flex;align-items:center;gap:22px;width:auto;margin-top:30px}
+  .mo-ring-dial{flex:none;width:128px}
+  .mo-ring-n b{font-size:3.25rem}
+  .mo-ring-n small{font-size:1.25rem}
+  .mo-ring-t{display:block;font-weight:900;font-size:1.75rem;line-height:1.2;transform:skewX(-6deg);transform-origin:0 100%}
+  .mo-ring-t small{display:block;font-family:var(--num);font-style:italic;font-weight:600;font-size:.9375rem;letter-spacing:.08em;color:var(--orange)}
+  .mo-ring.mo-hit .mo-ring-t{animation:mo-phase .5s var(--slam)}
+  .mo .hud.mo-hit .hud-clock .num{animation:mo-impact .3s linear}
+}
+
+/* ---- showpiece (trainers): roster, the selected panel wipes in with strips ---- */
+.mo-roster{position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(3,1fr);margin-top:36px;border-top:3px solid var(--asphalt);border-bottom:3px solid var(--asphalt);background:#fff}
+.mo-roster button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:60px;padding:6px 4px;border:0;background:none;font:inherit;font-weight:900;font-size:.9375rem;line-height:1.2;color:var(--asphalt);cursor:pointer;transition:transform .12s ease-out;white-space:nowrap}
+.mo-roster button .num{font-size:1.25rem;color:var(--orange-d);transition:color .12s linear}
+.mo-roster button[aria-pressed="true"] .num{color:var(--asphalt)}
+.mo-roster button:active{transform:scale(.92,.86)}
+.mo-roster-mark{position:absolute;z-index:-1;left:0;top:5px;bottom:5px;width:33.333%;background:var(--orange);opacity:0;transform:translateX(calc(var(--p,0) * 100%)) skewX(-8deg) scaleX(.9);transition:transform .42s var(--slam),opacity .1s linear}
+.mo-roster.is-on .mo-roster-mark{opacity:1}
+.mo .staff{margin-top:36px}
+.mo .person{position:relative;scroll-margin-top:96px;transition:border-color .1s linear}
+.mo .person:not(.is-in)>*:not(.mo-wipe){opacity:0}
+.mo .person.is-sel{border-top-color:var(--orange)}
+.mo .person.is-sel .frame::before{transform:translate(14px,14px)}
+.mo .person-no{display:inline-block;transition:transform .3s var(--slam)}
+.mo .person.is-sel .person-no{transform:scale(1.25) translateX(4px)}
+.mo-wipe{position:absolute;inset:-4px 0 0;z-index:3;display:block;overflow:hidden;pointer-events:none}
+.mo-wipe i{position:absolute;top:0;bottom:0;width:23%;background:var(--orange);animation:mo-strip-a .58s var(--cutz) both}
+.mo-wipe i:nth-child(1){left:-3%}.mo-wipe i:nth-child(2){left:18.5%}.mo-wipe i:nth-child(3){left:40%}.mo-wipe i:nth-child(4){left:61.5%}.mo-wipe i:nth-child(5){left:83%}
+.mo-wipe i:nth-child(even){background:var(--asphalt);animation-name:mo-strip-b;animation-delay:.04s}
+.mo-wipe i:nth-child(3){animation-delay:.07s}.mo-wipe i:nth-child(5){animation-delay:.1s}
+@keyframes mo-strip-a{0%{transform-origin:50% 0;transform:skewX(-8deg) scaleY(0)}30%{transform-origin:50% 0;transform:skewX(-8deg) scaleY(1)}30.1%,42%{transform-origin:50% 100%;transform:skewX(-8deg) scaleY(1)}100%{transform-origin:50% 100%;transform:skewX(-8deg) scaleY(0)}}
+@keyframes mo-strip-b{0%{transform-origin:50% 100%;transform:skewX(-8deg) scaleY(0)}30%{transform-origin:50% 100%;transform:skewX(-8deg) scaleY(1)}30.1%,42%{transform-origin:50% 0;transform:skewX(-8deg) scaleY(1)}100%{transform-origin:50% 0;transform:skewX(-8deg) scaleY(0)}}
+@media (max-width:767.98px){.mo-roster{position:sticky;top:0;z-index:4;margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad)}.mo-roster-mark{left:var(--pad);width:calc((100% - var(--pad) * 2) / 3)}}
+
+/* ---- showpiece (facility): the barbell gains a plate for every row ---- */
+.mo-bb{position:sticky;top:0;z-index:3;display:grid;gap:4px;margin-top:28px;padding:10px 0 8px;background:var(--concrete)}
+.mo-bb+.tbl-wrap{margin-top:0}
+.mo-bb-n{display:flex;align-items:baseline;gap:8px;font-weight:900;font-size:.875rem;line-height:1}
+.mo-bb-n b{font-size:2.25rem;font-weight:600;color:var(--orange-d);min-width:1.1em}
+.mo-bb-n.mo-hit b{animation:mo-stamp .36s var(--slam)}
+.mo-bb svg{width:100%;max-width:640px;height:auto;overflow:visible}
+.mo-bb .pl{opacity:0;transform:translateX(var(--from));transform-box:fill-box}
+.mo-bb .pl.on{opacity:1;transform:none;transition:transform .36s var(--slam),opacity .06s linear}
+.mo .tbl--eq tbody tr:not(.is-on)>*{opacity:0;transform:translateY(-16px)}
+.mo .tbl--eq tbody tr.is-on:not(.is-set)>*{transition:transform .36s var(--slam),opacity .12s linear}
+@media (min-width:768px){.mo-bb{grid-template-columns:auto 1fr;align-items:center;gap:28px;padding:12px 0}.mo-bb-n{flex-direction:column;align-items:flex-start;gap:4px}.mo-bb-n b{font-size:3.25rem}}
+
+/* ---- showpiece (price): bars rise, digits roll ---- */
+.mo .pbars-list:not(.is-in) i{transform:skewX(-8deg) scaleY(0)}
+.mo .pbars-list.is-in:not(.is-set) i{transition:transform .62s var(--slam);transition-delay:calc(var(--i,0) * .11s)}
+.mo .pbars-list:not(.is-in) .pbars-v{opacity:0;transform:translateY(18px) scale(1.3)}
+.mo .pbars-list.is-in:not(.is-set) .pbars-v{transition:transform .4s var(--slam),opacity .12s linear;transition-delay:calc(var(--i,0) * .11s + .28s)}
+.mo .pbars-list:not(.is-in) b,.mo .pbars-list:not(.is-in) li>small{opacity:0}
+.mo .pbars-list.is-in:not(.is-set) b,.mo .pbars-list.is-in:not(.is-set) li>small{transition:opacity .2s linear;transition-delay:calc(var(--i,0) * .11s)}
+.mo .pbars-list i{transition:translate .25s var(--slam)}
+.mo .pbars-list li.is-tap i{translate:0 -8px}
+@media (hover:hover){.mo .pbars-list li:hover i{translate:0 -8px}}
+
+/* ---- showpiece (faq / privacy): counter bar ---- */
+.mo-count{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;margin-bottom:18px;padding:9px 0 8px;background:#fff;border-bottom:3px solid var(--asphalt);line-height:1}
+.mo-count-l{font-weight:900;font-size:.75rem;white-space:nowrap}
+.mo-count-n{font-size:1.75rem;white-space:nowrap;color:var(--asphalt)}
+.mo-count-n b{display:inline-block;font-weight:600;color:var(--orange-d);min-width:1.1em;text-align:right}
+.mo-count-n.mo-hit b{animation:mo-stamp .36s var(--slam)}
+.mo-count-t{flex:1;display:flex;gap:3px;height:16px;transform:skewX(-8deg);min-width:0}
+.mo-count-t i{flex:1;background:#d2d5d8;transform:scaleY(.5);transition:transform .3s var(--slam),background-color .1s linear}
+.mo-count-t i.on{background:var(--orange);transform:scaleY(.75)}
+.mo-count-t i.open{background:var(--asphalt);transform:scaleY(1)}
+.mo-count.is-all .mo-count-t i{animation:mo-wave .5s var(--slam);animation-delay:calc(var(--i,0) * 30ms)}
+@keyframes mo-wave{40%{transform:scaleY(1.5)}}
+.mo .faq-group,.mo .policy h2{scroll-margin-top:60px}
+
+/* ---- showpiece (reserve): four-step track, the marker sprints ---- */
+.mo-track{position:relative;margin:0 0 24px;padding-top:26px}
+.mo-track-line{position:absolute;left:4px;right:4px;top:8px;height:10px;background:var(--concrete);transform:skewX(-8deg);overflow:hidden}
+.mo-track-line i{position:absolute;inset:0;background:var(--orange);transform:scaleX(calc(var(--f,0) / 4));transform-origin:0 50%;transition:transform .45s var(--cutz)}
+.mo-track-line::before,.mo-track-line::after{content:"";position:absolute;z-index:1;top:0;bottom:0;left:25%;width:50%;border-inline:3px solid #fff}
+.mo-track-line::after{left:calc(50% - 1.5px);width:0;border-inline-width:1.5px}
+.mo-runner{position:absolute;left:0;top:0;width:25%;height:26px;transform:translateX(calc(var(--p,0) * 100%));transition:transform .5s var(--slam);pointer-events:none}
+.mo-runner i{position:absolute;left:50%;top:0;width:30px;height:26px;margin-left:-15px;background:var(--asphalt);clip-path:polygon(22% 0,100% 0,78% 100%,0 100%)}
+.mo-runner i::after{content:"";position:absolute;inset:6px 9px;background:var(--orange);clip-path:polygon(22% 0,100% 0,78% 100%,0 100%)}
+.mo-runner.mo-hit i{animation:mo-sprint .5s var(--out)}
+@keyframes mo-sprint{0%{transform:scaleX(1)}30%{transform:scaleX(2.6) skewX(-20deg)}100%{transform:none}}
+.mo-track ol{display:grid;grid-template-columns:repeat(4,1fr);margin-top:6px}
+.mo-track li{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.75rem;font-weight:900;line-height:1.3;color:#5b6168;transition:color .12s linear}
+.mo-track li b{font-size:1.25rem;font-weight:600;transition:transform .3s var(--slam)}
+.mo-track li.is-done{color:var(--asphalt)}
+.mo-track li.is-done b{color:var(--orange-d)}
+.mo-track li.is-cur{color:var(--asphalt)}
+.mo-track li.is-cur b{transform:scale(1.4)}
+.mo-track.is-go .mo-runner i{background:var(--orange)}
+.mo-track.is-go .mo-runner i::after{background:var(--asphalt)}
+.mo-track.is-go .mo-track-line i{animation:mo-full .4s var(--out)}
+
+/* touch / small screens: nothing extra to hide — hover effects above have :active / .is-tap twins */
+}

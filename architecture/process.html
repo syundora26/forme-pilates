@@ -14,11 +14,12 @@
 <meta property="og:image" content="img/court.jpg">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23EDEEEC'/%3E%3Cpath d='M6 6h20v20H6z' fill='none' stroke='%2322252A' stroke-width='3'/%3E%3Crect x='13' y='13' width='7' height='7' fill='%239A5B34'/%3E%3C/svg%3E">
-<script>(function(d){var c=d.documentElement.classList;c.add('js');if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)&&'IntersectionObserver' in window)c.add('mo')})(document)</script>
+<script>(function(d,w){var r=d.documentElement,c=r.classList;c.add('js');if(!(w.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)&&'IntersectionObserver' in w){c.add('mo','pre');try{var s=sessionStorage,x=(s.getItem('yh-x')||'').split('|');s.removeItem('yh-x');if(x[1]&&Date.now()-x[1]<4000){c.add('arr');r.setAttribute('data-no',x[0])}if(!s.getItem('yh-seen')){c.add('first');s.setItem('yh-seen','1')}}catch(e){}setTimeout(function(){c.remove('pre','arr');if(!w.__mo)c.remove('mo')},2500)}})(document,window)</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Shippori+Mincho+B1:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 
 </head>
 <body id="top">
@@ -55,7 +56,17 @@
     <p>長さの目安を、寸法線にしました。線の長さが、そのまま期間の比です。設計より施工のほうが長く、いちばん短い「対話」が、じつはいちばん大事です。</p>
   </div>
   <div class="body">
-    <div class="chain" aria-hidden="true"><span>01<b>対話</b></span><span>02<b>計画</b></span><span>03<b>設計</b></span><span>04<b>施工</b></span></div>
+    <div class="procbar" aria-hidden="true">
+      <div class="chain"><span>01<b>対話</b></span><span>02<b>計画</b></span><span>03<b>設計</b></span><span>04<b>施工</b></span></div>
+      <svg class="bld" viewBox="0 0 124 72" focusable="false">
+        <path d="M2 62H122"/>
+        <g class="b1"><path d="M23 62C22 50 24 41 25 33C36 27 48 19 61 13C74 20 86 26 98 33C99 43 97 52 98 62"/><path d="M30 62C31 54 29 47 31 40M92 61C91 52 93 46 92 39M40 30C50 28 70 31 84 29"/></g>
+        <g class="b2"><path d="M26 62V34H96V62"/><path d="M18 34L61 13L104 34"/><path d="M26 68H96M26 65v6M96 65v6"/></g>
+        <g class="b3"><path d="M37.7 62V34M49.3 62V34M61 62V13M72.7 62V34M84.3 62V34"/><path d="M26 48H96M39.5 23.5V34M82.5 23.5V34M26 34L37.7 48M96 34L84.3 48"/></g>
+        <g class="b4"><path class="w" d="M26 34H96V62H26z"/><path class="wn" d="M33 42h13v10h-13zM76 42h13v10h-13z"/><path class="dr" d="M55 44h12v18h-12z"/><path class="r" d="M15 35.5L61 13L107 35.5"/><path class="tr" d="M113 62V47M113 53l-4-5M113 50l4-4"/><circle class="tr" cx="113" cy="41" r="7"/></g>
+      </svg>
+      <p class="procbar__c">累計 <b>13 – 19</b> か月</p>
+    </div>
     <p class="chain__sum">全体の目安　13 – 19 か月</p>
     <ol class="stage">
       <li>
@@ -259,5 +270,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js" onerror="document.documentElement.classList.remove('mo','pre','arr')"></script>
 </body>
 </html>

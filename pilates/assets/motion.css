@@ -1,0 +1,376 @@
+/* FORME PILATES — motion layer「軸」: things swing in off-balance and settle onto the axis.
+   Every hidden / offset state lives under html.mo (set in <head> only when JS runs and
+   reduced motion is not requested). Without it the page is the plain static site. */
+:root{
+  --spring:cubic-bezier(.3,1.5,.5,1);
+  --spring-soft:cubic-bezier(.25,1.25,.5,1);
+  --inout:cubic-bezier(.7,0,.15,1);
+}
+@supports (animation-timing-function:linear(0,1)){
+  :root{
+    --spring:linear(0,0.055,0.191,0.371,0.563,0.743,0.896,1.014,1.096,1.144,1.162,1.158,1.139,1.112,1.08,1.05,1.024,1.003,0.988,0.978,0.974,0.974,0.976,0.98,0.985,0.99,0.995,0.999,1.001,1.003,1.004,1.004,1.004,1.003,1);
+    --spring-soft:linear(0,0.038,0.131,0.255,0.39,0.524,0.648,0.756,0.845,0.916,0.97,1.008,1.033,1.047,1.053,1.054,1.05,1.045,1.037,1.03,1.023,1.017,1.011,1.007,1.003,1.001,0.999,0.998,0.997,0.997,1);
+  }
+}
+
+/* =====================================================================
+   Static pieces (also shown without JS / with reduced motion)
+   ===================================================================== */
+
+/* ---- home: the reformer spring ---- */
+.spr{position:relative;z-index:2;margin-left:calc(-1 * var(--hang));max-width:600px}
+.spr svg{width:100%;overflow:visible}
+.spr .sp-rail{stroke:rgba(30,27,46,.22);stroke-width:1;stroke-dasharray:2 6;fill:none}
+.spr .sp-wall{fill:var(--lilac)}
+.spr .sp-coil path{fill:none;stroke:var(--lilac-d);stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round}
+.spr .sp-hit{fill:transparent}
+.spr .sp-ring{fill:var(--chalk);stroke:var(--ink);stroke-width:1.5}
+.spr .sp-dot{fill:var(--lilac)}
+.spr .sp-tick{stroke:rgba(30,27,46,.3);stroke-width:1}
+.spr .note{margin:4px 0 0 var(--hang)}
+
+/* ---- classes: 55-minute timeline ---- */
+.tl{position:relative;margin-top:34px;max-width:46em}
+.tl-now{display:flex;align-items:baseline;gap:.2em;font-size:.8125rem;color:var(--muted);line-height:1.2}
+.tl-now b{display:inline-block;min-width:2ch;text-align:right;font-size:2.5rem;font-weight:300;color:var(--lilac-d);font-variant-numeric:tabular-nums}
+.tl-bar{display:flex;gap:3px;height:16px;margin-top:10px}
+.tl-bar i{flex:1 0 0;border-radius:1px;background:var(--pale);box-shadow:inset 0 0 0 1px rgba(91,74,148,.45);transform-origin:50% 100%}
+.tl-bar i:nth-child(2),.tl-bar i:nth-child(4){background:var(--lilac);box-shadow:none}
+.tl-bar i:nth-child(3){background:var(--lilac-d);box-shadow:none}
+.tl-fill{height:2px;margin-top:5px;background:rgba(143,123,196,.28);overflow:hidden}
+.tl-fill b{display:block;height:100%;background:var(--lilac-d);transform-origin:0 50%}
+.tl-sc{position:relative;height:1.9em;margin-top:4px;font-size:.75rem;color:var(--muted)}
+.tl-sc span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.tl-sc span:first-child{transform:none}
+.tl-sc span:last-child{transform:translateX(-100%)}
+.tl + .tw{margin-top:14px}
+
+/* ---- reserve: balance / level indicator (built by JS, works without motion too) ---- */
+.level{position:sticky;top:14px;z-index:5;display:flex;align-items:center;gap:16px;padding:10px 16px;
+  background:#27233A;border:1px solid rgba(250,250,252,.22);border-radius:2px;font-size:.8125rem;line-height:1.5;color:var(--muted)}
+.lv-tube{position:relative;flex:0 0 112px;height:22px;border:1px solid rgba(236,231,246,.75);border-radius:11px;transform:rotate(var(--tilt,0deg));transition:transform .9s var(--spring)}
+.lv-tube::before,.lv-tube::after{content:"";position:absolute;top:2px;bottom:2px;width:1px;background:rgba(236,231,246,.75);left:calc(50% - 12px)}
+.lv-tube::after{left:calc(50% + 11px)}
+.lv-b{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--lilac);
+  transform:translateX(var(--off,0px));transition:transform .9s var(--spring),background-color .4s}
+.lv-b::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid var(--warm);opacity:0}
+.lv-t b{font-weight:500;color:var(--chalk);font-size:1rem;margin:0 .1em}
+.level.is-level{border-color:var(--warm)}
+.level.is-level .lv-b{background:var(--warm)}
+.level.is-level .lv-t{color:var(--chalk)}
+@media (max-width:1019px){.level{top:74px}}
+
+/* ---- access: replay button under the map ---- */
+.map-replay{display:flex;align-items:center;gap:10px;min-height:44px;margin:0 auto;padding:0 14px 6px;border:0;background:none;color:var(--ink);font:inherit;font-size:.8125rem;cursor:pointer;
+  text-decoration:underline;text-decoration-color:var(--lilac-d);text-underline-offset:6px}
+.map-replay::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--lilac-d)}
+.map .walker{fill:var(--lilac-d);stroke:#FAFAFC;stroke-width:2}
+
+/* page-transition curtain: never visible unless the classes below are set */
+.sweep{position:fixed;inset:0;z-index:200;pointer-events:none;visibility:hidden;background:var(--chalk);transform:translateX(-102%)}
+.sweep::before,.sweep::after{content:"";position:absolute;top:0;bottom:0;width:2px;background:var(--lilac)}
+.sweep::before{left:0}
+.sweep::after{right:0}
+
+/* =====================================================================
+   Motion (html.mo only)
+   ===================================================================== */
+html.mo main > section{overflow-x:clip}
+html.mo:not(.mo-ready) main > section:not(.page-head):not(.hero){visibility:hidden}
+
+/* ---- 1. page-to-page: the axis sweeps sideways like a curtain edge ---- */
+html.mo-in{--t0:.3s}
+html.mo-in .sweep{visibility:visible;animation:sweepOut .46s var(--inout) .04s both}
+html.mo-out .sweep{visibility:visible;animation:sweepIn .3s cubic-bezier(.55,0,.25,1) both}
+@keyframes sweepIn{from{transform:translateX(-102%)}to{transform:none}}
+@keyframes sweepOut{from{transform:none}to{transform:translateX(102%)}}
+html.mo-in .axis-fill{transition-delay:.4s}
+
+/* ---- 2. page intro ---- */
+html.mo .hero h1 .ln{overflow:visible}
+html.mo .hero h1 .ln > span{animation:none}
+html.mo .hero-side > *{transform-origin:0 100%;animation:swingIn .85s var(--spring) calc(var(--t0,0s) + .7s) backwards}
+html.mo .hero-side > .btn{animation-delay:calc(var(--t0,0s) + .82s)}
+html.mo .hero-side > .note{animation-delay:calc(var(--t0,0s) + .94s)}
+html.mo .hero .ph{animation:wipe 1s var(--inout) calc(var(--t0,0s) + .25s) backwards,slideIn 1.25s var(--spring-soft) calc(var(--t0,0s) + .25s) backwards}
+html.mo .hero .ph img{animation:settle 1.5s var(--ease) calc(var(--t0,0s) + .25s) backwards}
+html.mo .page-head .bc{animation:fromAxis .7s var(--spring) calc(var(--t0,0s) + .1s) backwards}
+html.mo .page-head .lead{transform-origin:0 100%;animation:swingIn .9s var(--spring) calc(var(--t0,0s) + .62s) backwards}
+@keyframes slideIn{from{translate:-46px 0}}
+@keyframes fromAxis{from{opacity:0;transform:translateX(-26px)}}
+@keyframes swingIn{from{opacity:0;transform:translate3d(0,28px,0) rotate(var(--sw,-2.4deg))}}
+
+/* ---- 3. headlines: characters off the baseline, straightened one by one ---- */
+html.mo main :is(h1,h2):not(.sp-on):not(.sp-done),
+html.mo main h2:not(.sp-on):not(.sp-done) .kana{color:transparent}
+.sp .sl{display:inline-block;white-space:nowrap}
+.sp .ch{display:inline-block;white-space:pre;transform-origin:50% 80%}
+html.mo .sp-on .ch{animation:align .74s var(--spring) var(--cd,0s) backwards}
+html.mo .sp-on .kana{animation:fade .6s ease .35s backwards}
+@keyframes align{from{opacity:0;transform:translate(var(--x,0),var(--y,0)) rotate(var(--r,0deg))}}
+
+/* ---- 4. scroll entrances ---- */
+/* 4a. text blocks swing in from the axis side and settle */
+html.mo .e-swing{transform-origin:0 100%}
+html.mo .e-swing:not(.mo-in){opacity:0}
+html.mo .e-swing.mo-in{animation:swingIn .85s var(--spring) var(--d,0s) backwards}
+
+/* 4b. photos slide out from behind the axis: mask + small spring overshoot */
+html.mo .ph.reveal{clip-path:inset(0 100% 0 0);translate:-44px 0;
+  transition:clip-path .95s var(--inout),translate 1.25s var(--spring-soft),transform .7s var(--spring-soft)}
+html.mo .ph.reveal.in{clip-path:inset(0);translate:0 0}
+html.mo .e-mask:not(.mo-in){opacity:0}
+html.mo .e-mask.mo-in{animation:maskIn .95s var(--inout) var(--d,0s) backwards,slideIn 1.25s var(--spring-soft) var(--d,0s) backwards}
+@keyframes maskIn{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+@media (min-width:900px){
+  html.mo .ph.reveal.l{clip-path:inset(0 0 0 100%);translate:44px 0}
+  html.mo .ph.reveal.l.in{clip-path:inset(0);translate:0 0}
+  html.mo .e-mask.l.mo-in{animation-name:maskInL,slideInL}
+  @keyframes maskInL{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0)}}
+  @keyframes slideInL{from{translate:46px 0}}
+}
+
+/* 4c. lists: the hairline is drawn first, then the text arrives */
+html.mo .e-line{position:relative;border-bottom-color:transparent}
+html.mo .e-line::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--rule);transform-origin:0 50%}
+html.mo .e-line:not(.mo-in)::after{transform:scaleX(0)}
+html.mo .e-line:not(.mo-in) > *{opacity:0}
+html.mo .e-line.mo-in::after{animation:lineDraw .7s cubic-bezier(.65,0,.2,1) var(--d,0s) backwards}
+html.mo .e-line.mo-in > *{animation:textIn .65s var(--spring) calc(var(--d,0s) + .22s) backwards}
+html.mo .e-line.mo-in > :nth-child(2){animation-delay:calc(var(--d,0s) + .3s)}
+html.mo .e-line.mo-in > :nth-child(3){animation-delay:calc(var(--d,0s) + .38s)}
+html.mo .dash .e-line > .mo-t{display:block}
+@keyframes lineDraw{from{transform:scaleX(0)}}
+@keyframes textIn{from{opacity:0;transform:translateX(-16px)}}
+
+/* 4d. tables: cells cascade diagonally (row delay + column delay) */
+html.mo .e-row:not(.mo-in) > *{opacity:0}
+html.mo .e-row.mo-in > *{animation:cellIn .65s var(--spring) calc(var(--d,0s) + var(--c,0) * 65ms) backwards}
+html.mo .e-fade:not(.mo-in){opacity:0}
+html.mo .e-fade.mo-in{animation:fade .6s ease var(--d,0s) backwards}
+@keyframes cellIn{from{opacity:0;transform:translate(-18px,14px)}}
+/* timetable: class blocks drop in and settle */
+html.mo .e-ttrow:not(.mo-in) > *{opacity:0}
+html.mo .e-ttrow.mo-in > *{animation:fade .5s ease calc(var(--d,0s) + var(--c,0) * 45ms) backwards}
+html.mo .e-ttrow.mo-in .c{animation:blockIn .7s var(--spring) calc(var(--d,0s) + var(--c,0) * 45ms + .08s) backwards}
+@keyframes blockIn{from{opacity:0;transform:scale(.45) rotate(-9deg)}}
+
+/* 4e. steps: number rolls and pops, the connecting line draws to the next step */
+html.mo .mo-steps > li::before{content:none}
+.sn{position:absolute;left:0;top:14px;font-size:2.5rem;font-weight:300;line-height:1.2;color:var(--lilac-d);transform-origin:40% 70%}
+.seg{position:absolute;left:.7rem;top:calc(14px + 3.35rem);bottom:-8px;width:1px;background:var(--lilac);transform-origin:50% 0}
+.seg-d{position:absolute;left:.7rem;top:calc(14px + 3.35rem);width:7px;height:7px;margin:-3.5px 0 0 -3px;border-radius:50%;background:var(--lilac-d);opacity:0}
+html.mo .e-step:not(.mo-in) > *{opacity:0}
+html.mo .e-step.mo-in > *{animation:textIn .65s var(--spring) calc(var(--d,0s) + .16s) backwards}
+html.mo .e-step.mo-in > p{animation-delay:calc(var(--d,0s) + .26s)}
+html.mo .e-step.mo-in > .sn{animation:stepPop .75s var(--spring) var(--d,0s) backwards}
+html.mo .e-step.mo-in > .seg{opacity:1;animation:segDraw .6s cubic-bezier(.6,0,.3,1) calc(var(--d,0s) + .32s) backwards}
+html.mo .e-step.mo-in > .seg-d{opacity:0;animation:segDot .6s cubic-bezier(.6,0,.3,1) calc(var(--d,0s) + .32s) backwards}
+html.mo .e-step.hit > .sn{animation:stepHit .7s var(--spring)}
+@keyframes stepPop{from{opacity:0;transform:scale(.2) rotate(-50deg)}}
+@keyframes stepHit{from{transform:scale(1.5) rotate(10deg)}}
+@keyframes segDraw{from{transform:scaleY(0)}}
+@keyframes segDot{0%{opacity:0;transform:none}6%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translateY(var(--sh,60px))}}
+
+/* 4f. instructors: panels open as a vertical split from their own centre line */
+html.mo .p-instructors .ph.reveal,
+html.mo .p-instructors .ph.reveal.l{clip-path:inset(0 calc(50% - 1px));translate:0 0;transition:clip-path 1s var(--inout) .25s,translate 1s,transform .7s var(--spring-soft)}
+html.mo .p-instructors .ph.reveal.in{clip-path:inset(0)}
+html.mo .p-instructors .ph.reveal::before{content:"";position:absolute;z-index:1;top:0;bottom:0;left:50%;width:1px;background:var(--lilac);transform:scaleY(0);transform-origin:50% 0;transition:transform .45s cubic-bezier(.6,0,.3,1),opacity .5s ease 1s}
+html.mo .p-instructors .ph.reveal.in::before{transform:none;opacity:0}
+html.mo .e-split:not(.mo-in){clip-path:inset(0 calc(50% - 1px))}
+html.mo .e-split:not(.mo-in)::before{transform:scaleY(0)}
+html.mo .e-split:not(.mo-in) > *{opacity:0}
+html.mo .e-split::before{transform-origin:50% 0}
+html.mo .e-split.mo-in{animation:splitOpen 1s var(--inout) calc(var(--d,0s) + .3s) backwards}
+html.mo .e-split.mo-in::before{animation:segDraw .45s cubic-bezier(.6,0,.3,1) var(--d,0s) backwards}
+html.mo .e-split.mo-in > b{animation:initIn .95s var(--spring) calc(var(--d,0s) + .62s) backwards}
+html.mo .e-split.mo-in > small{animation:fade .6s ease calc(var(--d,0s) + 1s) backwards}
+@keyframes splitOpen{from{clip-path:inset(0 calc(50% - 1px))}to{clip-path:inset(0)}}
+@keyframes initIn{from{opacity:0;transform:translateY(22%) rotate(-16deg)}}
+
+/* 4g. the ink booking band unrolls downward */
+html.mo .e-band:not(.mo-in){clip-path:inset(0 -100vmax 100% -100vmax)}
+html.mo .e-band.mo-in{animation:bandIn .85s var(--inout) backwards}
+@keyframes bandIn{from{clip-path:inset(0 -100vmax 100% -100vmax)}to{clip-path:inset(0 -100vmax 0 -100vmax)}}
+
+/* 4h. axis nodes burst a double ring when the line reaches them */
+html.mo .node::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid var(--lilac);opacity:0}
+html.mo .node.is-lit{animation:nodePop .75s var(--spring)}
+html.mo .node.is-lit::before{animation:ping2 1.15s var(--ease) .1s both}
+html.mo:not(.live) .node.is-lit{animation-delay:calc(var(--t0,0s) + .75s);animation-fill-mode:backwards}
+html.mo:not(.live) .node.is-lit::before{animation-delay:calc(var(--t0,0s) + .85s)}
+@keyframes nodePop{from{transform:scale(.2)}}
+@keyframes ping2{0%{opacity:.75;transform:scale(.4)}100%{opacity:0;transform:scale(2.7)}}
+
+/* numbers roll like a counter */
+.od-g{white-space:nowrap}
+.od{display:inline-block;position:relative;clip-path:inset(0 -1px)}
+.od-f{visibility:hidden}
+.od-s{position:absolute;left:0;right:0;top:0;text-align:center;animation:odo 1s var(--spring-soft) calc(var(--od,0ms) + var(--k,0) * 70ms) both}
+.od-s i{display:block;font-style:normal}
+@keyframes odo{from{transform:none}to{transform:translateY(-81.8182%)}}
+
+/* ---- 5. ambient / scroll-linked ---- */
+/* plumb bob riding the tip of the axis */
+.bob{position:absolute;left:0;top:0;width:0;height:0;z-index:1;will-change:transform}
+.bob svg{position:absolute;left:-12px;top:0;width:24px;height:48px;max-width:none;overflow:visible;transform-origin:50% 0;will-change:transform}
+.bob .b-s{stroke:var(--lilac);stroke-width:1;fill:none}
+.bob .b-w{fill:var(--lilac)}
+.bob .b-c{fill:var(--lilac-d)}
+html.mo .bob{animation:fade .5s ease calc(var(--t0,0s) + 1.15s) backwards}
+/* reading-progress tick scale */
+.gauge{position:sticky;top:15vh;height:30vh;width:12px;margin-left:-12px}
+.gauge i{position:absolute;right:0;width:5px;height:1px;background:rgba(143,123,196,.55);transform-origin:100% 50%;transition:transform .5s var(--spring),background-color .3s}
+.gauge i.mj{width:9px}
+.gauge i.on{background:var(--lilac-d);transform:scaleX(1.5)}
+.gauge b{position:absolute;right:-4px;top:0;width:19px;height:1px;background:var(--lilac-d);will-change:transform}
+.gauge b::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--lilac-d);box-shadow:0 0 0 2px var(--chalk)}
+html.mo .gauge{animation:fade .6s ease calc(var(--t0,0s) + 1.2s) backwards}
+/* soft window light drifting across the photos */
+html.mo .ph:not(.init)::after{content:"";position:absolute;inset:-12% -45%;pointer-events:none;
+  background:
+    linear-gradient(104deg,transparent 36%,rgba(255,255,255,.2) 43%,rgba(255,255,255,.05) 50%,transparent 56%),
+    repeating-linear-gradient(104deg,transparent 0 13%,rgba(30,27,46,.075) 13% 14.6%,transparent 14.6% 27%);
+  animation:light 17s ease-in-out infinite alternate;animation-play-state:paused}
+html.mo .ph.is-vis:not(.init)::after{animation-play-state:running}
+@keyframes light{from{transform:translateX(-13%)}to{transform:translateX(13%)}}
+
+/* ---- 6. interaction ---- */
+/* buttons: spring press + a lilac band that stretches */
+html.mo .btn{transition:background-color .3s,scale .55s var(--spring)}
+html.mo .btn::after{content:"";position:absolute;left:22px;right:22px;bottom:11px;height:2px;border-radius:1px;background:var(--lilac);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .65s var(--spring)}
+html.mo .book .btn::after{background:var(--lilac-d)}
+html.mo .btn:hover::after,html.mo .btn:focus-visible::after{transform:scaleX(1)}
+html.mo .btn:active{transform:none;scale:.95;transition-duration:.3s,.1s}
+html.mo .btn:active::after{transform:scaleX(1.09) scaleY(.5);transition-duration:.12s}
+html.mo .btn.is-snap::after{animation:snap .7s var(--spring)}
+@keyframes snap{0%{transform:scaleX(1.12) scaleY(.4)}100%{transform:scaleX(0)}}
+html.mo .filter button,html.mo .menu-btn,html.mo .nav a.go,html.mo .map-replay{transition:background-color .25s,color .25s,scale .5s var(--spring)}
+html.mo .filter button:active,html.mo .menu-btn:active,html.mo .nav a.go:active,html.mo .map-replay:active{scale:.93;transition-duration:.25s,.25s,.1s}
+html.mo .more::after{transform-origin:0 50%;transition:width .35s var(--ease),transform .5s var(--spring)}
+html.mo .more:active::after{transform:scaleX(1.5)}
+
+/* menu: underline drawn from the axis side */
+@media (min-width:1020px){
+  html.mo .nav a:not(.go){position:relative;background:none}
+  html.mo .nav a:not(.go)::after{content:"";position:absolute;left:12px;right:12px;top:calc(50% + .95em);height:1px;background:var(--lilac);
+    transform:scaleX(0);transform-origin:0 50%;transition:transform .6s var(--spring)}
+  html.mo .nav a:not(.go):hover::after,html.mo .nav a:not(.go):focus-visible::after{transform:none}
+  html.mo .nav a[aria-current="page"]:not(.go)::after{height:2px;background:var(--lilac-d);transform:none;animation:lineDraw .7s var(--spring) calc(var(--t0,0s) + .5s) backwards}
+}
+@media (max-width:1019px){
+  html.mo .nav ul::before{transform-origin:50% 0}
+  html.mo .nav.open ul::before{animation:segDraw .6s cubic-bezier(.6,0,.3,1) backwards}
+  html.mo .nav.open li{animation:fromAxis .6s var(--spring) calc(var(--i,0) * 45ms + .06s) backwards}
+  html.mo .nav li:nth-child(2){--i:1}
+  html.mo .nav li:nth-child(3){--i:2}
+  html.mo .nav li:nth-child(4){--i:3}
+  html.mo .nav li:nth-child(5){--i:4}
+  html.mo .nav li:nth-child(6){--i:5}
+  html.mo .nav li:nth-child(7){--i:6}
+  html.mo .nav li:nth-child(8){--i:7}
+  html.mo .nav a::before{transition:scale .5s var(--spring)}
+  html.mo .nav a:active::before{scale:1.8}
+}
+
+/* table rows / list rows answer the pointer */
+html.mo .tbl tbody tr{transition:background-color .3s}
+html.mo .tbl tbody th{transition:translate .5s var(--spring),color .3s}
+html.mo .side-list b,html.mo .news b{transition:translate .5s var(--spring)}
+@media (hover:hover){
+  html.mo .tbl tbody tr:hover{background-color:rgba(143,123,196,.09)}
+  html.mo .tbl tbody tr:hover th{translate:6px 0}
+  html.mo .side-list li:hover b,html.mo .news li:hover b{translate:6px 0}
+  html.mo .faq summary:hover{translate:7px 0}
+}
+html.mo .tbl tbody tr:active{background-color:rgba(143,123,196,.12)}
+/* photos lean a few degrees toward the pointer (fine pointers); press on touch */
+@media (hover:hover) and (pointer:fine){
+  html.mo .ph{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+    transition:clip-path .95s var(--inout),translate 1.25s var(--spring-soft),transform .7s var(--spring-soft)}
+  html.mo .ph.is-tilt{transition-duration:.95s,1.25s,.22s}
+}
+@media (hover:none){
+  html.mo .ph img{transition:transform 1.6s var(--ease),scale .6s var(--spring)}
+  html.mo .ph:active img{scale:1.035}
+}
+
+/* FAQ opens with a spring */
+html.mo .faq summary{transition:translate .5s var(--spring),color .3s}
+html.mo .faq summary::after{transition:transform .65s var(--spring)}
+html.mo .faq summary:active{translate:7px 0}
+html.mo .faq details[open] > .a{transform-origin:0 0;animation:faqOpen .7s var(--spring) backwards}
+@keyframes faqOpen{from{opacity:0;transform:translateY(-16px) scaleY(.82)}}
+
+/* form: on focus a node lands on the axis and the label straightens next to it */
+html.mo .f{position:relative}
+html.mo .f::before{content:"";position:absolute;left:var(--fx,-26px);top:12px;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--lilac);
+  box-shadow:0 0 0 1px var(--lilac),0 0 0 5px var(--ink);transform:scale(0);transition:transform .55s var(--spring)}
+html.mo .f:focus-within::before{transform:none}
+html.mo .f label{transform-origin:0 100%;transition:color .3s}
+html.mo .f:focus-within label{color:var(--pale);animation:labelAlign .7s var(--spring)}
+@keyframes labelAlign{from{transform:translateX(-12px) rotate(-5deg)}}
+html.mo .f.is-ok label em{color:var(--lilac)}
+
+/* demo message: ring draws, node lands, box settles */
+.msg-ic{flex:0 0 26px;width:26px;height:26px;overflow:visible}
+.msg-ic .r{fill:none;stroke:var(--warm);stroke-width:1.5;stroke-dasharray:70;stroke-dashoffset:70;transform:rotate(-90deg);transform-origin:50% 50%}
+.msg-ic .d{fill:var(--warm);transform-origin:50% 50%;transform-box:fill-box}
+.msg-ic .p{fill:none;stroke:var(--warm);stroke-width:1;opacity:0;transform-origin:50% 50%;transform-box:fill-box}
+html.mo .msg.has-ic{display:flex;align-items:center;gap:14px;transform-origin:0 50%}
+html.mo .msg.has-ic[hidden]{display:none}
+html.mo .msg.has-ic:not([hidden]){animation:msgIn .8s var(--spring) both}
+html.mo .msg.has-ic:not([hidden]) .r{animation:ringDraw .7s cubic-bezier(.6,0,.3,1) .15s forwards}
+html.mo .msg.has-ic:not([hidden]) .d{animation:nodePop .7s var(--spring) .6s backwards}
+html.mo .msg.has-ic:not([hidden]) .p{animation:ping2 1.1s var(--ease) .7s both}
+@keyframes msgIn{from{opacity:0;transform:translateY(16px) scale(.9) rotate(-1.5deg)}}
+@keyframes ringDraw{to{stroke-dashoffset:0}}
+html.mo .level.is-level .lv-b::after{animation:ping2 1.1s var(--ease) .35s both}
+html.mo .level.wob .lv-tube{animation:wob .9s var(--spring)}
+@keyframes wob{from{transform:rotate(-9deg)}}
+
+/* ---- 7. showpieces ---- */
+/* home: spring */
+html.mo .spr svg{touch-action:pan-y}
+html.mo .spr .sp-h{cursor:grab;touch-action:pan-y}
+html.mo .spr .sp-h.is-drag{cursor:grabbing}
+html.mo .spr .sp-ring{transition:scale .5s var(--spring);transform-box:fill-box;transform-origin:50% 50%}
+html.mo .spr .sp-h:hover .sp-ring{scale:1.2}
+html.mo .spr .sp-h.is-drag .sp-ring{scale:1.35}
+html.mo .e-spr:not(.mo-in){opacity:0}
+html.mo .e-spr.mo-in{animation:fade .6s ease var(--d,0s) backwards}
+
+/* classes: timeline fills with the scroll */
+html.mo .tl.is-live .tl-bar i:not(.on){background:transparent;box-shadow:inset 0 0 0 1px rgba(91,74,148,.45)}
+html.mo .tl.is-live .tl-bar i{transition:background-color .35s}
+html.mo .tl.is-live .tl-bar i.on{animation:tlPop .6s var(--spring)}
+html.mo .tl.is-live .tl-sc span{transition:color .3s}
+html.mo .tl.is-live .tl-sc span.on{color:var(--lilac-d)}
+@keyframes tlPop{from{transform:scaleY(2.1)}}
+html.mo .tbl tr.tl-cur th{color:var(--lilac-d);translate:6px 0}
+
+/* schedule: filter flip + today's column */
+html.mo .tt .c{transition:opacity .4s var(--ease) var(--fd,0s),scale .6s var(--spring) var(--fd,0s),background-color .3s}
+html.mo .tt[data-show="mat"] .c[data-type="reformer"],html.mo .tt[data-show="reformer"] .c[data-type="mat"]{opacity:.14;transform:none;scale:.84}
+html.mo .tt.flip-a .c{animation:flipA .66s linear var(--fd,0s)}
+html.mo .tt.flip-b .c{animation:flipB .66s linear var(--fd,0s)}
+@keyframes flipA{0%{transform:perspective(300px) rotateX(0);animation-timing-function:cubic-bezier(.5,0,.9,.5)}34%{transform:perspective(300px) rotateX(90deg);animation-timing-function:var(--spring-soft)}100%{transform:perspective(300px) rotateX(0)}}
+@keyframes flipB{0%{transform:perspective(300px) rotateX(0);animation-timing-function:cubic-bezier(.5,0,.9,.5)}34%{transform:perspective(300px) rotateX(90deg);animation-timing-function:var(--spring-soft)}100%{transform:perspective(300px) rotateX(0)}}
+html.mo .count.is-chg{animation:textIn .5s var(--spring)}
+html.mo .tt td.tcol{position:relative}
+html.mo .tt td.tcol .c{position:relative;z-index:1}
+html.mo .tt td.tcol::after{content:"";position:absolute;inset:0;pointer-events:none;background:rgba(240,183,156,.3);opacity:.25;animation:colPulse 2.8s ease-in-out infinite alternate;animation-play-state:paused}
+html.mo .tt.is-vis td.tcol::after{animation-play-state:running}
+html.mo .tt .today::after{animation:dotPulse 2.8s ease-in-out infinite alternate}
+@keyframes colPulse{from{opacity:.15}to{opacity:.85}}
+@keyframes dotPulse{from{transform:none}to{transform:scale(1.7)}}
+
+/* access: route */
+html.mo .map .wp{transform-box:fill-box;transform-origin:50% 50%}
+html.mo .map .wp.on{animation:wpPop .7s var(--spring)}
+html.mo .map .goal.on{animation:goalPop .9s var(--spring)}
+html.mo .map .goal{transform-box:fill-box;transform-origin:50% 50%}
+@keyframes wpPop{from{transform:scale(2.6)}}
+@keyframes goalPop{from{transform:scale(1.35)}}

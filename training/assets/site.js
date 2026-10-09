@@ -60,6 +60,7 @@
     fill.style.transform='scaleX('+(min/50).toFixed(4)+')';
     var txt=fmt(Math.round(min*60));
     if(txt!==last){rc.textContent=txt;last=txt;}
+    if(window.__paceRun)window.__paceRun(min,idx);
     if(idx!==active){
       active=idx;
       for(var j=0;j<phases.length;j++){

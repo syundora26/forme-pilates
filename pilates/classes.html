@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.className+=' js';</script>
+<script>(function(){var d=document.documentElement,c=' js';try{if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){c+=' mo';try{var t=+sessionStorage.getItem('fp-nav');sessionStorage.removeItem('fp-nav');if(t&&Date.now()-t<4000)c+=' mo-in'}catch(e){}setTimeout(function(){if(!window.__fpmo)d.classList.remove('mo','mo-in')},2500)}}catch(e){}d.className+=c})();</script>
 <title>クラス｜FORME PILATES</title>
 <meta name="description" content="FORME PILATESのクラス紹介。マットとリフォーマーそれぞれの内容、55分の時間配分、入門と基礎のちがい、定員、向いている方、レッスン後の感じ方、当日の服装をまとめています。">
 <meta name="robots" content="noindex">
@@ -20,8 +20,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
-<body>
+<body class="p-classes">
+<div class="sweep" aria-hidden="true"></div>
 <a class="skip" href="#main">本文へ移動</a>
 
 <header class="site-head">
@@ -59,6 +61,12 @@
       <div class="r">
         <h2><span class="node" aria-hidden="true"></span>55分の中身</h2>
         <p class="lead">マットもリフォーマーも、時間の使い方は同じです。最初と最後に同じ姿勢で立ち、その間に何が変わったかを自分で確かめます。</p>
+        <div class="tl" id="tl" aria-hidden="true">
+          <p class="tl-now"><b id="tl-n">55</b><span>分</span></p>
+          <div class="tl-bar"><i style="flex-grow:5"></i><i style="flex-grow:10"></i><i style="flex-grow:25"></i><i style="flex-grow:10"></i><i style="flex-grow:5"></i></div>
+          <div class="tl-fill"><b></b></div>
+          <div class="tl-sc"><span style="left:0">0</span><span style="left:9.09%">5</span><span style="left:27.27%">15</span><span style="left:72.73%">40</span><span style="left:100%">55分</span></div>
+        </div>
         <div class="tw" role="region" aria-label="55分の時間配分（横にスクロールできます）" tabindex="0">
           <table class="tbl">
             <caption>1回のクラスの時間配分（目安）</caption>
@@ -244,5 +252,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

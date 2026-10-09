@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(w,c){c.add('js');try{if(w.matchMedia&&w.matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(!('IntersectionObserver' in w)||!w.requestAnimationFrame||!w.CSS||!CSS.supports('clip-path','inset(0)')||!document.documentElement.animate)return;c.add('mo');setTimeout(function(){if(!w.__mo)c.remove('mo','mo-arrive')},2500);var t=sessionStorage.getItem('pace-slash');if(t){sessionStorage.removeItem('pace-slash');if(Date.now()-t<4000)c.add('mo-arrive')}}catch(e){}})(window,document.documentElement.classList);</script>
 <title>体験予約｜PACE TRAINING</title>
 <meta name="description" content="PACE TRAININGの体験トレーニングのご予約ページです。ご希望の日時と目的、お名前、ご連絡先を入力してお申し込みください。予約から体験、ご提案までの4つのステップと、お電話でのご予約方法も案内しています。">
 <meta name="robots" content="noindex">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&family=Noto+Sans+JP:wght@400;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
@@ -54,7 +55,7 @@
     </div>
   </section>
 
-  <section class="sec sec--orange cut before-cut" aria-labelledby="book-h" style="--cx:36%">
+  <section class="sec sec--orange cut" aria-labelledby="book-h" style="--cx:36%">
     <div class="wrap book">
       <div>
         <h2 class="tilt" id="book-h">まずは一度、<br>体験から。</h2>
@@ -110,6 +111,8 @@
       </form>
     </div>
   </section>
+
+  <div class="mq mq--pre" aria-hidden="true"><div class="mq-track"><div class="mq-set"><span>予約</span><i></i><span>相談</span><i></i><span>体験</span><i></i><span>ご提案</span><i></i><span class="en">4 STEPS</span><i></i></div></div></div>
 
   <section class="sec cut" aria-labelledby="step-h" style="--cx:66%">
     <div class="wrap">
@@ -183,5 +186,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

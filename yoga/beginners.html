@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(d,w){var h=d.documentElement;h.classList.add('js');try{if(w.IntersectionObserver&&w.requestAnimationFrame&&w.matchMedia&&!w.matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('mo');try{if(sessionStorage.getItem('mo-veil')){sessionStorage.removeItem('mo-veil');h.classList.add('mo-arrive');}}catch(e){}setTimeout(function(){if(!w.__mo)h.classList.remove('mo','mo-arrive');},2500);}}catch(e){}})(document,window);</script>
 <title>はじめての方へ｜呼吸舎</title>
 <meta name="description" content="ヨガがはじめての方へ。持ちものと服装、体験クラス当日の流れ、からだのかたさ・年齢・妊娠中・遅刻などのよくある質問をまとめました。手ぶらで参加でき、マットは無料でお貸しします。">
 <meta name="robots" content="noindex">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動する</a>
@@ -170,5 +171,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

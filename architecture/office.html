@@ -14,11 +14,12 @@
 <meta property="og:image" content="img/court.jpg">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23EDEEEC'/%3E%3Cpath d='M6 6h20v20H6z' fill='none' stroke='%2322252A' stroke-width='3'/%3E%3Crect x='13' y='13' width='7' height='7' fill='%239A5B34'/%3E%3C/svg%3E">
-<script>(function(d){var c=d.documentElement.classList;c.add('js');if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)&&'IntersectionObserver' in window)c.add('mo')})(document)</script>
+<script>(function(d,w){var r=d.documentElement,c=r.classList;c.add('js');if(!(w.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)&&'IntersectionObserver' in w){c.add('mo','pre');try{var s=sessionStorage,x=(s.getItem('yh-x')||'').split('|');s.removeItem('yh-x');if(x[1]&&Date.now()-x[1]<4000){c.add('arr');r.setAttribute('data-no',x[0])}if(!s.getItem('yh-seen')){c.add('first');s.setItem('yh-seen','1')}}catch(e){}setTimeout(function(){c.remove('pre','arr');if(!w.__mo)c.remove('mo')},2500)}})(document,window)</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Shippori+Mincho+B1:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 
 </head>
 <body id="top">
@@ -153,7 +154,7 @@
 <text x="340" y="218" class="c">徒歩6分・約450m</text>
 <text x="300" y="232" class="c end">一つ目の角</text><path class="fn" d="M303 228L314 172"/>
 <text x="300" y="262" class="c end">二つ目の角を左へ</text><path class="fn" d="M303 260L316 288"/>
-<circle cx="596" cy="24" r="12" class="fn"/><path d="M596 36V8M592 16l4-8 4 8"/><text x="614" y="20">N</text>
+<g class="north" style="transform-origin:596px 24px"><circle cx="596" cy="24" r="12" class="fn"/><path d="M596 36V8M592 16l4-8 4 8"/></g><text x="614" y="20">N</text>
 <path d="M500 406H600M500 402v8M550 402v8M600 402v8"/><text x="500" y="398" class="q">0</text><text x="578" y="398" class="q">100m</text>
 </svg>
 
@@ -244,5 +245,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js" onerror="document.documentElement.classList.remove('mo','pre','arr')"></script>
 </body>
 </html>

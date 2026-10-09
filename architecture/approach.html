@@ -14,11 +14,12 @@
 <meta property="og:image" content="img/court.jpg">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23EDEEEC'/%3E%3Cpath d='M6 6h20v20H6z' fill='none' stroke='%2322252A' stroke-width='3'/%3E%3Crect x='13' y='13' width='7' height='7' fill='%239A5B34'/%3E%3C/svg%3E">
-<script>(function(d){var c=d.documentElement.classList;c.add('js');if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)&&'IntersectionObserver' in window)c.add('mo')})(document)</script>
+<script>(function(d,w){var r=d.documentElement,c=r.classList;c.add('js');if(!(w.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)&&'IntersectionObserver' in w){c.add('mo','pre');try{var s=sessionStorage,x=(s.getItem('yh-x')||'').split('|');s.removeItem('yh-x');if(x[1]&&Date.now()-x[1]<4000){c.add('arr');r.setAttribute('data-no',x[0])}if(!s.getItem('yh-seen')){c.add('first');s.setItem('yh-seen','1')}}catch(e){}setTimeout(function(){c.remove('pre','arr');if(!w.__mo)c.remove('mo')},2500)}})(document,window)</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Shippori+Mincho+B1:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 
 </head>
 <body id="top">
@@ -81,7 +82,7 @@
             <text x="58" y="28" class="j q">敷地</text>
             <path class="fn" d="M122 70V40"/><circle cx="122" cy="70" r="2.2" class="solid"/>
             <text x="126" y="44" class="j q">杭</text>
-            <circle cx="236" cy="22" r="9" class="fn"/><path d="M236 31V10M233 16l3-6 3 6"/><text x="233" y="46">N</text>
+            <g class="north" style="transform-origin:236px 22px"><circle cx="236" cy="22" r="9" class="fn"/><path d="M236 31V10M233 16l3-6 3 6"/></g><text x="233" y="46">N</text>
           </svg>
           <figcaption>略図 01　冬至の影を敷地に写す</figcaption>
         </figure>
@@ -111,7 +112,7 @@
             <text x="130" y="96" class="j mid">中庭</text>
             <text x="130" y="26" class="j q mid">閉じる壁</text>
             <text x="200" y="110" class="j q">出口</text>
-            <circle cx="240" cy="148" r="9" class="fn"/><path d="M240 157V136M237 142l3-6 3 6"/>
+            <g class="north" style="transform-origin:240px 148px"><circle cx="240" cy="148" r="9" class="fn"/><path d="M240 157V136M237 142l3-6 3 6"/></g>
           </svg>
           <figcaption>略図 02　入口と出口を対角に置く</figcaption>
         </figure>
@@ -297,5 +298,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js" onerror="document.documentElement.classList.remove('mo','pre','arr')"></script>
 </body>
 </html>

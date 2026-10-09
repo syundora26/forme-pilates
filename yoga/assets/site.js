@@ -45,6 +45,7 @@
     day.classList.toggle('is-night',night);
     var s=t/2,h=track.clientHeight;
     mark.style.transform='translate('+(26-88*s*(1-s))+'px,'+(s*h)+'px)';
+    day.__t=t;if(window.__moSky)window.__moSky(t);
   }
   function req(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
   day.classList.add('day--live');

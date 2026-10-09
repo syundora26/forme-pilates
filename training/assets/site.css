@@ -480,17 +480,18 @@ h3.tilt{font-size:clamp(1.4rem,6vw,2rem)}
 }
 
 /* ---------- motion (only when JS is on and motion is allowed) ---------- */
+/* the full motion layer lives in motion.css (html.mo); the rules below are the simple fallback when it is not active */
 @media (prefers-reduced-motion:no-preference){
-  .js:not(.done) .hero h1 span{animation:line .62s cubic-bezier(.2,.8,.2,1) both}
-  .js:not(.done) .hero h1 span:nth-child(1){animation-delay:.34s}
-  .js:not(.done) .hero h1 span:nth-child(2){animation-delay:.46s}
-  .js:not(.done) .hero h1 span:nth-child(3){animation-delay:.58s}
-  .js:not(.done) .hero-sub,.js:not(.done) .hero-act{animation:line .5s .86s cubic-bezier(.2,.8,.2,1) both}
-  .js:not(.done) .hero-visual .frame::before{animation:slab .5s .5s cubic-bezier(.2,.8,.2,1) both}
-  .js:not(.done) .wipe{display:block;position:absolute;z-index:4;top:-10%;bottom:-10%;left:0;width:46%;background:var(--orange);pointer-events:none;animation:wipe .95s cubic-bezier(.65,0,.3,1) both}
-  .js .phead h1{animation:ptitle .55s .05s cubic-bezier(.2,.8,.2,1) both}
+  .js:not(.done):not(.mo) .hero h1 span{animation:line .62s cubic-bezier(.2,.8,.2,1) both}
+  .js:not(.done):not(.mo) .hero h1 span:nth-child(1){animation-delay:.34s}
+  .js:not(.done):not(.mo) .hero h1 span:nth-child(2){animation-delay:.46s}
+  .js:not(.done):not(.mo) .hero h1 span:nth-child(3){animation-delay:.58s}
+  .js:not(.done):not(.mo) .hero-sub,.js:not(.done):not(.mo) .hero-act{animation:line .5s .86s cubic-bezier(.2,.8,.2,1) both}
+  .js:not(.done):not(.mo) .hero-visual .frame::before{animation:slab .5s .5s cubic-bezier(.2,.8,.2,1) both}
+  .js:not(.done):not(.mo-arrive) .wipe{display:block;position:absolute;z-index:4;top:-10%;bottom:-10%;left:0;width:46%;background:var(--orange);pointer-events:none;animation:wipe .95s cubic-bezier(.65,0,.3,1) both}
+  .js:not(.mo) .phead h1{animation:ptitle .55s .05s cubic-bezier(.2,.8,.2,1) both}
   @keyframes ptitle{from{opacity:0;transform:skewX(-6deg) translate(-10px,40px)}to{opacity:1;transform:skewX(-6deg)}}
-  .js .phead .chip{animation:chip .5s .25s cubic-bezier(.2,.8,.2,1) both}
+  .js:not(.mo) .phead .chip{animation:chip .5s .25s cubic-bezier(.2,.8,.2,1) both}
   .js .nav.is-open{animation:drop .22s ease-out both}
   @keyframes line{from{opacity:0;transform:translate(-10px,64px)}to{opacity:1;transform:none}}
   @keyframes slab{from{transform:translate(0,0)}to{transform:translate(12px,12px)}}

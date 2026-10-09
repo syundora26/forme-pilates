@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(){var h=document.documentElement;h.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('mo','mo-intro');setTimeout(function(){h.classList.remove('mo-intro')},2200);try{if(sessionStorage.getItem('clw')){sessionStorage.removeItem('clw');h.classList.add('mo-enter')}}catch(e){}setTimeout(function(){if(!window.__mo)h.classList.remove('mo','mo-enter')},2500)}}catch(e){}})();</script>
 <title>ご依頼の流れ｜CLEARLINE AUTO CARE</title>
 <meta name="description" content="CLEARLINE AUTO CARE へのご依頼の流れ。ご相談、お見積り、お預かり、施工、確認、お引き渡しまでの六段階と、施工ごとのお預かり日数、代車がないこと、お預け前に車内から降ろしていただくものをご案内します。">
 <meta name="robots" content="noindex">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500&family=Unbounded:wght@300;600&display=swap">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 
 </head>
 <body>
@@ -39,7 +40,7 @@
 
 <main id="main">
 <nav class="crumb" aria-label="パンくずリスト"><div class="wrap"><ol><li><a href="index.html">ホーム</a></li><li><span>ご依頼の流れ</span></li></ol></div></nav>
-<div class="phead"><div class="paint strip lit" aria-hidden="true"><i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-glint"></i></div><div class="wrap phead-in"><span class="en" aria-hidden="true">FLOW</span><h1>ご依頼の流れ</h1><p class="lead">最初のご連絡から、お引き渡しまで。<br>六つの段階で、何が起きるかをお伝えします。</p></div></div>
+<div class="phead"><div class="paint strip lit" aria-hidden="true"><i class="p-sky"></i><i class="p-flake"></i><i class="p-tube"></i><i class="p-tube t2"></i><i class="p-bloom"></i><i class="p-glint"></i><i class="p-sweep"></i></div><div class="wrap phead-in"><span class="en" aria-hidden="true">FLOW</span><h1>ご依頼の流れ</h1><p class="lead">最初のご連絡から、お引き渡しまで。<br>六つの段階で、何が起きるかをお伝えします。</p></div></div>
 <section class="sec" aria-labelledby="h-seq">
   <div class="wrap">
     <div class="shead">
@@ -189,5 +190,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
 </body>
 </html>
