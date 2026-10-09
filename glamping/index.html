@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIELD NOTE 森のグランピング｜長野の森で、焚き火と星空の一泊二日</title>
+<meta name="description" content="長野の森にある小さなグランピング場「FIELD NOTE 森のグランピング」。森のキャビンかテントロッジに泊まり、鉄のフライパンで夕食を焼いて、焚き火と星空で夜をすごす一泊二日。空き状況の確認とご予約はこちらから。">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="FIELD NOTE 森のグランピング">
+<meta property="og:title" content="FIELD NOTE 森のグランピング｜電波より、焚き火。">
+<meta property="og:description" content="森のキャビンかテントロッジに泊まり、火を囲んで夕食を焼き、星を見て眠る。長野の森の小さなグランピング場です。">
+<meta property="og:image" content="img/dusk.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#17352A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352A'/%3E%3Cpath d='M8 50 32 12l24 38z' fill='%23E9DFC8'/%3E%3Cpath d='M25 50l7-18 7 18z' fill='%23E8602C'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Campground",
+  "name": "FIELD NOTE 森のグランピング",
+  "description": "長野の森にある、森のキャビンとテントロッジのグランピング場（架空の施設を題材にしたデモサイトです）。",
+  "telephone": "+81-000-00-0000",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "JP",
+    "addressRegion": "長野県",
+    "addressLocality": "○○郡○○町",
+    "streetAddress": "○○ 123"
+  },
+  "checkinTime": "15:00",
+  "checkoutTime": "10:00",
+  "image": "img/dusk.jpg"
+}
+</script>
+<style>
+@font-face{font-family:'FN Heavy';font-weight:400;src:local('Noto Sans CJK JP Black'),local('NotoSansCJKjp-Black'),local('NotoSansCJK-Black'),local('Hiragino Kaku Gothic StdN W8'),local('HiraKakuStdN-W8'),local('Hiragino Kaku Gothic ProN W6'),local('Yu Gothic Bold'),local('YuGothic-Bold')}
+:root{
+  --pine:#17352A; --canvas:#E9DFC8; --ember:#E8602C; --lake:#7FB3C8; --night:#0C1A22; --ink:#1B1F1C;
+  --paper:#F5EFDE; --hard:#0C1A22;
+  --display:'Dela Gothic One','FN Heavy','Noto Sans CJK JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  --body:'Zen Kaku Gothic New','Noto Sans CJK JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  /* scene */
+  --sky-obj:#E9DFC8; --ridge:#24503F; --ground:#0F271F; --tree:#0F271F; --tent:#E9DFC8; --door:#17352A;
+  --flame:#E8602C; --flame-in:#E9DFC8; --glow:0; --star:0; --moon-y:46px; --crescent:0;
+}
+html[data-mode="night"]{
+  --paper:#DDD3BB;
+  --sky-obj:#F6EFD9; --ridge:#16303B; --ground:#050C10; --tree:#050C10; --tent:#D8BC86; --door:#FFC766;
+  --flame:#F0712F; --flame-in:#FFD27A; --glow:1; --star:1; --moon-y:-34px; --crescent:1;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.9;color:var(--ink);background:var(--pine);overflow-x:hidden;font-feature-settings:"palt" 0}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--fg,#1B1F1C);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:12px;top:-80px;z-index:100;background:var(--canvas);color:var(--ink);padding:12px 18px;font-weight:700;border:2px solid var(--ink)}
+.skip:focus{top:12px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* ---------- bands ---------- */
+.band{position:relative;background:var(--bg);color:var(--fg);overflow-x:clip;padding-block:72px 88px}
+.wrap{position:relative;z-index:2;max-width:1120px;margin-inline:auto;padding-inline:20px}
+.b-pine{--bg:#17352A;--fg:#E9DFC8;--accent:#F4A582;--rule:rgba(233,223,200,.45)}
+.b-canvas{--bg:#E9DFC8;--fg:#1B1F1C;--accent:#9C340C;--rule:rgba(27,31,28,.4)}
+.b-map{--bg:#DBCDAB;--fg:#1B1F1C;--accent:#8A2D09;--rule:rgba(27,31,28,.45)}
+.b-ember{--bg:#E8602C;--fg:#1B1F1C;--accent:#1B1F1C;--rule:rgba(27,31,28,.5)}
+.b-night{--bg:#0C1A22;--fg:#E9DFC8;--accent:#9CC7D9;--rule:rgba(233,223,200,.4)}
+html[data-mode="night"] .b-pine{--bg:#0E2A21}
+html[data-mode="night"] .b-canvas{--bg:#0C1A22;--fg:#E9DFC8;--accent:#F4A582;--rule:rgba(233,223,200,.4)}
+html[data-mode="night"] .b-map{--bg:#11242F;--fg:#E9DFC8;--accent:#F4A582;--rule:rgba(233,223,200,.45)}
+html[data-mode="night"] .b-ember{--bg:#1D100A;--fg:#E9DFC8;--accent:#F4A582;--rule:rgba(233,223,200,.4)}
+html[data-mode="night"] .b-night{--bg:#060D12}
+html[data-mode="night"] .hero{--bg:#0A1620}
+html[data-mode="night"] body{background:#0E2A21}
+/* torn paper top edge */
+.torn::before{content:"";z-index:1;position:absolute;left:0;right:0;top:-15px;height:16px;background:var(--bg);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='16'%3E%3Cpath d='M0 16V6l8-3 9 4 11-5 7 3 12-2 9 5 10-4 13 2 8-3 11 4 9-2 12 3 10-5 9 3 11-1 8 4 12-4 10 2 9-3 11 5 10-2 11-1V16Z'/%3E%3C/svg%3E") repeat-x 0 0/220px 16px;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='16'%3E%3Cpath d='M0 16V6l8-3 9 4 11-5 7 3 12-2 9 5 10-4 13 2 8-3 11 4 9-2 12 3 10-5 9 3 11-1 8 4 12-4 10 2 9-3 11 5 10-2 11-1V16Z'/%3E%3C/svg%3E") repeat-x 0 0/220px 16px}
+/* stitched top edge */
+.stitch::after{content:"";position:absolute;left:0;right:0;top:12px;border-top:3px dashed var(--rule);pointer-events:none}
+
+/* theme transition only while switching */
+html.theme-anim *, html.theme-anim *::before, html.theme-anim *::after{
+  transition:background-color .8s ease,color .8s ease,border-color .8s ease,fill .8s ease,stroke .8s ease,opacity .8s ease,transform .8s cubic-bezier(.3,.9,.3,1),box-shadow .8s ease !important}
+
+/* ---------- type ---------- */
+.h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,8.4vw,4.6rem);line-height:1.14;letter-spacing:-.01em;transform:rotate(-1.5deg);transform-origin:left bottom;overflow-wrap:anywhere}
+.h2 em{font-style:normal;color:var(--accent)}
+.b-pine .h2 em,.b-night .h2 em{color:var(--ember)}
+html[data-mode="night"] .h2 em{color:var(--ember)}
+.label{display:inline-block;font-family:var(--display);font-weight:400;font-size:1.45rem;line-height:1.2;background:var(--fg);color:var(--bg);padding:.28em .6em .34em;transform:rotate(-2deg)}
+.note{font-size:.9rem;line-height:1.75}
+p{overflow-wrap:anywhere}
+.lead,.three li,.h2,summary,figcaption,.demo,.note,.price,dd,.fire-list span{word-break:auto-phrase}
+.lead{font-size:1.06rem;font-weight:700;line-height:1.85}
+
+/* ---------- prints ---------- */
+.print{position:relative;width:min(100%,var(--w,280px));background:var(--paper);padding:9px 9px 8px;box-shadow:4px 5px 0 rgba(4,10,13,.34);transform:rotate(var(--r,-2deg));color:#1B1F1C}
+.print img{width:100%}
+.print figcaption{font-size:.8rem;font-weight:700;line-height:1.4;padding:7px 2px 2px;letter-spacing:.02em}
+.tape::before{content:"";position:absolute;left:50%;top:-13px;width:86px;height:26px;margin-left:-43px;background:rgba(127,179,200,.86);transform:rotate(var(--tr,-4deg));
+  clip-path:polygon(0 8%,4% 0,8% 10%,12% 0,16% 8%,100% 0,96% 14%,100% 30%,97% 48%,100% 66%,96% 84%,100% 100%,3% 100%,0 86%,4% 66%,0 48%,3% 28%);z-index:1}
+.tape.t-ember::before{background:rgba(232,96,44,.9)}
+.tape.t-corner::before{left:auto;right:-24px;top:6px;margin:0;--tr:38deg}
+.pin::before{content:"";position:absolute;left:50%;top:-9px;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:var(--ember);border:2px solid #1B1F1C;box-shadow:3px 4px 0 rgba(4,10,13,.4);z-index:1}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:60px;padding:.7em 1.5em;background:var(--ember);color:#1B1F1C;border:3px solid #1B1F1C;border-radius:6px;
+  font-family:var(--display);font-size:1.08rem;line-height:1.3;text-decoration:none;box-shadow:5px 5px 0 var(--hard);transform:rotate(-1deg);cursor:pointer;text-align:center;word-break:auto-phrase}
+.btn:hover{transform:rotate(-1deg) translate(2px,2px);box-shadow:3px 3px 0 var(--hard)}
+.btn:active{transform:rotate(-1deg) translate(5px,5px);box-shadow:0 0 0 var(--hard)}
+.btn svg{flex:none}
+
+/* ---------- night switch ---------- */
+.switch{display:none;position:fixed;top:10px;right:10px;z-index:60;align-items:center;gap:9px;min-height:50px;padding:6px 10px 6px 13px;background:#E9DFC8;color:#1B1F1C;--fg:#1B1F1C;border:2px solid #1B1F1C;border-radius:9px;box-shadow:3px 4px 0 #0C1A22;font-weight:700;font-size:.84rem;line-height:1;cursor:pointer}
+html.js .switch{display:inline-flex}
+.switch:focus-visible{outline:3px solid #1B1F1C;box-shadow:0 0 0 3px #E9DFC8,0 0 0 9px #E8602C}
+.sw-track{position:relative;width:58px;height:30px;border-radius:15px;background:#7FB3C8;border:2px solid #1B1F1C;box-shadow:inset 0 3px 0 rgba(12,26,34,.25);flex:none}
+.sw-knob{position:absolute;left:2px;top:2px;width:22px;height:22px;border-radius:50%;background:#E8602C;border:2px solid #1B1F1C;box-shadow:0 2px 0 #1B1F1C;transition:transform .32s cubic-bezier(.3,1.7,.5,1),background-color .3s}
+.switch[aria-checked="true"] .sw-track{background:#0C1A22}
+.switch[aria-checked="true"] .sw-knob{transform:translateX(28px);background:#F6EFD9}
+.sw-n{display:none}
+.switch[aria-checked="true"] .sw-n{display:inline}
+.switch[aria-checked="true"] .sw-d{display:none}
+.sw-txt{min-width:4.1em;text-align:center}
+
+/* ---------- stars ---------- */
+.stars{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:var(--star)}
+.stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#F6EFD9;opacity:.75}
+.stars i.big{width:3px;height:3px;opacity:.95}
+html[data-mode="night"] .stars i.tw{animation:tw 3.4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.9;transform:scale(1)}50%{opacity:.15;transform:scale(.6)}}
+
+/* ---------- hero poster ---------- */
+.hero{padding-block:0 0;overflow:clip}
+.hero::after{content:"";position:absolute;inset:8px;border:2px dashed var(--rule);pointer-events:none;z-index:3}
+.mast{display:flex;flex-direction:column;gap:6px;padding-block:22px 0}
+.brand{display:inline-flex;flex-direction:column;align-self:flex-start;text-decoration:none;line-height:1.1;border:2px solid var(--fg);padding:8px 12px 9px;transform:rotate(-2deg);margin-right:170px}
+.brand{white-space:nowrap;flex:none}
+.brand b{font-family:var(--display);font-weight:400;font-size:1.2rem;letter-spacing:.02em}
+.brand span{font-size:.74rem;font-weight:700;letter-spacing:.14em;margin-top:5px}
+.nav ul{display:flex;flex-wrap:wrap;gap:0 2px;margin-left:-7px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 7px;font-weight:700;font-size:.86rem;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;text-decoration-color:var(--rule)}
+.nav a:hover{text-decoration-color:var(--ember)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:min(17vw,198px);line-height:1.02;letter-spacing:-.02em;margin-top:26px;transform:rotate(-1.5deg);transform-origin:left center}
+.hero h1 span{display:block;white-space:nowrap}
+.hero h1 .l2{color:var(--ember);margin-left:.5em}
+html.js .hero h1{animation:stamp .62s cubic-bezier(.2,1.4,.4,1) .15s both}
+@keyframes stamp{0%{opacity:0;transform:scale(1.22) rotate(-5deg)}55%{opacity:1;transform:scale(.985) rotate(-.6deg)}100%{opacity:1;transform:scale(1) rotate(-1.5deg)}}
+.hero-body{display:grid;gap:30px;margin-top:26px}
+.hero-copy .lead{max-width:27em}
+.hero-copy .btn{margin-top:24px}
+.hero-copy .note{margin-top:18px}
+.hero-prints{display:flex;gap:14px;align-items:flex-start;justify-content:center;margin-bottom:-74px;position:relative;z-index:3}
+.hero-prints .print:nth-child(1){--w:190px;--r:-4deg}
+.hero-prints .print:nth-child(2){--w:128px;--r:5deg;margin-top:38px}
+.scene{position:relative;z-index:1;width:100%;height:clamp(230px,32vw,400px)}
+.scene svg{width:100%;height:100%}
+.s-ridge{fill:var(--ridge)} .s-ground{fill:var(--ground)} .s-tree{fill:var(--tree)}
+.s-line{fill:none;stroke:var(--fg);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+html.js .s-draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.7s ease-out .55s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.s-sky{fill:var(--sky-obj);transform:translateY(var(--moon-y))}
+.s-cres{fill:var(--bg);opacity:var(--crescent);transform:translateY(var(--moon-y))}
+.s-tent{fill:var(--tent)} .s-door{fill:var(--door)}
+.s-glow{opacity:var(--glow)}
+.f-flame{fill:var(--flame)} .f-in{fill:var(--flame-in)} .f-log{stroke:var(--log,#1B1F1C);stroke-width:5;stroke-linecap:round;fill:none}
+.scene{--log:#E9DFC8}
+html[data-mode="night"] .flick{animation:flick 1.3s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes flick{0%{transform:scale(1,1)}50%{transform:scale(.94,1.07)}100%{transform:scale(1.04,.95)}}
+
+/* ---------- intro ---------- */
+.intro{padding-block:64px 80px}
+.intro-grid{display:grid;gap:36px}
+.three{counter-reset:none;display:grid;gap:22px;margin-top:34px}
+.three li{font-size:1.14rem;font-weight:700;line-height:1.75;padding-left:34px;position:relative}
+.three li svg{position:absolute;left:0;top:.42em;color:var(--accent)}
+.intro-side{position:relative;display:flex;gap:18px;align-items:center;justify-content:center}
+.compass{width:112px;flex:none;color:var(--fg)}
+
+/* ---------- stay ---------- */
+.stay-head{display:grid;gap:26px}
+.stamps{display:flex;gap:14px;flex-wrap:wrap}
+.stamp{width:124px;height:124px;border-radius:50%;border:3px solid var(--accent);color:var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.15;font-weight:700;font-size:.76rem;letter-spacing:.08em;transform:rotate(var(--r,-9deg));position:relative;filter:url(#rough)}
+.stamp::before{content:"";position:absolute;inset:5px;border-radius:50%;border:1.5px solid currentColor}
+.stamp b{font-family:var(--display);font-weight:400;font-size:1.7rem;letter-spacing:0;margin:3px 0 2px}
+.stays{display:grid;gap:64px;margin-top:52px}
+.stay{display:grid;gap:22px;justify-items:start;align-content:start}
+.stay h3{margin-bottom:12px}
+.stay dl{margin-top:16px;border-top:2px dashed var(--rule)}
+.stay dl div{display:grid;grid-template-columns:6.5em 1fr;gap:10px;padding:10px 0;border-bottom:2px dashed var(--rule)}
+.stay dt{font-weight:700;color:var(--accent)}
+.stay-foot{margin-top:52px;display:grid;gap:26px;align-items:center}
+.price{border:2px solid var(--fg);padding:14px 18px;font-weight:700;transform:rotate(1deg);max-width:26em}
+
+/* ---------- fire ---------- */
+.fire-grid{display:grid;gap:44px}
+.fire-copy p+p{margin-top:16px}
+.fire-copy .h2{margin-bottom:26px}
+.fire-list{margin-top:24px;border-top:3px solid var(--fg)}
+.fire-list li{padding:11px 0;border-bottom:2px dashed var(--rule);display:grid;grid-template-columns:5.5em 1fr;gap:10px}
+.fire-list b{font-family:var(--display);font-weight:400}
+.fire-pics{position:relative;padding-bottom:176px;display:flex;justify-content:center}
+.fire-pics .print:nth-child(1){--w:330px;--r:-3deg}
+.fire-pics .print:nth-child(2){--w:170px;--r:6deg;position:absolute;right:0;bottom:0}
+.bigfire{overflow:visible;position:absolute;left:8px;bottom:0;width:92px;--log:var(--fg)}
+.b-ember{--flame:#1B1F1C;--flame-in:#E9DFC8}
+html[data-mode="night"] .b-ember{--flame:#F0712F;--flame-in:#FFD27A}
+
+/* ---------- do ---------- */
+.do-head{display:grid;gap:18px;max-width:40em}
+.dos{display:grid;gap:56px;margin-top:50px}
+.do{display:grid;gap:20px;justify-items:start;align-content:start}
+.do:nth-child(2){justify-items:end}
+.do:nth-child(2) .do-txt{justify-self:start}
+.do h3{margin-bottom:12px}
+.do-txt{max-width:24em}
+.contour{position:absolute;inset:0;width:100%;height:100%;color:var(--fg);opacity:.13;pointer-events:none}
+
+/* ---------- course / trail ---------- */
+.course-head{display:grid;gap:18px;max-width:40em}
+.trail-box{position:relative;margin-top:54px}
+.trail-box::before{content:"";position:absolute;left:16px;top:10px;bottom:10px;border-left:5px dotted var(--fg)}
+html.trail-on .trail-box::before{display:none}
+.trail-svg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;display:none}
+html.trail-on .trail-svg{display:block}
+.t-dots{fill:none;stroke:var(--fg);stroke-width:5;stroke-linecap:round;stroke-dasharray:.1 13}
+.t-done{fill:none;stroke:var(--ember);stroke-width:5;stroke-linecap:round}
+.trail{display:grid;gap:54px}
+.stop{position:relative;margin-left:54px}
+.stop-pin{position:absolute;left:-49px;top:12px;width:24px;height:24px;border-radius:50%;background:var(--bg);border:5px solid var(--fg);z-index:1}
+.stop.on .stop-pin{background:var(--ember)}
+.stop time{display:block;font-family:var(--display);font-size:2.6rem;line-height:1.05;color:var(--accent)}
+.stop h3{font-family:var(--display);font-weight:400;font-size:1.3rem;line-height:1.35;margin:6px 0 8px}
+.stop p{max-width:25em}
+.stop .print{margin-top:20px;--w:250px;--r:3deg}
+.walker{position:absolute;left:0;top:0;width:42px;height:42px;margin:-21px 0 0 -21px;z-index:2;display:none;will-change:transform}
+html.trail-on .walker{display:block}
+.walker svg{width:100%;height:100%;filter:drop-shadow(2px 3px 0 rgba(4,10,13,.4))}
+
+/* ---------- faq ---------- */
+.faq-grid{display:grid;gap:34px}
+.faq-list{border-top:3px solid var(--fg)}
+.faq-list details{border-bottom:2px dashed var(--rule)}
+.faq-list summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:14px 4px;font-weight:700;font-size:1.06rem;line-height:1.6;cursor:pointer}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"";flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--fg);background:
+  linear-gradient(var(--fg),var(--fg)) center/14px 2px no-repeat,linear-gradient(var(--fg),var(--fg)) center/2px 14px no-repeat}
+.faq-list details[open] summary::after{background:linear-gradient(var(--fg),var(--fg)) center/14px 2px no-repeat;border-color:var(--accent)}
+.faq-list details p{padding:0 44px 20px 4px}
+
+/* ---------- access ---------- */
+.access-grid{display:grid;gap:40px}
+.access dl{margin-top:26px;border-top:3px solid var(--fg)}
+.access dl div{display:grid;grid-template-columns:5.5em 1fr;gap:10px;padding:12px 0;border-bottom:2px dashed var(--rule)}
+.access dt{font-weight:700;color:var(--accent)}
+.tel{font-family:var(--display);font-size:1.7rem;line-height:1.3;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.tel:hover{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px}
+.map-fig{position:relative;padding-bottom:40px}
+.map{width:100%;max-width:470px;border:2px solid var(--fg);background:var(--bg);transform:rotate(1.2deg)}
+.map text{font-family:var(--body);font-weight:700;font-size:13px;fill:var(--fg)}
+.map .m-road{fill:none;stroke:var(--fg);stroke-width:4;stroke-linecap:round;stroke-dasharray:.1 10}
+.map .m-rail{fill:none;stroke:var(--fg);stroke-width:2.5}
+.map .m-river{fill:none;stroke:var(--lake);stroke-width:9;stroke-linecap:round}
+.map-fig .print{--w:190px;--r:-5deg;margin:-46px 0 0 auto}
+
+/* ---------- booking ticket ---------- */
+.book{padding-block:84px 96px}
+.book-head{text-align:left;margin-bottom:34px}
+.ticket{position:relative;background:var(--paper);color:#1B1F1C;--fg:#1B1F1C;--accent:#9C340C;--rule:rgba(27,31,28,.45);border-radius:10px;box-shadow:7px 8px 0 rgba(4,10,13,.45);transform:rotate(-.6deg);display:grid}
+.t-main{padding:26px 20px 28px}
+.t-stub{position:relative;padding:26px 20px 24px;border-top:3px dashed #1B1F1C}
+.t-stub::before,.t-stub::after{content:"";position:absolute;top:-15px;width:28px;height:28px;border-radius:50%;background:var(--bg)}
+.t-stub::before{left:-14px} .t-stub::after{right:-14px}
+.t-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;border-bottom:3px solid #1B1F1C;padding-bottom:12px;margin-bottom:20px}
+.t-title b{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.2}
+.t-title span{font-size:.8rem;font-weight:700;letter-spacing:.1em}
+.fields{display:grid;gap:16px}
+.field label{display:block;font-weight:700;font-size:.92rem;margin-bottom:5px}
+.field input,.field select{width:100%;min-height:54px;padding:10px 12px;background:#FFFBF0;border:2px solid #1B1F1C;border-radius:4px;font-weight:700;font-size:1.02rem;-webkit-appearance:none;appearance:none}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%231B1F1C' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:38px}
+.ticket .btn{width:100%;margin-top:24px;--hard:#1B1F1C}
+.msg{margin-top:0;font-weight:700;color:#8A2D09}
+.msg:not(:empty){border:2px dashed #8A2D09;padding:10px 14px;margin-top:20px}
+.t-stub .stamps{justify-content:center}
+.t-stub .note{margin-top:16px;text-align:center}
+.t-stub .tel{font-size:1.45rem}
+
+/* ---------- footer ---------- */
+.foot{padding-block:56px 40px}
+.foot-grid{display:grid;gap:30px}
+.foot .brand{margin-right:0;justify-self:start}
+.foot-nav ul{display:flex;flex-wrap:wrap;gap:0 4px;margin-left:-10px}
+.foot-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font-weight:700;text-underline-offset:6px;text-decoration-color:var(--rule)}
+.foot small{display:block;font-size:.84rem;line-height:1.8}
+.foot .demo{margin-top:30px;padding-top:20px;border-top:2px dashed var(--rule);font-size:.9rem}
+
+/* ---------- 768+ ---------- */
+@media (min-width:768px){
+  body{font-size:17px}
+  .wrap{padding-inline:44px}
+  .band{padding-block:104px 124px}
+  .hero{padding-block:0}
+  .hero::after{inset:12px}
+  .switch{top:18px;right:22px}
+  .mast{flex-direction:row;align-items:center;gap:30px;padding-top:30px;padding-right:190px}
+  .brand{margin-right:0}
+  .nav a{padding:0 10px;font-size:.94rem}
+  .hero h1{margin-top:34px}
+  .hero-body{grid-template-columns:minmax(0,1fr) 320px;align-items:start;gap:28px;margin-top:40px}
+  .hero-prints{margin-top:-34px;margin-bottom:-150px;justify-content:flex-end}
+  .hero-prints .print:nth-child(1){--w:210px}
+  .hero-prints .print:nth-child(2){--w:140px;margin-top:120px;margin-left:-34px}
+  .intro{padding-block:96px 110px}
+  .intro-grid{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:50px;align-items:center}
+  .intro-side{flex-direction:column;align-items:flex-end}
+  .three li{font-size:1.26rem}
+  .stay-head{grid-template-columns:1fr auto;align-items:end}
+  .stays{grid-template-columns:1fr 1fr;gap:56px;margin-top:70px}
+  .stay:nth-child(2){margin-top:110px}
+  .stay-foot{grid-template-columns:auto 1fr;gap:50px}
+  .fire-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+  .fire-pics{order:-1;justify-content:flex-start}
+  .fire-pics .print:nth-child(1){--w:430px}
+  .fire-pics .print:nth-child(2){--w:180px}
+  .bigfire{width:96px;left:6px}
+  .fire-pics{padding-bottom:200px}
+  .dos{grid-template-columns:.9fr 1.05fr 1.35fr;gap:40px;margin-top:70px}
+  .do:nth-child(2){margin-top:90px;justify-items:start}
+  .do:nth-child(3){margin-top:26px}
+  .trail-box{margin-top:76px}
+  .trail-box::before{left:50%}
+  .trail{gap:40px}
+  .stop{width:40%;margin-left:3%}
+  .stop:nth-child(even){margin-left:57%}
+  .stop time{font-size:3.4rem}
+  .stop-pin{left:auto;right:-82px;top:20px}
+  .stop:nth-child(even) .stop-pin{right:auto;left:-82px}
+  .faq-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:56px;align-items:start}
+  .access-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+  .ticket{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+  .t-main{padding:38px 40px 40px}
+  .t-stub{border-top:0;border-left:3px dashed #1B1F1C;padding:38px 28px;display:flex;flex-direction:column;justify-content:center}
+  .t-stub::before,.t-stub::after{left:-15.5px;right:auto}
+  .t-stub::before{top:-14px} .t-stub::after{top:auto;bottom:-14px}
+  .fields{grid-template-columns:1.3fr 1fr 1fr}
+  .foot-grid{grid-template-columns:auto 1fr auto;align-items:start;gap:50px}
+}
+@media (min-width:1100px){
+  .hero-body{grid-template-columns:minmax(0,1fr) 500px}
+  .hero-prints .print:nth-child(1){--w:320px}
+  .hero-prints .print:nth-child(2){--w:200px;margin-top:150px}
+  .fire-pics .print:nth-child(1){--w:480px}
+  .fire-pics .print:nth-child(2){--w:210px}
+  .bigfire{left:60px}
+  .stop .print{--w:300px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  html.js .s-draw{stroke-dasharray:none;stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<button class="switch" id="nightSwitch" type="button" role="switch" aria-checked="false" aria-label="夜にする">
+  <span class="sw-txt" aria-hidden="true"><span class="sw-d">夜にする</span><span class="sw-n">朝にする</span></span>
+  <span class="sw-track" aria-hidden="true"><span class="sw-knob"></span></span>
+</button>
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<!-- shared drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+    <radialGradient id="glowg"><stop offset="0" stop-color="#FFB347" stop-opacity=".75"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
+    <symbol id="tree" viewBox="-24 -64 48 74" overflow="visible"><path d="M0-62 15-34H8L21-8H4V9h-8V-8h-17L-8-34h-7z"/></symbol>
+    <symbol id="fire" viewBox="-40 -70 80 84" overflow="visible">
+      <circle class="s-glow" r="62" cy="-18" fill="url(#glowg)"/>
+      <g class="flick"><path class="f-flame" d="M0-64c4 14 20 22 20 40C20-9 11 0 0 0S-20-9-20-24c0-9 5-14 9-20 1 7 4 10 7 11C-6-44-4-54 0-64z"/>
+      <path class="f-in" d="M0-34c2 7 9 11 9 20C9-6 5-1 0-1S-9-6-9-14c0-5 3-8 5-11 1 4 2 5 3 5 0-5 0-9 1-14z"/></g>
+      <path class="f-log" d="M-30 8 26-6M-26-6 30 8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="band b-pine hero" id="top">
+  <div class="wrap">
+    <div class="mast">
+      <a class="brand" href="#top"><b>FIELD NOTE</b><span>森のグランピング</span></a>
+      <nav class="nav" aria-label="ページ内メニュー">
+        <ul>
+          <li><a href="#stay">泊まる</a></li>
+          <li><a href="#fire">火と食事</a></li>
+          <li><a href="#course">一泊の流れ</a></li>
+          <li><a href="#access">アクセス</a></li>
+          <li><a href="#book">予約</a></li>
+        </ul>
+      </nav>
+    </div>
+    <h1><span class="l1">電波より、</span><span class="l2">焚き火。</span></h1>
+    <div class="hero-body">
+      <div class="hero-copy">
+        <p class="lead">スマホのアンテナは、ときどき一本になります。<br>そのかわり、薪はたっぷり用意しました。</p>
+        <a class="btn" href="#book">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M9.500 21 12 14l2.500 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg>
+          空きを確認して予約する
+        </a>
+        <p class="note">チェックイン 15:00 ／ チェックアウト 10:00</p>
+      </div>
+      <div class="hero-prints">
+        <!-- 要差し替え：実際の施設写真 -->
+        <figure class="print tape"><img src="img/dusk.jpg" width="714" height="458" alt="夕暮れの山並みを背に、明かりのともったテントと屋外の椅子"><figcaption>日暮れのテントロッジ</figcaption></figure>
+        <!-- 要差し替え：実際の施設写真 -->
+        <figure class="print pin"><img src="img/view.jpg" width="386" height="470" alt="テントの入口から見える、椅子の並んだデッキと森"><figcaption>入口からの眺め</figcaption></figure>
+      </div>
+    </div>
+  </div>
+  <div class="scene" aria-hidden="true">
+    <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMax slice" focusable="false">
+      <circle class="s-sky" cx="800" cy="150" r="44"/>
+      <circle class="s-cres" cx="820" cy="140" r="38"/>
+      <path class="s-ridge" d="M0 262 118 204l88 34 124-90 122 84 108-52 142 62 118-72 142 76 118-52 120 58V400H0z"/>
+      <path class="s-line s-draw" pathLength="1" d="M0 262 118 204l88 34 124-90 122 84 108-52 142 62 118-72 142 76 118-52 120 58"/>
+      <path class="s-ground" d="M0 334c200-28 400-10 600-20s400-12 600 12v74H0z"/>
+      <g class="s-tree">
+        <use href="#tree" x="38" y="262" width="62" height="96"/><use href="#tree" x="112" y="276" width="46" height="70"/>
+        <use href="#tree" x="306" y="244" width="70" height="108"/><use href="#tree" x="372" y="268" width="50" height="78"/><use href="#tree" x="424" y="254" width="60" height="92"/>
+        <use href="#tree" x="770" y="250" width="64" height="98"/><use href="#tree" x="836" y="272" width="46" height="72"/>
+        <use href="#tree" x="1010" y="248" width="70" height="108"/><use href="#tree" x="1084" y="274" width="48" height="74"/>
+      </g>
+      <circle class="s-glow" cx="566" cy="300" r="96" fill="url(#glowg)"/>
+      <path class="s-tent" d="M486 328 566 214l80 114z"/>
+      <path class="s-door" d="M546 328 566 262l20 66z"/>
+      <path class="s-line s-draw" pathLength="1" d="M474 330 566 214l92 116M566 214v-16M566 198l22 8-22 7"/>
+      <use href="#fire" x="676" y="286" width="46" height="48"/>
+    </svg>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="band b-canvas torn intro" aria-labelledby="h-intro">
+  <div class="wrap intro-grid">
+    <div>
+      <h2 class="h2" id="h-intro">ここは、<br>こういう<em>場所</em>。</h2>
+      <ul class="three">
+        <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="currentColor"/></svg>長野の森のなかにある、キャビンとテントロッジだけの小さなグランピング場です。</li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="currentColor"/></svg>寝床と食材と薪は、こちらで用意します。持ってくるのは着替えくらいです。</li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 12 4l10 17z" fill="currentColor"/></svg>やることは、歩くか、食べるか、火を見るか。だいたいその三つです。</li>
+      </ul>
+    </div>
+    <div class="intro-side">
+      <svg class="compass" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" filter="url(#rough)">
+          <circle cx="60" cy="62" r="44"/><circle cx="60" cy="62" r="36" stroke-width="1.5" stroke-dasharray="2 7"/>
+          <path d="M60 10v10M60 104v8M10 62h8M102 62h8"/>
+        </g>
+        <path d="M60 28 70 62H50z" fill="#E8602C" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M60 96 70 62H50z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="60" cy="62" r="4" fill="currentColor"/>
+      </svg>
+      <!-- 要差し替え：実際の施設写真 -->
+      <figure class="print tape t-ember" style="--w:250px;--r:3deg"><img src="img/lake.jpg" width="410" height="274" loading="lazy" alt="夕暮れの湖を望む場所に置かれた椅子とランタン"><figcaption>何もしないための椅子</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band b-pine torn stay-sec" id="stay" aria-labelledby="h-stay">
+  <div class="wrap">
+    <div class="stay-head">
+      <h2 class="h2" id="h-stay">寝床は、<br><em>ふたつ</em>から。</h2>
+      <div class="stamps" aria-label="チェックインは15時から、チェックアウトは10時まで">
+        <p class="stamp">チェックイン<b>15:00</b>から</p>
+        <p class="stamp" style="--r:7deg">チェックアウト<b>10:00</b>まで</p>
+      </div>
+    </div>
+    <div class="stays">
+      <article class="stay">
+        <!-- 要差し替え：実際の施設写真 -->
+        <figure class="print tape" style="--w:300px;--r:-3deg"><img src="img/cabin.jpg" width="338" height="378" loading="lazy" alt="木立のなかに建つ、ウッドデッキつきの木のキャビン"><figcaption>森のキャビン／デッキつき</figcaption></figure>
+        <div>
+          <h3 class="label">森のキャビン</h3>
+          <p>壁と屋根と鍵がある、という安心。はじめての外泊や、虫とはまだ距離を置きたい方に向いています。デッキに出れば、ちゃんと森です。</p>
+          <dl>
+            <div><dt>向いている人</dt><dd>小さなお子さん連れのご家族、寒がりの方</dd></div>
+            <div><dt>定員</dt><dd>2〜4名</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="stay">
+        <!-- 要差し替え：実際の施設写真 -->
+        <figure class="print tape t-ember" style="--w:320px;--r:2.5deg"><img src="img/lodge.jpg" width="400" height="382" loading="lazy" alt="木のそばに張られた大きな帆布のテントと、その中のベッド"><figcaption>テントロッジ／ベッドあり</figcaption></figure>
+        <div>
+          <h3 class="label" style="transform:rotate(1.5deg)">テントロッジ</h3>
+          <p>布一枚むこうは森です。風の音も雨の音もよく聞こえます。寝るのはベッドなので、腰の心配はいりません。</p>
+          <dl>
+            <div><dt>向いている人</dt><dd>ふたり旅、外の気配ごと楽しみたい方</dd></div>
+            <div><dt>定員</dt><dd>2〜3名</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+    <div class="stay-foot">
+      <!-- 要差し替え：実際の施設写真 -->
+      <figure class="print pin" style="--w:290px;--r:-2deg"><img src="img/inside.jpg" width="400" height="314" loading="lazy" alt="ランタンがともるテントの中の寝具とサイドテーブル"><figcaption>夜のテントロッジの中</figcaption></figure>
+      <div>
+        <p class="price">料金は予約ページでご確認ください。</p>
+        <p class="note" style="margin-top:16px">どちらも寝具・照明・電源つき。お風呂とトイレは、歩いてすぐの共用棟にあります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band b-ember torn" id="fire" aria-labelledby="h-fire">
+  <div class="wrap fire-grid">
+    <div class="fire-copy">
+      <h2 class="h2" id="h-fire">夕食は、<br>火のそばで。</h2>
+      <p class="lead">地元の野菜と肉を、鉄のフライパンごと火にかけます。</p>
+      <p>焼くのはお客さま、火の番はスタッフも手伝います。少しくらい焦げても、外で食べるとだいたいおいしくなります。</p>
+      <p>食べ終わったら、薪を足すだけ。会話が途切れても、火が間をもたせてくれます。</p>
+      <ul class="fire-list">
+        <li><b>夕食</b><span>17:30から、各サイトのファイヤーピットで</span></li>
+        <li><b>朝</b><span>豆から挽くコーヒーと、あたためたパン</span></li>
+        <li><b>お願い</b><span>苦手な食材は、ご予約のときにお知らせください</span></li>
+      </ul>
+    </div>
+    <div class="fire-pics">
+      <!-- 要差し替え：実際の施設写真 -->
+      <figure class="print tape"><img src="img/skillet.jpg" width="820" height="630" loading="lazy" alt="焚き火にかけた鉄のフライパンで、肉と野菜をトングで焼いている"><figcaption>重いので、両手で</figcaption></figure>
+      <!-- 要差し替え：実際の施設写真 -->
+      <figure class="print pin"><img src="img/fire.jpg" width="370" height="348" loading="lazy" alt="星空の下で燃える焚き火と、そばに置かれたマグカップ"><figcaption>食後の火</figcaption></figure>
+      <svg class="bigfire" viewBox="-44 -74 88 92" aria-hidden="true" focusable="false"><use href="#fire" x="-40" y="-70" width="80" height="84"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="band b-canvas torn" id="do" aria-labelledby="h-do">
+  <svg class="contour" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M820 120c120-60 300-20 340 90s-40 230-170 250-260-30-290-140 20-150 120-200z"/>
+      <path d="M850 170c90-40 220-10 250 70s-30 170-130 180-190-20-210-100 20-110 90-150z"/>
+      <path d="M890 220c60-26 140-6 160 46s-20 110-80 116-124-14-136-64 10-70 56-98z"/>
+      <path d="M-40 560c90-70 260-60 330 30s40 220-70 270-250 10-300-90-30-150 40-210z"/>
+      <path d="M10 610c66-50 180-42 228 22s28 154-48 188-176 8-210-62-20-106 30-148z"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="do-head">
+      <h2 class="h2" id="h-do">することは、<br><em>三つ</em>くらい。</h2>
+      <p>順番も、全部やる必要もありません。気が向いたものだけどうぞ。椅子から動かないのも、立派な過ごし方です。</p>
+    </div>
+    <div class="dos">
+      <article class="do">
+        <!-- 要差し替え：実際の施設写真 -->
+        <figure class="print tape" style="--w:230px;--r:-4deg"><img src="img/hike.jpg" width="268" height="332" loading="lazy" alt="リュックを背負って森の小道を歩くふたりの後ろ姿"><figcaption>森の小道</figcaption></figure>
+        <div class="do-txt">
+          <h3 class="label">歩く</h3>
+          <p>サイトの裏から森の小道に入れます。ゆっくり歩いて、飽きたら引き返してください。受付で手描きの地図をお渡しします。</p>
+        </div>
+      </article>
+      <article class="do">
+        <!-- 要差し替え：実際の施設写真 -->
+        <figure class="print pin" style="--w:290px;--r:3deg"><img src="img/pan.jpg" width="434" height="274" loading="lazy" alt="湯気の立つフライパンで野菜を炒めている手元"><figcaption>つまみ食いは料理のうち</figcaption></figure>
+        <div class="do-txt">
+          <h3 class="label" style="transform:rotate(1.5deg)">食べる</h3>
+          <p>夕食のほかに、焼きマシュマロや焼きりんごを足す人が多いです。火があると、何か焼きたくなるものです。</p>
+        </div>
+      </article>
+      <article class="do">
+        <!-- 要差し替え：実際の施設写真 -->
+        <figure class="print tape t-ember" style="--w:400px;--r:-2deg"><img src="img/night.jpg" width="944" height="464" loading="lazy" alt="満天の星と天の川の下、明かりのともったテントと小さな焚き火"><figcaption>晴れた夜のサイト</figcaption></figure>
+        <div class="do-txt">
+          <h3 class="label">星を見る</h3>
+          <p>ランタンを消して、椅子を倒すだけ。目が慣れるまで、十分ほどかかります。右上のスイッチで、このページも夜にできます。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band b-map stitch" id="course" aria-labelledby="h-course">
+  <div class="wrap">
+    <div class="course-head">
+      <h2 class="h2" id="h-course">一泊二日、<br>だいたいこう<em>歩く</em>。</h2>
+      <p>はじめての方に向けた、ひとつの例です。寝坊しても、誰も怒りません。</p>
+    </div>
+    <div class="trail-box" id="trailBox">
+      <svg class="trail-svg" id="trailSvg" aria-hidden="true" focusable="false"><path class="t-dots" id="trailDots"/><path class="t-done" id="trailDone"/></svg>
+      <div class="walker" id="walker" aria-hidden="true">
+        <svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="18" fill="#E8602C" stroke="#1B1F1C" stroke-width="3"/><g fill="#1B1F1C"><ellipse cx="15.500" cy="17" rx="4" ry="6.500"/><ellipse cx="15.500" cy="28" rx="3" ry="2.600"/><ellipse cx="27" cy="19.500" rx="4" ry="6.500"/><ellipse cx="27" cy="30.500" rx="3" ry="2.600"/></g></svg>
+      </div>
+      <ol class="trail">
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="15:00">15:00</time><h3>チェックイン</h3>
+          <p>受付で薪とランタンを受け取ります。荷ほどきは五分で終わるので、あとは椅子に座るだけです。</p></li>
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="17:30">17:30</time><h3>夕食と焚き火</h3>
+          <p>火おこしから始めます。うまくつかなくても大丈夫。スタッフが着火剤を持って、近くで待機しています。</p></li>
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="20:00">20:00</time><h3>星空</h3>
+          <p>ランタンを消すと、見える星が増えます。曇りの日は、火を眺める時間が長くなるだけです。</p></li>
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="07:00">7:00</time><h3>朝のコーヒー</h3>
+          <p>豆を挽くところから。鳥のほうが早起きなので、目覚ましはいりません。</p>
+          <!-- 要差し替え：実際の施設写真 -->
+          <figure class="print tape"><img src="img/coffee.jpg" width="776" height="530" loading="lazy" alt="屋外のテーブルで、ケトルからドリッパーへ湯を注いでいる"><figcaption>朝いちばんの湯気</figcaption></figure></li>
+        <li class="stop"><span class="stop-pin" aria-hidden="true"></span>
+          <time datetime="10:00">10:00</time><h3>チェックアウト</h3>
+          <p>荷物をまとめて受付へ。服についた煙の匂いは、おみやげです。</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="band b-pine torn" id="faq" aria-labelledby="h-faq">
+  <div class="wrap faq-grid">
+    <div>
+      <h2 class="h2" id="h-faq">よく<br>聞かれる<em>こと</em>。</h2>
+      <p style="margin-top:22px">ここにない質問は、お電話でどうぞ。<br><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>予約の変更やキャンセルはできますか？</summary>
+        <p>できます。キャンセル料がかかる日と金額は、予約ページに記載しています。日程の変更は、まずお電話でご相談ください。</p>
+      </details>
+      <details>
+        <summary>子ども連れでも泊まれますか？</summary>
+        <p>もちろんです。火のまわりだけは、大人の方が必ずそばにいてあげてください。小さなお子さん連れには、森のキャビンをおすすめしています。</p>
+      </details>
+      <details>
+        <summary>ペットと一緒に泊まれますか？</summary>
+        <p>申し訳ありませんが、いまのところペットはご一緒いただけません。森の動物たちが驚いてしまうためです。</p>
+      </details>
+      <details>
+        <summary>雨の日はどうなりますか？</summary>
+        <p>通常どおり営業します。食事と焚き火は、屋根のある場所に移して行います。テントに当たる雨音は、思ったよりいい音です。</p>
+      </details>
+      <details>
+        <summary>何を持っていけばいいですか？</summary>
+        <p>着替え、歩きやすい靴、夜に羽織る上着。夏でも夜は冷えます。寝具、食器、調理道具、タオルはこちらで用意しています。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="band b-canvas torn access" id="access" aria-labelledby="h-access">
+  <div class="wrap access-grid">
+    <div>
+      <h2 class="h2" id="h-access">森までの、<br><em>道</em>のり。</h2>
+      <dl>
+        <div><dt>住所</dt><dd>長野県○○郡○○町○○ 123</dd></div>
+        <div><dt>車</dt><dd>最寄りの○○ICから約○分。駐車場は各サイトのそばにあります。</dd></div>
+        <div><dt>電車</dt><dd>○○駅からタクシーで約○分。</dd></div>
+        <div><dt>受付</dt><dd>チェックイン 15:00から ／ チェックアウト 10:00まで</dd></div>
+        <div><dt>電話</dt><dd><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></dd></div>
+      </dl>
+      <p class="note" style="margin-top:16px">最後の数キロは街灯がありません。暗くなる前の到着をおすすめします。</p>
+    </div>
+    <div class="map-fig">
+      <svg class="map" viewBox="0 0 400 290" role="img" aria-label="○○ICと○○駅から、川沿いの道を通ってFIELD NOTEへ向かう略図">
+        <path class="m-river" d="M-10 220c60-30 110 10 170-14s90-70 150-66 70 30 100 26"/>
+        <path class="m-rail" d="M20 262h150M30 256v12M50 256v12M70 256v12M90 256v12M110 256v12M130 256v12M150 256v12"/>
+        <path class="m-road" d="M60 240c20-50 70-40 96-74s20-70 70-84 50 8 66-6"/>
+        <rect x="34" y="232" width="52" height="26" rx="4" fill="var(--bg)" stroke="var(--fg)" stroke-width="2.5"/>
+        <text x="60" y="250" text-anchor="middle">○○駅</text>
+        <rect x="118" y="150" width="56" height="26" rx="13" fill="var(--bg)" stroke="var(--fg)" stroke-width="2.5"/>
+        <text x="146" y="168" text-anchor="middle">○○IC</text>
+        <g fill="var(--fg)"><use href="#tree" x="212" y="34" width="26" height="40"/><use href="#tree" x="238" y="44" width="20" height="30"/><use href="#tree" x="352" y="62" width="26" height="40"/><use href="#tree" x="206" y="112" width="22" height="34"/><use href="#tree" x="278" y="104" width="24" height="36"/></g>
+        <path d="M296 80 320 44l24 36z" fill="#E8602C" stroke="var(--fg)" stroke-width="2.5" stroke-linejoin="round"/>
+        <text x="320" y="32" text-anchor="middle">FIELD NOTE</text>
+        <text x="250" y="196" text-anchor="middle">○○川</text>
+        <g transform="translate(30 36)" fill="none" stroke="var(--fg)" stroke-width="2.2" stroke-linecap="round"><path d="M0 16V-16M-6-8 0-17l6 9"/></g>
+        <text x="30" y="68" text-anchor="middle">N</text>
+      </svg>
+      <!-- 要差し替え：実際の施設写真 -->
+      <figure class="print tape t-corner"><img src="img/meadow.jpg" width="410" height="274" loading="lazy" alt="山並みを望む草原の小道を歩く人の後ろ姿"><figcaption>到着したら、まず散歩</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band b-pine torn book" id="book" aria-labelledby="h-book">
+  <div class="wrap">
+    <div class="book-head">
+      <h2 class="h2" id="h-book">次の休み、<br><em>森</em>で会いましょう。</h2>
+    </div>
+    <div class="ticket">
+      <form class="t-main" id="bookForm" novalidate>
+        <p class="t-title"><b>宿泊申込票</b><span>FIELD NOTE 森のグランピング</span></p>
+        <div class="fields">
+          <div class="field"><label for="f-date">チェックイン日</label><input type="date" id="f-date" name="checkin"></div>
+          <div class="field"><label for="f-nights">泊数</label>
+            <select id="f-nights" name="nights"><option>1泊</option><option>2泊</option><option>3泊</option></select></div>
+          <div class="field"><label for="f-guests">人数</label>
+            <select id="f-guests" name="guests"><option>1名</option><option selected>2名</option><option>3名</option><option>4名</option></select></div>
+        </div>
+        <button class="btn" type="submit">空きを確認して予約する</button>
+        <p class="msg" id="bookMsg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="t-stub">
+        <div class="stamps" aria-hidden="true">
+          <p class="stamp" style="--r:-8deg">チェックイン<b>15:00</b>から</p>
+          <p class="stamp" style="--r:6deg">チェックアウト<b>10:00</b>まで</p>
+        </div>
+        <p class="note">料金は予約ページでご確認ください。<br>お電話でも承ります。<br><a class="tel" href="tel:0000-00-0000">0000-00-0000</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="band b-night torn foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="brand" href="#top"><b>FIELD NOTE</b><span>森のグランピング</span></a>
+      <nav class="foot-nav" aria-label="フッターメニュー">
+        <ul>
+          <li><a href="#stay">泊まる</a></li>
+          <li><a href="#fire">火と食事</a></li>
+          <li><a href="#do">すること</a></li>
+          <li><a href="#course">一泊の流れ</a></li>
+          <li><a href="#faq">よく聞かれること</a></li>
+          <li><a href="#access">アクセス</a></li>
+          <li><a href="#book">予約</a></li>
+        </ul>
+      </nav>
+      <div>
+        <small>長野県○○郡○○町○○ 123</small>
+        <a class="tel" href="tel:0000-00-0000">0000-00-0000</a>
+      </div>
+    </div>
+    <p class="demo">架空の施設を題材にしたデモサイトです。写真はイメージです。</p>
+    <small>© FIELD NOTE 森のグランピング</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- night switch ---- */
+  var sw=document.getElementById('nightSwitch'), stars=document.getElementById('stars'), made=false, timer;
+  function makeStars(){
+    if(made)return; made=true;
+    var f=document.createDocumentFragment();
+    for(var i=0;i<110;i++){
+      var s=document.createElement('i');
+      s.style.left=(Math.random()*100).toFixed(2)+'%';
+      s.style.top=(Math.random()*100).toFixed(2)+'%';
+      if(i%6===0)s.className='big';
+      if(i%9===0){s.className+=' tw';s.style.animationDelay=(Math.random()*3).toFixed(2)+'s';}
+      f.appendChild(s);
+    }
+    stars.appendChild(f);
+  }
+  if(sw){
+    sw.addEventListener('click',function(){
+      var night=sw.getAttribute('aria-checked')!=='true';
+      makeStars();
+      if(!reduce){
+        root.classList.add('theme-anim');
+        clearTimeout(timer);
+        timer=setTimeout(function(){root.classList.remove('theme-anim');},950);
+      }
+      sw.setAttribute('aria-checked',night?'true':'false');
+      if(night)root.setAttribute('data-mode','night'); else root.removeAttribute('data-mode');
+    });
+  }
+
+  /* ---- booking form (demo) ---- */
+  var form=document.getElementById('bookForm');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      document.getElementById('bookMsg').textContent='デモサイトのため、送信はされません。';
+    });
+  }
+
+  /* ---- trail ---- */
+  var box=document.getElementById('trailBox');
+  if(!box||!box.querySelector)return;
+  var svg=document.getElementById('trailSvg'), dots=document.getElementById('trailDots'), done=document.getElementById('trailDone'),
+      walker=document.getElementById('walker'), stops=[].slice.call(box.querySelectorAll('.stop')), len=0, ys=[], ticking=false;
+  function build(){
+    try{
+      var b=box.getBoundingClientRect(), pts=stops.map(function(s){
+        var r=s.querySelector('.stop-pin').getBoundingClientRect();
+        return [r.left+r.width/2-b.left, r.top+r.height/2-b.top];
+      });
+      if(pts.length<2)return;
+      var d='M'+pts[0][0].toFixed(1)+' '+pts[0][1].toFixed(1);
+      for(var i=1;i<pts.length;i++){
+        var a=pts[i-1], c=pts[i], my=(a[1]+c[1])/2, same=Math.abs(a[0]-c[0])<60, w=same?(i%2?1:-1)*(b.width>600?46:16):0;
+        d+=' C'+(a[0]+w).toFixed(1)+' '+my.toFixed(1)+' '+(c[0]+w).toFixed(1)+' '+my.toFixed(1)+' '+c[0].toFixed(1)+' '+c[1].toFixed(1);
+      }
+      svg.setAttribute('width',b.width); svg.setAttribute('height',b.height);
+      dots.setAttribute('d',d); done.setAttribute('d',d);
+      len=dots.getTotalLength(); ys=pts.map(function(p){return p[1];});
+      root.classList.add('trail-on');
+      update();
+    }catch(err){ root.classList.remove('trail-on'); }
+  }
+  function update(){
+    ticking=false;
+    if(!len)return;
+    var b=box.getBoundingClientRect(), vh=window.innerHeight||800;
+    var first=ys[0], last=ys[ys.length-1];
+    var p=reduce?0:Math.max(0,Math.min(1,(vh*0.56-(b.top+first))/(last-first)));
+    /* find the length whose y matches the target (path is monotonic in y) */
+    var ty=first+(last-first)*p, lo=0, hi=len, pt;
+    for(var k=0;k<18;k++){var mid=(lo+hi)/2; pt=dots.getPointAtLength(mid); if(pt.y<ty)lo=mid; else hi=mid;}
+    var L=(lo+hi)/2; pt=dots.getPointAtLength(L);
+    var rot=reduce?0:Math.sin(L/14)*9;
+    walker.style.transform='translate('+pt.x.toFixed(1)+'px,'+pt.y.toFixed(1)+'px) rotate('+rot.toFixed(1)+'deg)';
+    done.style.strokeDasharray=L.toFixed(1)+' '+(len+10).toFixed(1);
+    for(var i=0;i<stops.length;i++){ stops[i].classList.toggle('on', ys[i]<=pt.y+2); }
+  }
+  function onScroll(){ if(!ticking){ticking=true; requestAnimationFrame(update);} }
+  build();
+  window.addEventListener('load',build);
+  window.addEventListener('resize',build);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(build);}
+  if('ResizeObserver' in window){ new ResizeObserver(build).observe(box); }
+  if(!reduce){ window.addEventListener('scroll',onScroll,{passive:true}); }
+})();
+</script>
+</body>
+</html>
